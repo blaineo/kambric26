@@ -15,3 +15,12 @@ node_modules/
 ## Release files
 release
 *.zip
+
+# Secrets and local env (never commit)
+.env
+.env.*
+*.pem
+
+# Logs / local tooling
+*.log
+.theme-check-cache/

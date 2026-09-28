@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(shopify theme publish:*)",
+      "Bash(shopify theme delete:*)",
+      "Bash(shopify theme rename:*)",
+      "Bash(shopify theme push --live:*)",
+      "Bash(shopify theme push -l:*)",
+      "Bash(shopify theme push --allow-live:*)",
+      "Bash(shopify theme push -a:*)",
+      "Bash(shopify store:*)",
+      "Bash(shopify app:*)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./.shopify/**)"
+    ]
+  }
+}

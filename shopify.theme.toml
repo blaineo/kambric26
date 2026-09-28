@@ -1,0 +1,6 @@
+# Shopify CLI environments. Usage: shopify theme dev -e development
+# Only store handles live here: no tokens or passwords.
+# Deliberately no production/live environment: this repo never pushes to the published theme.
+
+[environments.development]
+store = "kambric-goods-2"
