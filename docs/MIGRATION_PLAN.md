@@ -44,6 +44,7 @@ Parity: `product-1440/390.png`; `../liquid/html/product-{multi-print,single-prin
 - **Store data (owner):** create product metafield definition `kambric.archive_label` (single-line text), set "Parlor Rose" on Arielle (D-22).
 
 ### Phase 3: Collection, shop and category pages
+**Architecture (2026-09-28):** shop page = `/collections/all` (Shopify can't assign it a template, so its sections switch on via a `show_on: all_only` setting in `collection.json`); category pages = automated collections using template **`collection.category`**; sale = automated collection using **`collection.sale`**; collection detail = default `collection.json`. Sections: `collection-product-groups` (shop/category, grouped by each print's collection), `collection-product-grid` (detail/sale), `collection-hero`, `catalog-heading`, `category-nav` (menu `shop-categories`), `main-collections` (`/collections`), `text-cta`. Source's hard-coded "Arielle first" rule → a "Show these first" product list setting. Collection/category copy → `docs/store-data/collection-copy.csv` (owner pastes).
 Parity: `shop-*`, `category-*`, `collection-index-*`, `collection-*`.
 - `/collections` index with cover-image override metafield; collection page with header-image override; season/year eyebrow from `kambric.season`/`kambric.year`.
 - **Per-print product cards** (merged products expand into one card per print, filtered to prints whose collection handle matches). **⚠️ D-17**
