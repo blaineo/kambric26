@@ -1,0 +1,196 @@
+{% doc %}
+  Site button/link styles. Renders an <a> when `url` is given, otherwise a
+  <button>. Covers the outline, solid, text-with-arrow and underlined-text
+  variants used across the site (hero CTAs, info-page CTAs, 404, footer
+  "View All" links).
+
+  @param {string} label - Visible label text
+  @param {string} [url] - Destination URL. Omit to render a <button> instead of an <a>.
+  @param {string} [variant] - 'outline' (default) | 'solid' | 'text-arrow' | 'underline'
+  @param {boolean} [on_dark] - Use the hero colour tokens (for the dark hero band / other dark backgrounds)
+  @param {string} [size] - 'default' (default) | 'large'
+  @param {boolean} [new_tab] - Open link in a new tab (adds target + rel)
+  @param {string} [type] - <button> type when no url is given (default 'button')
+  @param {string} [class] - Extra class(es) on the rendered element
+
+  @example
+  {% render 'button', label: 'Shop the Collection', url: '/collections/folklore', variant: 'outline', on_dark: true %}
+
+  @example
+  {% render 'button', label: 'Shop the Collection', url: '/collections/all', variant: 'text-arrow' %}
+
+  @example
+  {% render 'button', label: 'Home', url: routes.root_url, variant: 'underline' %}
+{% enddoc %}
+{%- liquid
+  assign variant = variant | default: 'outline'
+  assign size = size | default: 'default'
+
+  assign btn_class = 'btn btn--' | append: variant
+  if size == 'large'
+    assign btn_class = btn_class | append: ' btn--lg'
+  endif
+  if on_dark
+    assign btn_class = btn_class | append: ' btn--on-dark'
+  endif
+  if class != blank
+    assign btn_class = btn_class | append: ' ' | append: class
+  endif
+-%}
+{%- if url != blank -%}
+  <a
+    href="{{ url }}"
+    class="{{ btn_class }}"
+    {% if new_tab %}
+      target="_blank" rel="noopener"
+    {% endif %}
+  >
+    {%- if variant == 'text-arrow' -%}
+      <span class="btn__label">{{ label }}</span><span class="btn__arrow" aria-hidden="true">&rarr;</span>
+    {%- else -%}
+      {{- label -}}
+    {%- endif -%}
+  </a>
+{%- else -%}
+  <button type="{{ type | default: 'button' }}" class="{{ btn_class }}">
+    {%- if variant == 'text-arrow' -%}
+      <span class="btn__label">{{ label }}</span><span class="btn__arrow" aria-hidden="true">&rarr;</span>
+    {%- else -%}
+      {{- label -}}
+    {%- endif -%}
+  </button>
+{%- endif -%}
+
+{% stylesheet %}
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-button);
+    text-transform: uppercase;
+    line-height: 1;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--color-foreground);
+    transition:
+      background-color var(--duration-medium) var(--ease-standard),
+      color var(--duration-medium) var(--ease-standard),
+      border-color var(--duration-medium) var(--ease-standard);
+  }
+
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Outline: border, fills solid on hover (source: hero + about/home CTAs) */
+  .btn--outline {
+    padding: var(--space-3-5) var(--space-8);
+    border: 1px solid color-mix(in srgb, var(--color-foreground) 25%, transparent);
+  }
+
+  .btn--outline:hover,
+  .btn--outline:focus-visible {
+    background: var(--color-foreground);
+    border-color: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  .btn--outline.btn--on-dark {
+    border-color: color-mix(in srgb, var(--color-hero-foreground) 35%, transparent);
+    color: var(--color-hero-foreground);
+  }
+
+  .btn--outline.btn--on-dark:hover,
+  .btn--outline.btn--on-dark:focus-visible {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  /* Solid: filled, used for info-page CTAs (Email Us, Ask About Fit, …) */
+  .btn--solid {
+    padding: var(--space-3-5) var(--space-8);
+    border: 1px solid var(--color-foreground);
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  .btn--solid:hover,
+  .btn--solid:focus-visible {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  .btn--solid.btn--on-dark {
+    border-color: var(--color-hero-foreground);
+    background: var(--color-hero-foreground);
+    color: var(--color-hero-background);
+  }
+
+  /* Text with arrow: "Shop the Collection →" (hero secondary CTA) */
+  .btn--text-arrow {
+    color: var(--color-foreground);
+  }
+
+  .btn--text-arrow:hover,
+  .btn--text-arrow:focus-visible {
+    color: var(--color-primary);
+  }
+
+  .btn--text-arrow.btn--on-dark {
+    color: var(--color-hero-foreground);
+  }
+
+  .btn--text-arrow.btn--on-dark:hover,
+  .btn--text-arrow.btn--on-dark:focus-visible {
+    color: var(--color-primary);
+  }
+
+  .btn__arrow {
+    display: inline-block;
+    transition: transform var(--duration-medium) var(--ease-standard);
+  }
+
+  .btn--text-arrow:hover .btn__arrow {
+    transform: translateX(4px);
+  }
+
+  /* Underlined text link (404 "HOME" / "SHOP THE COLLECTION", footer "View All") */
+  .btn--underline {
+    padding-bottom: var(--space-0-5);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-foreground) 30%, transparent);
+    color: var(--color-foreground);
+  }
+
+  .btn--underline:hover,
+  .btn--underline:focus-visible {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn--underline.btn--on-dark {
+    border-color: color-mix(in srgb, var(--color-hero-foreground) 30%, transparent);
+    color: var(--color-hero-foreground);
+  }
+
+  .btn--underline.btn--on-dark:hover,
+  .btn--underline.btn--on-dark:focus-visible {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .btn--lg.btn--outline,
+  .btn--lg.btn--solid {
+    padding: var(--space-4) var(--space-10);
+  }
+{% endstylesheet %}

@@ -1,9 +1,4 @@
 {
-  "404": {
-    "title": "404",
-    "not_found": "Page not found.",
-    "back_to_shopping": "Back to shopping"
-  },
   "blog": {
     "article_comments": "Comments",
     "article_metadata_html": "{{ date }} by {{ author }}",
@@ -28,7 +23,13 @@
     }
   },
   "collections": {
-    "title": "Collections"
+    "title": "Collections",
+    "card": {
+      "pieces": {
+        "one": "{{ count }} piece",
+        "other": "{{ count }} pieces"
+      }
+    }
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
@@ -53,7 +54,8 @@
     "skip_to_content": "Skip to content"
   },
   "general": {
-    "page": "Page {{ page }}"
+    "page": "Page {{ page }}",
+    "page_not_found": "Page Not Found"
   },
   "header": {
     "menu": "Menu",
@@ -86,5 +88,21 @@
     "footer": {
       "editor_hint_menu": "This column's menu is empty or missing. Choose a menu in the block settings."
     }
+  },
+  "products": {
+    "price": {
+      "regular_price": "Regular price",
+      "sale_price": "Sale price"
+    },
+    "card": {
+      "sold_out": "Sold Out",
+      "sale": "Sale"
+    }
+  },
+  "breadcrumbs": {
+    "nav_label": "Breadcrumb",
+    "home": "Home",
+    "collections": "Collections",
+    "search": "Search"
   }
 }

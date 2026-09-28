@@ -1,0 +1,9 @@
+{
+  "sections": {
+    "main": {
+      "type": "phase1-cards-preview",
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

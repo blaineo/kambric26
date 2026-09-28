@@ -5,6 +5,10 @@
   Structured data (JSON-LD) lives in snippets/structured-data.liquid.
 {% enddoc %}
 {%- liquid
+  # Source parity (liquid/SEO.md): 404 title is "Page Not Found | Kambric Goods".
+  if request.page_type == '404'
+    assign page_title = 'general.page_not_found' | t
+  endif
   assign og_title = page_title | default: shop.name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'

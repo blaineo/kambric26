@@ -1,0 +1,95 @@
+{% doc %}
+  Theme block: a responsive image via snippets/picture.liquid, with editor
+  control over loading strategy and crop ratio.
+
+  @example
+  {% content_for 'block', type: 'image', id: 'image' %}
+{% enddoc %}
+{%- liquid
+  assign ratio = nil
+  case block.settings.aspect_ratio
+    when 'square'
+      assign ratio = 1
+    when 'portrait'
+      assign ratio = 0.75
+    when 'landscape'
+      assign ratio = 1.5
+    when 'wide'
+      assign ratio = 1.777
+  endcase
+-%}
+<div class="image-block" {{ block.shopify_attributes }}>
+  {%- render 'picture',
+    image: block.settings.image,
+    alt: block.settings.alt,
+    sizes: block.settings.sizes,
+    loading: block.settings.loading,
+    aspect_ratio: ratio,
+    class: 'image-block__picture',
+    img_class: 'image-block__media'
+  -%}
+</div>
+
+{% stylesheet %}
+  .image-block__media {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
+    {
+      "type": "text",
+      "id": "alt",
+      "label": "t:labels.alt_text",
+      "info": "t:labels.alt_text_info"
+    },
+    {
+      "type": "select",
+      "id": "loading",
+      "label": "t:labels.loading",
+      "options": [
+        { "value": "lazy", "label": "t:options.loading.lazy" },
+        { "value": "eager", "label": "t:options.loading.eager" },
+        { "value": "priority", "label": "t:options.loading.priority" }
+      ],
+      "default": "lazy"
+    },
+    {
+      "type": "select",
+      "id": "aspect_ratio",
+      "label": "t:labels.aspect_ratio",
+      "options": [
+        { "value": "none", "label": "t:options.aspect_ratio.none" },
+        { "value": "square", "label": "t:options.aspect_ratio.square" },
+        { "value": "portrait", "label": "t:options.aspect_ratio.portrait" },
+        { "value": "landscape", "label": "t:options.aspect_ratio.landscape" },
+        { "value": "wide", "label": "t:options.aspect_ratio.wide" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "text",
+      "id": "sizes",
+      "label": "t:labels.sizes_attribute",
+      "info": "t:labels.sizes_attribute_info",
+      "default": "100vw"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.image",
+      "category": "t:general.content"
+    }
+  ]
+}
+{% endschema %}

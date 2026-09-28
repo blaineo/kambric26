@@ -1,0 +1,306 @@
+{% doc %}
+  Print (or colorway) swatch row for a merged product: one 56px square per
+  `Print`/`Colorway` option value, in option order. Renders nothing for
+  single-print products or a print option with only one value (source rule:
+  swatches only when there is more than one print).
+
+  Swatch image, in order:
+    1. the flat fabric swatch bundled in assets/ (explicit lookup below;
+       168px square JPGs, 3x the display size)
+    2. a zoomed crop (2.1x, centred at 45% height, like the source) of the
+       print's first image, cropped at the Shopify CDN
+    3. the print name in italics
+
+  A print whose variants have a compare-at price above the price gets the
+  source's "Sale" strip. The group's label is the option name (Print or
+  Colorway); each swatch's accessible name is the print value.
+
+  Modes:
+    'button' (default, PDP): `<button type="button" aria-pressed data-print-value>`;
+      a `<kg-…>` product-form element does the switching.
+    'link': `<a href="product.url?print=…">` with `aria-current` on the
+      selected print (works without JS).
+
+  @param {product} product - The product
+  @param {string} [selected] - Selected print value (default: the first print)
+  @param {string} [as] - 'button' (default) | 'link'
+  @param {boolean} [show_label] - Show the label row (option name + selected value). Default true.
+
+  @example
+  {% render 'print-swatches', product: product, selected: selected_print %}
+{% enddoc %}
+{%- liquid
+  assign print_option = nil
+  for option in product.options_with_values
+    if option.name == 'Print' or option.name == 'Colorway'
+      assign print_option = option
+      break
+    endif
+  endfor
+-%}
+{%- if print_option and print_option.values.size > 1 -%}
+  {%- liquid
+    assign as = as | default: 'button'
+    if show_label == nil
+      assign show_label = true
+    endif
+    assign first_value = print_option.values.first
+    assign default_value = first_value.name | default: first_value
+    assign selected = selected | default: default_value
+    assign label_id = 'PrintSwatchesLabel-' | append: product.id
+  -%}
+  <div
+    class="print-swatches"
+    role="group"
+    {% if show_label %}
+      aria-labelledby="{{ label_id }}"
+    {% else %}
+      aria-label="{{ print_option.name | escape }}"
+    {% endif %}
+  >
+    {%- if show_label -%}
+      <div class="print-swatches__header">
+        <p class="print-swatches__label" id="{{ label_id }}">{{ print_option.name }}</p>
+        <p class="print-swatches__selected" data-print-swatches-selected>{{ selected }}</p>
+      </div>
+    {%- endif -%}
+    <ul class="print-swatches__list" role="list">
+      {%- for value in print_option.values -%}
+        {%- liquid
+          assign print_value = value.name | default: value
+          assign is_selected = false
+          if print_value == selected
+            assign is_selected = true
+          endif
+
+          case print_value
+            when 'Dahlia Seed'
+              assign swatch_file = 'swatch-dahlia-seed.jpg'
+            when 'Orange Asterisk'
+              assign swatch_file = 'swatch-orange-asterisk.jpg'
+            when 'Pastel Asterisk'
+              assign swatch_file = 'swatch-pastel-asterisk.jpg'
+            when 'Matyó Floral'
+              assign swatch_file = 'swatch-matyo-floral.jpg'
+            when 'Cherry Coupe'
+              assign swatch_file = 'swatch-cherry-coupe.jpg'
+            when 'Wildflowers'
+              assign swatch_file = 'swatch-wildflowers.jpg'
+            when 'Magnolia'
+              assign swatch_file = 'swatch-magnolia.jpg'
+            when 'Moon Illusion'
+              assign swatch_file = 'swatch-moon-illusion.jpg'
+            when 'Good Vibrations'
+              assign swatch_file = 'swatch-good-vibrations.jpg'
+            when 'Candied Plaid'
+              assign swatch_file = 'swatch-candied-plaid.jpg'
+            when 'Midnight Plumes'
+              assign swatch_file = 'swatch-midnight-plumes.jpg'
+            when 'Twilight Plumes'
+              assign swatch_file = 'swatch-twilight-plumes.jpg'
+            when 'Olive'
+              assign swatch_file = 'swatch-olive.jpg'
+            when 'Terracotta'
+              assign swatch_file = 'swatch-terracotta.jpg'
+            else
+              assign swatch_file = nil
+          endcase
+
+          capture summary
+            render 'print-summary', product: product, print: print_value
+          endcapture
+          assign summary = summary | strip | split: '|'
+          assign s_price = summary[0] | plus: 0
+          assign s_compare = summary[1] | plus: 0
+          assign s_image_index = summary[3] | plus: 0
+          assign on_sale = false
+          if s_compare > s_price
+            assign on_sale = true
+          endif
+
+          assign crop_image = nil
+          if swatch_file == nil and s_image_index >= 0
+            assign crop_image = product.images[s_image_index]
+          endif
+        -%}
+        <li>
+          {%- if as == 'link' -%}
+            {%- assign encoded_print = print_value | url_encode | replace: '+', '%20' -%}
+            <a
+              class="print-swatch"
+              href="{{ product.url }}?print={{ encoded_print }}"
+              title="{{ print_value | escape }}"
+              {% if is_selected %}
+                aria-current="true"
+              {% endif %}
+            >
+          {%- else -%}
+            <button
+              type="button"
+              class="print-swatch"
+              title="{{ print_value | escape }}"
+              aria-pressed="{{ is_selected }}"
+              data-print-value="{{ print_value | escape }}"
+            >
+          {%- endif -%}
+          {%- if swatch_file -%}
+            <img
+              class="print-swatch__image"
+              src="{{ swatch_file | asset_url }}"
+              alt=""
+              width="56"
+              height="56"
+              loading="lazy"
+              decoding="async"
+            >
+          {%- elsif crop_image -%}
+            {%- liquid
+              comment
+                The source scales the object-cover square 2.1x around (50%, 45%).
+                Crop that region at the CDN: side = square / 2.1, top offset =
+                0.45 * square * (1 - 1 / 2.1).
+              endcomment
+              assign img_w = crop_image.width
+              assign img_h = crop_image.height
+              if img_h >= img_w
+                assign square = img_w
+                assign square_left = 0
+                assign square_top = img_h | minus: img_w | divided_by: 2
+              else
+                assign square = img_h
+                assign square_left = img_w | minus: img_h | divided_by: 2
+                assign square_top = 0
+              endif
+              assign crop_side = square | times: 10 | divided_by: 21
+              assign crop_left = square | minus: crop_side | divided_by: 2 | plus: square_left
+              assign crop_top = square | times: 0.2357 | round | plus: square_top
+            -%}
+            {{-
+              crop_image
+              | image_url:
+                width: 168,
+                height: 168,
+                crop: 'region',
+                crop_left: crop_left,
+                crop_top: crop_top,
+                crop_width: crop_side,
+                crop_height: crop_side
+              | image_tag:
+                class: 'print-swatch__image',
+                alt: '',
+                width: 56,
+                height: 56,
+                srcset: nil,
+                loading: 'lazy',
+                decoding: 'async'
+            -}}
+          {%- else -%}
+            <span class="print-swatch__fallback" aria-hidden="true">{{ print_value }}</span>
+          {%- endif -%}
+          <span class="visually-hidden">{{ print_value }}</span>
+          {%- if on_sale -%}
+            <span class="print-swatch__sale">{{ 'products.card.sale' | t }}</span>
+          {%- endif -%}
+          {%- if as == 'link' -%}
+            </a>
+          {%- else -%}
+            </button>
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .print-swatches__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-block-end: var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    text-transform: uppercase;
+  }
+
+  .print-swatches__label {
+    letter-spacing: var(--tracking-label);
+    color: var(--color-muted-foreground);
+  }
+
+  .print-swatches__selected {
+    letter-spacing: var(--tracking-footer);
+    color: var(--color-foreground);
+  }
+
+  .print-swatches__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  .print-swatch {
+    position: relative;
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--color-muted) 50%, var(--color-background));
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-border) 60%, transparent);
+    opacity: 0.7;
+    color: inherit;
+    text-decoration: none;
+    transition:
+      opacity var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-fast) var(--ease-standard);
+  }
+
+  .print-swatch:hover {
+    opacity: 1;
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-foreground) 40%, transparent);
+  }
+
+  .print-swatch[aria-pressed='true'],
+  .print-swatch[aria-current='true'] {
+    opacity: 1;
+    box-shadow:
+      0 0 0 2px var(--color-background),
+      0 0 0 3px var(--color-foreground);
+  }
+
+  .print-swatch__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .print-swatch__fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: var(--space-1);
+    font-family: var(--font-serif);
+    font-size: var(--text-10);
+    font-style: italic;
+    line-height: var(--leading-tight);
+    text-align: center;
+    color: color-mix(in srgb, var(--color-foreground) 50%, transparent);
+  }
+
+  .print-swatch__sale {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding-block: var(--space-0-5);
+    background: color-mix(in srgb, var(--color-primary) 90%, transparent);
+    color: var(--color-primary-foreground);
+    font-family: var(--font-sans);
+    font-size: 0.5rem;
+    letter-spacing: 0.15em;
+    line-height: var(--leading-tight);
+    text-align: center;
+    text-transform: uppercase;
+  }
+{% endstylesheet %}

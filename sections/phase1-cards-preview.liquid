@@ -1,0 +1,185 @@
+{% comment %}
+  DEV ONLY: render test for the Phase 1 card snippets. Remove before launch
+  (with templates/collection.phase1-cards.json).
+  Visit /collections/<handle>?view=phase1-cards (e.g. all, psychedelics).
+{% endcomment %}
+<div class="phase1-cards">
+  <h1 class="phase1-cards__title">Phase 1 cards: {{ collection.title }}</h1>
+
+  {%- paginate collection.products by 50 -%}
+    <h2 class="phase1-cards__heading">Standard print cards (collection filter: {{ collection.handle }})</h2>
+    <ul class="phase1-cards__grid" role="list" data-test="standard">
+      {%- assign rendered = 0 -%}
+      {%- for product in collection.products -%}
+        {%- capture cards -%}
+          {%- render 'product-prints',
+            product: product,
+            collection_handle: collection.handle,
+            eager_count: 3,
+            offset: rendered
+          -%}
+        {%- endcapture -%}
+        {{- cards -}}
+        {%- assign count = cards | split: 'data-print-card' | size | minus: 1 -%}
+        {%- if count > 0 -%}
+          {%- assign rendered = rendered | plus: count -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+    <p data-test="standard-count">{{ rendered }} cards</p>
+
+    <h2 class="phase1-cards__heading">Archive print cards (no collection filter)</h2>
+    <ul class="phase1-cards__grid phase1-cards__grid--archive" role="list" data-test="archive">
+      {%- for product in collection.products -%}
+        {%- render 'product-prints', product: product, layout: 'archive' -%}
+      {%- endfor -%}
+    </ul>
+
+    <h2 class="phase1-cards__heading">Sale prints (archive)</h2>
+    <ul class="phase1-cards__grid phase1-cards__grid--archive" role="list" data-test="sale">
+      {%- for product in collection.products -%}
+        {%- render 'product-prints', product: product, layout: 'archive', filter: 'sale' -%}
+      {%- endfor -%}
+    </ul>
+
+    <div class="phase1-cards__dark">
+      <h2 class="phase1-cards__heading">New arrivals (dark)</h2>
+      <ul class="phase1-cards__grid" role="list" data-test="new">
+        {%- for product in collection.products -%}
+          {%- render 'product-prints', product: product, filter: 'new_arrival', dark: true -%}
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    <h2 class="phase1-cards__heading">Featured prints (4 columns)</h2>
+    <ul class="phase1-cards__grid phase1-cards__grid--4" role="list" data-test="featured">
+      {%- for product in collection.products -%}
+        {%- render 'product-prints',
+          product: product,
+          filter: 'featured',
+          sizes: '(min-width: 48rem) calc((100vw - 8rem) / 4), calc((100vw - 4rem) / 2)'
+        -%}
+      {%- endfor -%}
+    </ul>
+
+    <h2 class="phase1-cards__heading">Print values per collection</h2>
+    <dl data-test="values">
+      {%- for product in collection.products -%}
+        {%- capture all_values -%}{%- render 'product-prints', product: product, output: 'values' -%}{%- endcapture -%}
+        {%- if all_values != blank -%}
+          <dt>{{ product.handle }}</dt>
+          <dd>
+            all: {{ all_values }}
+            {%- for c in collections -%}
+              {%- if c.handle != 'frontpage' -%}
+                {%- capture v -%}{%- render 'product-prints', product: product, collection_handle: c.handle, output: 'values' -%}{%- endcapture -%}
+                {%- if v != blank %} · {{ c.handle }}: {{ v }}{% endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </dd>
+        {%- endif -%}
+      {%- endfor -%}
+    </dl>
+
+    <h2 class="phase1-cards__heading">Plain product cards (no print)</h2>
+    <ul class="phase1-cards__grid" role="list" data-test="plain">
+      {%- for product in collection.products -%}
+        {%- capture plain -%}{%- render 'product-card', product: product -%}{%- endcapture -%}
+        {%- if plain != blank -%}
+          <li>{{ plain }}</li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    <h2 class="phase1-cards__heading">Swatches (button and link)</h2>
+    {%- for product in collection.products -%}
+      {%- capture sw -%}{%- render 'print-swatches', product: product -%}{%- endcapture -%}
+      {%- if sw != blank -%}
+        <div class="phase1-cards__swatches" data-test="swatches">
+          <p>{{ product.title }}</p>
+          {{ sw }}
+          {%- render 'print-swatches', product: product, as: 'link', show_label: false -%}
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endpaginate -%}
+
+  <h2 class="phase1-cards__heading">Collection cards</h2>
+  <ul class="phase1-cards__collections" role="list" data-test="collections">
+    {%- for c in collections -%}
+      {%- capture card -%}{%- render 'collection-card', collection: c, show_season: true, heading_level: 3 -%}{%- endcapture -%}
+      {%- if card != blank -%}
+        <li>{{ card }}</li>
+      {%- endif -%}
+    {%- endfor -%}
+  </ul>
+</div>
+
+{% stylesheet %}
+  .phase1-cards {
+    padding-block: var(--space-12);
+  }
+
+  .phase1-cards__title {
+    font-size: var(--text-36);
+  }
+
+  .phase1-cards__heading {
+    margin-block: var(--space-12) var(--space-6);
+    font-size: var(--text-24);
+  }
+
+  .phase1-cards__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+
+  .phase1-cards__grid--archive {
+    gap: var(--space-5);
+  }
+
+  .phase1-cards__dark {
+    padding: var(--space-6);
+    background: var(--color-hero-background);
+    color: var(--color-hero-foreground);
+  }
+
+  .phase1-cards__swatches {
+    display: grid;
+    gap: var(--space-4);
+    max-width: 28rem;
+    margin-block-end: var(--space-8);
+  }
+
+  .phase1-cards__collections {
+    display: grid;
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 48rem) {
+    .phase1-cards__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-8);
+    }
+
+    .phase1-cards__grid--archive {
+      gap: var(--space-5);
+    }
+
+    .phase1-cards__grid--4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .phase1-cards__collections {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Phase 1 cards preview",
+  "settings": []
+}
+{% endschema %}

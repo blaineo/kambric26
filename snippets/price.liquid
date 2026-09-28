@@ -1,0 +1,53 @@
+{% doc %}
+  Price with optional compare-at (sale) price, matching the source: the current
+  price first, then the struck-through compare-at price. Screen readers hear
+  "Sale price $158.40, Regular price $198.00" (or "Regular price $260.00").
+
+  A compare-at price is shown only when it is greater than the price.
+  Layout, size and colour come from the caller via `class` (see
+  product-card.liquid for the card variants).
+
+  @param {number} price - Price in cents (e.g. product.price, variant.price)
+  @param {number} [compare_at_price] - Compare-at price in cents
+  @param {string} [class] - Extra class(es) on the wrapper
+
+  @example
+  {% render 'price', price: variant.price, compare_at_price: variant.compare_at_price, class: 'product-info__price' %}
+{% enddoc %}
+{%- liquid
+  assign on_sale = false
+  if compare_at_price > price
+    assign on_sale = true
+  endif
+-%}
+<div class="price{% if on_sale %} price--on-sale{% endif %} {{ class }}">
+  {%- if on_sale -%}
+    <span class="price__item price__item--current">
+      <span class="visually-hidden">{{ 'products.price.sale_price' | t }}</span>
+      {{ price | money -}}
+    </span>
+    <s class="price__item price__item--compare">
+      <span class="visually-hidden">{{ 'products.price.regular_price' | t }}</span>
+      {{ compare_at_price | money -}}
+    </s>
+  {%- else -%}
+    <span class="price__item price__item--current">
+      <span class="visually-hidden">{{ 'products.price.regular_price' | t }}</span>
+      {{ price | money -}}
+    </span>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: var(--space-3);
+  }
+
+  .price__item--compare {
+    color: var(--color-muted-foreground);
+    text-decoration-line: line-through;
+  }
+{% endstylesheet %}

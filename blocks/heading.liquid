@@ -1,0 +1,86 @@
+{% doc %}
+  Theme block: a serif section heading with an optional italic second line.
+  Wraps snippets/section-heading.liquid so it can be dropped into any
+  section or group that accepts `{"type": "@theme"}` blocks.
+
+  @example
+  {% content_for 'block', type: 'heading', id: 'heading' %}
+{% enddoc %}
+
+<div class="heading-block" {{ block.shopify_attributes }}>
+  {%- render 'section-heading',
+    heading: block.settings.heading,
+    heading_em: block.settings.heading_em,
+    tag: block.settings.tag,
+    size: block.settings.size,
+    align: block.settings.alignment,
+    on_dark: block.settings.on_dark
+  -%}
+</div>
+
+{% schema %}
+{
+  "name": "t:general.heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading_em",
+      "label": "t:labels.heading_em",
+      "info": "t:labels.heading_em_info"
+    },
+    {
+      "type": "select",
+      "id": "tag",
+      "label": "t:labels.heading_tag",
+      "options": [
+        { "value": "h1", "label": "t:options.heading_tag.h1" },
+        { "value": "h2", "label": "t:options.heading_tag.h2" },
+        { "value": "h3", "label": "t:options.heading_tag.h3" }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "size",
+      "label": "t:labels.heading_size",
+      "options": [
+        { "value": "hero", "label": "t:options.heading_size.hero" },
+        { "value": "xl", "label": "t:options.heading_size.xl" },
+        { "value": "lg", "label": "t:options.heading_size.lg" },
+        { "value": "md", "label": "t:options.heading_size.md" },
+        { "value": "sm", "label": "t:options.heading_size.sm" }
+      ],
+      "default": "lg"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "t:labels.alignment",
+      "options": [
+        { "value": "left", "label": "t:options.alignment.left" },
+        { "value": "center", "label": "t:options.alignment.center" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "on_dark",
+      "label": "t:labels.on_dark",
+      "info": "t:labels.on_dark_info",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.heading",
+      "category": "t:general.content"
+    }
+  ]
+}
+{% endschema %}

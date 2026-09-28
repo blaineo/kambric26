@@ -1,0 +1,58 @@
+{% doc %}
+  Small uppercase, widely-tracked label used above headings site-wide
+  ("404", "Say Hello", "The Story Behind the Prints", "New Arrivals").
+  Optional `ornament` wraps the text with the site's decorative em-dashes
+  (`— text —`), reusing `.ornament` from assets/critical.css.
+
+  @param {string} text - The eyebrow text
+  @param {boolean} [ornament] - Wrap with em-dash ornaments: — text —
+  @param {boolean} [on_dark] - Use the hero foreground tone (for dark backgrounds)
+  @param {string} [tag] - 'p' (default) | 'span' | 'div'
+  @param {string} [class] - Extra class(es)
+
+  @example
+  {% render 'eyebrow', text: '404' %}
+
+  @example
+  {% render 'eyebrow', text: 'New Arrivals', ornament: true %}
+{% enddoc %}
+{%- liquid
+  assign tag = tag | default: 'p'
+  assign eyebrow_class = 'eyebrow'
+  if ornament
+    assign eyebrow_class = eyebrow_class | append: ' ornament'
+  endif
+  if on_dark
+    assign eyebrow_class = eyebrow_class | append: ' eyebrow--on-dark'
+  endif
+  if class != blank
+    assign eyebrow_class = eyebrow_class | append: ' ' | append: class
+  endif
+-%}
+{%- case tag -%}
+  {%- when 'span' -%}
+    <span class="{{ eyebrow_class }}">{{ text }}</span>
+  {%- when 'div' -%}
+    <div class="{{ eyebrow_class }}">{{ text }}</div>
+  {%- else -%}
+    <p class="{{ eyebrow_class }}">{{ text }}</p>
+{%- endcase -%}
+
+{% stylesheet %}
+  .eyebrow {
+    display: block;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .eyebrow--on-dark {
+    color: color-mix(in srgb, var(--color-hero-foreground) 80%, transparent);
+  }
+
+  /* .ornament (— …/…— pseudo-elements) is defined once in assets/critical.css */
+{% endstylesheet %}

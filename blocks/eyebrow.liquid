@@ -1,0 +1,67 @@
+{% doc %}
+  Theme block: the small uppercase tracked label used above headings
+  ("404", "New Arrivals", "The Story Behind the Prints"). Wraps
+  snippets/eyebrow.liquid.
+
+  @example
+  {% content_for 'block', type: 'eyebrow', id: 'eyebrow' %}
+{% enddoc %}
+
+<div class="eyebrow-block" style="--justify: {{ block.settings.alignment }}" {{ block.shopify_attributes }}>
+  {%- render 'eyebrow',
+    text: block.settings.text,
+    ornament: block.settings.ornament,
+    on_dark: block.settings.on_dark
+  -%}
+</div>
+
+{% stylesheet %}
+  .eyebrow-block {
+    display: flex;
+    justify-content: var(--justify, flex-start);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.eyebrow",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:labels.text",
+      "default": "Eyebrow"
+    },
+    {
+      "type": "checkbox",
+      "id": "ornament",
+      "label": "t:labels.ornament",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "t:labels.alignment",
+      "options": [
+        { "value": "flex-start", "label": "t:options.alignment.left" },
+        { "value": "center", "label": "t:options.alignment.center" },
+        { "value": "flex-end", "label": "t:options.alignment.right" }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "checkbox",
+      "id": "on_dark",
+      "label": "t:labels.on_dark",
+      "info": "t:labels.on_dark_info",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.eyebrow",
+      "category": "t:general.content"
+    }
+  ]
+}
+{% endschema %}

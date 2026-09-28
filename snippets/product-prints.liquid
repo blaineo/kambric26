@@ -1,0 +1,179 @@
+{% doc %}
+  Expands one product into its print cards: the Liquid port of the source's
+  `toPrintCards` + collection filter (SHOPIFY_DATA_MAP "Print model").
+
+  Print list:
+    - merged product (option named exactly `Print` or `Colorway`): one entry
+      per option value, in option order
+    - single-print product: one entry, `kambric.print_name` (fallback: title)
+
+  A print's collection is `kambric.prints[].collection` (merged products, when
+  the entry has one), otherwise the product's first collection that isn't
+  `frontpage`. With `collection_handle`, only prints whose collection equals
+  that handle are kept (stale handles like `botanicals` simply never match).
+  `collection_handle: 'all'` or blank means no filter.
+
+  Featured / new arrival: `kambric.prints[].featured` / `.newArrival` for
+  merged products; tags `featured` / `new-arrival` for single-print products.
+
+  Visibility guard: renders nothing for products tagged `hidden` or with the
+  handle `chainstitch-monogram` (drafts never reach Liquid).
+
+  Output:
+    'cards' (default): one `<li data-print-card>` per print, each containing
+      product-card.liquid. Put them in your own `<ul role="list">` grid.
+    'values': the kept print values joined with '|' (no markup), for counting
+      or filtering: `capture` it, then `split: '|'`.
+
+  Eager loading across products: pass `eager_count` (cards in the first row)
+  and `offset` (cards already rendered before this product). Count what was
+  rendered with the `data-print-card` marker; see the example.
+
+  @param {product} product - The product
+  @param {string} [collection_handle] - Keep only prints belonging to this collection
+  @param {string} [filter] - 'sale' | 'featured' | 'new_arrival' (default: none)
+  @param {string} [output] - 'cards' (default) | 'values'
+  @param {string} [layout] - Card layout: 'standard' (default) | 'archive'
+  @param {boolean} [dark] - Dark card colours (standard layout)
+  @param {number} [heading_level] - Card heading level (default 3)
+  @param {string} [sizes] - Card image `sizes`
+  @param {string} [loading] - Card image loading for cards outside the eager range (default 'lazy')
+  @param {number} [eager_count] - Cards (counted across products via `offset`) that load eagerly
+  @param {number} [offset] - Cards rendered before this product (default 0)
+  @param {string} [item_class] - Class on each `<li>`
+  @param {boolean} [hover_image] - Passed to product-card (default true)
+
+  @example
+  <ul class="product-grid" role="list">
+    {%- assign rendered = 0 -%}
+    {%- for product in collection.products -%}
+      {%- capture cards -%}
+        {% render 'product-prints', product: product, collection_handle: collection.handle, eager_count: 3, offset: rendered, item_class: 'product-grid__item' %}
+      {%- endcapture -%}
+      {{- cards -}}
+      {%- assign count = cards | split: 'data-print-card' | size | minus: 1 -%}
+      {%- if count > 0 -%}{%- assign rendered = rendered | plus: count -%}{%- endif -%}
+    {%- endfor -%}
+  </ul>
+
+  {%- capture values -%}{% render 'product-prints', product: product, collection_handle: 'folklore', output: 'values' %}{%- endcapture -%}
+  {%- assign folklore_prints = values | split: '|' -%}
+{% enddoc %}
+{%- liquid
+  assign listable = true
+  if product == blank or product.tags contains 'hidden' or product.handle == 'chainstitch-monogram'
+    assign listable = false
+  endif
+-%}
+{%- if listable -%}
+  {%- liquid
+    assign output = output | default: 'cards'
+    assign offset = offset | default: 0
+    assign eager_count = eager_count | default: 0
+    assign loading = loading | default: 'lazy'
+    if collection_handle == 'all'
+      assign collection_handle = blank
+    endif
+
+    assign default_collection = nil
+    for c in product.collections
+      if c.handle != 'frontpage'
+        assign default_collection = c.handle
+        break
+      endif
+    endfor
+
+    assign print_option = nil
+    for option in product.options_with_values
+      if option.name == 'Print' or option.name == 'Colorway'
+        assign print_option = option
+        break
+      endif
+    endfor
+
+    if print_option
+      assign print_values = print_option.values
+    else
+      assign single_print = product.metafields.kambric.print_name.value | default: product.title
+      assign print_values = single_print | split: '|||'
+    endif
+    assign prints_meta = product.metafields.kambric.prints.value
+
+    assign emitted = 0
+    for value in print_values
+      assign print_value = value.name | default: value
+
+      if print_option
+        assign meta = nil
+        for entry in prints_meta
+          if entry.value == print_value
+            assign meta = entry
+            break
+          endif
+        endfor
+        assign print_collection = meta.collection | default: default_collection
+        assign is_featured = false
+        if meta.featured == true
+          assign is_featured = true
+        endif
+        assign is_new = false
+        if meta.newArrival == true
+          assign is_new = true
+        endif
+      else
+        assign print_collection = default_collection
+        assign is_featured = false
+        if product.tags contains 'featured'
+          assign is_featured = true
+        endif
+        assign is_new = false
+        if product.tags contains 'new-arrival'
+          assign is_new = true
+        endif
+      endif
+
+      if collection_handle != blank and print_collection != collection_handle
+        continue
+      endif
+
+      case filter
+        when 'featured'
+          unless is_featured
+            continue
+          endunless
+        when 'new_arrival'
+          unless is_new
+            continue
+          endunless
+        when 'sale'
+          capture summary
+            render 'print-summary', product: product, print: print_value
+          endcapture
+          assign summary = summary | strip | split: '|'
+          assign s_price = summary[0] | plus: 0
+          assign s_compare = summary[1] | plus: 0
+          unless s_compare > s_price
+            continue
+          endunless
+      endcase
+
+      if output == 'values'
+        if emitted > 0
+          echo '|'
+        endif
+        echo print_value
+      else
+        assign escaped_class = item_class | escape
+        assign card_loading = loading
+        assign position = offset | plus: emitted
+        if position < eager_count
+          assign card_loading = 'eager'
+        endif
+        echo '<li class="' | append: escaped_class | append: '" data-print-card>'
+        render 'product-card', product: product, print: print_value, layout: layout, dark: dark, heading_level: heading_level, sizes: sizes, loading: card_loading, hover_image: hover_image
+        echo '</li>'
+      endif
+      assign emitted = emitted | plus: 1
+    endfor
+  -%}
+{%- endif -%}

@@ -1,0 +1,192 @@
+{% doc %}
+  Visible breadcrumb trail + `BreadcrumbList` JSON-LD, built from Shopify's own
+  page objects (`product`, `collection`, `article`, `blog`, `page`, `search`),
+  so it always matches what a search/answer engine could also read off the
+  page. Renders nothing on page types with no meaningful trail (home, cart,
+  404, password, customer accounts, etc.).
+
+  Always Home first, then 1–2 more crumbs:
+  - product:        Home › {Collection} › {Product}   (Collection omitted if none found)
+  - collection:      Home › Collections › {Collection}
+  - list-collections: Home › Collections
+  - article:         Home › {Blog} › {Article}
+  - blog:             Home › {Blog}
+  - page:             Home › {Page}
+  - search:           Home › Search
+
+  Collection context for a product, in priority order: the `collection` param,
+  the current collection (set automatically when reached via a collection
+  URL), then the product's first collection that isn't the `frontpage`
+  collection.
+
+  @param {boolean} [visible] - Render the visible `<nav>`/`<ol>` trail. Default true. The
+    `BreadcrumbList` JSON-LD is always rendered regardless of this flag.
+  @param {collection} [collection] - Collection to use as the product's parent crumb,
+    overriding the automatic lookup above. Ignored outside the product page type.
+  @param {string} [class] - Extra class(es) added to the `<nav>` element.
+
+  @example
+  {% render 'breadcrumbs' %}
+  @example
+  {% render 'breadcrumbs', visible: false %}
+  @example
+  {% render 'breadcrumbs', collection: collection %}
+{% enddoc %}
+{%- liquid
+  assign show_visible = true
+  if visible == false
+    assign show_visible = false
+  endif
+
+  assign crumb2_name = blank
+  assign crumb2_url = blank
+  assign crumb3_name = blank
+  assign crumb3_url = blank
+
+  case request.page_type
+    when 'product'
+      assign product_collection = collection
+      if product_collection == blank or product_collection.handle == blank
+        assign product_collection = blank
+        for product_collection_option in product.collections
+          if product_collection_option.handle != 'frontpage'
+            assign product_collection = product_collection_option
+            break
+          endif
+        endfor
+      endif
+
+      if product_collection != blank
+        assign crumb2_name = product_collection.title
+        assign crumb2_url = product_collection.url
+        assign crumb3_name = product.title
+        assign crumb3_url = product.url
+      else
+        assign crumb2_name = product.title
+        assign crumb2_url = product.url
+      endif
+
+    when 'collection'
+      assign crumb2_name = 'breadcrumbs.collections' | t
+      assign crumb2_url = routes.collections_url
+      assign crumb3_name = collection.title
+      assign crumb3_url = collection.url
+
+    when 'list-collections'
+      assign crumb2_name = 'breadcrumbs.collections' | t
+      assign crumb2_url = routes.collections_url
+
+    when 'article'
+      assign crumb2_name = article.blog.title
+      assign crumb2_url = article.blog.url
+      assign crumb3_name = article.title
+      assign crumb3_url = article.url
+
+    when 'blog'
+      assign crumb2_name = blog.title
+      assign crumb2_url = blog.url
+
+    when 'page'
+      assign crumb2_name = page_title
+      assign crumb2_url = page.url
+
+    when 'search'
+      assign crumb2_name = 'breadcrumbs.search' | t
+      assign crumb2_url = routes.search_url
+  endcase
+-%}
+{%- if crumb2_name != blank -%}
+  {%- if show_visible -%}
+    <nav class="breadcrumbs{% if class %} {{ class }}{% endif %}" aria-label="{{ 'breadcrumbs.nav_label' | t }}">
+      <ol class="breadcrumbs__list" role="list">
+        <li class="breadcrumbs__item">
+          <a class="breadcrumbs__link" href="{{ routes.root_url }}">{{ 'breadcrumbs.home' | t }}</a>
+        </li>
+        <li class="breadcrumbs__item">
+          {%- if crumb3_name != blank -%}
+            <a class="breadcrumbs__link" href="{{ crumb2_url }}">{{ crumb2_name | escape }}</a>
+          {%- else -%}
+            <span class="breadcrumbs__current" aria-current="page">{{ crumb2_name | escape }}</span>
+          {%- endif -%}
+        </li>
+        {%- if crumb3_name != blank -%}
+          <li class="breadcrumbs__item">
+            <span class="breadcrumbs__current" aria-current="page">{{ crumb3_name | escape }}</span>
+          </li>
+        {%- endif -%}
+      </ol>
+    </nav>
+  {%- endif -%}
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": {{ 'breadcrumbs.home' | t | json }},
+          "item": {{ request.origin | append: routes.root_url | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ crumb2_name | json }},
+          "item": {{ request.origin | append: crumb2_url | json }}
+        }
+        {%- if crumb3_name != blank -%}
+        ,
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ crumb3_name | json }},
+          "item": {{ request.origin | append: crumb3_url | json }}
+        }
+        {%- endif -%}
+      ]
+    }
+  </script>
+{%- endif -%}
+
+{% stylesheet %}
+  .breadcrumbs__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-button);
+    color: var(--color-muted-foreground);
+  }
+
+  .breadcrumbs__item {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .breadcrumbs__item:not(:last-child)::after {
+    content: '\00b7';
+    margin-inline: var(--space-3);
+    opacity: 0.4;
+  }
+
+  .breadcrumbs__link {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .breadcrumbs__link:hover,
+  .breadcrumbs__link:focus-visible {
+    color: var(--color-foreground);
+  }
+
+  .breadcrumbs__current {
+    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+{% endstylesheet %}

@@ -1,0 +1,96 @@
+{% doc %}
+  Theme block: a button/link in the site's outline, solid, text-with-arrow
+  or underlined-text styles. Wraps snippets/button.liquid.
+
+  @example
+  {% content_for 'block', type: 'button', id: 'button' %}
+{% enddoc %}
+
+<div class="button-block" style="--justify: {{ block.settings.alignment }}" {{ block.shopify_attributes }}>
+  {%- render 'button',
+    label: block.settings.label,
+    url: block.settings.url,
+    variant: block.settings.variant,
+    on_dark: block.settings.on_dark,
+    size: block.settings.size,
+    new_tab: block.settings.new_tab
+  -%}
+</div>
+
+{% stylesheet %}
+  .button-block {
+    display: flex;
+    justify-content: var(--justify, flex-start);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.button",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "t:labels.button_label",
+      "default": "Shop the Collection"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "t:labels.link"
+    },
+    {
+      "type": "checkbox",
+      "id": "new_tab",
+      "label": "t:labels.open_in_new_tab",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "variant",
+      "label": "t:labels.button_variant",
+      "options": [
+        { "value": "outline", "label": "t:options.button_variant.outline" },
+        { "value": "solid", "label": "t:options.button_variant.solid" },
+        { "value": "text-arrow", "label": "t:options.button_variant.text_arrow" },
+        { "value": "underline", "label": "t:options.button_variant.underline" }
+      ],
+      "default": "outline"
+    },
+    {
+      "type": "select",
+      "id": "size",
+      "label": "t:labels.size",
+      "options": [
+        { "value": "default", "label": "t:options.size.default" },
+        { "value": "large", "label": "t:options.size.large" }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "t:labels.alignment",
+      "options": [
+        { "value": "flex-start", "label": "t:options.alignment.left" },
+        { "value": "center", "label": "t:options.alignment.center" },
+        { "value": "flex-end", "label": "t:options.alignment.right" }
+      ],
+      "default": "flex-start"
+    },
+    {
+      "type": "checkbox",
+      "id": "on_dark",
+      "label": "t:labels.on_dark",
+      "info": "t:labels.on_dark_info",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:general.button",
+      "category": "t:general.content"
+    }
+  ]
+}
+{% endschema %}

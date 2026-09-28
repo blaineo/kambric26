@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "main": {
+      "type": "phase1-ui-preview",
+      "blocks": {
+        "heading-1": {
+          "type": "heading",
+          "settings": {
+            "heading": "About the archive",
+            "heading_em": "carried on.",
+            "tag": "h2",
+            "size": "xl",
+            "alignment": "left",
+            "on_dark": false
+          }
+        },
+        "eyebrow-1": {
+          "type": "eyebrow",
+          "settings": {
+            "text": "New Arrivals",
+            "ornament": true,
+            "alignment": "flex-start",
+            "on_dark": false
+          }
+        },
+        "text-1": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Kati ran a small textile studio in Montreal — a fashion designer, seamstress, and at one point a baker.</p>",
+            "style": "text-block--lead",
+            "alignment": "left",
+            "on_dark": false
+          }
+        },
+        "button-1": {
+          "type": "button",
+          "settings": {
+            "label": "Shop the Collection",
+            "url": "#",
+            "new_tab": false,
+            "variant": "outline",
+            "size": "default",
+            "alignment": "flex-start",
+            "on_dark": false
+          }
+        },
+        "image-1": {
+          "type": "image",
+          "settings": {
+            "loading": "lazy",
+            "aspect_ratio": "portrait",
+            "sizes": "100vw"
+          }
+        }
+      },
+      "block_order": ["heading-1", "eyebrow-1", "text-1", "button-1", "image-1"],
+      "settings": {}
+    }
+  },
+  "order": ["main"]
+}

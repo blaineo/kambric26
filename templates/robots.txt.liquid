@@ -1,0 +1,47 @@
+{% comment %}
+  robots.txt.liquid
+
+  Starts from Shopify's default rule groups (`robots.default_groups`), which
+  Shopify keeps current with SEO best practice: disallowing /admin, /cart,
+  /checkout, /account (etc.), /search and other non-canonical paths, while
+  allowing everything else and emitting the sitemap. See:
+  https://shopify.dev/docs/storefronts/themes/architecture/templates/robots-txt-liquid
+
+  After the defaults, this adds an explicit group for each AI crawler the
+  current kambricgoods.com site allows (CLAUDE.md "SEO and AEO";
+  docs/MIGRATION_PLAN.md Phase 1): GPTBot, ClaudeBot, PerplexityBot,
+  Google-Extended, OAI-SearchBot. Each group repeats the wildcard
+  ("User-agent: *") group's own rules exactly, pulled live from
+  `robots.default_groups` rather than hard-coded, so these crawlers get the
+  same access as any other bot and nothing Shopify disallows is ever
+  weakened, even if Shopify's defaults change later.
+{% endcomment %}
+{%- liquid
+  assign wildcard_group = blank
+  for group in robots.default_groups
+    if group.user_agent.value == '*'
+      assign wildcard_group = group
+    endif
+  endfor
+  assign ai_crawlers = 'GPTBot,ClaudeBot,PerplexityBot,Google-Extended,OAI-SearchBot' | split: ','
+-%}
+{%- for group in robots.default_groups %}
+{{- group.user_agent -}}
+{% for rule in group.rules %}
+{{- rule -}}
+{% endfor %}
+{%- if group.sitemap != blank -%}
+{{ group.sitemap }}
+{%- endif %}
+{% endfor -%}
+{%- if wildcard_group != blank -%}
+{%- for crawler in ai_crawlers %}
+User-agent: {{ crawler }}
+{% for rule in wildcard_group.rules %}
+{{- rule -}}
+{% endfor %}
+{%- if wildcard_group.sitemap != blank -%}
+{{ wildcard_group.sitemap }}
+{%- endif %}
+{% endfor -%}
+{%- endif -%}

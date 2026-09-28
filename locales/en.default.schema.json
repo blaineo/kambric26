@@ -31,7 +31,11 @@
     "sidebar": "Sidebar",
     "text": "Text",
     "theme": "Theme",
-    "typography": "Typography"
+    "typography": "Typography",
+    "button": "Button",
+    "eyebrow": "Eyebrow",
+    "heading": "Heading",
+    "image": "Image"
   },
   "labels": {
     "alignment": "Alignment",
@@ -48,7 +52,28 @@
     "page_width": "Page width",
     "show_payment_icons": "Show payment icons",
     "text_style": "Text style",
-    "text": "Text"
+    "text": "Text",
+    "button_label": "Button label",
+    "link": "Link",
+    "open_in_new_tab": "Open in new tab",
+    "button_variant": "Style",
+    "size": "Size",
+    "on_dark": "Use light text (for dark backgrounds)",
+    "on_dark_info": "Turn on when this block sits on the dark hero band or another dark background.",
+    "ornament": "Show ornament (— dashes —)",
+    "heading": "Heading",
+    "heading_em": "Italic second line",
+    "heading_em_info": "Shown on its own line, in italic serif and the primary colour (e.g. \"Her legacy,\" / \"carried on.\").",
+    "heading_tag": "Heading level (SEO)",
+    "heading_size": "Size",
+    "gap": "Gap",
+    "image": "Image",
+    "loading": "Loading",
+    "aspect_ratio": "Crop",
+    "sizes_attribute": "Sizes attribute",
+    "sizes_attribute_info": "Advanced: the responsive `sizes` value passed to the image. Leave the default unless this image never fills the viewport width.",
+    "alt_text": "Alt text override",
+    "alt_text_info": "Leave empty to use the image's alt text from Settings → Files."
   },
   "options": {
     "alignment": {
@@ -66,12 +91,45 @@
     },
     "size": {
       "large": "Large",
-      "small": "Small"
+      "small": "Small",
+      "default": "Default"
     },
     "text_style": {
       "title": "Title",
       "subtitle": "Subtitle",
-      "normal": "Normal text"
+      "normal": "Normal text",
+      "lead": "Lead paragraph",
+      "small": "Small text"
+    },
+    "button_variant": {
+      "outline": "Outline",
+      "solid": "Solid",
+      "text_arrow": "Text with arrow",
+      "underline": "Underlined text"
+    },
+    "heading_tag": {
+      "h1": "H1 (page title — use once per page)",
+      "h2": "H2",
+      "h3": "H3"
+    },
+    "heading_size": {
+      "hero": "Hero",
+      "xl": "Extra large",
+      "lg": "Large",
+      "md": "Medium",
+      "sm": "Small"
+    },
+    "loading": {
+      "lazy": "Lazy (below the fold)",
+      "eager": "Eager (above the fold)",
+      "priority": "Priority (the LCP image — max one per page)"
+    },
+    "aspect_ratio": {
+      "none": "Natural",
+      "square": "Square (1:1)",
+      "portrait": "Portrait (3:4)",
+      "landscape": "Landscape (3:2)",
+      "wide": "Wide (16:9)"
     }
   },
   "theme_settings": {
@@ -150,6 +208,15 @@
           "info": "Sign-ups are saved as customers tagged \"newsletter\" with email marketing consent (Customers in the Shopify admin)."
         }
       }
+    },
+    "404": {
+      "eyebrow": "Eyebrow text",
+      "heading": "Heading",
+      "links_header": "Links",
+      "link_1_label": "First link label",
+      "link_1_url": "First link URL",
+      "link_2_label": "Second link label",
+      "link_2_url": "Second link URL"
     }
   }
 }

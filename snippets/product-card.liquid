@@ -1,0 +1,425 @@
+{% doc %}
+  Listing card for one product, or one print of a product ("print card").
+  Port of the source ProductCard: a single link wrapping a 3:4 image (hover
+  zoom plus, on hover-capable pointers, a cross-fade to the second image),
+  Sold out / Sale badges, print name, product name and price.
+
+  Layouts (match the source pages):
+    'standard' (default): collection detail, home. Text under the image.
+    'archive': shop, category and sale pages. Tinted metadata bar with the
+               product type (category) and a right-aligned price.
+
+  With `print`, the card shows that print: its image (alt-text grouping, see
+  print-summary.liquid), its price/compare-at/availability, and links to
+  `product.url?print=<value>` (`%20`-encoded like the source). Without `print`,
+  a single-print product shows its `kambric.print_name`, product-level data and
+  links to `product.url`. To expand products into print cards, use
+  product-prints.liquid instead of calling this directly.
+
+  Renders nothing for products that must never be listed (tag `hidden`,
+  handle `chainstitch-monogram`).
+
+  @param {product} product - The product
+  @param {string} [print] - Print value to render this card for
+  @param {string} [layout] - 'standard' (default) | 'archive'
+  @param {boolean} [dark] - Dark-surface colours (home "Just Arrived" band); standard layout only
+  @param {string} [loading] - Image loading: 'lazy' (default) | 'eager' (first row) | 'priority' (only if the card image is the page LCP)
+  @param {string} [sizes] - Image `sizes` (default: 2 columns, 3 from 48rem)
+  @param {number} [heading_level] - Heading level for the product name (default 3)
+  @param {boolean} [hover_image] - Cross-fade to the print's second image on hover (default true)
+
+  @example
+  {% render 'product-card', product: product, print: 'Dahlia Seed', layout: 'archive', loading: 'eager' %}
+{% enddoc %}
+{%- liquid
+  assign listable = true
+  if product == blank or product.tags contains 'hidden' or product.handle == 'chainstitch-monogram'
+    assign listable = false
+  endif
+-%}
+{%- if listable -%}
+{%- liquid
+  assign layout = layout | default: 'standard'
+  assign heading_level = heading_level | default: 3
+  assign loading = loading | default: 'lazy'
+  assign sizes = sizes | default: '(min-width: 48rem) calc((100vw - 8rem) / 3), calc((100vw - 4rem) / 2)'
+  if hover_image == nil
+    assign hover_image = true
+  endif
+
+  capture summary
+    render 'print-summary', product: product, print: print
+  endcapture
+  assign summary = summary | strip | split: '|'
+  assign card_price = summary[0] | plus: 0
+  assign card_compare = summary[1] | plus: 0
+  assign image_index = summary[3] | plus: 0
+  assign image_index_2 = summary[4] | plus: 0
+  assign card_available = false
+  if summary[2] == 'true'
+    assign card_available = true
+  endif
+
+  assign on_sale = false
+  if card_compare > card_price
+    assign on_sale = true
+  endif
+
+  assign card_url = product.url
+  if print != blank
+    assign encoded_print = print | url_encode | replace: '+', '%20'
+    assign card_url = product.url | append: '?print=' | append: encoded_print
+    assign print_label = print
+  else
+    assign print_label = product.metafields.kambric.print_name.value
+  endif
+  if print_label == product.title
+    assign print_label = nil
+  endif
+
+  assign card_image = nil
+  assign card_image_2 = nil
+  if image_index >= 0
+    assign card_image = product.images[image_index]
+  endif
+  if hover_image and image_index_2 >= 0
+    assign card_image_2 = product.images[image_index_2]
+  endif
+
+  assign modifiers = 'product-card--' | append: layout
+  if dark and layout == 'standard'
+    assign modifiers = modifiers | append: ' product-card--dark'
+  endif
+  assign widths = '240, 360, 480, 600, 720, 900'
+-%}
+<a class="product-card {{ modifiers }}" href="{{ card_url }}">
+  <div class="product-card__media">
+    {%- if card_image -%}
+      {%- render 'picture',
+        image: card_image,
+        sizes: sizes,
+        widths: widths,
+        aspect_ratio: 0.75,
+        loading: loading,
+        alt: '',
+        class: 'product-card__picture picture--cover'
+      -%}
+      {%- if card_image_2 -%}
+        {%- render 'picture',
+          image: card_image_2,
+          sizes: sizes,
+          widths: widths,
+          aspect_ratio: 0.75,
+          alt: '',
+          class: 'product-card__picture product-card__picture--hover picture--cover'
+        -%}
+      {%- endif -%}
+    {%- else -%}
+      <span class="product-card__placeholder" aria-hidden="true">{{ print | default: product.title }}</span>
+    {%- endif -%}
+
+    {%- unless card_available -%}
+      <span class="product-card__badge product-card__badge--sold-out">{{ 'products.card.sold_out' | t }}</span>
+    {%- endunless -%}
+    {%- if on_sale -%}
+      <span class="product-card__badge product-card__badge--sale">{{ 'products.card.sale' | t }}</span>
+    {%- endif -%}
+  </div>
+
+  {%- if layout == 'archive' -%}
+    <div class="product-card__info">
+      <div class="product-card__meta">
+        {%- if print_label != blank -%}
+          <p class="product-card__print">{{ print_label }}</p>
+        {%- endif -%}
+        <h{{ heading_level }} class="product-card__title">{{ product.title }}</h{{ heading_level }}>
+        {%- if product.type != blank -%}
+          <p class="product-card__type">{{ product.type }}</p>
+        {%- endif -%}
+      </div>
+      {%- render 'price', price: card_price, compare_at_price: card_compare, class: 'product-card__price' -%}
+    </div>
+  {%- else -%}
+    <div class="product-card__info">
+      {%- if print_label != blank -%}
+        <p class="product-card__print">{{ print_label }}</p>
+      {%- endif -%}
+      <h{{ heading_level }} class="product-card__title">{{ product.title }}</h{{ heading_level }}>
+      {%- render 'price', price: card_price, compare_at_price: card_compare, class: 'product-card__price' -%}
+    </div>
+  {%- endif -%}
+</a>
+{%- endif -%}
+
+{% stylesheet %}
+  /*
+    Source values: standard zooms 1.05 over 1000ms, archive 1.04 over 700ms
+    (ProductCard.tsx). Card surface hsl(36 22% 88%) = muted/background mix.
+  */
+  .product-card {
+    --product-card-surface: color-mix(in srgb, var(--color-muted) 50%, var(--color-background));
+    --product-card-subtle: color-mix(in srgb, var(--color-muted-foreground) 75%, var(--color-background));
+    --product-card-zoom: 1.05;
+    --product-card-zoom-duration: 1000ms;
+
+    display: block;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .product-card--archive {
+    --product-card-zoom: 1.04;
+    --product-card-zoom-duration: 700ms;
+  }
+
+  .product-card--dark {
+    --product-card-surface: color-mix(in srgb, var(--color-hero-foreground) 12%, var(--color-hero-background));
+    --product-card-subtle: color-mix(in srgb, var(--color-hero-foreground) 50%, var(--color-hero-background));
+  }
+
+  /* Media ----------------------------------------------------------------- */
+  .product-card__media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: var(--product-card-surface);
+  }
+
+  .product-card--standard .product-card__media {
+    margin-block-end: var(--space-4);
+  }
+
+  .product-card__media > .product-card__picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .product-card__picture > img {
+    transition: transform var(--product-card-zoom-duration) var(--ease-standard);
+  }
+
+  .product-card:hover .product-card__picture > img,
+  .product-card:focus-visible .product-card__picture > img {
+    transform: scale(var(--product-card-zoom));
+  }
+
+  /*
+    Hover image: display:none keeps the lazy image from downloading on touch
+    devices; on hover-capable pointers it loads lazily and fades in.
+  */
+  .product-card__picture--hover {
+    display: none;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .product-card__media > .product-card__picture--hover {
+      display: block;
+      opacity: 0;
+      transition: opacity var(--duration-medium) var(--ease-standard);
+    }
+
+    .product-card__picture--hover > img,
+    .product-card:hover .product-card__picture--hover > img {
+      transform: none;
+    }
+
+    .product-card:hover .product-card__picture--hover {
+      opacity: 1;
+    }
+  }
+
+  /* Archive: faint darkening on hover */
+  .product-card--archive .product-card__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--color-foreground);
+    opacity: 0;
+    transition: opacity var(--duration-medium) var(--ease-standard);
+    pointer-events: none;
+  }
+
+  .product-card--archive:hover .product-card__media::after {
+    opacity: 0.05;
+  }
+
+  .product-card__placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    padding: var(--space-5);
+    font-family: var(--font-serif);
+    font-size: var(--text-14);
+    font-style: italic;
+    line-height: var(--leading-tight);
+    color: var(--color-muted-foreground);
+  }
+
+  .product-card--archive .product-card__placeholder {
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    text-align: center;
+    font-size: var(--text-18);
+    line-height: var(--leading-snug);
+    opacity: 0.18;
+  }
+
+  /* Badges ---------------------------------------------------------------- */
+  .product-card__badge {
+    position: absolute;
+    z-index: 1;
+    inset-block-start: var(--space-3);
+    padding: var(--space-1) var(--space-2-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-nav);
+    text-transform: uppercase;
+    line-height: 1rem;
+  }
+
+  .product-card--archive .product-card__badge {
+    inset-block-start: var(--space-2-5);
+    padding-inline: var(--space-2);
+  }
+
+  .product-card__badge--sold-out {
+    inset-inline-start: var(--space-3);
+    background: color-mix(in srgb, var(--color-background) 88%, transparent);
+    color: var(--color-muted-foreground);
+  }
+
+  .product-card--archive .product-card__badge--sold-out {
+    inset-inline-start: var(--space-2-5);
+  }
+
+  .product-card--dark .product-card__badge--sold-out {
+    background: color-mix(in srgb, var(--color-hero-background) 90%, transparent);
+    color: color-mix(in srgb, var(--color-hero-foreground) 65%, var(--color-hero-background));
+  }
+
+  .product-card__badge--sale {
+    inset-inline-end: var(--space-3);
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  .product-card--archive .product-card__badge--sale {
+    inset-inline-end: var(--space-2-5);
+  }
+
+  /* Text ------------------------------------------------------------------ */
+  .product-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1-5);
+  }
+
+  .product-card__print {
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-button);
+    text-transform: uppercase;
+    line-height: 1rem;
+    color: var(--product-card-subtle);
+  }
+
+  .product-card__title {
+    font-family: var(--font-serif);
+    font-size: var(--text-14);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-editorial);
+    line-height: 1.25rem;
+    transition: color var(--duration-medium) var(--ease-standard);
+  }
+
+  .product-card--standard:hover .product-card__title {
+    color: var(--color-primary);
+  }
+
+  .product-card__price {
+    font-size: var(--text-14);
+    font-weight: var(--weight-light);
+    line-height: 1.25rem;
+  }
+
+  .product-card__price .price__item--compare {
+    font-size: var(--text-12);
+    line-height: 1rem;
+  }
+
+  .product-card--dark .product-card__title {
+    color: var(--color-hero-foreground);
+  }
+
+  .product-card--dark .product-card__price {
+    color: color-mix(in srgb, var(--color-hero-foreground) 75%, var(--color-hero-background));
+  }
+
+  .product-card--dark .product-card__price .price__item--compare {
+    color: color-mix(in srgb, var(--color-hero-foreground) 45%, var(--color-hero-background));
+  }
+
+  /* Archive metadata bar */
+  .product-card--archive .product-card__info {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding: 0.6875rem 0.8125rem;
+    background: var(--product-card-surface);
+    border-block-start: 2px solid var(--color-border);
+  }
+
+  .product-card__meta {
+    min-width: 0;
+  }
+
+  .product-card--archive .product-card__print,
+  .product-card--archive .product-card__title,
+  .product-card__type {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .product-card--archive .product-card__print {
+    margin-block-end: 3px;
+    color: var(--color-muted-foreground);
+  }
+
+  .product-card--archive .product-card__title {
+    margin-block-end: 5px;
+    line-height: 1.2;
+    color: var(--color-foreground);
+  }
+
+  .product-card__type {
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label-xs);
+    text-transform: uppercase;
+    line-height: 1rem;
+    color: var(--color-muted-foreground);
+  }
+
+  .product-card--archive .product-card__price {
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-end;
+    text-align: end;
+  }
+
+  .product-card--archive .product-card__price .price__item--current {
+    font-family: var(--font-serif);
+    font-size: var(--text-15);
+    font-weight: var(--weight-regular);
+    color: var(--color-foreground);
+  }
+
+  .product-card--archive .product-card__price .price__item--compare {
+    margin-block-start: 1px;
+    font-size: var(--text-11);
+  }
+{% endstylesheet %}

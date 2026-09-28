@@ -1,0 +1,138 @@
+{% doc %}
+  Serif section heading with an optional italic second line (the site's
+  "heading" + "heading_em" pair, e.g. "Her legacy," / "carried on.", which
+  replaces the old `*italic*` markdown-emphasis convention). Renders the
+  configured heading tag (h1/h2/h3) so page hierarchy stays correct while
+  every section can choose its own visual size.
+
+  @param {string} heading - The heading text
+  @param {string} [heading_em] - Optional second line, rendered on its own line in italic serif + primary colour
+  @param {string} [tag] - 'h1' | 'h2' (default) | 'h3'
+  @param {string} [size] - 'hero' | 'xl' | 'lg' (default) | 'md' | 'sm'
+  @param {string} [align] - 'left' (default) | 'center'
+  @param {boolean} [on_dark] - Use the hero foreground tone (for dark backgrounds)
+  @param {boolean} [italic] - Set the whole heading in italic (source: 404 "This page seems to have wandered off.")
+  @param {boolean} [muted] - Use the muted-foreground colour instead of full-strength foreground
+  @param {string} [class] - Extra class(es)
+
+  @example
+  {% render 'section-heading', heading: 'Her legacy,', heading_em: 'carried on.', tag: 'h2', size: 'xl' %}
+
+  @example
+  {% render 'section-heading', heading: 'This page seems to have wandered off.', tag: 'h1', size: 'lg', align: 'center', italic: true, muted: true %}
+{% enddoc %}
+{%- liquid
+  assign tag = tag | default: 'h2'
+  assign size = size | default: 'lg'
+
+  assign heading_class = 'section-heading section-heading--' | append: size
+  if align == 'center'
+    assign heading_class = heading_class | append: ' section-heading--center'
+  endif
+  if on_dark
+    assign heading_class = heading_class | append: ' section-heading--on-dark'
+  endif
+  if italic
+    assign heading_class = heading_class | append: ' section-heading--italic'
+  endif
+  if muted
+    assign heading_class = heading_class | append: ' section-heading--muted'
+  endif
+  if class != blank
+    assign heading_class = heading_class | append: ' ' | append: class
+  endif
+-%}
+{%- capture heading_content -%}
+  {{- heading -}}
+  {%- if heading_em != blank -%}
+    <br>
+    <em class="section-heading__em">{{ heading_em }}</em>
+  {%- endif -%}
+{%- endcapture -%}
+{%- case tag -%}
+  {%- when 'h1' -%}
+    <h1 class="{{ heading_class }}">{{ heading_content }}</h1>
+  {%- when 'h3' -%}
+    <h3 class="{{ heading_class }}">{{ heading_content }}</h3>
+  {%- else -%}
+    <h2 class="{{ heading_class }}">{{ heading_content }}</h2>
+{%- endcase -%}
+
+{% stylesheet %}
+  .section-heading {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-heading);
+    color: var(--color-foreground);
+    text-wrap: balance;
+  }
+
+  .section-heading--center {
+    text-align: center;
+  }
+
+  .section-heading--on-dark {
+    color: var(--color-hero-foreground);
+  }
+
+  .section-heading--italic {
+    font-style: italic;
+  }
+
+  .section-heading--muted {
+    color: var(--color-muted-foreground);
+  }
+
+  .section-heading__em {
+    display: block;
+    font-style: italic;
+    color: var(--color-primary);
+  }
+
+  /* Hero: clamp(2.5rem, 5.5vw, 4.75rem), leading 0.95 (source: home-hero h1) */
+  .section-heading--hero {
+    font-size: var(--text-hero);
+    line-height: var(--leading-display);
+  }
+
+  /* XL: 36px → 60px, leading 1.05 (source: home editorial-story h2) */
+  .section-heading--xl {
+    font-size: var(--text-36);
+    line-height: 1.05;
+  }
+
+  /* Large: 36px → 48px (source: info-page / 404 h1) */
+  .section-heading--lg {
+    font-size: var(--text-36);
+  }
+
+  /* Medium: 24px → 30px (source: info-page section h2, "Customer Care") */
+  .section-heading--md {
+    font-size: var(--text-24);
+  }
+
+  /* Small: 20px → 22px (card / block headings) */
+  .section-heading--sm {
+    font-size: var(--text-20);
+  }
+
+  @media (min-width: 48rem) {
+    .section-heading--xl {
+      font-size: var(--text-60);
+    }
+
+    .section-heading--lg {
+      font-size: var(--text-48);
+    }
+
+    .section-heading--md {
+      font-size: var(--text-30);
+    }
+
+    .section-heading--sm {
+      font-size: var(--text-22);
+    }
+  }
+{% endstylesheet %}

@@ -1,0 +1,137 @@
+{% doc %}
+  Per-print data helper (no markup). Outputs one pipe-separated line for a
+  product's print so callers can `capture` it and `split: '|'`:
+
+    <price>|<compare_at_price>|<available>|<image_index>|<image_index_2>|<option_position>
+
+  - price / compare_at_price: minimum of the print's variants, in cents
+    (compare_at_price is 0 when no variant has one)
+  - available: 'true' when any of the print's variants is available
+  - image_index / image_index_2: 0-based indexes into `product.images` for the
+    card image and its hover image (-1 when there is none)
+  - option_position: 1-based position of the `Print`/`Colorway` option (0 if
+    the product has none, i.e. a single-print product)
+
+  Variant scope: a merged product's variants whose `Print`/`Colorway` option
+  equals `print`; for a single-print product (or a blank `print`), every variant.
+
+  Image grouping (SHOPIFY_DATA_MAP, D-8), first match wins:
+    1. images whose alt text equals the print value (the live Replit rule)
+    2. the featured image of the print's first variant that has one
+       (native variant media, the D-8 target)
+    3. images whose file name contains the print value (lowercase, with or
+       without spaces), e.g. ArielleDress_Olive_1.jpg for "Olive"
+    4. all product images (the Replit fallback)
+
+  @param {product} product - The product
+  @param {string} [print] - Print value (a `Print`/`Colorway` option value, or a single-print product's print name)
+
+  @example
+  {%- capture summary -%}{% render 'print-summary', product: product, print: 'Dahlia Seed' %}{%- endcapture -%}
+  {%- assign summary = summary | split: '|' -%}
+  {%- assign print_price = summary[0] | plus: 0 -%}
+{% enddoc %}
+{%- liquid
+  assign option_position = 0
+  for option in product.options_with_values
+    if option.name == 'Print' or option.name == 'Colorway'
+      assign option_position = option.position
+      break
+    endif
+  endfor
+  assign option_index = option_position | minus: 1
+
+  assign price = nil
+  assign compare = 0
+  assign available = false
+  assign variant_image = nil
+
+  for variant in product.variants
+    if option_position > 0 and print != blank
+      unless variant.options[option_index] == print
+        continue
+      endunless
+    endif
+
+    if price == nil or variant.price < price
+      assign price = variant.price
+    endif
+    if variant.compare_at_price > 0
+      if compare == 0 or variant.compare_at_price < compare
+        assign compare = variant.compare_at_price
+      endif
+    endif
+    if variant.available
+      assign available = true
+    endif
+    if variant_image == nil and variant.featured_image
+      assign variant_image = variant.featured_image
+    endif
+  endfor
+
+  if price == nil
+    assign price = product.price
+  endif
+
+  assign image_index = -1
+  assign image_index_2 = -1
+
+  if print != blank
+    comment
+      1. Alt text equals the print value.
+    endcomment
+    for image in product.images
+      if image.alt == print
+        if image_index < 0
+          assign image_index = forloop.index0
+        else
+          assign image_index_2 = forloop.index0
+          break
+        endif
+      endif
+    endfor
+
+    comment
+      2. Native variant media.
+    endcomment
+    if image_index < 0 and variant_image
+      for image in product.images
+        if image.id == variant_image.id
+          assign image_index = forloop.index0
+          break
+        endif
+      endfor
+    endif
+
+    comment
+      3. File name contains the print value.
+    endcomment
+    if image_index < 0
+      assign needle = print | downcase
+      assign needle_compact = needle | remove: ' '
+      for image in product.images
+        assign haystack = image.src | url_decode | downcase
+        if haystack contains needle or haystack contains needle_compact
+          if image_index < 0
+            assign image_index = forloop.index0
+          else
+            assign image_index_2 = forloop.index0
+            break
+          endif
+        endif
+      endfor
+    endif
+  endif
+
+  comment
+    4. Fall back to all images.
+  endcomment
+  if image_index < 0 and product.images.size > 0
+    assign image_index = 0
+    if product.images.size > 1
+      assign image_index_2 = 1
+    endif
+  endif
+
+  echo price | append: '|' | append: compare | append: '|' | append: available | append: '|' | append: image_index | append: '|' | append: image_index_2 | append: '|' | append: option_position
+-%}

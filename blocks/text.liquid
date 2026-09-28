@@ -1,28 +1,42 @@
 {% doc %}
-  Renders a text block.
+  Theme block: a rich-text block using the site's prose typography
+  (snippets/rte.liquid). Reworked from the Skeleton starter's plain-text
+  block: `content` is now `richtext` (bold/italic/links/lists), and
+  `text_style` controls body copy size instead of a title/subtitle look
+  (use the `heading` block for headings).
 
   @example
   {% content_for 'block', type: 'text', id: 'text' %}
 {% enddoc %}
 
 <div
-  class="text {{ block.settings.text_style }}"
+  class="text-block {{ block.settings.style }}{% if block.settings.on_dark %} text-block--on-dark{% endif %}"
   style="--text-align: {{ block.settings.alignment }}"
   {{ block.shopify_attributes }}
 >
-  {{ block.settings.text }}
+  {%- render 'rte', content: block.settings.content -%}
 </div>
 
 {% stylesheet %}
-  .text {
+  .text-block {
     text-align: var(--text-align);
   }
-  .text--title {
-    font-size: 2rem;
-    font-weight: 700;
+
+  .text-block--on-dark .rte {
+    color: var(--color-hero-foreground);
   }
-  .text--subtitle {
-    font-size: 1.5rem;
+
+  .text-block--on-dark .rte a {
+    color: var(--color-hero-foreground);
+  }
+
+  .text-block--lead .rte {
+    font-size: var(--text-18);
+    line-height: var(--leading-relaxed);
+  }
+
+  .text-block--small .rte {
+    font-size: var(--text-14);
   }
 {% endstylesheet %}
 
@@ -31,27 +45,34 @@
   "name": "t:general.text",
   "settings": [
     {
-      "type": "text",
-      "id": "text",
+      "type": "richtext",
+      "id": "content",
       "label": "t:labels.text",
-      "default": "Text"
+      "default": "<p>Text</p>"
     },
     {
       "type": "select",
-      "id": "text_style",
+      "id": "style",
       "label": "t:labels.text_style",
       "options": [
-        { "value": "text--title", "label": "t:options.text_style.title" },
-        { "value": "text--subtitle", "label": "t:options.text_style.subtitle" },
-        { "value": "text--normal", "label": "t:options.text_style.normal" }
+        { "value": "text-block--body", "label": "t:options.text_style.normal" },
+        { "value": "text-block--lead", "label": "t:options.text_style.lead" },
+        { "value": "text-block--small", "label": "t:options.text_style.small" }
       ],
-      "default": "text--title"
+      "default": "text-block--body"
     },
     {
       "type": "text_alignment",
       "id": "alignment",
       "label": "t:labels.alignment",
       "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "on_dark",
+      "label": "t:labels.on_dark",
+      "info": "t:labels.on_dark_info",
+      "default": false
     }
   ],
   "presets": [{ "name": "t:general.text" }]

@@ -1,23 +1,131 @@
 {% comment %}
-  This section is used in the 404 template to render page shown when customers
-  enter an invalid store URL.
+  404 page.
+
+  Parity source: ../liquid/html/404.html (main content), design/screenshots/
+  404-1440.png + 404-390.png ("404" eyebrow, italic serif heading, two
+  underlined uppercase links: Home / Shop the Collection).
 
   https://shopify.dev/docs/storefronts/themes/architecture/templates/404
 {% endcomment %}
+{%- liquid
+  assign link_1_url = section.settings.link_1_url | default: routes.root_url
+  assign link_2_url = section.settings.link_2_url | default: routes.all_products_collection_url
+-%}
 
-<h1>{{ '404.title' | t }}</h1>
+<div class="section-404">
+  {%- if section.settings.eyebrow != blank -%}
+    <p class="section-404__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+  {%- endif -%}
 
-<p>
-  {{ '404.not_found' | t }}
-</p>
+  <h1 class="section-404__heading">{{ section.settings.heading | escape }}</h1>
 
-<a href="{{ routes.all_products_collection_url }}">
-  {{ '404.back_to_shopping' | t }}
-</a>
+  {%- if section.settings.link_1_label != blank or section.settings.link_2_label != blank -%}
+    <div class="section-404__links">
+      {%- if section.settings.link_1_label != blank -%}
+        <a class="section-404__link" href="{{ link_1_url }}">{{ section.settings.link_1_label | escape }}</a>
+      {%- endif -%}
+      {%- if section.settings.link_2_label != blank -%}
+        <a class="section-404__link" href="{{ link_2_url }}">{{ section.settings.link_2_label | escape }}</a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  /* Source: NotFound.tsx / 404.html — max-w-7xl px-6 py-40 text-center */
+  .section-404 {
+    max-width: var(--container-7xl);
+    margin-inline: auto;
+    padding: calc(var(--space-24) + var(--space-16)) var(--space-6);
+    text-align: center;
+  }
+
+  .section-404__eyebrow {
+    margin: 0 0 var(--space-6);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .section-404__heading {
+    margin: 0 0 var(--space-8);
+    font-size: var(--text-36);
+    font-style: italic;
+    color: var(--color-muted-foreground);
+  }
+
+  .section-404__links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-8);
+    flex-wrap: wrap;
+  }
+
+  .section-404__link {
+    font-size: var(--text-10);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-button);
+    text-decoration: none;
+    padding-bottom: var(--space-0-5);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-foreground) 30%, transparent);
+    transition:
+      color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .section-404__link:hover,
+  .section-404__link:focus-visible {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+{% endstylesheet %}
 
 {% schema %}
 {
   "name": "t:general.404",
-  "settings": []
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.404.eyebrow",
+      "default": "404"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.404.heading",
+      "default": "This page seems to have wandered off."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.404.links_header"
+    },
+    {
+      "type": "text",
+      "id": "link_1_label",
+      "label": "t:sections.404.link_1_label",
+      "default": "Home"
+    },
+    {
+      "type": "url",
+      "id": "link_1_url",
+      "label": "t:sections.404.link_1_url",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "link_2_label",
+      "label": "t:sections.404.link_2_label",
+      "default": "Shop the Collection"
+    },
+    {
+      "type": "url",
+      "id": "link_2_url",
+      "label": "t:sections.404.link_2_url",
+      "default": "/collections/all"
+    }
+  ]
 }
 {% endschema %}
