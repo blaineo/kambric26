@@ -19,7 +19,7 @@ This guide is updated with every build phase. The [change log](#change-log) at t
 
 ## 1. The short version
 
-New to the shop's structure? Start with **§2b How the shop is organized**.
+New to the shop's structure? Start with **§2b How the shop is organized**. The one-time setup before launch is a checklist in [`OWNER_TASKS.md`](./OWNER_TASKS.md).
 
 | You used to… (Replit `/admin`) | After launch you'll… (Shopify admin) | Ready? |
 | --- | --- | --- |

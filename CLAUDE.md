@@ -10,7 +10,7 @@ We're rebuilding **kambricgoods.com** (currently a React/Vite/Tailwind v4 app on
   - **The Shopify-hosted Online Store (`kambric-goods-2.myshopify.com`) is our playground.** No customer traffic goes there, so theme work there has little or no consequence.
 - **Cutover = DNS.** We get the Shopify-hosted site production-ready, then point kambricgoods.com at Shopify.
 - The owner is a software engineer and reviews everything. Plan first, commit small, and surface decisions rather than guessing.
-- Phase plan and open decisions: `docs/MIGRATION_PLAN.md`. What content editors need to know: `docs/CONTENT_GUIDE.md`.
+- Phase plan and open decisions: `docs/MIGRATION_PLAN.md`. What content editors need to know: `docs/CONTENT_GUIDE.md`. The owner's pre-launch checklist: `docs/OWNER_TASKS.md`.
 
 ## Guardrails (non-negotiable)
 
@@ -31,6 +31,7 @@ We're rebuilding **kambricgoods.com** (currently a React/Vite/Tailwind v4 app on
 7. **Accessibility, SEO, AEO and performance are requirements** (see below), not polish.
 8. **Every change an editor would notice goes in `docs/CONTENT_GUIDE.md`,** in the same commit. That covers any new setting, section, block, metafield, metaobject, menu handle, or "where did X move to". The goal is a clean, simple transition for content maintainers.
 9. **Once editors start entering content on a Shopify theme, they own its JSON** (`config/settings_data.json`, `templates/*.json`, `sections/*-group.json`). Never push over them: pull from that theme and commit first.
+10. **Owner task list:** every store-data or admin step the owner must do goes in `docs/OWNER_TASKS.md` in the same commit, sorted 🟢 safe now (Shopify-hosted only) / 🟡 safe if done exactly as written (with a check step) / 🔴 cutover only (would change kambricgoods.com). **The owner does not change anything that affects kambricgoods.com before cutover**, so never ask for a 🔴 step early; offer a 🟢/🟡 alternative or defer it.
 
 `.claude/settings.json` denies the most dangerous commands as a backstop. It's prefix-matched, so it isn't a guarantee: the rules above still apply.
 

@@ -2,6 +2,7 @@
 
 **Status:** first draft for owner review, 2026-09-28. Decisions are marked **⚠️ D-n** and collected in [§5](#5-open-decisions).
 **Scope:** rebuild kambricgoods.com (React/Vite on Replit, Shopify Storefront API + checkout) as the Online Store 2.0 theme in this repo (`kambric26`), then cut over the domain.
+**Owner checklist:** every owner/admin step from this plan, sorted by whether it can touch kambricgoods.com, lives in [`OWNER_TASKS.md`](./OWNER_TASKS.md).
 **Environments:** kambricgoods.com (Replit) is live and reads catalog + checkout from the same store, so **catalog, collection-publication, metafield and checkout changes are shared and immediate**. The Shopify-hosted Online Store (`kambric-goods-2.myshopify.com`) is the playground: theme and Online-Store-only content work there is low risk. **Cutover = DNS**, once the Shopify-hosted site is production-ready. Blast-radius table: CLAUDE.md guardrail 1.
 **Sources:** `../replit site/` (export) and `../liquid/` (Liquid supplement: 24 captured HTML pages, `SECTIONS.md`, `COMPONENTS.md`, `BEHAVIOR.md`, `SEO.md`, `content/`, and a read-only live Admin catalog audit in `shopify/`: 40 products (10 active, 30 draft), 4 collections, `DATA_ISSUES.md`).
 
