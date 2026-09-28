@@ -1,0 +1,11 @@
+# Batch 04 read-only snapshot: every menu with its full item tree (3 levels), for exact rollback.
+query Batch04Before {
+  shop { id }
+  menus(first: 25) { nodes { id handle title isDefault
+    items { id title type url resourceId tags
+      items { id title type url resourceId tags
+        items { id title type url resourceId tags } } } } }
+  folklore: collectionByHandle(handle: "folklore") { id }
+  psychedelics: collectionByHandle(handle: "psychedelics") { id }
+  whimsy: collectionByHandle(handle: "whimsy") { id }
+}

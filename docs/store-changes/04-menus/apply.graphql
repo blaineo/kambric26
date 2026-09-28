@@ -1,0 +1,20 @@
+# Batch 04 (🟢): menus. Only the Shopify-hosted theme reads menus; the live site's nav is hard-coded.
+# 1) main-menu: replace Home / Catalog / Contact with the site's structure minus the category links
+#    (those need the category collections, which are created at cutover: batch 03 + 04b).
+# 2) create footer-info (empty until the Phase 4 pages exist) and shop-categories ("All" for now).
+# The footer menu is NOT changed (keeps "Your Privacy Choices"; see plan.md).
+mutation Batch04 {
+  mainMenu: menuUpdate(id: "gid://shopify/Menu/224754598122", title: "Main menu", handle: "main-menu", items: [
+    { title: "Shop", type: CATALOG, url: "/collections/all" },
+    { title: "Collections", type: COLLECTIONS, url: "/collections", items: [
+      { title: "Psychedelics", type: COLLECTION, resourceId: "gid://shopify/Collection/451384148202" },
+      { title: "Folklore", type: COLLECTION, resourceId: "gid://shopify/Collection/451384180970" },
+      { title: "Whimsy", type: COLLECTION, resourceId: "gid://shopify/Collection/451384213738" }
+    ] }
+  ]) { menu { id handle items { title url items { title url } } } userErrors { field message code } }
+  footerInfo: menuCreate(title: "Footer info", handle: "footer-info", items: []) {
+    menu { id handle } userErrors { field message code } }
+  shopCategories: menuCreate(title: "Shop categories", handle: "shop-categories", items: [
+    { title: "All", type: CATALOG, url: "/collections/all" }
+  ]) { menu { id handle items { title url } } userErrors { field message code } }
+}

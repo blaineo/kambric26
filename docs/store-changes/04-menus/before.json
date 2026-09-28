@@ -1,0 +1,105 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186"
+  },
+  "menus": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Menu/224754598122",
+        "handle": "main-menu",
+        "title": "Main menu",
+        "isDefault": true,
+        "items": [
+          {
+            "id": "gid://shopify/MenuItem/532236992746",
+            "title": "Home",
+            "type": "FRONTPAGE",
+            "url": "/",
+            "resourceId": null,
+            "tags": [],
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/532237025514",
+            "title": "Catalog",
+            "type": "CATALOG",
+            "url": "/collections/all",
+            "resourceId": null,
+            "tags": [],
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/532237058282",
+            "title": "Contact",
+            "type": "PAGE",
+            "url": "/pages/contact",
+            "resourceId": "gid://shopify/Page/113644699882",
+            "tags": [],
+            "items": []
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Menu/224754630890",
+        "handle": "footer",
+        "title": "Footer menu",
+        "isDefault": true,
+        "items": [
+          {
+            "id": "gid://shopify/MenuItem/532237091050",
+            "title": "Search",
+            "type": "SEARCH",
+            "url": "/search",
+            "resourceId": null,
+            "tags": [],
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/532237189354",
+            "title": "Your Privacy Choices",
+            "type": "PAGE",
+            "url": "/pages/data-sharing-opt-out",
+            "resourceId": "gid://shopify/Page/113644732650",
+            "tags": [],
+            "items": []
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Menu/224754663658",
+        "handle": "customer-account-main-menu",
+        "title": "Customer account main menu",
+        "isDefault": true,
+        "items": [
+          {
+            "id": "gid://shopify/MenuItem/532237123818",
+            "title": "Orders",
+            "type": "CUSTOMER_ACCOUNT_PAGE",
+            "url": "https://shopify.com/71406846186/account/orders",
+            "resourceId": "gid://shopify/CustomerAccountPage/39161856234",
+            "tags": [],
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/532237156586",
+            "title": "Profile",
+            "type": "CUSTOMER_ACCOUNT_PAGE",
+            "url": "https://shopify.com/71406846186/account/profile",
+            "resourceId": "gid://shopify/CustomerAccountPage/39161889002",
+            "tags": [],
+            "items": []
+          }
+        ]
+      }
+    ]
+  },
+  "folklore": {
+    "id": "gid://shopify/Collection/451384180970"
+  },
+  "psychedelics": {
+    "id": "gid://shopify/Collection/451384148202"
+  },
+  "whimsy": {
+    "id": "gid://shopify/Collection/451384213738"
+  }
+}

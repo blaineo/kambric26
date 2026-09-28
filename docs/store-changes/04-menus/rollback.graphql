@@ -1,0 +1,10 @@
+# Batch 04 rollback: restore main-menu exactly as in before.json, then delete the two menus created
+# (IDs from apply-result.json -> rollback-vars.json).
+mutation Batch04RollbackMain {
+  menuUpdate(id: "gid://shopify/Menu/224754598122", title: "Main menu", handle: "main-menu", items: [
+    { title: "Home", type: FRONTPAGE, url: "/" },
+    { title: "Catalog", type: CATALOG, url: "/collections/all" },
+    { title: "Contact", type: PAGE, resourceId: "gid://shopify/Page/113644699882" }
+  ]) { menu { id items { title url } } userErrors { field message } }
+}
+# Then for each created menu id: mutation($id: ID!) { menuDelete(id: $id) { deletedMenuId userErrors { message } } }
