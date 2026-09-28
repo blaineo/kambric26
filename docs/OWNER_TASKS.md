@@ -15,10 +15,10 @@ Status: ☐ to do · ☑ done · ⏳ waiting on the theme build. Tick items here
 ## A. Safe now 🟢
 
 ### A1. Menus (Content → Menus): guide §3a
-- ☐ **Main menu** (`main-menu`): Shop (+ Dresses, Kaftans, Coats, Swimwear, Accessories, Sale nested), Collections (+ Folklore, Psychedelics, Whimsy nested, as *collection* links). The category links need the collections from B1; add those after.
-- ☐ **Footer menu** (`footer`): the five categories + Sale (after B1).
+- ☐ **Main menu** (`main-menu`): Shop → All products, Collections (+ Folklore, Psychedelics, Whimsy nested, as *collection* links). The category links (Dresses … Sale) wait for the collections to be published at cutover (C2).
+- ☐ **Footer menu** (`footer`): the five categories + Sale, at cutover once they're published (C2). Until then leave the default or use All products.
 - ☐ **Footer info** (`footer-info`): create now, empty. ⏳ Add Contact, Wholesale, Size Guide, Shipping, Returns once the pages exist (Phase 4).
-- ☐ **Shop categories** (`shop-categories`): All + the five categories (after B1).
+- ☐ **Shop categories** (`shop-categories`): create now with **All**; add the five categories at cutover (C2).
 - ⏳ Main menu Part B (Story, Events, Journal) once Phase 4 pages exist.
 
 ### A2. New custom fields (Settings → Custom data)
@@ -51,13 +51,11 @@ New definitions the live site doesn't read.
 
 ## B. Safe now if done exactly as written 🟡
 
-### B1. Create the category and sale collections (guide §3a-A1, §2b)
-Safe **only** if each new collection is published to the **Online Store channel only**; the live site lists every collection its own channel can see.
-- ☐ Automated collections **Dresses, Kaftans, Coats, Swimwear, Accessories** (Product type is equal to …, plus Product tag is not equal to `hidden`) and **Sale** (Compare-at price is greater than 0, plus the `hidden` rule).
-- ☐ In each collection's **Publishing** card: **Online Store only**; untick every other channel.
-- ☐ **Theme template:** `category` for the five, `sale` for Sale.
-- ☐ Paste descriptions and search listings from `docs/store-data/collection-copy.csv` (these are new collections, so their descriptions are safe to fill).
-- ☐ **Check:** open https://kambricgoods.com/collections and the header's Collections menu. **None of the new collections may appear.** If one does, set its Publishing back to Online Store only (or delete it) and tell Claude.
+### B1. Category and sale collections: set up unpublished now 🟢, publish at cutover 🔴
+**Corrected 2026-09-28:** the live site reads collections through the **Online Store** channel (there's no separate Replit channel), so publishing a collection to Online Store makes it appear on kambricgoods.com. Details: `docs/store-changes/03-category-collections/finding.md`.
+- ☐ 🟢 Create the automated collections **Dresses, Kaftans, Coats, Swimwear, Accessories** (Product type is equal to …, plus Product tag is not equal to `hidden`) and **Sale** (Compare-at price is greater than 0, plus the `hidden` rule), **with no sales channels at all** (unpublished). Set their theme template (`category` / `sale`), descriptions and search listings (`docs/store-data/collection-copy.csv`). Claude can do this as batch 03.
+- ☐ 🔴 **At cutover:** publish them to the Online Store channel (moved to C2).
+- Until then, preview a category page on the Shopify-hosted site with `/collections/all?view=phase3-category-test`.
 
 ### B2. Taxonomy details for the "Product details" list (guide §3c)
 - ☐ ⚠️ **Wait until cutover (move to C) unless you've confirmed tax won't change.** Setting a product's **Product category** can change how Shopify calculates tax at checkout, and checkout is shared with the live site. The Category metafields themselves (fabric, neckline, …) are not read by the live site.
@@ -72,6 +70,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 - ☐ Stop editing in the Replit `/admin`; take the final export (content, newsletter subscribers, back-in-stock requests).
 
 ### C2. Catalog and collection data (shared)
+- ☐ **Publish the category and sale collections** (created unpublished in B1) to the Online Store channel. Then add their links to the menus (A1).
 - ☐ **Per-print collections** (MIGRATION_PLAN §3 item 3): delete the `collection` key from Zadie's, Esther's and Vera's `kambric.prints` entries; change Margit's one `"botanicals"` to `"whimsy"`. Fixes the empty Whimsy page. *(It would fix the live site's Whimsy too, so it's the one 🔴 item you might choose to do early.)*
 - ☐ **Collection descriptions** for Folklore, Psychedelics, Whimsy: paste `description_to_set` from `docs/store-data/collection-copy.csv`.
 - ☐ **Product Category** (taxonomy) and category metafields, if deferred from B2.

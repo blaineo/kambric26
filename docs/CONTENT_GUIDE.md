@@ -84,7 +84,7 @@ Sale                                                      ← automatic, from co
 ⚠️ = before launch, this also changes the live kambricgoods.com (products, collections and prices are shared).
 
 **Add a new collection** (e.g. "Garden Party")
-1. ⚠️ **Products → Collections → Create collection**: title, description (shown as the group text on the shop page and in the collection header), *Manual* type. Under *Publishing*, **Online Store only** until launch. Set **Season** and **Year**, then **Card image** and **Header image**.
+1. ⚠️ **Products → Collections → Create collection**: title, description (shown as the group text on the shop page and in the collection header), *Manual* type. Under *Publishing*: **before launch, no channels at all** (the live site reads the Online Store channel); after launch, **Online Store**. Set **Season** and **Year**, then **Card image** and **Header image**.
 2. Add products: on each product, add the collection under **Collections**, or add them from the collection page.
 3. Show it as a group: **Online Store → Themes → Customize** → template picker at the top → **Collections → Default collection** → *Product listing* (the one shown on the shop page) → **Add block → Collection** → pick it → drag it into place. Repeat on the **category** template. Until you do this, its prints still appear at the end of those pages under "other pieces", so nothing goes missing.
 4. It appears on `/collections` automatically once it has a Season.
@@ -103,7 +103,7 @@ Products → Collections → the collection → **Sort** (e.g. *Manually*, then 
 - Retire: remove its Collection block from the templates, then set the collection's *Publishing* to off (or delete it). Add a URL redirect (search "URL redirects" in the admin) from its old address to `/collections` so old links still work.
 
 **Add a new category** (e.g. "Tops") ⚠️
-1. Create an **automated** collection "Tops": condition *Product type is equal to Tops* plus *Product tag is not equal to hidden*; Online Store only (see §3a-A1).
+1. Create an **automated** collection "Tops": condition *Product type is equal to Tops* plus *Product tag is not equal to hidden*. Publishing: unpublished before launch, Online Store after (see §3a-A1).
 2. Set its **Theme template** to **category**, then add its description and search listing.
 3. Add it to the **Shop categories** menu (Content → Menus) so it appears in the category strip, and to the footer menu if you like.
 4. Set **Type = Tops** on the products.
@@ -195,7 +195,7 @@ The theme reads three menus. Shopify identifies each by its **handle** (a fixed 
 
 Some links point at things that don't exist in Shopify yet (category collections, the About/Events pages, the Journal). Do **Part A** now and **Part B** when those pages are built (Phase 4).
 
-> ⚠️ **Protect the live site.** Today's kambricgoods.com (the Replit site) shows every Shopify collection it can see. When you create a new collection in step A1, restrict it to the **Online Store** sales channel as described, or it will appear on the live site right away. Menus and pages are safe: the live site doesn't read them.
+> ⚠️ **Protect the live site.** Today's kambricgoods.com (the Replit site) reads collections through the same **Online Store** sales channel as this theme, so **any collection published to Online Store appears on the live site right away.** Before launch, create new collections **unpublished** (no sales channels) and publish them at launch. Menus and pages are safe: the live site doesn't read them.
 
 > ℹ️ Menus only affect the Shopify-hosted practice site, so editing them is safe.
 
@@ -216,10 +216,10 @@ Some links point at things that don't exist in Shopify yet (category collections
 2. **Title:** as in the table (e.g. `Dresses`).
 3. **Collection type:** choose **Automated**.
 4. **Conditions:** "Products must match **all conditions**". Add the condition from the table, then **Add another condition**: *Product tag · is not equal to · `hidden`*.
-5. ⚠️ **Publishing** (right-hand card) → **Manage** → leave **only "Online Store"** ticked and untick every other channel (e.g. *Headless* or the Replit app's channel). **Save** the dialog.
+5. ⚠️ **Publishing** (right-hand card) → **Manage** → **untick every channel**, so the collection is unpublished. Before launch it must stay unpublished: publishing to Online Store would show it on kambricgoods.com. Publish it to **Online Store** on launch day.
 6. Scroll to **Search engine listing** → **Edit**. Check the URL ends in `/collections/dresses` (lowercase, matching the title). Fix the handle there if needed.
 7. Click **Save**.
-8. Check that https://kambricgoods.com/collections does **not** list the new collection. If it does, re-check step 5 and tell the developer.
+8. Check that https://kambricgoods.com/collections does **not** list the new collection. If it does, it's published somewhere: untick its channels, and tell the developer.
 
 **A2. Main menu** (`main-menu`: it already exists in every Shopify store)
 1. Go to **Content → Menus** and click **Main menu**.

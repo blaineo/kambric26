@@ -1,0 +1,13 @@
+# Batch 03 read-only snapshot: sales channels, where existing collections are published, handle availability.
+query Batch03Before {
+  shop { id myshopifyDomain }
+  publications(first: 20) { nodes { id name catalog { title } } }
+  folklore: collectionByHandle(handle: "folklore") { id resourcePublicationsV2(first: 20) { nodes { publication { id name } isPublished } } }
+  dresses: collectionByHandle(handle: "dresses") { id }
+  kaftans: collectionByHandle(handle: "kaftans") { id }
+  coats: collectionByHandle(handle: "coats") { id }
+  swimwear: collectionByHandle(handle: "swimwear") { id }
+  accessories: collectionByHandle(handle: "accessories") { id }
+  sale: collectionByHandle(handle: "sale") { id }
+  collectionsCount { count }
+}

@@ -41,11 +41,11 @@ Proposed guardrail 3 wording:
 | --- | --- | --- | --- | --- |
 | 01 ✅ | Custom-field definitions | 🟢 | Definitions `kambric.archive_label` (product), `kambric.card_image`, `kambric.header_image` (collection), `seo.hidden` (product); values: Arielle archive label "Parlor Rose", monogram `seo.hidden = 1` | `metafieldDefinitionDelete` (with its values) for each definition created; `metafieldsDelete` for the two values |
 | 02 ✅ | Collection images | 🟢 | Upload 6 images to Files; set `card_image`/`header_image` on Folklore, Psychedelics, Whimsy | `metafieldsDelete` the 6 values; `fileDelete` the 6 files |
-| 03 | Category and sale collections | 🟡 | 6 automated collections, published to **Online Store only** (by publication ID), templates `category`/`sale`, descriptions + SEO from `store-data/collection-copy.csv` | `collectionDelete` ×6 (IDs from `log.md`) |
+| 03 | Category and sale collections, **unpublished** | 🟢 (revised) | 6 automated collections with **no publications**, templates `category`/`sale`, descriptions + SEO from `store-data/collection-copy.csv`. Publishing to Online Store is 🔴 at cutover (see `03-category-collections/finding.md`) | `collectionDelete` ×6 (IDs from `log.md`) |
 | 04 | Menus | 🟢 | `main-menu`, `footer` (replace items), `footer-info`, `shop-categories` (new) | Restore `main-menu`/`footer` items from `before.json`; `menuDelete` the two new menus |
 | 05 | Search listings | 🟢 | SEO title/description on the 3 existing collections (not their Description field) | Restore previous SEO values from `before.json` |
 | 06 | URL redirects | 🟢 | 68 redirects from `redirects-draft.csv` | `urlRedirectDelete` by the IDs recorded in `log.md` |
 | 07 | Admin UI settings | 🟢 | Homepage title/description; contact-form recipients (Chrome, owner logged in) | Previous values recorded in `log.md` before editing; re-enter them |
 | 08 | Publish Kambric26 on the Shopify-hosted store | 🟢 | Theme publish (CLI) | Re-publish the previously published theme (ID recorded in `log.md`) |
 
-Batch 03 is the only 🟡 one: the live site lists every collection its own sales channel can see, so publishing to Online Store only is the safeguard, and the live diff is the proof.
+**Batch 03 revised (2026-09-28):** the live site reads the Online Store channel itself, so "Online Store only" is not a safeguard. The collections are created unpublished and published at cutover. See `03-category-collections/finding.md`.
