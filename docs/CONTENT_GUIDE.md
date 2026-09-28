@@ -218,7 +218,7 @@ Rich text in pages and journal posts is styled automatically, including **real t
 - **One card per print.** A product with a *Print* or *Colorway* option shows one card for each value, in the order listed on the product. Reorder the values to reorder the cards.
 - A product without that option shows one card, named by its **Print name** field.
 - A card's price, **Sale** badge and **Sold out** badge come from that print's sizes. It says "Sold out" only when every size of that print is gone.
-- **Which collection a print appears in:** set per print in the product's *Prints* data (`collection`). Otherwise it's the product's first collection. ⚠️ Shared with the live site: four prints still point to the old **botanicals** collection, so **Whimsy currently shows no products**. The developer's data plan fixes this.
+- **Which collection a print appears in:** normally the product's own collection (set on the product as usual). Only a product whose prints belong to *different* collections (today: **Margit**) sets it per print, in the product's *Prints* data (`collection`). ⚠️ Shared with the live site. The developer's data plan removes the old per-print settings that aren't needed, which also fixes the empty **Whimsy** page.
 - **Which photo a card shows:**
   1. Photos whose alt text is exactly the print name (e.g. `Dahlia Seed`). ⚠️ Leave these alt texts alone until launch; the live site uses them too.
   2. Otherwise, the photo assigned to that print's variants (safe to set).
