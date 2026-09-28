@@ -38,6 +38,11 @@ Parity: `product-1440/390.png`; `../liquid/html/product-{multi-print,single-prin
 - JSON-LD: extend `structured_data` output with brand, per-print `ProductGroup`/`hasVariant` (variesBy pattern/size), `BreadcrumbList`. AEO: size/fit/fabric/care as real text (`<dl>`), not images.
 - LCP: first gallery image is `priority`; the rest lazy; thumbnails sized via `sizes`.
 
+**Phase 2 status (2026-09-28): built.** `sections/main-product.liquid` (+ `templates/product.json`), `assets/component-product.js` (`<kg-product>`, `<kg-gallery>`; ~13 KB unminified), snippets `product-gallery`, `product-print-media`, `product-monogram`, `product-price`, `back-in-stock` (+ `component-back-in-stock.js`), `product-specs`. Verified on the dev theme: all product types render, one h1 and one priority image per page, ProductGroup + BreadcrumbList JSON-LD, clean canonicals, atomic garment+fee add (sold-out garment → 422, cart unchanged). Chrome pass pending.
+- **Remove before launch:** `sections/phase2-components-preview.liquid`, `templates/product.phase2-components.json`.
+- **Follow-ups:** align `print-summary` card image rule with the gallery (variant media + filename matches) so cards and galleries agree; optional `variesBy`/`url` in ProductGroup JSON-LD; visible breadcrumbs read "Home › Collection › Product" (source: "Shop · Collection · Product"), so confirm; after a print swap, `?variant=` preselects that print's first available size on reload.
+- **Store data (owner):** create product metafield definition `kambric.archive_label` (single-line text), set "Parlor Rose" on Arielle (D-22).
+
 ### Phase 3: Collection, shop and category pages
 Parity: `shop-*`, `category-*`, `collection-index-*`, `collection-*`.
 - `/collections` index with cover-image override metafield; collection page with header-image override; season/year eyebrow from `kambric.season`/`kambric.year`.

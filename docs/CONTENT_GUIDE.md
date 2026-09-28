@@ -35,7 +35,7 @@ This guide is updated with every build phase. The [change log](#change-log) at t
 | Edit **privacy policy and terms** | **Settings → Policies** | Phase 4 |
 | Change the **newsletter pop-up** image | **Customize** → Pop-up section | Phase 5 |
 | Download **newsletter subscribers** | **Customers** → filter *Email subscribed* (or the tag `newsletter`) → Export | ✅ Footer form now; pop-up Phase 5 |
-| Manage **back-in-stock requests** | To be decided (see "Open questions") | Phase 2/5 |
+| Manage **back-in-stock requests** | Requests arrive as contact-form emails; you notify customers by hand (an app can automate this later) | ✅ Phase 2 |
 | Edit **products, prices, inventory, print names/stories** | Same as today: **Products** | No change |
 
 ---
@@ -239,6 +239,56 @@ Nothing to set up. Breadcrumbs ("Home › Folklore › Arielle Slip Dress") use 
 
 ---
 
+## 3c. Product page (Phase 2)
+
+*Customize → Products → Default product.* One template serves every product: products with several prints (a **Print** or **Colorway** option), single-print products, monogrammable and sold-out products.
+
+### What you can change in the editor
+- **Section settings:** *Show breadcrumbs* (the trail is still given to search engines when hidden), *Desktop gallery layout* (one image with thumbnails, like today, or all images stacked; phones always swipe), *Show the print name on the image*.
+- **Blocks in the right-hand column** can be reordered, hidden or removed: Archive print label, Title, Price, Print swatches, Description, Print story, Divider, Sizes (optional *Size guide link*), Chainstitch monogram, Add to cart, Product details, Category and collection, plus extra **Text** blocks and app blocks. Don't remove **Sizes** or **Add to cart** unless you mean to stop sales from this page.
+
+### Where each piece of text comes from
+| On the page | Where to edit it |
+| --- | --- |
+| Title, description, price, sale price (compare-at), sizes, stock | The product and its variants in the admin ⚠️ shared with the live site |
+| "Wildflowers Archive Print" label | The active print's name. To show a fixed name instead (Arielle: **"Parlor Rose"** → "Parlor Rose Archive Print"), fill the product's new **Archive label** field (`kambric.archive_label`, single-line text). Safe: the live site doesn't read it. The developer's data plan creates the field; set it on Arielle after that. |
+| "The Wildflowers Print" story | Products with prints: that print's `story` in the product's *Prints* data (`kambric.prints`). Single-print products (and prints without a story): **Print story** (`kambric.print_story`). ⚠️ Both are shared with the live site. |
+| Category · Collection | Product type; the print's `collection` in *Prints* data, otherwise the product's first collection. |
+
+### Photos per print
+The gallery shows every photo of the selected print:
+1. photos whose **alt text is exactly the print name** (e.g. `Magnolia`); otherwise
+2. photos **assigned to that print's variants** plus photos whose **file name contains the print name** (e.g. `ArielleDress_Olive_2.jpg`); otherwise
+3. all the product's photos.
+Single-print products always show all their photos. ⚠️ Don't change product image alt text before launch; the live site groups photos with it. The first photo loads first, so put the best one first.
+
+### Links to a print
+Each print swatch links to `/products/<handle>?variant=<id>` (Shopify's own variant link), and the page opens on that print. Choosing a size updates the link, so a copied link keeps the size too. Old links such as `?print=Magnolia` still work. Search engines always see the plain `/products/<handle>` address.
+
+### Chainstitch monogram
+- Shown when the product has the tag **`monogrammable`**, the selected print is in stock, and the **Chainstitch Monogram** product (`chainstitch-monogram`, $25) is active and in stock. To offer it on a product, add the tag. To pause it everywhere, set the fee product out of stock (⚠️ shared with the live site).
+- Customers tick the box, type up to 10 characters and pick one of 10 thread colours (Black, Ivory, Gray, Brown, Red, Light pink, Sage green, Navy blue, Gold, Lavender). The garment and a separate $25 line are added together; both show the text and colour, and the fee line says which product it's for. Colours and the 10-character limit are set by the developer.
+- It needs JavaScript. Without it, the option is shown greyed out, and the plain garment can still be added.
+
+### Sold-out sizes
+Sold-out sizes are crossed out. Choosing one (or the button when every size of a print is sold out) opens the "Notify me" form (below).
+
+### "Notify me when it's back"
+When a shopper picks a sold-out size, a small form asks for their email and sends it to you through Shopify's **contact form**.
+- **Where it arrives:** your contact-form email. Change the recipients under **Settings → Notifications → Staff notifications → Contact form** (it usually defaults to the store email in *Settings → General*). Submissions aren't listed in the admin; they're only emailed.
+- **What it says:** "Please notify me when Margit One-Piece is back in stock", then the print, size, variant ID and product link.
+- **Nothing emails the customer automatically when stock returns (yet).** For now, you reply by hand. An app can take this over later without changing the page (decision D-12).
+- Shopify occasionally shows shoppers a captcha on contact forms; the form handles that by itself.
+
+### Product details (fabric, neckline, …)
+A short list of facts under the description, written as plain text that search engines and AI assistants can quote. It fills itself from the product's **Category metafields**:
+1. Open the product and set its **Product category** (e.g. *Apparel & Accessories › Clothing › Dresses*).
+2. In the **Category metafields** that appear, pick values for Fabric, Color/Pattern, Neckline, Sleeve length, Dress style, Skirt/dress length, Hemline or Outerwear features, whichever apply.
+3. Save. Only filled fields are shown; today no products have them, so the list is hidden everywhere.
+These are Shopify's standard fields, so they also improve Shopify search, filters and the Shop app. ⚠️ Product data is shared with the live site, but the live site doesn't use these fields, so filling them in is safe.
+
+---
+
 ## 4. Photos: getting the best quality and speed
 
 The new theme automatically resizes every photo for each screen size and serves modern formats (WebP/AVIF) to browsers that support them. **You don't need to resize or compress photos yourself.**
@@ -277,7 +327,6 @@ The theme adds the technical pieces automatically: page titles, descriptions, sh
 
 These are tracked as decisions in `docs/MIGRATION_PLAN.md`. They're listed here so you know they're coming:
 
-- How **back-in-stock** requests will be collected and sent (a Shopify app vs. a simpler built-in option).
 - Where the **newsletter/pop-up** emails are sent from (Shopify Email vs. another provider) and how the **WELCOME15** code is issued.
 - Whether **print swatches** (the small fabric squares) become editable in the admin.
 
@@ -287,6 +336,7 @@ These are tracked as decisions in `docs/MIGRATION_PLAN.md`. They're listed here 
 
 | Date | Phase | What changed for editors |
 | --- | --- | --- |
+| 2026-09-28 | 2: Product page | Product page blocks and settings, archive label, print photos and links, chainstitch monogram, notify-me form, product details (§3c). |
 | 2026-09-28 | 1: Global components | Blocks (heading, text, button, eyebrow, image, group), product and collection cards, print swatches, 404 page, breadcrumbs, robots.txt (§3b). |
 | 2026-09-28 | 0: Foundation (update) | Step-by-step announcement bar how-to; one-time menu setup (§3a). Announcement bar slightly darker for readability. |
 | 2026-09-28 | 0: Foundation | Announcement bar, header menu (`main-menu`), footer (brand text, menu columns `footer` and `footer-info`, newsletter heading, location), theme settings (logo, favicon, sharing image, colours, social links). Guide created. |
