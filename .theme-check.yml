@@ -3,5 +3,6 @@ extends: theme-check:recommended
 # Local-only folders that are never uploaded to Shopify.
 ignore:
   - docs/**
+  - tools/**
   - licenses/**
   - node_modules/**

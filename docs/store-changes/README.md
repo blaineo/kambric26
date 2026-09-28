@@ -1,0 +1,48 @@
+# Store-change batches (🟢/🟡 tasks from OWNER_TASKS.md)
+
+Claude runs these **only** after the owner has (1) cleared the permission gate (see "Enabling" below) and (2) approved the specific batch. Each batch lives in its own folder, `docs/store-changes/NN-name/`:
+
+| File | What it is |
+| --- | --- |
+| `plan.md` | Scope, every record touched, why it's 🟢/🟡, expected result, rollback steps |
+| `before.json` | Read-only Admin API snapshot of every record the batch touches (current values, IDs) |
+| `apply.graphql` (+ variables) | The exact mutations, reviewed before running |
+| `rollback.graphql` | Generated from `before.json`: deletes what the batch created, restores what it changed |
+| `after.json` | The same query as `before.json`, run after |
+| `log.md` | What ran, when, the IDs created, the live-site diff result |
+
+## The procedure (every batch)
+1. **Live baseline:** `tools/live_site_snapshot.py snapshot docs/store-changes/NN/live-before.json`. This reads only kambricgoods.com's public endpoints.
+2. **Store snapshot:** read-only Admin queries → `before.json`. Generate `rollback.graphql` from it **before** applying anything.
+3. **Owner approves** the batch (plan + apply + rollback reviewed).
+4. **Apply** with `shopify store execute` (mutations exactly as reviewed). Record created IDs in `log.md`.
+5. **Verify on the Shopify-hosted site** (the change did what it should) and in the Admin (`after.json`).
+6. **Live check:** wait 2 minutes (the live site refreshes on Shopify webhooks), snapshot again → `live-after.json`, then `tools/live_site_snapshot.py diff live-before.json live-after.json`.
+   - **No change** → batch done; tick the items in OWNER_TASKS.md; commit the batch folder.
+   - **Any change** → **stop**, run `rollback.graphql`, re-snapshot until the diff is clean again, and report to the owner with the diff.
+7. Batches never mix 🟢/🟡 with 🔴 work, and never touch records outside `plan.md`.
+
+The live site caches pages for up to a day, but its **JSON API** reflects Shopify changes within minutes (webhook-driven), which is why the diff uses the API rather than page HTML.
+
+## Enabling (owner steps, one time)
+Claude can't change its own permission settings, so:
+1. **Unblock the Admin CLI:** in `.claude/settings.json`, delete the line `"Bash(shopify store:*)",` from the `deny` list.
+2. **Update guardrail 3 in `CLAUDE.md`**, or tell Claude "you may edit guardrail 3 to add the batch exception" (the wording is below).
+3. **Authenticate:** run `! shopify store auth --store kambric-goods-2` (or whatever the CLI prompts) in the Claude Code prompt and complete the login in your browser. Claude never handles your password.
+
+Proposed guardrail 3 wording:
+> 3. **Store data: the owner approves every change.** By default Claude doesn't create, edit or delete store data. **Exception (owner decision 2026-09-28):** Claude may run 🟢 and 🟡 tasks from `docs/OWNER_TASKS.md`, one batch at a time, each explicitly approved by the owner, only through the process in `docs/store-changes/README.md` (snapshots, reviewed change, generated rollback, live-site diff). Any difference on kambricgoods.com → stop, roll back, report. 🔴 tasks stay owner-only.
+
+## Planned batches (none run yet)
+| # | Batch | Tier | Creates / changes | Rollback |
+| --- | --- | --- | --- | --- |
+| 01 | Custom-field definitions | 🟢 | Definitions `kambric.archive_label` (product), `kambric.card_image`, `kambric.header_image` (collection), `seo.hidden` (product); values: Arielle archive label "Parlor Rose", monogram `seo.hidden = 1` | `metafieldDefinitionDelete` (with its values) for each definition created; `metafieldsDelete` for the two values |
+| 02 | Collection images | 🟢 | Upload 6 images to Files; set `card_image`/`header_image` on Folklore, Psychedelics, Whimsy | `metafieldsDelete` the 6 values; `fileDelete` the 6 files |
+| 03 | Category and sale collections | 🟡 | 6 automated collections, published to **Online Store only** (by publication ID), templates `category`/`sale`, descriptions + SEO from `store-data/collection-copy.csv` | `collectionDelete` ×6 (IDs from `log.md`) |
+| 04 | Menus | 🟢 | `main-menu`, `footer` (replace items), `footer-info`, `shop-categories` (new) | Restore `main-menu`/`footer` items from `before.json`; `menuDelete` the two new menus |
+| 05 | Search listings | 🟢 | SEO title/description on the 3 existing collections (not their Description field) | Restore previous SEO values from `before.json` |
+| 06 | URL redirects | 🟢 | 68 redirects from `redirects-draft.csv` | `urlRedirectDelete` by the IDs recorded in `log.md` |
+| 07 | Admin UI settings | 🟢 | Homepage title/description; contact-form recipients (Chrome, owner logged in) | Previous values recorded in `log.md` before editing; re-enter them |
+| 08 | Publish Kambric26 on the Shopify-hosted store | 🟢 | Theme publish (CLI) | Re-publish the previously published theme (ID recorded in `log.md`) |
+
+Batch 03 is the only 🟡 one: the live site lists every collection its own sales channel can see, so publishing to Online Store only is the safeguard, and the live diff is the proof.
