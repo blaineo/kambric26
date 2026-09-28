@@ -30,10 +30,12 @@
   @param {string} [selected] - Selected print value (default: the first print)
   @param {string} [as] - 'button' (default) | 'link' | 'variant'
   @param {boolean} [show_label] - Show the label row (option name + selected value). Default true.
+  @param {string} [loading] - 'lazy' (default) | 'eager'. Use 'eager' where swatches are above the fold (product page) so they don't pop in.
 
   @example
   {% render 'print-swatches', product: product, selected: selected_print %}
 {% enddoc %}
+{%- assign swatch_loading = loading | default: 'lazy' -%}
 {%- liquid
   assign print_option = nil
   for option in product.options_with_values
@@ -185,7 +187,7 @@
               alt=""
               width="56"
               height="56"
-              loading="lazy"
+              loading="{{ swatch_loading }}"
               decoding="async"
             >
           {%- elsif crop_image -%}
@@ -226,7 +228,7 @@
                 width: 56,
                 height: 56,
                 srcset: nil,
-                loading: 'lazy',
+                loading: swatch_loading,
                 decoding: 'async'
             -}}
           {%- else -%}
