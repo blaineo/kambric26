@@ -1,0 +1,540 @@
+{
+  "products": {
+    "nodes": [
+      {
+        "handle": "kati-slip-dress-in-matyo-floral",
+        "productType": "Dresses",
+        "tags": [
+          "featured"
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      },
+      {
+        "handle": "jessie-slip-dress-in-twilight-plumes",
+        "productType": "Dresses",
+        "tags": [],
+        "variants": {
+          "nodes": [
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      },
+      {
+        "handle": "bodie-scarf-in-twilight-plumes",
+        "productType": "Accessories",
+        "tags": [
+          "monogrammable"
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "price": "50.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      },
+      {
+        "handle": "goldie-bandana-in-matyo-floral",
+        "productType": "Accessories",
+        "tags": [
+          "monogrammable",
+          "new-arrival"
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "price": "45.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      },
+      {
+        "handle": "chainstitch-monogram",
+        "productType": "Add-on",
+        "tags": [
+          "hidden",
+          "monogram-fee"
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "price": "25.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      },
+      {
+        "handle": "margit-one-piece",
+        "productType": "Swimwear",
+        "tags": [
+          "featured",
+          "new-arrival"
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "158.40",
+              "compareAtPrice": "198.00"
+            },
+            {
+              "price": "198.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "198.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "198.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "198.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "198.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "198.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "198.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "198.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      },
+      {
+        "handle": "zadie-linen-dress",
+        "productType": "Dresses",
+        "tags": [
+          "featured",
+          "monogrammable"
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "260.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      },
+      {
+        "handle": "esther-kaftan",
+        "productType": "Kaftans",
+        "tags": [
+          "featured"
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "price": "325.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "325.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "325.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "325.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "325.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "325.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "325.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "325.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "325.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      },
+      {
+        "handle": "vera-car-coat",
+        "productType": "Coats",
+        "tags": [
+          "featured"
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "price": "398.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "398.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "398.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "398.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "398.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "398.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "398.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "398.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "398.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      },
+      {
+        "handle": "arielle-dress",
+        "productType": "Dresses",
+        "tags": [],
+        "variants": {
+          "nodes": [
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            },
+            {
+              "price": "285.00",
+              "compareAtPrice": null
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

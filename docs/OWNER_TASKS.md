@@ -51,10 +51,8 @@ New definitions the live site doesn't read.
 
 ## B. Safe now if done exactly as written 🟡
 
-### B1. Category and sale collections: set up unpublished now 🟢, publish at cutover 🔴
-**Corrected 2026-09-28:** the live site reads collections through the **Online Store** channel (there's no separate Replit channel), so publishing a collection to Online Store makes it appear on kambricgoods.com. Details: `docs/store-changes/03-category-collections/finding.md`.
-- ☐ 🟢 Create the automated collections **Dresses, Kaftans, Coats, Swimwear, Accessories** (Product type is equal to …, plus Product tag is not equal to `hidden`) and **Sale** (Compare-at price is greater than 0, plus the `hidden` rule), **with no sales channels at all** (unpublished). Set their theme template (`category` / `sale`), descriptions and search listings (`docs/store-data/collection-copy.csv`). Claude can do this as batch 03.
-- ☐ 🔴 **At cutover:** publish them to the Online Store channel (moved to C2).
+### B1. Category and sale collections → one step at cutover
+The live site reads the **Online Store** channel (no separate Replit channel), so these can't be published early, and creating them unpublished wouldn't save meaningful work. **Decision (2026-09-28): create and publish them in one step at cutover** (C2). The script is ready and dry-run tested: `docs/store-changes/03-category-collections/` (rules verified against the live catalog read-only: Dresses 4, Kaftans 1, Coats 1, Swimwear 1, Accessories 2, Sale 1).
 - Until then, preview a category page on the Shopify-hosted site with `/collections/all?view=phase3-category-test`.
 
 ### B2. Taxonomy details for the "Product details" list (guide §3c)
@@ -70,7 +68,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 - ☐ Stop editing in the Replit `/admin`; take the final export (content, newsletter subscribers, back-in-stock requests).
 
 ### C2. Catalog and collection data (shared)
-- ☐ **Publish the category and sale collections** (created unpublished in B1) to the Online Store channel. Then add their links to the menus (A1).
+- ☐ **Category and sale collections:** Claude runs batch 03 (`apply.py --dry-run`, then `apply.py`): creates Dresses, Kaftans, Coats, Swimwear, Accessories and Sale with their templates, copy and rules, and publishes them to Online Store. Then add their links to the menus (A1) and write the Sale copy (A4).
 - ☐ **Per-print collections** (MIGRATION_PLAN §3 item 3): delete the `collection` key from Zadie's, Esther's and Vera's `kambric.prints` entries; change Margit's one `"botanicals"` to `"whimsy"`. Fixes the empty Whimsy page. *(It would fix the live site's Whimsy too, so it's the one 🔴 item you might choose to do early.)*
 - ☐ **Collection descriptions** for Folklore, Psychedelics, Whimsy: paste `description_to_set` from `docs/store-data/collection-copy.csv`.
 - ☐ **Product Category** (taxonomy) and category metafields, if deferred from B2.

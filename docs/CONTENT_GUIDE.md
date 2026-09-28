@@ -373,7 +373,7 @@ These are Shopify's standard fields, so they also improve Shopify search, filter
 | Sale | `/collections/sale` | Open the collection → *Theme template* → **sale**. |
 | Collection (Folklore, Psychedelics, Whimsy) | `/collections/folklore` … | **Default collection** (nothing to change). |
 
-⚠️ Publishing the category and sale collections is shared with the live site (it reads the same Online Store channel). Before launch they're created **unpublished**; they're published on launch day. See §3a-A1.
+⚠️ Publishing the category and sale collections is shared with the live site (it reads the same Online Store channel). The developer creates and publishes them in one step on launch day (script ready). See §3a-A1.
 
 **One section, two ways of listing: _Product listing_**
 
