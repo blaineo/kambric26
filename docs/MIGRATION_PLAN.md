@@ -29,6 +29,7 @@ Parity targets: every screenshot's header and footer; `404-*`, `contact-*` (simp
 - **Open from Phase 1:** keep the hover second image on cards (desktop only)? Card zoom uses the source values (1.05/1000ms standard, 1.04/700ms archive), not `--image-hover-scale`. Card image alt is empty (the link text names the product).
 
 ### Phase 2: Product page (highest risk)
+**Decided:** D-7 `?variant=` + `?print=` fallback · D-9 linked cart lines · D-12 native notify form · D-22 `kambric.archive_label`. Draft redirect list: `docs/redirects-draft.csv`.
 Parity: `product-1440/390.png`; `../liquid/html/product-{multi-print,single-print,arielle,monogrammable,sold-out-variant}.html`. Arielle has real `Colorway` × `Size` options: no special case.
 - **Print model** (see SHOPIFY_DATA_MAP): merged products (option `Print`/`Colorway`) vs single-print (`kambric.print_name`/`print_story`); per-print data from `kambric.prints` JSON (`story`, `collection`, `featured`, `newArrival`, `legacyId`). **⚠️ D-6, D-7, D-8, D-14**
 - Server-rendered first paint of the selected print (Liquid can't read `?print=`, so the default print is rendered and `<kg-product-form>` switches on load **without layout shift**: same-size gallery, preloaded first image). **⚠️ D-7**
@@ -136,10 +137,10 @@ Shopify URL redirects only fire when the source path would 404 in Shopify, and t
 | `/journal/{slug}` (5) | `/blogs/journal/{slug}` | redirect ×5 (no wildcards in Shopify; add one per future post, or keep new posts on /blogs only) |
 | `/products/kati-slip-dress-in-sunset-plumes` | `/products/jessie-slip-dress-in-twilight-plumes` | redirect (Shopify auto-creates these on handle change) |
 | `/collections/botanicals` | `/collections/whimsy` | redirect |
-| `/products/{old per-print handle}` (e.g. `margit-one-piece-in-dahlia-seed`; 17 draft products: margit ×8, zadie ×3, esther ×3, vera-coat ×3) | `/products/{merged handle}?print={Print}` (or the plain merged handle when the print isn't on it, e.g. Sunrise Plumes) | redirect ×17 ⚠️ verify Shopify fires redirects for handles of *draft* products (they 404 publicly); if not, archive/rename the drafts' handles first |
+| `/products/{old per-print handle}` → `?variant=` (e.g. `margit-one-piece-in-dahlia-seed`; 17 draft products: margit ×8, zadie ×3, esther ×3, vera-coat ×3) | `/products/{merged handle}?print={Print}` (or the plain merged handle when the print isn't on it, e.g. Sunrise Plumes) | redirect ×17 ⚠️ verify Shopify fires redirects for handles of *draft* products (they 404 publicly); if not, archive/rename the drafts' handles first |
 | `/products/{legacy numeric id}` (8 product IDs) | `/products/{handle}` | redirect ×8 |
-| `/products/{legacy per-print id}` (18, from `kambric.prints[].legacyId`) | `/products/{handle}?print={Print}` | redirect ×18; target query supported |
-| `/products/{handle}?print=X` | same URL; theme JS selects the print; canonical stays `/products/{handle}` | theme (D-7) |
+| `/products/{legacy per-print id}` (18, from `kambric.prints[].legacyId`) | `/products/{handle}?variant={first available variant of the print}` | redirect ×18 (D-7) |
+| `/products/{handle}?print=X` | same URL; theme JS resolves it to the print's variant; canonical stays `/products/{handle}` | theme (D-7) |
 | `/api/sitemap.xml` | `/sitemap.xml` | redirect |
 | `/admin` | `/` | redirect (optional) |
 | `www.` → apex, trailing slash, mixed case | Shopify primary-domain redirect handles www; trailing-slash/case behaviour **⚠️ to verify** | domain settings |
@@ -184,12 +185,12 @@ The final CSV is generated from `urls/redirects.csv` + `current-urls.csv` + the 
 | **D-5** | Contrast below WCAG AA | ✅ **Decided:** announcement bar darkened 6% toward cocoa (4.32 → 4.63:1); mobile "Menu" label at 70% opacity (5.4:1) | Done |
 | **D-6** | Print data model | **Keep `kambric.prints` JSON for per-product data + add `kambric_print` metaobjects for shared story/swatch** · all-metaobject · JSON only (swatches stay in theme assets) | Phase 2 |
 | **D-6b** | Events storage | **Metaobject `kambric_event`** · page blocks | Phase 4 |
-| **D-7** | Print selection URL | **Keep `?print=` (preserves 18 legacy redirects + shared links); canonical without query** · switch to native `?variant=` | Phase 2 |
+| **D-7** | Print selection URL | ✅ **Decided (2026-09-28):** cards, swatches and redirects use native `?variant=<first available variant of the print>` (server-rendered, no flash or CLS); legacy `?print=` still works via JS on load; canonical stays `/products/{handle}` | Done |
 | **D-8** | Print ↔ image mapping | **Variant media (native) for new grouping; alt text becomes descriptive after the Replit site is retired** · print metafield on media · keep alt-text matching (hurts a11y/SEO; 95 images have empty alt today) | Phase 2 |
-| **D-9** | Monogram fee linking | **Two cart lines linked by a hidden `_monogram_for` line-item property + theme-side sync** (simple; not enforced at checkout) · Cart Transform function (robust, needs a custom app) · single product with a monogram variant/option | Phase 2 |
+| **D-9** | Monogram fee linking | ✅ **Decided:** linked cart lines (garment + $25 fee line share `_monogramGroup`; one atomic `/cart/add.js` request; cart keeps them in sync). Not enforced at checkout (same as today) | Done |
 | **D-10** | Category pages | **Automated collections by product type** (`/collections/dresses`…) · `/collections/all?filter.p.product_type=` (weaker SEO). Owner creating them now (Online Store channel only) per CONTENT_GUIDE §3a-A1 | Phase 3 |
 | **D-11** | Newsletter + WELCOME15 | **Shopify customer form + Shopify Email welcome automation sending the code** · show the code on-screen (current; code is public) · third-party ESP (Klaviyo) | Phase 5 |
-| **D-12** | Back-in-stock | Lightweight app (e.g. a Shopify-built or well-reviewed notify-me app) · Klaviyo back-in-stock · drop feature | Phase 2 |
+| **D-12** | Back-in-stock | ✅ **Decided:** native "Notify me" dialog using Shopify's contact form (emails the store; owner notifies by hand); swap in an app later without changing the page | Done (app: post-launch) |
 | **D-13** | Meta Pixel | **Facebook & Instagram by Meta channel (Customer Events, no theme JS)** · custom pixel | Phase 5 |
 | **D-14** | Print swatches | **Swatch image on `kambric_print` metaobject** · theme assets keyed by print name · Shopify's native swatch (option value swatches in the admin: native, simplest if the option is linked to a metaobject/category) | Phase 2 |
 | **D-15** | Search | **Overlay using Predictive Search API + `/search` page** · `/search` page only | Phase 5 |
@@ -197,5 +198,6 @@ The final CSV is generated from `urls/redirects.csv` + `current-urls.csv` + the 
 | **D-17** | Per-print cards and pagination | **Render print cards per product; paginate by products (card count varies per page)** · combined listings (Shopify Plus only) | Phase 3 |
 | **D-18** | Dark palette from source CSS | **Drop (unused by the storefront)** · keep as tokens | Phase 1 |
 | **D-19** | `llms.txt` | **Skip for now** (Shopify can't serve root files without an app proxy; AEO is covered by structured data + clean HTML) · app proxy | Post-launch |
+| **D-22** | Archive label (e.g. Arielle's "Parlor Rose Archive Print") | ✅ **Decided:** new product metafield `kambric.archive_label` (single-line text); empty = normal label. No handle special-cases | Done (owner creates the definition) |
 | **D-21** | When to publish Kambric26 on the Shopify-hosted Online Store | ✅ **Decided:** publish once the Phase 1 shell is stable so editors can pre-load content; publish/live-push deny rules lifted until DNS cutover (restore at step 9a) | Phase 1 |
 | **D-20** | Newsletter form on the dev theme | ✅ **Decided:** test with `+test` addresses; owner deletes test customers | Done |
