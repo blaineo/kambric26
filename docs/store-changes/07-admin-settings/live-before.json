@@ -1,0 +1,5033 @@
+{
+ "/api/collections": [
+  {
+   "coverImage": null,
+   "description": "Kaleidoscopic color fields and geometric shapes",
+   "id": 451384148202,
+   "name": "Psychedelics",
+   "productCount": 2,
+   "season": "Fall 2024",
+   "slug": "psychedelics",
+   "year": 2024
+  },
+  {
+   "coverImage": null,
+   "description": "Rooted in Kati's earliest work — folk motifs, handwoven references, references to old-world textiles rendered in her unmistakable hand.",
+   "id": 451384180970,
+   "name": "Folklore",
+   "productCount": 7,
+   "season": "Spring 2024",
+   "slug": "folklore",
+   "year": 2024
+  },
+  {
+   "coverImage": null,
+   "description": "Inspiration drawn from fresh fruit on her table and advertisements in the latest women's fashion magazines to bouquets of freshly cut wildflowers in a vase.",
+   "id": 451384213738,
+   "name": "Whimsy",
+   "productCount": 2,
+   "season": "Resort 2025",
+   "slug": "whimsy",
+   "year": 2025
+  }
+ ],
+ "/api/collections/folklore": {
+  "coverImage": null,
+  "description": "Rooted in Kati's earliest work — folk motifs, handwoven references, references to old-world textiles rendered in her unmistakable hand.",
+  "id": 451384180970,
+  "name": "Folklore",
+  "products": [
+   {
+    "category": "Accessories",
+    "collectionId": 451384180970,
+    "collectionSlug": "folklore",
+    "compareAtPrice": null,
+    "description": "A classic oversized bandana cut in soft cotton voile. 26 x 26 in — works as a head tie, neck scarf, or bag charm.",
+    "handle": "goldie-bandana-in-matyo-floral",
+    "id": 8681284698346,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/KambricGoods_Lifestyle4_MatyoBandana.jpg?v=1780697659",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoBandana.jpg?v=1780697659"
+    ],
+    "inStock": true,
+    "isFeatured": false,
+    "isNewArrival": true,
+    "monogrammable": true,
+    "name": "Goldie Bandana",
+    "price": 45,
+    "printName": "Matyó Floral",
+    "printStory": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+    "prints": [
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/KambricGoods_Lifestyle4_MatyoBandana.jpg?v=1780697659",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoBandana.jpg?v=1780697659"
+      ],
+      "legacyId": 8681284698346,
+      "newArrival": true,
+      "price": 45,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/KambricGoods_Lifestyle4_MatyoBandana.jpg?v=1780697659",
+      "sizes": [
+       "One Size"
+      ],
+      "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+      "value": "Matyó Floral"
+     }
+    ],
+    "sizes": [
+     "One Size"
+    ],
+    "variants": [
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 45,
+      "print": "Matyó Floral",
+      "size": "One Size",
+      "variantId": "gid://shopify/ProductVariant/46061329285354"
+     }
+    ]
+   },
+   {
+    "category": "Dresses",
+    "collectionId": 451384180970,
+    "collectionSlug": "folklore",
+    "compareAtPrice": null,
+    "description": "A bias-cut slip dress in silk viscose. Adjustable straps, a low back. Named for Kati — the founder's grandmother and the artist behind the print.",
+    "handle": "jessie-slip-dress-in-twilight-plumes",
+    "id": 8681284305130,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1885_Original.jpg?v=1780697644",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1989_Original.jpg?v=1780697644",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDTB2_TwilightBlueSlipDress_BlueGeometric_5089_F.png?v=1780697644",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1881_Original.jpg?v=1780697645",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1951_Original.jpg?v=1780697644"
+    ],
+    "inStock": true,
+    "isFeatured": false,
+    "isNewArrival": false,
+    "monogrammable": false,
+    "name": "Jessie Slip Dress",
+    "price": 260,
+    "printName": "Twilight Plumes",
+    "printStory": "This pattern was originally set in shades of green and blue. I pulled the green, wanting something more tonal because I felt the ginkgo-like leaf pattern deserved something more moody.",
+    "prints": [
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1885_Original.jpg?v=1780697644",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1989_Original.jpg?v=1780697644",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDTB2_TwilightBlueSlipDress_BlueGeometric_5089_F.png?v=1780697644",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1881_Original.jpg?v=1780697645",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1951_Original.jpg?v=1780697644"
+      ],
+      "legacyId": 8681284305130,
+      "newArrival": false,
+      "price": 260,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1885_Original.jpg?v=1780697644",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "story": "This pattern was originally set in shades of green and blue. I pulled the green, wanting something more tonal because I felt the ginkgo-like leaf pattern deserved something more moody.",
+      "value": "Twilight Plumes"
+     }
+    ],
+    "sizes": [
+     "XS",
+     "S",
+     "M",
+     "L"
+    ],
+    "variants": [
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Twilight Plumes",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46061327581418"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Twilight Plumes",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46061327614186"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Twilight Plumes",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46061327646954"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Twilight Plumes",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46061327679722"
+     }
+    ]
+   },
+   {
+    "category": "Coats",
+    "collectionId": 451384180970,
+    "collectionSlug": "folklore",
+    "compareAtPrice": null,
+    "description": "Perfectly oversized with dropped shoulders and a 1930's menswear-inspired shawl collar, Western style back yoke detailing, deep slash pockets, and a single button closure. Brushed cotton twill, fully lined in silky viscose. Note: this style is meant to fit unstructured and a bit oversized, it does not have shoulder pads.",
+    "handle": "vera-car-coat",
+    "id": 8690544410858,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1820_Original_b3e88194-1019-4d31-8a0d-02c56c1d2114.jpg?v=1782940591",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1673_Original_e21e62cb-f0de-4bda-99bb-d74c91b77417.jpg?v=1782940591",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CCMB2_MidnightBlueCarCoat_NavyGeometric_0039_F_ca7631a0-c9ac-451c-b0d9-a3badc0a3682.jpg?v=1782940590",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1831_Original_91375e3d-76d0-4b9c-b291-f93adaa6e801.jpg?v=1782940591",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1813_Original_c0115725-78b3-48f2-a47c-227dc8bba38f.jpg?v=1782940591",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1688_Original_9d5d2440-c6bd-44d2-9d35-1298ee7232dd.jpg?v=1782940591",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1744_Original_deccc089-9b84-4989-b97c-75f9a5051c95.jpg?v=1782940591",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-05-22at12.00.55PM_f815b1b2-4c2d-4885-8c52-8237829ac9fd.png?v=1782940591",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat_2017511c-fa86-4556-9ad5-5945e327bce6.jpg?v=1782940591",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat1_b56e9c62-9c89-44d9-a557-cfb74c707c79.jpg?v=1782940591"
+    ],
+    "inStock": true,
+    "isFeatured": true,
+    "isNewArrival": false,
+    "monogrammable": false,
+    "name": "Vera Car Coat",
+    "price": 398,
+    "printName": "Midnight Plumes",
+    "printStory": "Kati's ginkgo-like leaf study was originally set in greens and blues. I pulled the greens and made this colorway the inverse of the pattern you'll find on the Jessie slip dress.",
+    "prints": [
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": true,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1820_Original_b3e88194-1019-4d31-8a0d-02c56c1d2114.jpg?v=1782940591",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1673_Original_e21e62cb-f0de-4bda-99bb-d74c91b77417.jpg?v=1782940591",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CCMB2_MidnightBlueCarCoat_NavyGeometric_0039_F_ca7631a0-c9ac-451c-b0d9-a3badc0a3682.jpg?v=1782940590",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1831_Original_91375e3d-76d0-4b9c-b291-f93adaa6e801.jpg?v=1782940591",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1813_Original_c0115725-78b3-48f2-a47c-227dc8bba38f.jpg?v=1782940591"
+      ],
+      "legacyId": 8681284010218,
+      "newArrival": false,
+      "price": 398,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1820_Original_b3e88194-1019-4d31-8a0d-02c56c1d2114.jpg?v=1782940591",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "story": "Kati's ginkgo-like leaf study was originally set in greens and blues. I pulled the greens and made this colorway the inverse of the pattern you'll find on the Jessie slip dress.",
+      "value": "Midnight Plumes"
+     },
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1688_Original_9d5d2440-c6bd-44d2-9d35-1298ee7232dd.jpg?v=1782940591",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1744_Original_deccc089-9b84-4989-b97c-75f9a5051c95.jpg?v=1782940591",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-05-22at12.00.55PM_f815b1b2-4c2d-4885-8c52-8237829ac9fd.png?v=1782940591",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat_2017511c-fa86-4556-9ad5-5945e327bce6.jpg?v=1782940591",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat1_b56e9c62-9c89-44d9-a557-cfb74c707c79.jpg?v=1782940591"
+      ],
+      "legacyId": 8681284075754,
+      "newArrival": false,
+      "price": 398,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1688_Original_9d5d2440-c6bd-44d2-9d35-1298ee7232dd.jpg?v=1782940591",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+      "value": "Matyó Floral"
+     }
+    ],
+    "sizes": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL"
+    ],
+    "variants": [
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 398,
+      "print": "Midnight Plumes",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124608225514"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 398,
+      "print": "Midnight Plumes",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124608258282"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 398,
+      "print": "Midnight Plumes",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124608291050"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 398,
+      "print": "Midnight Plumes",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124608323818"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 398,
+      "print": "Matyó Floral",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124608356586"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 398,
+      "print": "Matyó Floral",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124608389354"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 398,
+      "print": "Matyó Floral",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124608422122"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 398,
+      "print": "Matyó Floral",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124608454890"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 398,
+      "print": "Matyó Floral",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124608487658"
+     }
+    ]
+   },
+   {
+    "category": "Swimwear",
+    "collectionId": 451384148202,
+    "collectionSlug": "psychedelics",
+    "compareAtPrice": 198,
+    "description": "This suit is flattering for all. High French cut leg lines, adjustable spaghetti straps, fully lined. Recycled Nylon.",
+    "handle": "margit-one-piece",
+    "id": 8690544312554,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePieceback_c39cde71-5110-4d65-8512-75bf1b1b9d61.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPDS1_DahliaSeedOne-PieceMultiGeometric_Pink-Terracotta_0023_F.png?v=1782944364",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece3_763093f3-f39d-4ccc-9460-8682168f701f.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePieceFront_70bf7667-5bd9-4f67-adc5-901b415b8088.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMI1_MoonIllusionOne-PieceMultiGeometric_Navy-Pink_0010_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece2_7bb81075-5c70-41f0-aed2-5320fbeb23e7.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePieceBack_f19c5733-af43-43e1-abd6-317b8cd04ebc.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPGV1_GoodVibrationsOne-Piece_MultiGeometric_0027_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece_2b1591d9-d689-4449-8338-606fdbeff09f.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskFront_99593593-f53c-4106-870e-8bc76421f5e7.jpg?v=1782940575",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPPA1_PastelAsteriskOne-PieceLavenderGeometric_0019_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskOnePieceBack_c94f88fc-3288-444b-a8ae-5c0cc4f41d9d.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskSide_2bcf90bc-3a03-4adc-8aa3-56dcb380a84b.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceFront_7b22f9a2-5827-452b-9929-426a6a241bba.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePiece_c7c11fb0-5092-4bfe-967d-1f8a95dd6138.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPOA1_OrangeAsteriskOne-piece_OrangeGeometric_0015_F.png?v=1782965972",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceBack_02855ccf-c5bb-4f41-b3d0-6ea339c77d4a.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceFront_4283a97f-4ecc-4a79-80c5-75bcd1a464cf.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMG1_MagnoliaOne-PieceMultiFloral_Red-Teal-Black_5083_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia2_a4fdc444-439f-4884-9f8a-6aa099969122.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia3_87206b67-aa69-4d11-8475-51e998da7da2.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/AFD67F94-07C7-4C1B-A03B-4A33EC0B4EE4_61c35a4b-ee4f-4766-a81b-dfc6d7e5a592.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.32_AM_7ad5c46a-8cbc-4bda-baa6-b0b5f2ae663a.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlowersFlatLay_2f7f7005-a10a-4251-ade2-deba7293c624.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.11_AM_2e2e48dd-d60d-4b8b-8ea8-45854a0d2795.png?v=1782940574"
+    ],
+    "inStock": true,
+    "isFeatured": true,
+    "isNewArrival": true,
+    "monogrammable": false,
+    "name": "Margit One-Piece",
+    "price": 158.4,
+    "printName": "Dahlia Seed",
+    "printStory": "Floral in nature, but geometric and popping with color.",
+    "prints": [
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": true,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePieceback_c39cde71-5110-4d65-8512-75bf1b1b9d61.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPDS1_DahliaSeedOne-PieceMultiGeometric_Pink-Terracotta_0023_F.png?v=1782944364"
+      ],
+      "legacyId": 8681284370666,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "Floral in nature, but geometric and popping with color.",
+      "value": "Dahlia Seed"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece3_763093f3-f39d-4ccc-9460-8682168f701f.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePieceFront_70bf7667-5bd9-4f67-adc5-901b415b8088.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMI1_MoonIllusionOne-PieceMultiGeometric_Navy-Pink_0010_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece2_7bb81075-5c70-41f0-aed2-5320fbeb23e7.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284403434,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "A nod to the vibrating patterns found in Op Art of the 1960's.",
+      "value": "Moon Illusion"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePieceBack_f19c5733-af43-43e1-abd6-317b8cd04ebc.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPGV1_GoodVibrationsOne-Piece_MultiGeometric_0027_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece_2b1591d9-d689-4449-8338-606fdbeff09f.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284436202,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "One of Kati's most joyful prints. The radiating forms feel less like a pattern and more like a mood.",
+      "value": "Good Vibrations"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskFront_99593593-f53c-4106-870e-8bc76421f5e7.jpg?v=1782940575",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPPA1_PastelAsteriskOne-PieceLavenderGeometric_0019_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskOnePieceBack_c94f88fc-3288-444b-a8ae-5c0cc4f41d9d.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskSide_2bcf90bc-3a03-4adc-8aa3-56dcb380a84b.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284468970,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "A sunburst repeat as seen through a kaleidescope. Kati originally painted the asterisk form in the vibrant orange, rust and yellow colorway. I added this lavender colorway for a more modern and refreshed offering.",
+      "value": "Pastel Asterisk"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceFront_7b22f9a2-5827-452b-9929-426a6a241bba.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePiece_c7c11fb0-5092-4bfe-967d-1f8a95dd6138.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPOA1_OrangeAsteriskOne-piece_OrangeGeometric_0015_F.png?v=1782965972",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceBack_02855ccf-c5bb-4f41-b3d0-6ea339c77d4a.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284501738,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "The same asterisk form, in its original color 1970s palette.",
+      "value": "Orange Asterisk"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceFront_4283a97f-4ecc-4a79-80c5-75bcd1a464cf.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMG1_MagnoliaOne-PieceMultiFloral_Red-Teal-Black_5083_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia2_a4fdc444-439f-4884-9f8a-6aa099969122.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia3_87206b67-aa69-4d11-8475-51e998da7da2.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284534506,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "Not a straight forward floral. Look closely and you'll find hidden hearts in the pattern.",
+      "value": "Magnolia"
+     },
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/AFD67F94-07C7-4C1B-A03B-4A33EC0B4EE4_61c35a4b-ee4f-4766-a81b-dfc6d7e5a592.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.32_AM_7ad5c46a-8cbc-4bda-baa6-b0b5f2ae663a.png?v=1782940574"
+      ],
+      "legacyId": 8681285058794,
+      "newArrival": true,
+      "price": 198,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+      "value": "Matyó Floral"
+     },
+     {
+      "available": true,
+      "collectionId": null,
+      "collectionSlug": "botanicals",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlowersFlatLay_2f7f7005-a10a-4251-ade2-deba7293c624.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.11_AM_2e2e48dd-d60d-4b8b-8ea8-45854a0d2795.png?v=1782940574"
+      ],
+      "legacyId": 8681285091562,
+      "newArrival": true,
+      "price": 198,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "story": "Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.",
+      "value": "Wildflowers"
+     }
+    ],
+    "sizes": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "variants": [
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124605898986"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124605931754"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124605964522"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124605997290"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606030058"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606062826"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606095594"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606128362"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606161130"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606193898"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606226666"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606259434"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606292202"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606324970"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606357738"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606390506"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606423274"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606456042"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606488810"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606521578"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606554346"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606587114"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606619882"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606652650"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606685418"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606718186"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606750954"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606783722"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606816490"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606849258"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606882026"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606914794"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606947562"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606980330"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124607013098"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124607045866"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124607078634"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124607111402"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124607144170"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124607176938"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124607209706"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124607242474"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124607275242"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124607308010"
+     }
+    ]
+   },
+   {
+    "category": "Dresses",
+    "collectionId": 451384180970,
+    "collectionSlug": "folklore",
+    "compareAtPrice": null,
+    "description": "Introducing a new print from the archive, Parlor Rose in two gorgeous colorways for autumn. The perfect layering piece for fall. 100% silk slip dress with squared off neckline, low V-back and adjustable spaghetti straps. Unlined. Please allow 3 weeks for shipping as this item will be made to order.",
+    "handle": "arielle-dress",
+    "id": 8721345642730,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_Teasels.png?v=1788214682",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_2.jpg?v=1787854630",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_1.jpg?v=1787854629",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_3.jpg?v=1787854629",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Rose_Column_Border_Print.png?v=1788198734",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_Teasels.png?v=1788214767",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_2.jpg?v=1788198608",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_1.jpg?v=1788198607",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_3.jpg?v=1788198607",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Rose_Column_Border_Print_1_be63dc55-870c-4e67-ae7d-6556f969a180.png?v=1788199059"
+    ],
+    "inStock": true,
+    "isFeatured": false,
+    "isNewArrival": false,
+    "monogrammable": false,
+    "name": "Arielle Slip Dress",
+    "price": 285,
+    "printName": "Terracotta",
+    "printStory": null,
+    "prints": [
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_Teasels.png?v=1788214767",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_2.jpg?v=1788198608",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_1.jpg?v=1788198607",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_3.jpg?v=1788198607"
+      ],
+      "legacyId": null,
+      "newArrival": false,
+      "price": 285,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_Teasels.png?v=1788214767",
+      "sizes": [
+       "2XS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL"
+      ],
+      "story": null,
+      "value": "Terracotta"
+     },
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_Teasels.png?v=1788214682",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_2.jpg?v=1787854630",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_1.jpg?v=1787854629",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_3.jpg?v=1787854629"
+      ],
+      "legacyId": null,
+      "newArrival": false,
+      "price": 285,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_Teasels.png?v=1788214682",
+      "sizes": [
+       "2XS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL"
+      ],
+      "story": null,
+      "value": "Olive"
+     }
+    ],
+    "sizes": [
+     "2XS",
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "2XL"
+    ],
+    "variants": [
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Terracotta",
+      "size": "2XS",
+      "variantId": "gid://shopify/ProductVariant/46221445628138"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Terracotta",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46221533315306"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Terracotta",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46221533348074"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Terracotta",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46221533380842"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Terracotta",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46221533413610"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Terracotta",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46221533446378"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Terracotta",
+      "size": "2XL",
+      "variantId": "gid://shopify/ProductVariant/46221533479146"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Olive",
+      "size": "2XS",
+      "variantId": "gid://shopify/ProductVariant/46221445660906"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Olive",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46221533511914"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Olive",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46221533544682"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Olive",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46221533577450"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Olive",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46221533610218"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Olive",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46221533642986"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 285,
+      "print": "Olive",
+      "size": "2XL",
+      "variantId": "gid://shopify/ProductVariant/46221533675754"
+     }
+    ]
+   },
+   {
+    "category": "Accessories",
+    "collectionId": 451384180970,
+    "collectionSlug": "folklore",
+    "compareAtPrice": null,
+    "description": "A large square scarf in a silk-cotton voile. Light enough to float, substantial enough to hold a knot. 26 x 26 in.",
+    "handle": "bodie-scarf-in-twilight-plumes",
+    "id": 8681284665578,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1900_Original.jpg?v=1780697658",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF2023_Original.jpg?v=1780697657",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1931_Original.jpg?v=1780697658"
+    ],
+    "inStock": true,
+    "isFeatured": false,
+    "isNewArrival": false,
+    "monogrammable": true,
+    "name": "Bodie Scarf",
+    "price": 50,
+    "printName": "Twilight Plumes",
+    "printStory": "This pattern was originally set in shades of green and blue. I pulled the green, wanting something more tonal because I felt the ginkgo-like leaf pattern deserved something more moody.",
+    "prints": [
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1900_Original.jpg?v=1780697658",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF2023_Original.jpg?v=1780697657",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1931_Original.jpg?v=1780697658"
+      ],
+      "legacyId": 8681284665578,
+      "newArrival": false,
+      "price": 50,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1900_Original.jpg?v=1780697658",
+      "sizes": [
+       "One Size"
+      ],
+      "story": "This pattern was originally set in shades of green and blue. I pulled the green, wanting something more tonal because I felt the ginkgo-like leaf pattern deserved something more moody.",
+      "value": "Twilight Plumes"
+     }
+    ],
+    "sizes": [
+     "One Size"
+    ],
+    "variants": [
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 50,
+      "print": "Twilight Plumes",
+      "size": "One Size",
+      "variantId": "gid://shopify/ProductVariant/46061329252586"
+     }
+    ]
+   },
+   {
+    "category": "Dresses",
+    "collectionId": 451384180970,
+    "collectionSlug": "folklore",
+    "compareAtPrice": null,
+    "description": "A bias-cut slip dress in silk viscose. Adjustable straps, a low back. Named for the founder's grandmother and the artist behind the prints.",
+    "handle": "kati-slip-dress-in-matyo-floral",
+    "id": 8681284272362,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1769_Original.jpg?v=1780697643",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0097.jpg?v=1780697643",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDMF1_MatyoFloralSlipDress_RedFloral_5085_F.png?v=1780697643",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0121.jpg?v=1780697643",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0187.jpg?v=1780697643",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress1.jpg?v=1780697642",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress2.jpg?v=1780697642",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress3.jpg?v=1780697642"
+    ],
+    "inStock": true,
+    "isFeatured": true,
+    "isNewArrival": false,
+    "monogrammable": false,
+    "name": "Kati Slip Dress",
+    "price": 260,
+    "printName": "Matyó Floral",
+    "printStory": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+    "prints": [
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": true,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1769_Original.jpg?v=1780697643",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0097.jpg?v=1780697643",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDMF1_MatyoFloralSlipDress_RedFloral_5085_F.png?v=1780697643",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0121.jpg?v=1780697643",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0187.jpg?v=1780697643",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress1.jpg?v=1780697642",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress2.jpg?v=1780697642",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress3.jpg?v=1780697642"
+      ],
+      "legacyId": 8681284272362,
+      "newArrival": false,
+      "price": 260,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1769_Original.jpg?v=1780697643",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ],
+      "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+      "value": "Matyó Floral"
+     }
+    ],
+    "sizes": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL"
+    ],
+    "variants": [
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Matyó Floral",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46061327450346"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Matyó Floral",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46061327483114"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Matyó Floral",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46061327515882"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Matyó Floral",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46061327548650"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Matyó Floral",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46212197056746"
+     }
+    ]
+   }
+  ],
+  "season": "Spring 2024",
+  "slug": "folklore",
+  "year": 2024
+ },
+ "/api/collections/psychedelics": {
+  "coverImage": null,
+  "description": "Kaleidoscopic color fields and geometric shapes",
+  "id": 451384148202,
+  "name": "Psychedelics",
+  "products": [
+   {
+    "category": "Swimwear",
+    "collectionId": 451384148202,
+    "collectionSlug": "psychedelics",
+    "compareAtPrice": 198,
+    "description": "This suit is flattering for all. High French cut leg lines, adjustable spaghetti straps, fully lined. Recycled Nylon.",
+    "handle": "margit-one-piece",
+    "id": 8690544312554,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePieceback_c39cde71-5110-4d65-8512-75bf1b1b9d61.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPDS1_DahliaSeedOne-PieceMultiGeometric_Pink-Terracotta_0023_F.png?v=1782944364",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece3_763093f3-f39d-4ccc-9460-8682168f701f.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePieceFront_70bf7667-5bd9-4f67-adc5-901b415b8088.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMI1_MoonIllusionOne-PieceMultiGeometric_Navy-Pink_0010_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece2_7bb81075-5c70-41f0-aed2-5320fbeb23e7.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePieceBack_f19c5733-af43-43e1-abd6-317b8cd04ebc.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPGV1_GoodVibrationsOne-Piece_MultiGeometric_0027_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece_2b1591d9-d689-4449-8338-606fdbeff09f.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskFront_99593593-f53c-4106-870e-8bc76421f5e7.jpg?v=1782940575",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPPA1_PastelAsteriskOne-PieceLavenderGeometric_0019_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskOnePieceBack_c94f88fc-3288-444b-a8ae-5c0cc4f41d9d.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskSide_2bcf90bc-3a03-4adc-8aa3-56dcb380a84b.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceFront_7b22f9a2-5827-452b-9929-426a6a241bba.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePiece_c7c11fb0-5092-4bfe-967d-1f8a95dd6138.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPOA1_OrangeAsteriskOne-piece_OrangeGeometric_0015_F.png?v=1782965972",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceBack_02855ccf-c5bb-4f41-b3d0-6ea339c77d4a.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceFront_4283a97f-4ecc-4a79-80c5-75bcd1a464cf.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMG1_MagnoliaOne-PieceMultiFloral_Red-Teal-Black_5083_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia2_a4fdc444-439f-4884-9f8a-6aa099969122.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia3_87206b67-aa69-4d11-8475-51e998da7da2.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/AFD67F94-07C7-4C1B-A03B-4A33EC0B4EE4_61c35a4b-ee4f-4766-a81b-dfc6d7e5a592.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.32_AM_7ad5c46a-8cbc-4bda-baa6-b0b5f2ae663a.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlowersFlatLay_2f7f7005-a10a-4251-ade2-deba7293c624.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.11_AM_2e2e48dd-d60d-4b8b-8ea8-45854a0d2795.png?v=1782940574"
+    ],
+    "inStock": true,
+    "isFeatured": true,
+    "isNewArrival": true,
+    "monogrammable": false,
+    "name": "Margit One-Piece",
+    "price": 158.4,
+    "printName": "Dahlia Seed",
+    "printStory": "Floral in nature, but geometric and popping with color.",
+    "prints": [
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": true,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePieceback_c39cde71-5110-4d65-8512-75bf1b1b9d61.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPDS1_DahliaSeedOne-PieceMultiGeometric_Pink-Terracotta_0023_F.png?v=1782944364"
+      ],
+      "legacyId": 8681284370666,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "Floral in nature, but geometric and popping with color.",
+      "value": "Dahlia Seed"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece3_763093f3-f39d-4ccc-9460-8682168f701f.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePieceFront_70bf7667-5bd9-4f67-adc5-901b415b8088.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMI1_MoonIllusionOne-PieceMultiGeometric_Navy-Pink_0010_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece2_7bb81075-5c70-41f0-aed2-5320fbeb23e7.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284403434,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "A nod to the vibrating patterns found in Op Art of the 1960's.",
+      "value": "Moon Illusion"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePieceBack_f19c5733-af43-43e1-abd6-317b8cd04ebc.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPGV1_GoodVibrationsOne-Piece_MultiGeometric_0027_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece_2b1591d9-d689-4449-8338-606fdbeff09f.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284436202,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "One of Kati's most joyful prints. The radiating forms feel less like a pattern and more like a mood.",
+      "value": "Good Vibrations"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskFront_99593593-f53c-4106-870e-8bc76421f5e7.jpg?v=1782940575",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPPA1_PastelAsteriskOne-PieceLavenderGeometric_0019_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskOnePieceBack_c94f88fc-3288-444b-a8ae-5c0cc4f41d9d.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskSide_2bcf90bc-3a03-4adc-8aa3-56dcb380a84b.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284468970,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "A sunburst repeat as seen through a kaleidescope. Kati originally painted the asterisk form in the vibrant orange, rust and yellow colorway. I added this lavender colorway for a more modern and refreshed offering.",
+      "value": "Pastel Asterisk"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceFront_7b22f9a2-5827-452b-9929-426a6a241bba.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePiece_c7c11fb0-5092-4bfe-967d-1f8a95dd6138.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPOA1_OrangeAsteriskOne-piece_OrangeGeometric_0015_F.png?v=1782965972",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceBack_02855ccf-c5bb-4f41-b3d0-6ea339c77d4a.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284501738,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "The same asterisk form, in its original color 1970s palette.",
+      "value": "Orange Asterisk"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceFront_4283a97f-4ecc-4a79-80c5-75bcd1a464cf.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMG1_MagnoliaOne-PieceMultiFloral_Red-Teal-Black_5083_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia2_a4fdc444-439f-4884-9f8a-6aa099969122.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia3_87206b67-aa69-4d11-8475-51e998da7da2.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284534506,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "Not a straight forward floral. Look closely and you'll find hidden hearts in the pattern.",
+      "value": "Magnolia"
+     },
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/AFD67F94-07C7-4C1B-A03B-4A33EC0B4EE4_61c35a4b-ee4f-4766-a81b-dfc6d7e5a592.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.32_AM_7ad5c46a-8cbc-4bda-baa6-b0b5f2ae663a.png?v=1782940574"
+      ],
+      "legacyId": 8681285058794,
+      "newArrival": true,
+      "price": 198,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+      "value": "Matyó Floral"
+     },
+     {
+      "available": true,
+      "collectionId": null,
+      "collectionSlug": "botanicals",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlowersFlatLay_2f7f7005-a10a-4251-ade2-deba7293c624.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.11_AM_2e2e48dd-d60d-4b8b-8ea8-45854a0d2795.png?v=1782940574"
+      ],
+      "legacyId": 8681285091562,
+      "newArrival": true,
+      "price": 198,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "story": "Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.",
+      "value": "Wildflowers"
+     }
+    ],
+    "sizes": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "variants": [
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124605898986"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124605931754"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124605964522"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124605997290"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606030058"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606062826"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606095594"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606128362"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606161130"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606193898"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606226666"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606259434"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606292202"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606324970"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606357738"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606390506"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606423274"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606456042"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606488810"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606521578"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606554346"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606587114"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606619882"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606652650"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606685418"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606718186"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606750954"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606783722"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606816490"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606849258"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606882026"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606914794"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606947562"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606980330"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124607013098"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124607045866"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124607078634"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124607111402"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124607144170"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124607176938"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124607209706"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124607242474"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124607275242"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124607308010"
+     }
+    ]
+   },
+   {
+    "category": "Kaftans",
+    "collectionId": 451384148202,
+    "collectionSlug": "psychedelics",
+    "compareAtPrice": null,
+    "description": null,
+    "handle": "esther-kaftan",
+    "id": 8690544378090,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftans_a5943aac-fdb0-4309-8912-2c92da3ab856.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansClose_f9a9d25f-ab5e-43ff-b9b1-dbba12f08cc2.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansFront_c3558e80-11e8-4d11-b9bb-35ddad2307a4.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansSide_e45c1a83-63f2-4b6e-9429-30b46617bf81.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2983_fef16c12-12d7-499f-a36e-7b9d59a519d3.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_3011_901eeac1-a51f-4c92-8b88-12036581f941.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0242_3ee9d123-5607-40f4-b3a0-63bfb0930e75.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan_80f0ecd1-73ed-4e46-a020-6b3bc00ba0bc.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan1_3f6f0ff3-ac73-4186-a0a2-7ec5be3feb77.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan2_8ac6487b-a889-4492-81ab-2da793860f4e.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan1_55dcd6d1-1ab9-4581-bac4-1d4d0ec9c602.jpg?v=1782940587",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan2_b62ab077-ed22-4286-b7fa-7c7299ce2466.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan3_a38abd56-f13e-4033-baf1-80d2d3265490.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftanBack_cefa9085-7a47-4503-9507-943d1b1a4b01.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0419_4a9cee0f-668d-4e17-97e3-0dbb4cfd2103.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0332_6e22013f-81a5-460a-9c87-9d4aa8f95f56.jpg?v=1782940586",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2864_3ad51d98-e353-4b78-9f1e-d1ee96b5a8f6.jpg?v=1782940586"
+    ],
+    "inStock": true,
+    "isFeatured": true,
+    "isNewArrival": false,
+    "monogrammable": false,
+    "name": "Esther Kaftan",
+    "price": 325,
+    "printName": "Good Vibrations",
+    "printStory": "One of Kati's most joyful prints. The radiating forms feel less like a pattern and more like a mood.",
+    "prints": [
+     {
+      "available": false,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": null,
+      "featured": true,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftans_a5943aac-fdb0-4309-8912-2c92da3ab856.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansClose_f9a9d25f-ab5e-43ff-b9b1-dbba12f08cc2.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansFront_c3558e80-11e8-4d11-b9bb-35ddad2307a4.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansSide_e45c1a83-63f2-4b6e-9429-30b46617bf81.jpg?v=1782940586"
+      ],
+      "legacyId": 8681284567274,
+      "newArrival": false,
+      "price": 325,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftans_a5943aac-fdb0-4309-8912-2c92da3ab856.jpg?v=1782940586",
+      "sizes": [
+       "XS/S",
+       "M/L",
+       "XL"
+      ],
+      "story": "One of Kati's most joyful prints. The radiating forms feel less like a pattern and more like a mood.",
+      "value": "Good Vibrations"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2983_fef16c12-12d7-499f-a36e-7b9d59a519d3.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_3011_901eeac1-a51f-4c92-8b88-12036581f941.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0242_3ee9d123-5607-40f4-b3a0-63bfb0930e75.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan_80f0ecd1-73ed-4e46-a020-6b3bc00ba0bc.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan1_3f6f0ff3-ac73-4186-a0a2-7ec5be3feb77.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan2_8ac6487b-a889-4492-81ab-2da793860f4e.jpg?v=1782940586"
+      ],
+      "legacyId": 8681284600042,
+      "newArrival": false,
+      "price": 325,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2983_fef16c12-12d7-499f-a36e-7b9d59a519d3.jpg?v=1782940586",
+      "sizes": [
+       "XS/S",
+       "M/L",
+       "XL"
+      ],
+      "story": "Floral in nature, but geometric and popping with color.",
+      "value": "Dahlia Seed"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan1_55dcd6d1-1ab9-4581-bac4-1d4d0ec9c602.jpg?v=1782940587",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan2_b62ab077-ed22-4286-b7fa-7c7299ce2466.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan3_a38abd56-f13e-4033-baf1-80d2d3265490.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftanBack_cefa9085-7a47-4503-9507-943d1b1a4b01.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0419_4a9cee0f-668d-4e17-97e3-0dbb4cfd2103.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0332_6e22013f-81a5-460a-9c87-9d4aa8f95f56.jpg?v=1782940586",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2864_3ad51d98-e353-4b78-9f1e-d1ee96b5a8f6.jpg?v=1782940586"
+      ],
+      "legacyId": 8681284632810,
+      "newArrival": false,
+      "price": 325,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan1_55dcd6d1-1ab9-4581-bac4-1d4d0ec9c602.jpg?v=1782940587",
+      "sizes": [
+       "XS/S",
+       "M/L",
+       "XL"
+      ],
+      "story": "Not a straight forward floral. Look closely and you'll find hidden hearts in the pattern.",
+      "value": "Magnolia"
+     }
+    ],
+    "sizes": [
+     "XS/S",
+     "M/L",
+     "XL"
+    ],
+    "variants": [
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 325,
+      "print": "Good Vibrations",
+      "size": "XS/S",
+      "variantId": "gid://shopify/ProductVariant/46124607930602"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 325,
+      "print": "Good Vibrations",
+      "size": "M/L",
+      "variantId": "gid://shopify/ProductVariant/46124607963370"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 325,
+      "print": "Good Vibrations",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124607996138"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 325,
+      "print": "Dahlia Seed",
+      "size": "XS/S",
+      "variantId": "gid://shopify/ProductVariant/46124608028906"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 325,
+      "print": "Dahlia Seed",
+      "size": "M/L",
+      "variantId": "gid://shopify/ProductVariant/46124608061674"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 325,
+      "print": "Dahlia Seed",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124608094442"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 325,
+      "print": "Magnolia",
+      "size": "XS/S",
+      "variantId": "gid://shopify/ProductVariant/46124608127210"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 325,
+      "print": "Magnolia",
+      "size": "M/L",
+      "variantId": "gid://shopify/ProductVariant/46124608159978"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 325,
+      "print": "Magnolia",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124608192746"
+     }
+    ]
+   }
+  ],
+  "season": "Fall 2024",
+  "slug": "psychedelics",
+  "year": 2024
+ },
+ "/api/collections/whimsy": {
+  "coverImage": null,
+  "description": "Inspiration drawn from fresh fruit on her table and advertisements in the latest women's fashion magazines to bouquets of freshly cut wildflowers in a vase.",
+  "id": 451384213738,
+  "name": "Whimsy",
+  "products": [
+   {
+    "category": "Swimwear",
+    "collectionId": 451384148202,
+    "collectionSlug": "psychedelics",
+    "compareAtPrice": 198,
+    "description": "This suit is flattering for all. High French cut leg lines, adjustable spaghetti straps, fully lined. Recycled Nylon.",
+    "handle": "margit-one-piece",
+    "id": 8690544312554,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePieceback_c39cde71-5110-4d65-8512-75bf1b1b9d61.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPDS1_DahliaSeedOne-PieceMultiGeometric_Pink-Terracotta_0023_F.png?v=1782944364",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece3_763093f3-f39d-4ccc-9460-8682168f701f.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePieceFront_70bf7667-5bd9-4f67-adc5-901b415b8088.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMI1_MoonIllusionOne-PieceMultiGeometric_Navy-Pink_0010_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece2_7bb81075-5c70-41f0-aed2-5320fbeb23e7.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePieceBack_f19c5733-af43-43e1-abd6-317b8cd04ebc.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPGV1_GoodVibrationsOne-Piece_MultiGeometric_0027_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece_2b1591d9-d689-4449-8338-606fdbeff09f.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskFront_99593593-f53c-4106-870e-8bc76421f5e7.jpg?v=1782940575",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPPA1_PastelAsteriskOne-PieceLavenderGeometric_0019_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskOnePieceBack_c94f88fc-3288-444b-a8ae-5c0cc4f41d9d.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskSide_2bcf90bc-3a03-4adc-8aa3-56dcb380a84b.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceFront_7b22f9a2-5827-452b-9929-426a6a241bba.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePiece_c7c11fb0-5092-4bfe-967d-1f8a95dd6138.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPOA1_OrangeAsteriskOne-piece_OrangeGeometric_0015_F.png?v=1782965972",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceBack_02855ccf-c5bb-4f41-b3d0-6ea339c77d4a.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceFront_4283a97f-4ecc-4a79-80c5-75bcd1a464cf.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMG1_MagnoliaOne-PieceMultiFloral_Red-Teal-Black_5083_F.png?v=1782965971",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia2_a4fdc444-439f-4884-9f8a-6aa099969122.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia3_87206b67-aa69-4d11-8475-51e998da7da2.jpg?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/AFD67F94-07C7-4C1B-A03B-4A33EC0B4EE4_61c35a4b-ee4f-4766-a81b-dfc6d7e5a592.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.32_AM_7ad5c46a-8cbc-4bda-baa6-b0b5f2ae663a.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlowersFlatLay_2f7f7005-a10a-4251-ade2-deba7293c624.png?v=1782940574",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.11_AM_2e2e48dd-d60d-4b8b-8ea8-45854a0d2795.png?v=1782940574"
+    ],
+    "inStock": true,
+    "isFeatured": true,
+    "isNewArrival": true,
+    "monogrammable": false,
+    "name": "Margit One-Piece",
+    "price": 158.4,
+    "printName": "Dahlia Seed",
+    "printStory": "Floral in nature, but geometric and popping with color.",
+    "prints": [
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": true,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePieceback_c39cde71-5110-4d65-8512-75bf1b1b9d61.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPDS1_DahliaSeedOne-PieceMultiGeometric_Pink-Terracotta_0023_F.png?v=1782944364"
+      ],
+      "legacyId": 8681284370666,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "Floral in nature, but geometric and popping with color.",
+      "value": "Dahlia Seed"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece3_763093f3-f39d-4ccc-9460-8682168f701f.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePieceFront_70bf7667-5bd9-4f67-adc5-901b415b8088.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMI1_MoonIllusionOne-PieceMultiGeometric_Navy-Pink_0010_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece2_7bb81075-5c70-41f0-aed2-5320fbeb23e7.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284403434,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "A nod to the vibrating patterns found in Op Art of the 1960's.",
+      "value": "Moon Illusion"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePieceBack_f19c5733-af43-43e1-abd6-317b8cd04ebc.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPGV1_GoodVibrationsOne-Piece_MultiGeometric_0027_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece_2b1591d9-d689-4449-8338-606fdbeff09f.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284436202,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "One of Kati's most joyful prints. The radiating forms feel less like a pattern and more like a mood.",
+      "value": "Good Vibrations"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskFront_99593593-f53c-4106-870e-8bc76421f5e7.jpg?v=1782940575",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPPA1_PastelAsteriskOne-PieceLavenderGeometric_0019_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskOnePieceBack_c94f88fc-3288-444b-a8ae-5c0cc4f41d9d.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskSide_2bcf90bc-3a03-4adc-8aa3-56dcb380a84b.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284468970,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "A sunburst repeat as seen through a kaleidescope. Kati originally painted the asterisk form in the vibrant orange, rust and yellow colorway. I added this lavender colorway for a more modern and refreshed offering.",
+      "value": "Pastel Asterisk"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceFront_7b22f9a2-5827-452b-9929-426a6a241bba.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePiece_c7c11fb0-5092-4bfe-967d-1f8a95dd6138.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPOA1_OrangeAsteriskOne-piece_OrangeGeometric_0015_F.png?v=1782965972",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceBack_02855ccf-c5bb-4f41-b3d0-6ea339c77d4a.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284501738,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "The same asterisk form, in its original color 1970s palette.",
+      "value": "Orange Asterisk"
+     },
+     {
+      "available": true,
+      "collectionId": 451384148202,
+      "collectionSlug": "psychedelics",
+      "compareAtPrice": 198,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceFront_4283a97f-4ecc-4a79-80c5-75bcd1a464cf.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMG1_MagnoliaOne-PieceMultiFloral_Red-Teal-Black_5083_F.png?v=1782965971",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia2_a4fdc444-439f-4884-9f8a-6aa099969122.jpg?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia3_87206b67-aa69-4d11-8475-51e998da7da2.jpg?v=1782940574"
+      ],
+      "legacyId": 8681284534506,
+      "newArrival": false,
+      "price": 158.4,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "Not a straight forward floral. Look closely and you'll find hidden hearts in the pattern.",
+      "value": "Magnolia"
+     },
+     {
+      "available": true,
+      "collectionId": 451384180970,
+      "collectionSlug": "folklore",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/AFD67F94-07C7-4C1B-A03B-4A33EC0B4EE4_61c35a4b-ee4f-4766-a81b-dfc6d7e5a592.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.32_AM_7ad5c46a-8cbc-4bda-baa6-b0b5f2ae663a.png?v=1782940574"
+      ],
+      "legacyId": 8681285058794,
+      "newArrival": true,
+      "price": 198,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+      "value": "Matyó Floral"
+     },
+     {
+      "available": true,
+      "collectionId": null,
+      "collectionSlug": "botanicals",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlowersFlatLay_2f7f7005-a10a-4251-ade2-deba7293c624.png?v=1782940574",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.11_AM_2e2e48dd-d60d-4b8b-8ea8-45854a0d2795.png?v=1782940574"
+      ],
+      "legacyId": 8681285091562,
+      "newArrival": true,
+      "price": 198,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ],
+      "story": "Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.",
+      "value": "Wildflowers"
+     }
+    ],
+    "sizes": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "variants": [
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124605898986"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124605931754"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124605964522"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124605997290"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606030058"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Dahlia Seed",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606062826"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606095594"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606128362"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606161130"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606193898"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606226666"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Moon Illusion",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606259434"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606292202"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606324970"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606357738"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606390506"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606423274"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Good Vibrations",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606456042"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606488810"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606521578"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606554346"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606587114"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606619882"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Pastel Asterisk",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606652650"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606685418"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606718186"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606750954"
+     },
+     {
+      "available": false,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606783722"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124606816490"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Orange Asterisk",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124606849258"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124606882026"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124606914794"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124606947562"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124606980330"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124607013098"
+     },
+     {
+      "available": true,
+      "compareAtPrice": 198,
+      "price": 158.4,
+      "print": "Magnolia",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124607045866"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124607078634"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124607111402"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124607144170"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Matyó Floral",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124607176938"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124607209706"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124607242474"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124607275242"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 198,
+      "print": "Wildflowers",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124607308010"
+     }
+    ]
+   },
+   {
+    "category": "Dresses",
+    "collectionId": 451384213738,
+    "collectionSlug": "whimsy",
+    "compareAtPrice": null,
+    "description": "Lightweight organic linen. Unlined but not sheer. Fully adjustable tie-back straps.",
+    "handle": "zadie-linen-dress",
+    "id": 8690544345322,
+    "images": [
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressFront_daaaeba3-f511-47bc-82d0-d27284738db5.jpg?v=1782940581",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressBack_094a19ff-b701-41a8-80de-7b44e47b069d.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressClose_d9e1e0af-9c7b-4a34-8c12-c4406958e56c.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressSide_86aa761d-a63a-4dad-9a56-be8fb34b2f91.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDWF2_WildflowersLinenSlipDress_IvoryFloral_0050_F.png?v=1782965400",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress2_662afadb-399a-48a3-b9fe-0bd903f0919b.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress_b8e698f1-e38f-452f-98b5-7eac80cfddb4.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCP1_CandiedPlaidLinenSlipDressOrange-PinkPlaid_0060_F_d5c22090-212a-4966-ba42-eb9f0bd4de11.png?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress3_86e8ff10-11bd-402a-b218-b1bca9da0620.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress4_003f25eb-531a-4db5-9c03-31eafecc4e98.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress1_6b4f3cfa-7efd-4d2f-9ed3-98b2ac8b797b.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress2_f9e3650b-1f17-40f2-8276-2ba2a3b47ac4.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDressBack_fad67032-0c64-4de6-b80e-33045fdaabea.jpg?v=1782940582",
+     "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCC2_CherryCoupeLinenSlipDress_Red-PinkCherries_5094_F_ba679af6-66f2-43c2-846a-85b8a9fd5763.png?v=1782940582"
+    ],
+    "inStock": true,
+    "isFeatured": true,
+    "isNewArrival": false,
+    "monogrammable": true,
+    "name": "Zadie Linen Dress",
+    "price": 260,
+    "printName": "Wildflowers",
+    "printStory": "Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.",
+    "prints": [
+     {
+      "available": true,
+      "collectionId": null,
+      "collectionSlug": "botanicals",
+      "compareAtPrice": null,
+      "featured": true,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressFront_daaaeba3-f511-47bc-82d0-d27284738db5.jpg?v=1782940581",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressBack_094a19ff-b701-41a8-80de-7b44e47b069d.jpg?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressClose_d9e1e0af-9c7b-4a34-8c12-c4406958e56c.jpg?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressSide_86aa761d-a63a-4dad-9a56-be8fb34b2f91.jpg?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDWF2_WildflowersLinenSlipDress_IvoryFloral_0050_F.png?v=1782965400"
+      ],
+      "legacyId": 8681284141290,
+      "newArrival": false,
+      "price": 260,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressFront_daaaeba3-f511-47bc-82d0-d27284738db5.jpg?v=1782940581",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.",
+      "value": "Wildflowers"
+     },
+     {
+      "available": true,
+      "collectionId": null,
+      "collectionSlug": "botanicals",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress2_662afadb-399a-48a3-b9fe-0bd903f0919b.jpg?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress_b8e698f1-e38f-452f-98b5-7eac80cfddb4.jpg?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCP1_CandiedPlaidLinenSlipDressOrange-PinkPlaid_0060_F_d5c22090-212a-4966-ba42-eb9f0bd4de11.png?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress3_86e8ff10-11bd-402a-b218-b1bca9da0620.jpg?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress4_003f25eb-531a-4db5-9c03-31eafecc4e98.jpg?v=1782940582"
+      ],
+      "legacyId": 8681284206826,
+      "newArrival": false,
+      "price": 260,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress2_662afadb-399a-48a3-b9fe-0bd903f0919b.jpg?v=1782940582",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "One of the few structured prints in the archive. A grid is the antithesis of her usual organic line — but this tartan print still reads as very Kambric.",
+      "value": "Candied Plaid"
+     },
+     {
+      "available": true,
+      "collectionId": null,
+      "collectionSlug": "botanicals",
+      "compareAtPrice": null,
+      "featured": false,
+      "images": [
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress1_6b4f3cfa-7efd-4d2f-9ed3-98b2ac8b797b.jpg?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress2_f9e3650b-1f17-40f2-8276-2ba2a3b47ac4.jpg?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDressBack_fad67032-0c64-4de6-b80e-33045fdaabea.jpg?v=1782940582",
+       "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCC2_CherryCoupeLinenSlipDress_Red-PinkCherries_5094_F_ba679af6-66f2-43c2-846a-85b8a9fd5763.png?v=1782940582"
+      ],
+      "legacyId": 8681284239594,
+      "newArrival": false,
+      "price": 260,
+      "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress1_6b4f3cfa-7efd-4d2f-9ed3-98b2ac8b797b.jpg?v=1782940582",
+      "sizes": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ],
+      "story": "Overlapping, tumbling cherries. Mid-century European sensibility, the graphic simplicity of someone trained to look closely at ordinary, beautiful things. I recolored her original green stems to charcoal for a less literal palette.",
+      "value": "Cherry Coupe"
+     }
+    ],
+    "sizes": [
+     "XS",
+     "S",
+     "M",
+     "L",
+     "XL",
+     "XXL"
+    ],
+    "variants": [
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Wildflowers",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124607340778"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Wildflowers",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124607373546"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Wildflowers",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124607406314"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Wildflowers",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124607439082"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Wildflowers",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124607471850"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Wildflowers",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124607504618"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Candied Plaid",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124607537386"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Candied Plaid",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124607570154"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Candied Plaid",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124607602922"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Candied Plaid",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124607635690"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Candied Plaid",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124607668458"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Candied Plaid",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124607701226"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Cherry Coupe",
+      "size": "XS",
+      "variantId": "gid://shopify/ProductVariant/46124607733994"
+     },
+     {
+      "available": false,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Cherry Coupe",
+      "size": "S",
+      "variantId": "gid://shopify/ProductVariant/46124607766762"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Cherry Coupe",
+      "size": "M",
+      "variantId": "gid://shopify/ProductVariant/46124607799530"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Cherry Coupe",
+      "size": "L",
+      "variantId": "gid://shopify/ProductVariant/46124607832298"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Cherry Coupe",
+      "size": "XL",
+      "variantId": "gid://shopify/ProductVariant/46124607865066"
+     },
+     {
+      "available": true,
+      "compareAtPrice": null,
+      "price": 260,
+      "print": "Cherry Coupe",
+      "size": "XXL",
+      "variantId": "gid://shopify/ProductVariant/46124607897834"
+     }
+    ]
+   }
+  ],
+  "season": "Resort 2025",
+  "slug": "whimsy",
+  "year": 2025
+ },
+ "/api/monogram": {
+  "price": 25,
+  "variantId": "gid://shopify/ProductVariant/46122785636586"
+ },
+ "/api/product-redirects": [
+  {
+   "handle": "margit-one-piece",
+   "legacyId": 8681284370666,
+   "print": "Dahlia Seed",
+   "productId": 8690544312554
+  },
+  {
+   "handle": "margit-one-piece",
+   "legacyId": 8681284403434,
+   "print": "Moon Illusion",
+   "productId": 8690544312554
+  },
+  {
+   "handle": "margit-one-piece",
+   "legacyId": 8681284436202,
+   "print": "Good Vibrations",
+   "productId": 8690544312554
+  },
+  {
+   "handle": "margit-one-piece",
+   "legacyId": 8681284468970,
+   "print": "Pastel Asterisk",
+   "productId": 8690544312554
+  },
+  {
+   "handle": "margit-one-piece",
+   "legacyId": 8681284501738,
+   "print": "Orange Asterisk",
+   "productId": 8690544312554
+  },
+  {
+   "handle": "margit-one-piece",
+   "legacyId": 8681284534506,
+   "print": "Magnolia",
+   "productId": 8690544312554
+  },
+  {
+   "handle": "margit-one-piece",
+   "legacyId": 8681285058794,
+   "print": "Matyó Floral",
+   "productId": 8690544312554
+  },
+  {
+   "handle": "margit-one-piece",
+   "legacyId": 8681285091562,
+   "print": "Wildflowers",
+   "productId": 8690544312554
+  },
+  {
+   "handle": "zadie-linen-dress",
+   "legacyId": 8681284141290,
+   "print": "Wildflowers",
+   "productId": 8690544345322
+  },
+  {
+   "handle": "zadie-linen-dress",
+   "legacyId": 8681284206826,
+   "print": "Candied Plaid",
+   "productId": 8690544345322
+  },
+  {
+   "handle": "zadie-linen-dress",
+   "legacyId": 8681284239594,
+   "print": "Cherry Coupe",
+   "productId": 8690544345322
+  },
+  {
+   "handle": "esther-kaftan",
+   "legacyId": 8681284567274,
+   "print": "Good Vibrations",
+   "productId": 8690544378090
+  },
+  {
+   "handle": "esther-kaftan",
+   "legacyId": 8681284600042,
+   "print": "Dahlia Seed",
+   "productId": 8690544378090
+  },
+  {
+   "handle": "esther-kaftan",
+   "legacyId": 8681284632810,
+   "print": "Magnolia",
+   "productId": 8690544378090
+  },
+  {
+   "handle": "vera-car-coat",
+   "legacyId": 8681284010218,
+   "print": "Midnight Plumes",
+   "productId": 8690544410858
+  },
+  {
+   "handle": "vera-car-coat",
+   "legacyId": 8681284075754,
+   "print": "Matyó Floral",
+   "productId": 8690544410858
+  }
+ ],
+ "/api/products": [
+  {
+   "category": "Dresses",
+   "collectionId": 451384180970,
+   "collectionSlug": "folklore",
+   "compareAtPrice": null,
+   "description": "A bias-cut slip dress in silk viscose. Adjustable straps, a low back. Named for the founder's grandmother and the artist behind the prints.",
+   "handle": "kati-slip-dress-in-matyo-floral",
+   "id": 8681284272362,
+   "images": [
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1769_Original.jpg?v=1780697643",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0097.jpg?v=1780697643",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDMF1_MatyoFloralSlipDress_RedFloral_5085_F.png?v=1780697643",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0121.jpg?v=1780697643",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0187.jpg?v=1780697643",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress1.jpg?v=1780697642",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress2.jpg?v=1780697642",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress3.jpg?v=1780697642"
+   ],
+   "inStock": true,
+   "isFeatured": true,
+   "isNewArrival": false,
+   "monogrammable": false,
+   "name": "Kati Slip Dress",
+   "price": 260,
+   "printName": "Matyó Floral",
+   "printStory": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+   "prints": [
+    {
+     "available": true,
+     "collectionId": 451384180970,
+     "collectionSlug": "folklore",
+     "compareAtPrice": null,
+     "featured": true,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1769_Original.jpg?v=1780697643",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0097.jpg?v=1780697643",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDMF1_MatyoFloralSlipDress_RedFloral_5085_F.png?v=1780697643",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0121.jpg?v=1780697643",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0187.jpg?v=1780697643",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress1.jpg?v=1780697642",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress2.jpg?v=1780697642",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress3.jpg?v=1780697642"
+     ],
+     "legacyId": 8681284272362,
+     "newArrival": false,
+     "price": 260,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1769_Original.jpg?v=1780697643",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+     ],
+     "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+     "value": "Matyó Floral"
+    }
+   ],
+   "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL"
+   ],
+   "variants": [
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Matyó Floral",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46061327450346"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Matyó Floral",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46061327483114"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Matyó Floral",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46061327515882"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Matyó Floral",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46061327548650"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Matyó Floral",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46212197056746"
+    }
+   ]
+  },
+  {
+   "category": "Dresses",
+   "collectionId": 451384180970,
+   "collectionSlug": "folklore",
+   "compareAtPrice": null,
+   "description": "A bias-cut slip dress in silk viscose. Adjustable straps, a low back. Named for Kati — the founder's grandmother and the artist behind the print.",
+   "handle": "jessie-slip-dress-in-twilight-plumes",
+   "id": 8681284305130,
+   "images": [
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1885_Original.jpg?v=1780697644",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1989_Original.jpg?v=1780697644",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDTB2_TwilightBlueSlipDress_BlueGeometric_5089_F.png?v=1780697644",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1881_Original.jpg?v=1780697645",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1951_Original.jpg?v=1780697644"
+   ],
+   "inStock": true,
+   "isFeatured": false,
+   "isNewArrival": false,
+   "monogrammable": false,
+   "name": "Jessie Slip Dress",
+   "price": 260,
+   "printName": "Twilight Plumes",
+   "printStory": "This pattern was originally set in shades of green and blue. I pulled the green, wanting something more tonal because I felt the ginkgo-like leaf pattern deserved something more moody.",
+   "prints": [
+    {
+     "available": true,
+     "collectionId": 451384180970,
+     "collectionSlug": "folklore",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1885_Original.jpg?v=1780697644",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1989_Original.jpg?v=1780697644",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDTB2_TwilightBlueSlipDress_BlueGeometric_5089_F.png?v=1780697644",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1881_Original.jpg?v=1780697645",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1951_Original.jpg?v=1780697644"
+     ],
+     "legacyId": 8681284305130,
+     "newArrival": false,
+     "price": 260,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1885_Original.jpg?v=1780697644",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+     ],
+     "story": "This pattern was originally set in shades of green and blue. I pulled the green, wanting something more tonal because I felt the ginkgo-like leaf pattern deserved something more moody.",
+     "value": "Twilight Plumes"
+    }
+   ],
+   "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L"
+   ],
+   "variants": [
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Twilight Plumes",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46061327581418"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Twilight Plumes",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46061327614186"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Twilight Plumes",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46061327646954"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Twilight Plumes",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46061327679722"
+    }
+   ]
+  },
+  {
+   "category": "Accessories",
+   "collectionId": 451384180970,
+   "collectionSlug": "folklore",
+   "compareAtPrice": null,
+   "description": "A large square scarf in a silk-cotton voile. Light enough to float, substantial enough to hold a knot. 26 x 26 in.",
+   "handle": "bodie-scarf-in-twilight-plumes",
+   "id": 8681284665578,
+   "images": [
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1900_Original.jpg?v=1780697658",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF2023_Original.jpg?v=1780697657",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1931_Original.jpg?v=1780697658"
+   ],
+   "inStock": true,
+   "isFeatured": false,
+   "isNewArrival": false,
+   "monogrammable": true,
+   "name": "Bodie Scarf",
+   "price": 50,
+   "printName": "Twilight Plumes",
+   "printStory": "This pattern was originally set in shades of green and blue. I pulled the green, wanting something more tonal because I felt the ginkgo-like leaf pattern deserved something more moody.",
+   "prints": [
+    {
+     "available": true,
+     "collectionId": 451384180970,
+     "collectionSlug": "folklore",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1900_Original.jpg?v=1780697658",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF2023_Original.jpg?v=1780697657",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1931_Original.jpg?v=1780697658"
+     ],
+     "legacyId": 8681284665578,
+     "newArrival": false,
+     "price": 50,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1900_Original.jpg?v=1780697658",
+     "sizes": [
+      "One Size"
+     ],
+     "story": "This pattern was originally set in shades of green and blue. I pulled the green, wanting something more tonal because I felt the ginkgo-like leaf pattern deserved something more moody.",
+     "value": "Twilight Plumes"
+    }
+   ],
+   "sizes": [
+    "One Size"
+   ],
+   "variants": [
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 50,
+     "print": "Twilight Plumes",
+     "size": "One Size",
+     "variantId": "gid://shopify/ProductVariant/46061329252586"
+    }
+   ]
+  },
+  {
+   "category": "Accessories",
+   "collectionId": 451384180970,
+   "collectionSlug": "folklore",
+   "compareAtPrice": null,
+   "description": "A classic oversized bandana cut in soft cotton voile. 26 x 26 in — works as a head tie, neck scarf, or bag charm.",
+   "handle": "goldie-bandana-in-matyo-floral",
+   "id": 8681284698346,
+   "images": [
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/KambricGoods_Lifestyle4_MatyoBandana.jpg?v=1780697659",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoBandana.jpg?v=1780697659"
+   ],
+   "inStock": true,
+   "isFeatured": false,
+   "isNewArrival": true,
+   "monogrammable": true,
+   "name": "Goldie Bandana",
+   "price": 45,
+   "printName": "Matyó Floral",
+   "printStory": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+   "prints": [
+    {
+     "available": true,
+     "collectionId": 451384180970,
+     "collectionSlug": "folklore",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/KambricGoods_Lifestyle4_MatyoBandana.jpg?v=1780697659",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoBandana.jpg?v=1780697659"
+     ],
+     "legacyId": 8681284698346,
+     "newArrival": true,
+     "price": 45,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/KambricGoods_Lifestyle4_MatyoBandana.jpg?v=1780697659",
+     "sizes": [
+      "One Size"
+     ],
+     "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+     "value": "Matyó Floral"
+    }
+   ],
+   "sizes": [
+    "One Size"
+   ],
+   "variants": [
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 45,
+     "print": "Matyó Floral",
+     "size": "One Size",
+     "variantId": "gid://shopify/ProductVariant/46061329285354"
+    }
+   ]
+  },
+  {
+   "category": "Swimwear",
+   "collectionId": 451384148202,
+   "collectionSlug": "psychedelics",
+   "compareAtPrice": 198,
+   "description": "This suit is flattering for all. High French cut leg lines, adjustable spaghetti straps, fully lined. Recycled Nylon.",
+   "handle": "margit-one-piece",
+   "id": 8690544312554,
+   "images": [
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePieceback_c39cde71-5110-4d65-8512-75bf1b1b9d61.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPDS1_DahliaSeedOne-PieceMultiGeometric_Pink-Terracotta_0023_F.png?v=1782944364",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece3_763093f3-f39d-4ccc-9460-8682168f701f.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePieceFront_70bf7667-5bd9-4f67-adc5-901b415b8088.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMI1_MoonIllusionOne-PieceMultiGeometric_Navy-Pink_0010_F.png?v=1782965971",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece2_7bb81075-5c70-41f0-aed2-5320fbeb23e7.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePieceBack_f19c5733-af43-43e1-abd6-317b8cd04ebc.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPGV1_GoodVibrationsOne-Piece_MultiGeometric_0027_F.png?v=1782965971",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece_2b1591d9-d689-4449-8338-606fdbeff09f.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskFront_99593593-f53c-4106-870e-8bc76421f5e7.jpg?v=1782940575",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPPA1_PastelAsteriskOne-PieceLavenderGeometric_0019_F.png?v=1782965971",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskOnePieceBack_c94f88fc-3288-444b-a8ae-5c0cc4f41d9d.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskSide_2bcf90bc-3a03-4adc-8aa3-56dcb380a84b.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceFront_7b22f9a2-5827-452b-9929-426a6a241bba.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePiece_c7c11fb0-5092-4bfe-967d-1f8a95dd6138.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPOA1_OrangeAsteriskOne-piece_OrangeGeometric_0015_F.png?v=1782965972",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceBack_02855ccf-c5bb-4f41-b3d0-6ea339c77d4a.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceFront_4283a97f-4ecc-4a79-80c5-75bcd1a464cf.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMG1_MagnoliaOne-PieceMultiFloral_Red-Teal-Black_5083_F.png?v=1782965971",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia2_a4fdc444-439f-4884-9f8a-6aa099969122.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia3_87206b67-aa69-4d11-8475-51e998da7da2.jpg?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/AFD67F94-07C7-4C1B-A03B-4A33EC0B4EE4_61c35a4b-ee4f-4766-a81b-dfc6d7e5a592.png?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.32_AM_7ad5c46a-8cbc-4bda-baa6-b0b5f2ae663a.png?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlowersFlatLay_2f7f7005-a10a-4251-ade2-deba7293c624.png?v=1782940574",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.11_AM_2e2e48dd-d60d-4b8b-8ea8-45854a0d2795.png?v=1782940574"
+   ],
+   "inStock": true,
+   "isFeatured": true,
+   "isNewArrival": true,
+   "monogrammable": false,
+   "name": "Margit One-Piece",
+   "price": 158.4,
+   "printName": "Dahlia Seed",
+   "printStory": "Floral in nature, but geometric and popping with color.",
+   "prints": [
+    {
+     "available": true,
+     "collectionId": 451384148202,
+     "collectionSlug": "psychedelics",
+     "compareAtPrice": 198,
+     "featured": true,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePieceback_c39cde71-5110-4d65-8512-75bf1b1b9d61.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPDS1_DahliaSeedOne-PieceMultiGeometric_Pink-Terracotta_0023_F.png?v=1782944364"
+     ],
+     "legacyId": 8681284370666,
+     "newArrival": false,
+     "price": 158.4,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ],
+     "story": "Floral in nature, but geometric and popping with color.",
+     "value": "Dahlia Seed"
+    },
+    {
+     "available": true,
+     "collectionId": 451384148202,
+     "collectionSlug": "psychedelics",
+     "compareAtPrice": 198,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece3_763093f3-f39d-4ccc-9460-8682168f701f.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePieceFront_70bf7667-5bd9-4f67-adc5-901b415b8088.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMI1_MoonIllusionOne-PieceMultiGeometric_Navy-Pink_0010_F.png?v=1782965971",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece2_7bb81075-5c70-41f0-aed2-5320fbeb23e7.jpg?v=1782940574"
+     ],
+     "legacyId": 8681284403434,
+     "newArrival": false,
+     "price": 158.4,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ],
+     "story": "A nod to the vibrating patterns found in Op Art of the 1960's.",
+     "value": "Moon Illusion"
+    },
+    {
+     "available": true,
+     "collectionId": 451384148202,
+     "collectionSlug": "psychedelics",
+     "compareAtPrice": 198,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePieceBack_f19c5733-af43-43e1-abd6-317b8cd04ebc.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPGV1_GoodVibrationsOne-Piece_MultiGeometric_0027_F.png?v=1782965971",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece_2b1591d9-d689-4449-8338-606fdbeff09f.jpg?v=1782940574"
+     ],
+     "legacyId": 8681284436202,
+     "newArrival": false,
+     "price": 158.4,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ],
+     "story": "One of Kati's most joyful prints. The radiating forms feel less like a pattern and more like a mood.",
+     "value": "Good Vibrations"
+    },
+    {
+     "available": true,
+     "collectionId": 451384148202,
+     "collectionSlug": "psychedelics",
+     "compareAtPrice": 198,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskFront_99593593-f53c-4106-870e-8bc76421f5e7.jpg?v=1782940575",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPPA1_PastelAsteriskOne-PieceLavenderGeometric_0019_F.png?v=1782965971",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskOnePieceBack_c94f88fc-3288-444b-a8ae-5c0cc4f41d9d.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskSide_2bcf90bc-3a03-4adc-8aa3-56dcb380a84b.jpg?v=1782940574"
+     ],
+     "legacyId": 8681284468970,
+     "newArrival": false,
+     "price": 158.4,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ],
+     "story": "A sunburst repeat as seen through a kaleidescope. Kati originally painted the asterisk form in the vibrant orange, rust and yellow colorway. I added this lavender colorway for a more modern and refreshed offering.",
+     "value": "Pastel Asterisk"
+    },
+    {
+     "available": true,
+     "collectionId": 451384148202,
+     "collectionSlug": "psychedelics",
+     "compareAtPrice": 198,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceFront_7b22f9a2-5827-452b-9929-426a6a241bba.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePiece_c7c11fb0-5092-4bfe-967d-1f8a95dd6138.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPOA1_OrangeAsteriskOne-piece_OrangeGeometric_0015_F.png?v=1782965972",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceBack_02855ccf-c5bb-4f41-b3d0-6ea339c77d4a.jpg?v=1782940574"
+     ],
+     "legacyId": 8681284501738,
+     "newArrival": false,
+     "price": 158.4,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ],
+     "story": "The same asterisk form, in its original color 1970s palette.",
+     "value": "Orange Asterisk"
+    },
+    {
+     "available": true,
+     "collectionId": 451384148202,
+     "collectionSlug": "psychedelics",
+     "compareAtPrice": 198,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceFront_4283a97f-4ecc-4a79-80c5-75bcd1a464cf.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMG1_MagnoliaOne-PieceMultiFloral_Red-Teal-Black_5083_F.png?v=1782965971",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia2_a4fdc444-439f-4884-9f8a-6aa099969122.jpg?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia3_87206b67-aa69-4d11-8475-51e998da7da2.jpg?v=1782940574"
+     ],
+     "legacyId": 8681284534506,
+     "newArrival": false,
+     "price": 158.4,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ],
+     "story": "Not a straight forward floral. Look closely and you'll find hidden hearts in the pattern.",
+     "value": "Magnolia"
+    },
+    {
+     "available": true,
+     "collectionId": 451384180970,
+     "collectionSlug": "folklore",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/AFD67F94-07C7-4C1B-A03B-4A33EC0B4EE4_61c35a4b-ee4f-4766-a81b-dfc6d7e5a592.png?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.32_AM_7ad5c46a-8cbc-4bda-baa6-b0b5f2ae663a.png?v=1782940574"
+     ],
+     "legacyId": 8681285058794,
+     "newArrival": true,
+     "price": 198,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+     ],
+     "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+     "value": "Matyó Floral"
+    },
+    {
+     "available": true,
+     "collectionId": null,
+     "collectionSlug": "botanicals",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlowersFlatLay_2f7f7005-a10a-4251-ade2-deba7293c624.png?v=1782940574",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.11_AM_2e2e48dd-d60d-4b8b-8ea8-45854a0d2795.png?v=1782940574"
+     ],
+     "legacyId": 8681285091562,
+     "newArrival": true,
+     "price": 198,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+     ],
+     "story": "Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.",
+     "value": "Wildflowers"
+    }
+   ],
+   "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+   ],
+   "variants": [
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Dahlia Seed",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124605898986"
+    },
+    {
+     "available": false,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Dahlia Seed",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124605931754"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Dahlia Seed",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124605964522"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Dahlia Seed",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124605997290"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Dahlia Seed",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124606030058"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Dahlia Seed",
+     "size": "XXL",
+     "variantId": "gid://shopify/ProductVariant/46124606062826"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Moon Illusion",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124606095594"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Moon Illusion",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124606128362"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Moon Illusion",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124606161130"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Moon Illusion",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124606193898"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Moon Illusion",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124606226666"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Moon Illusion",
+     "size": "XXL",
+     "variantId": "gid://shopify/ProductVariant/46124606259434"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Good Vibrations",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124606292202"
+    },
+    {
+     "available": false,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Good Vibrations",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124606324970"
+    },
+    {
+     "available": false,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Good Vibrations",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124606357738"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Good Vibrations",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124606390506"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Good Vibrations",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124606423274"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Good Vibrations",
+     "size": "XXL",
+     "variantId": "gid://shopify/ProductVariant/46124606456042"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Pastel Asterisk",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124606488810"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Pastel Asterisk",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124606521578"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Pastel Asterisk",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124606554346"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Pastel Asterisk",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124606587114"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Pastel Asterisk",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124606619882"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Pastel Asterisk",
+     "size": "XXL",
+     "variantId": "gid://shopify/ProductVariant/46124606652650"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Orange Asterisk",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124606685418"
+    },
+    {
+     "available": false,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Orange Asterisk",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124606718186"
+    },
+    {
+     "available": false,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Orange Asterisk",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124606750954"
+    },
+    {
+     "available": false,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Orange Asterisk",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124606783722"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Orange Asterisk",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124606816490"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Orange Asterisk",
+     "size": "XXL",
+     "variantId": "gid://shopify/ProductVariant/46124606849258"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Magnolia",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124606882026"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Magnolia",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124606914794"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Magnolia",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124606947562"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Magnolia",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124606980330"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Magnolia",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124607013098"
+    },
+    {
+     "available": true,
+     "compareAtPrice": 198,
+     "price": 158.4,
+     "print": "Magnolia",
+     "size": "XXL",
+     "variantId": "gid://shopify/ProductVariant/46124607045866"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 198,
+     "print": "Matyó Floral",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124607078634"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 198,
+     "print": "Matyó Floral",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124607111402"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 198,
+     "print": "Matyó Floral",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124607144170"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 198,
+     "print": "Matyó Floral",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124607176938"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 198,
+     "print": "Wildflowers",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124607209706"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 198,
+     "print": "Wildflowers",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124607242474"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 198,
+     "print": "Wildflowers",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124607275242"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 198,
+     "print": "Wildflowers",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124607308010"
+    }
+   ]
+  },
+  {
+   "category": "Dresses",
+   "collectionId": 451384213738,
+   "collectionSlug": "whimsy",
+   "compareAtPrice": null,
+   "description": "Lightweight organic linen. Unlined but not sheer. Fully adjustable tie-back straps.",
+   "handle": "zadie-linen-dress",
+   "id": 8690544345322,
+   "images": [
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressFront_daaaeba3-f511-47bc-82d0-d27284738db5.jpg?v=1782940581",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressBack_094a19ff-b701-41a8-80de-7b44e47b069d.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressClose_d9e1e0af-9c7b-4a34-8c12-c4406958e56c.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressSide_86aa761d-a63a-4dad-9a56-be8fb34b2f91.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDWF2_WildflowersLinenSlipDress_IvoryFloral_0050_F.png?v=1782965400",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress2_662afadb-399a-48a3-b9fe-0bd903f0919b.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress_b8e698f1-e38f-452f-98b5-7eac80cfddb4.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCP1_CandiedPlaidLinenSlipDressOrange-PinkPlaid_0060_F_d5c22090-212a-4966-ba42-eb9f0bd4de11.png?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress3_86e8ff10-11bd-402a-b218-b1bca9da0620.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress4_003f25eb-531a-4db5-9c03-31eafecc4e98.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress1_6b4f3cfa-7efd-4d2f-9ed3-98b2ac8b797b.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress2_f9e3650b-1f17-40f2-8276-2ba2a3b47ac4.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDressBack_fad67032-0c64-4de6-b80e-33045fdaabea.jpg?v=1782940582",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCC2_CherryCoupeLinenSlipDress_Red-PinkCherries_5094_F_ba679af6-66f2-43c2-846a-85b8a9fd5763.png?v=1782940582"
+   ],
+   "inStock": true,
+   "isFeatured": true,
+   "isNewArrival": false,
+   "monogrammable": true,
+   "name": "Zadie Linen Dress",
+   "price": 260,
+   "printName": "Wildflowers",
+   "printStory": "Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.",
+   "prints": [
+    {
+     "available": true,
+     "collectionId": null,
+     "collectionSlug": "botanicals",
+     "compareAtPrice": null,
+     "featured": true,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressFront_daaaeba3-f511-47bc-82d0-d27284738db5.jpg?v=1782940581",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressBack_094a19ff-b701-41a8-80de-7b44e47b069d.jpg?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressClose_d9e1e0af-9c7b-4a34-8c12-c4406958e56c.jpg?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressSide_86aa761d-a63a-4dad-9a56-be8fb34b2f91.jpg?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDWF2_WildflowersLinenSlipDress_IvoryFloral_0050_F.png?v=1782965400"
+     ],
+     "legacyId": 8681284141290,
+     "newArrival": false,
+     "price": 260,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressFront_daaaeba3-f511-47bc-82d0-d27284738db5.jpg?v=1782940581",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ],
+     "story": "Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.",
+     "value": "Wildflowers"
+    },
+    {
+     "available": true,
+     "collectionId": null,
+     "collectionSlug": "botanicals",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress2_662afadb-399a-48a3-b9fe-0bd903f0919b.jpg?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress_b8e698f1-e38f-452f-98b5-7eac80cfddb4.jpg?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCP1_CandiedPlaidLinenSlipDressOrange-PinkPlaid_0060_F_d5c22090-212a-4966-ba42-eb9f0bd4de11.png?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress3_86e8ff10-11bd-402a-b218-b1bca9da0620.jpg?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress4_003f25eb-531a-4db5-9c03-31eafecc4e98.jpg?v=1782940582"
+     ],
+     "legacyId": 8681284206826,
+     "newArrival": false,
+     "price": 260,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress2_662afadb-399a-48a3-b9fe-0bd903f0919b.jpg?v=1782940582",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ],
+     "story": "One of the few structured prints in the archive. A grid is the antithesis of her usual organic line — but this tartan print still reads as very Kambric.",
+     "value": "Candied Plaid"
+    },
+    {
+     "available": true,
+     "collectionId": null,
+     "collectionSlug": "botanicals",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress1_6b4f3cfa-7efd-4d2f-9ed3-98b2ac8b797b.jpg?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress2_f9e3650b-1f17-40f2-8276-2ba2a3b47ac4.jpg?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDressBack_fad67032-0c64-4de6-b80e-33045fdaabea.jpg?v=1782940582",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCC2_CherryCoupeLinenSlipDress_Red-PinkCherries_5094_F_ba679af6-66f2-43c2-846a-85b8a9fd5763.png?v=1782940582"
+     ],
+     "legacyId": 8681284239594,
+     "newArrival": false,
+     "price": 260,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress1_6b4f3cfa-7efd-4d2f-9ed3-98b2ac8b797b.jpg?v=1782940582",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+     ],
+     "story": "Overlapping, tumbling cherries. Mid-century European sensibility, the graphic simplicity of someone trained to look closely at ordinary, beautiful things. I recolored her original green stems to charcoal for a less literal palette.",
+     "value": "Cherry Coupe"
+    }
+   ],
+   "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "XXL"
+   ],
+   "variants": [
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Wildflowers",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124607340778"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Wildflowers",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124607373546"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Wildflowers",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124607406314"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Wildflowers",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124607439082"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Wildflowers",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124607471850"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Wildflowers",
+     "size": "XXL",
+     "variantId": "gid://shopify/ProductVariant/46124607504618"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Candied Plaid",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124607537386"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Candied Plaid",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124607570154"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Candied Plaid",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124607602922"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Candied Plaid",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124607635690"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Candied Plaid",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124607668458"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Candied Plaid",
+     "size": "XXL",
+     "variantId": "gid://shopify/ProductVariant/46124607701226"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Cherry Coupe",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124607733994"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Cherry Coupe",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124607766762"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Cherry Coupe",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124607799530"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Cherry Coupe",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124607832298"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Cherry Coupe",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124607865066"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 260,
+     "print": "Cherry Coupe",
+     "size": "XXL",
+     "variantId": "gid://shopify/ProductVariant/46124607897834"
+    }
+   ]
+  },
+  {
+   "category": "Kaftans",
+   "collectionId": 451384148202,
+   "collectionSlug": "psychedelics",
+   "compareAtPrice": null,
+   "description": null,
+   "handle": "esther-kaftan",
+   "id": 8690544378090,
+   "images": [
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftans_a5943aac-fdb0-4309-8912-2c92da3ab856.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansClose_f9a9d25f-ab5e-43ff-b9b1-dbba12f08cc2.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansFront_c3558e80-11e8-4d11-b9bb-35ddad2307a4.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansSide_e45c1a83-63f2-4b6e-9429-30b46617bf81.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2983_fef16c12-12d7-499f-a36e-7b9d59a519d3.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_3011_901eeac1-a51f-4c92-8b88-12036581f941.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0242_3ee9d123-5607-40f4-b3a0-63bfb0930e75.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan_80f0ecd1-73ed-4e46-a020-6b3bc00ba0bc.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan1_3f6f0ff3-ac73-4186-a0a2-7ec5be3feb77.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan2_8ac6487b-a889-4492-81ab-2da793860f4e.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan1_55dcd6d1-1ab9-4581-bac4-1d4d0ec9c602.jpg?v=1782940587",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan2_b62ab077-ed22-4286-b7fa-7c7299ce2466.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan3_a38abd56-f13e-4033-baf1-80d2d3265490.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftanBack_cefa9085-7a47-4503-9507-943d1b1a4b01.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0419_4a9cee0f-668d-4e17-97e3-0dbb4cfd2103.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0332_6e22013f-81a5-460a-9c87-9d4aa8f95f56.jpg?v=1782940586",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2864_3ad51d98-e353-4b78-9f1e-d1ee96b5a8f6.jpg?v=1782940586"
+   ],
+   "inStock": true,
+   "isFeatured": true,
+   "isNewArrival": false,
+   "monogrammable": false,
+   "name": "Esther Kaftan",
+   "price": 325,
+   "printName": "Good Vibrations",
+   "printStory": "One of Kati's most joyful prints. The radiating forms feel less like a pattern and more like a mood.",
+   "prints": [
+    {
+     "available": false,
+     "collectionId": 451384148202,
+     "collectionSlug": "psychedelics",
+     "compareAtPrice": null,
+     "featured": true,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftans_a5943aac-fdb0-4309-8912-2c92da3ab856.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansClose_f9a9d25f-ab5e-43ff-b9b1-dbba12f08cc2.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansFront_c3558e80-11e8-4d11-b9bb-35ddad2307a4.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansSide_e45c1a83-63f2-4b6e-9429-30b46617bf81.jpg?v=1782940586"
+     ],
+     "legacyId": 8681284567274,
+     "newArrival": false,
+     "price": 325,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftans_a5943aac-fdb0-4309-8912-2c92da3ab856.jpg?v=1782940586",
+     "sizes": [
+      "XS/S",
+      "M/L",
+      "XL"
+     ],
+     "story": "One of Kati's most joyful prints. The radiating forms feel less like a pattern and more like a mood.",
+     "value": "Good Vibrations"
+    },
+    {
+     "available": true,
+     "collectionId": 451384148202,
+     "collectionSlug": "psychedelics",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2983_fef16c12-12d7-499f-a36e-7b9d59a519d3.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_3011_901eeac1-a51f-4c92-8b88-12036581f941.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0242_3ee9d123-5607-40f4-b3a0-63bfb0930e75.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan_80f0ecd1-73ed-4e46-a020-6b3bc00ba0bc.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan1_3f6f0ff3-ac73-4186-a0a2-7ec5be3feb77.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan2_8ac6487b-a889-4492-81ab-2da793860f4e.jpg?v=1782940586"
+     ],
+     "legacyId": 8681284600042,
+     "newArrival": false,
+     "price": 325,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2983_fef16c12-12d7-499f-a36e-7b9d59a519d3.jpg?v=1782940586",
+     "sizes": [
+      "XS/S",
+      "M/L",
+      "XL"
+     ],
+     "story": "Floral in nature, but geometric and popping with color.",
+     "value": "Dahlia Seed"
+    },
+    {
+     "available": true,
+     "collectionId": 451384148202,
+     "collectionSlug": "psychedelics",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan1_55dcd6d1-1ab9-4581-bac4-1d4d0ec9c602.jpg?v=1782940587",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan2_b62ab077-ed22-4286-b7fa-7c7299ce2466.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan3_a38abd56-f13e-4033-baf1-80d2d3265490.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftanBack_cefa9085-7a47-4503-9507-943d1b1a4b01.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0419_4a9cee0f-668d-4e17-97e3-0dbb4cfd2103.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0332_6e22013f-81a5-460a-9c87-9d4aa8f95f56.jpg?v=1782940586",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2864_3ad51d98-e353-4b78-9f1e-d1ee96b5a8f6.jpg?v=1782940586"
+     ],
+     "legacyId": 8681284632810,
+     "newArrival": false,
+     "price": 325,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan1_55dcd6d1-1ab9-4581-bac4-1d4d0ec9c602.jpg?v=1782940587",
+     "sizes": [
+      "XS/S",
+      "M/L",
+      "XL"
+     ],
+     "story": "Not a straight forward floral. Look closely and you'll find hidden hearts in the pattern.",
+     "value": "Magnolia"
+    }
+   ],
+   "sizes": [
+    "XS/S",
+    "M/L",
+    "XL"
+   ],
+   "variants": [
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 325,
+     "print": "Good Vibrations",
+     "size": "XS/S",
+     "variantId": "gid://shopify/ProductVariant/46124607930602"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 325,
+     "print": "Good Vibrations",
+     "size": "M/L",
+     "variantId": "gid://shopify/ProductVariant/46124607963370"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 325,
+     "print": "Good Vibrations",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124607996138"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 325,
+     "print": "Dahlia Seed",
+     "size": "XS/S",
+     "variantId": "gid://shopify/ProductVariant/46124608028906"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 325,
+     "print": "Dahlia Seed",
+     "size": "M/L",
+     "variantId": "gid://shopify/ProductVariant/46124608061674"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 325,
+     "print": "Dahlia Seed",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124608094442"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 325,
+     "print": "Magnolia",
+     "size": "XS/S",
+     "variantId": "gid://shopify/ProductVariant/46124608127210"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 325,
+     "print": "Magnolia",
+     "size": "M/L",
+     "variantId": "gid://shopify/ProductVariant/46124608159978"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 325,
+     "print": "Magnolia",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124608192746"
+    }
+   ]
+  },
+  {
+   "category": "Coats",
+   "collectionId": 451384180970,
+   "collectionSlug": "folklore",
+   "compareAtPrice": null,
+   "description": "Perfectly oversized with dropped shoulders and a 1930's menswear-inspired shawl collar, Western style back yoke detailing, deep slash pockets, and a single button closure. Brushed cotton twill, fully lined in silky viscose. Note: this style is meant to fit unstructured and a bit oversized, it does not have shoulder pads.",
+   "handle": "vera-car-coat",
+   "id": 8690544410858,
+   "images": [
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1820_Original_b3e88194-1019-4d31-8a0d-02c56c1d2114.jpg?v=1782940591",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1673_Original_e21e62cb-f0de-4bda-99bb-d74c91b77417.jpg?v=1782940591",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CCMB2_MidnightBlueCarCoat_NavyGeometric_0039_F_ca7631a0-c9ac-451c-b0d9-a3badc0a3682.jpg?v=1782940590",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1831_Original_91375e3d-76d0-4b9c-b291-f93adaa6e801.jpg?v=1782940591",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1813_Original_c0115725-78b3-48f2-a47c-227dc8bba38f.jpg?v=1782940591",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1688_Original_9d5d2440-c6bd-44d2-9d35-1298ee7232dd.jpg?v=1782940591",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1744_Original_deccc089-9b84-4989-b97c-75f9a5051c95.jpg?v=1782940591",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-05-22at12.00.55PM_f815b1b2-4c2d-4885-8c52-8237829ac9fd.png?v=1782940591",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat_2017511c-fa86-4556-9ad5-5945e327bce6.jpg?v=1782940591",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat1_b56e9c62-9c89-44d9-a557-cfb74c707c79.jpg?v=1782940591"
+   ],
+   "inStock": true,
+   "isFeatured": true,
+   "isNewArrival": false,
+   "monogrammable": false,
+   "name": "Vera Car Coat",
+   "price": 398,
+   "printName": "Midnight Plumes",
+   "printStory": "Kati's ginkgo-like leaf study was originally set in greens and blues. I pulled the greens and made this colorway the inverse of the pattern you'll find on the Jessie slip dress.",
+   "prints": [
+    {
+     "available": true,
+     "collectionId": 451384180970,
+     "collectionSlug": "folklore",
+     "compareAtPrice": null,
+     "featured": true,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1820_Original_b3e88194-1019-4d31-8a0d-02c56c1d2114.jpg?v=1782940591",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1673_Original_e21e62cb-f0de-4bda-99bb-d74c91b77417.jpg?v=1782940591",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CCMB2_MidnightBlueCarCoat_NavyGeometric_0039_F_ca7631a0-c9ac-451c-b0d9-a3badc0a3682.jpg?v=1782940590",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1831_Original_91375e3d-76d0-4b9c-b291-f93adaa6e801.jpg?v=1782940591",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1813_Original_c0115725-78b3-48f2-a47c-227dc8bba38f.jpg?v=1782940591"
+     ],
+     "legacyId": 8681284010218,
+     "newArrival": false,
+     "price": 398,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1820_Original_b3e88194-1019-4d31-8a0d-02c56c1d2114.jpg?v=1782940591",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L"
+     ],
+     "story": "Kati's ginkgo-like leaf study was originally set in greens and blues. I pulled the greens and made this colorway the inverse of the pattern you'll find on the Jessie slip dress.",
+     "value": "Midnight Plumes"
+    },
+    {
+     "available": true,
+     "collectionId": 451384180970,
+     "collectionSlug": "folklore",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1688_Original_9d5d2440-c6bd-44d2-9d35-1298ee7232dd.jpg?v=1782940591",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1744_Original_deccc089-9b84-4989-b97c-75f9a5051c95.jpg?v=1782940591",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-05-22at12.00.55PM_f815b1b2-4c2d-4885-8c52-8237829ac9fd.png?v=1782940591",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat_2017511c-fa86-4556-9ad5-5945e327bce6.jpg?v=1782940591",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat1_b56e9c62-9c89-44d9-a557-cfb74c707c79.jpg?v=1782940591"
+     ],
+     "legacyId": 8681284075754,
+     "newArrival": false,
+     "price": 398,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1688_Original_9d5d2440-c6bd-44d2-9d35-1298ee7232dd.jpg?v=1782940591",
+     "sizes": [
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL"
+     ],
+     "story": "Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.",
+     "value": "Matyó Floral"
+    }
+   ],
+   "sizes": [
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL"
+   ],
+   "variants": [
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 398,
+     "print": "Midnight Plumes",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124608225514"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 398,
+     "print": "Midnight Plumes",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124608258282"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 398,
+     "print": "Midnight Plumes",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124608291050"
+    },
+    {
+     "available": false,
+     "compareAtPrice": null,
+     "price": 398,
+     "print": "Midnight Plumes",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124608323818"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 398,
+     "print": "Matyó Floral",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46124608356586"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 398,
+     "print": "Matyó Floral",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46124608389354"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 398,
+     "print": "Matyó Floral",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46124608422122"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 398,
+     "print": "Matyó Floral",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46124608454890"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 398,
+     "print": "Matyó Floral",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46124608487658"
+    }
+   ]
+  },
+  {
+   "category": "Dresses",
+   "collectionId": 451384180970,
+   "collectionSlug": "folklore",
+   "compareAtPrice": null,
+   "description": "Introducing a new print from the archive, Parlor Rose in two gorgeous colorways for autumn. The perfect layering piece for fall. 100% silk slip dress with squared off neckline, low V-back and adjustable spaghetti straps. Unlined. Please allow 3 weeks for shipping as this item will be made to order.",
+   "handle": "arielle-dress",
+   "id": 8721345642730,
+   "images": [
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_Teasels.png?v=1788214682",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_2.jpg?v=1787854630",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_1.jpg?v=1787854629",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_3.jpg?v=1787854629",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Rose_Column_Border_Print.png?v=1788198734",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_Teasels.png?v=1788214767",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_2.jpg?v=1788198608",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_1.jpg?v=1788198607",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_3.jpg?v=1788198607",
+    "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Rose_Column_Border_Print_1_be63dc55-870c-4e67-ae7d-6556f969a180.png?v=1788199059"
+   ],
+   "inStock": true,
+   "isFeatured": false,
+   "isNewArrival": false,
+   "monogrammable": false,
+   "name": "Arielle Slip Dress",
+   "price": 285,
+   "printName": "Terracotta",
+   "printStory": null,
+   "prints": [
+    {
+     "available": true,
+     "collectionId": 451384180970,
+     "collectionSlug": "folklore",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_Teasels.png?v=1788214767",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_2.jpg?v=1788198608",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_1.jpg?v=1788198607",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_3.jpg?v=1788198607"
+     ],
+     "legacyId": null,
+     "newArrival": false,
+     "price": 285,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_Teasels.png?v=1788214767",
+     "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+     ],
+     "story": null,
+     "value": "Terracotta"
+    },
+    {
+     "available": true,
+     "collectionId": 451384180970,
+     "collectionSlug": "folklore",
+     "compareAtPrice": null,
+     "featured": false,
+     "images": [
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_Teasels.png?v=1788214682",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_2.jpg?v=1787854630",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_1.jpg?v=1787854629",
+      "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_3.jpg?v=1787854629"
+     ],
+     "legacyId": null,
+     "newArrival": false,
+     "price": 285,
+     "primaryImage": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_Teasels.png?v=1788214682",
+     "sizes": [
+      "2XS",
+      "XS",
+      "S",
+      "M",
+      "L",
+      "XL",
+      "2XL"
+     ],
+     "story": null,
+     "value": "Olive"
+    }
+   ],
+   "sizes": [
+    "2XS",
+    "XS",
+    "S",
+    "M",
+    "L",
+    "XL",
+    "2XL"
+   ],
+   "variants": [
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Terracotta",
+     "size": "2XS",
+     "variantId": "gid://shopify/ProductVariant/46221445628138"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Terracotta",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46221533315306"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Terracotta",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46221533348074"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Terracotta",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46221533380842"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Terracotta",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46221533413610"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Terracotta",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46221533446378"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Terracotta",
+     "size": "2XL",
+     "variantId": "gid://shopify/ProductVariant/46221533479146"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Olive",
+     "size": "2XS",
+     "variantId": "gid://shopify/ProductVariant/46221445660906"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Olive",
+     "size": "XS",
+     "variantId": "gid://shopify/ProductVariant/46221533511914"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Olive",
+     "size": "S",
+     "variantId": "gid://shopify/ProductVariant/46221533544682"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Olive",
+     "size": "M",
+     "variantId": "gid://shopify/ProductVariant/46221533577450"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Olive",
+     "size": "L",
+     "variantId": "gid://shopify/ProductVariant/46221533610218"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Olive",
+     "size": "XL",
+     "variantId": "gid://shopify/ProductVariant/46221533642986"
+    },
+    {
+     "available": true,
+     "compareAtPrice": null,
+     "price": 285,
+     "print": "Olive",
+     "size": "2XL",
+     "variantId": "gid://shopify/ProductVariant/46221533675754"
+    }
+   ]
+  }
+ ],
+ "/sitemap.xml#locs": [
+  "https://kambricgoods.com/",
+  "https://kambricgoods.com/about",
+  "https://kambricgoods.com/collections",
+  "https://kambricgoods.com/collections/folklore",
+  "https://kambricgoods.com/collections/psychedelics",
+  "https://kambricgoods.com/collections/whimsy",
+  "https://kambricgoods.com/contact",
+  "https://kambricgoods.com/events",
+  "https://kambricgoods.com/journal",
+  "https://kambricgoods.com/journal/arielle-dress",
+  "https://kambricgoods.com/journal/chainstitch",
+  "https://kambricgoods.com/journal/first-look-ss27",
+  "https://kambricgoods.com/journal/gearing-up-for-dallas",
+  "https://kambricgoods.com/journal/where-kambric-began",
+  "https://kambricgoods.com/products/arielle-dress",
+  "https://kambricgoods.com/products/bodie-scarf-in-twilight-plumes",
+  "https://kambricgoods.com/products/esther-kaftan",
+  "https://kambricgoods.com/products/goldie-bandana-in-matyo-floral",
+  "https://kambricgoods.com/products/jessie-slip-dress-in-twilight-plumes",
+  "https://kambricgoods.com/products/kati-slip-dress-in-matyo-floral",
+  "https://kambricgoods.com/products/margit-one-piece",
+  "https://kambricgoods.com/products/vera-car-coat",
+  "https://kambricgoods.com/products/zadie-linen-dress",
+  "https://kambricgoods.com/returns",
+  "https://kambricgoods.com/sale",
+  "https://kambricgoods.com/shipping",
+  "https://kambricgoods.com/shop",
+  "https://kambricgoods.com/shop/accessories",
+  "https://kambricgoods.com/shop/coats",
+  "https://kambricgoods.com/shop/dresses",
+  "https://kambricgoods.com/shop/kaftans",
+  "https://kambricgoods.com/shop/swimwear",
+  "https://kambricgoods.com/size-guide",
+  "https://kambricgoods.com/wholesale"
+ ]
+}

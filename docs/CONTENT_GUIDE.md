@@ -345,7 +345,7 @@ Sold-out sizes are crossed out. Choosing one (or the button when every size of a
 
 ### "Notify me when it's back"
 When a shopper picks a sold-out size, a small form asks for their email and sends it to you through Shopify's **contact form**.
-- **Where it arrives:** your contact-form email. Change the recipients under **Settings → Notifications → Staff notifications → Contact form** (it usually defaults to the store email in *Settings → General*). Submissions aren't listed in the admin; they're only emailed.
+- **Where it arrives:** the store's contact email (*Settings → General → Store contact email*, currently kambricgoods@gmail.com). There's no separate contact-form recipient setting. Submissions aren't listed in the admin; they're only emailed.
 - **What it says:** "Please notify me when Margit One-Piece is back in stock", then the print, size, variant ID and product link.
 - **Nothing emails the customer automatically when stock returns (yet).** For now, you reply by hand. An app can take this over later without changing the page (decision D-12).
 - Shopify occasionally shows shoppers a captcha on contact forms; the form handles that by itself.
