@@ -62,3 +62,6 @@ Shopify URL redirects cannot have query-string sources. The following patterns f
 - The CSV uses path-only redirects (no domain); Shopify handles `www.` and trailing-slash normalization separately.
 - Draft per-print product variants target the first available variant matching the Print/Colorway value, or the first variant with that value if none are available.
 - Vera-coat draft products redirect to `vera-car-coat` (the active merged product handle, not the draft base name).
+
+
+> **`/shop` removed (2026-09-28):** Shopify serves the home page at `/shop` (a reserved alias), so a URL redirect there never fires. The theme handles it instead: `snippets/meta-tags.liquid` outputs an instant meta refresh + canonical to `/collections/all` when the path is exactly `/shop`. The `/shop/<category>` redirects are unaffected (those paths are real 404s).

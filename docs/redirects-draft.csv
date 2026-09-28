@@ -15,7 +15,6 @@ Redirect from,Redirect to
 /returns,/pages/returns
 /sale,/collections/sale
 /shipping,/pages/shipping
-/shop,/collections/all
 /shop/accessories,/collections/accessories
 /shop/coats,/collections/coats
 /shop/dresses,/collections/dresses

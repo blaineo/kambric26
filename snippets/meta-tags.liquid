@@ -67,7 +67,17 @@
   <meta name="description" content="{{ page_description | escape }}">
 {%- endif %}
 
-<link rel="canonical" href="{{ canonical_url }}">
+{%- comment -%}
+  Shopify serves the home page at /shop (a reserved alias), so a URL redirect for the old
+  site's /shop ("Shop All") can never fire. Send those visitors and search engines to the
+  shop page instead: an instant meta refresh is treated like a redirect by Google.
+{%- endcomment -%}
+{%- if request.path == '/shop' -%}
+  <meta http-equiv="refresh" content="0; url={{ routes.all_products_collection_url }}">
+  <link rel="canonical" href="{{ request.origin }}{{ routes.all_products_collection_url }}">
+{%- else -%}
+  <link rel="canonical" href="{{ canonical_url }}">
+{%- endif -%}
 
 {%- if noindex %}
   <meta name="robots" content="noindex, follow">
