@@ -13,7 +13,7 @@ Custom Shopify Online Store 2.0 theme for [kambricgoods.com](https://kambricgood
 | Shopify CLI ≥ 3.60 (4.x recommended) | `shopify version` | `brew tap shopify/shopify && brew install shopify-cli` |
 | Node.js ≥ 20 (for the CLI) | `node -v` | `brew install node@22` |
 | Git | `git --version` | `xcode-select --install` |
-| Theme Check | `shopify theme check --version` | Bundled with Shopify CLI; nothing extra to install |
+| Theme Check | `shopify theme check` | Bundled with Shopify CLI; nothing extra to install |
 
 Optional: the [Shopify Liquid VS Code extension](https://shopify.dev/docs/storefronts/themes/tools/shopify-liquid-vscode) (Theme Check and Liquid language server in the editor).
 
