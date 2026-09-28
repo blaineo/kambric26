@@ -22,6 +22,9 @@
     assign same_as = same_as | append: settings.social_pinterest | append: '|'
   endif
   assign same_as = same_as | split: '|'
+
+  # Built here, not in {{ }}: a literal "}" inside an output tag ends it early.
+  assign search_url_template = request.origin | append: routes.search_url | append: '?q={search_term_string}'
 -%}
 <script type="application/ld+json">
   {
@@ -53,7 +56,7 @@
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          "urlTemplate": {{ request.origin | append: routes.search_url | append: '?q={search_term_string}' | json }}
+          "urlTemplate": {{ search_url_template | json }}
         },
         "query-input": "required name=search_term_string"
       }
