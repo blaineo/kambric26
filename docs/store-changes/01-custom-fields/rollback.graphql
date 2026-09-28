@@ -1,0 +1,11 @@
+# Batch 01 rollback. before.json shows none of these definitions or values existed,
+# so rollback = delete the two values, then delete the four definitions created
+# (IDs are filled into rollback-vars.json from the apply response; see log.md).
+mutation Batch01RollbackValues {
+  metafieldsDelete(metafields: [
+    { ownerId: "gid://shopify/Product/8721345642730", namespace: "kambric", key: "archive_label" },
+    { ownerId: "gid://shopify/Product/8690060460266", namespace: "seo", key: "hidden" }
+  ]) { deletedMetafields { key namespace ownerId } userErrors { field message } }
+}
+# Then, per created definition id:
+# mutation($id: ID!) { metafieldDefinitionDelete(id: $id, deleteAllAssociatedMetafields: true) { deletedDefinitionId userErrors { field message } } }

@@ -1,0 +1,7 @@
+# Batch 01 / step 2: set the two values (owner IDs verified in before.json).
+mutation Batch01Values {
+  metafieldsSet(metafields: [
+    { ownerId: "gid://shopify/Product/8721345642730", namespace: "kambric", key: "archive_label", type: "single_line_text_field", value: "Parlor Rose" },
+    { ownerId: "gid://shopify/Product/8690060460266", namespace: "seo", key: "hidden", type: "number_integer", value: "1" }
+  ]) { metafields { id namespace key value owner { ... on Product { handle } } } userErrors { field message code } }
+}

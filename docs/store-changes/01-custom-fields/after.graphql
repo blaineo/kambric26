@@ -1,0 +1,21 @@
+# Batch 01 read-only snapshot: existing definitions + the two owner records.
+query Batch01Before {
+  shop { id name myshopifyDomain }
+  productKambric: metafieldDefinitions(first: 50, ownerType: PRODUCT, namespace: "kambric") {
+    nodes { id namespace key name type { name } access { storefront } }
+  }
+  productSeo: metafieldDefinitions(first: 50, ownerType: PRODUCT, namespace: "seo") {
+    nodes { id namespace key name type { name } }
+  }
+  collectionKambric: metafieldDefinitions(first: 50, ownerType: COLLECTION, namespace: "kambric") {
+    nodes { id namespace key name type { name } access { storefront } }
+  }
+  arielle: productByHandle(handle: "arielle-dress") {
+    id title status
+    archiveLabel: metafield(namespace: "kambric", key: "archive_label") { id value }
+  }
+  monogram: productByHandle(handle: "chainstitch-monogram") {
+    id title status
+    seoHidden: metafield(namespace: "seo", key: "hidden") { id value type }
+  }
+}

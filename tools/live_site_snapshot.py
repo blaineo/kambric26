@@ -16,7 +16,7 @@ import sys
 import urllib.request
 
 BASE = "https://kambricgoods.com"
-ENDPOINTS = ["/api/collections", "/api/products", "/api/product-redirects"]
+ENDPOINTS = ["/api/collections", "/api/products", "/api/product-redirects", "/api/monogram"]
 # Volatile keys that change without any store edit (cache stamps etc.).
 VOLATILE = {"updatedAt", "createdAt", "generatedAt", "cachedAt", "timestamp"}
 

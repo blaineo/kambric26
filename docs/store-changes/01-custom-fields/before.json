@@ -1,0 +1,90 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186",
+    "name": "Kambric Goods",
+    "myshopifyDomain": "7u2dfq-xf.myshopify.com"
+  },
+  "productKambric": {
+    "nodes": [
+      {
+        "id": "gid://shopify/MetafieldDefinition/66936897770",
+        "namespace": "kambric",
+        "key": "print_name",
+        "name": "Print Name",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/66936930538",
+        "namespace": "kambric",
+        "key": "print_story",
+        "name": "Print Story",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/69853806826",
+        "namespace": "kambric",
+        "key": "prints",
+        "name": "Prints",
+        "type": {
+          "name": "json"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      }
+    ]
+  },
+  "productSeo": {
+    "nodes": []
+  },
+  "collectionKambric": {
+    "nodes": [
+      {
+        "id": "gid://shopify/MetafieldDefinition/66936963306",
+        "namespace": "kambric",
+        "key": "season",
+        "name": "Season",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/66936996074",
+        "namespace": "kambric",
+        "key": "year",
+        "name": "Year",
+        "type": {
+          "name": "number_integer"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      }
+    ]
+  },
+  "arielle": {
+    "id": "gid://shopify/Product/8721345642730",
+    "title": "Arielle Slip Dress",
+    "status": "ACTIVE",
+    "archiveLabel": null
+  },
+  "monogram": {
+    "id": "gid://shopify/Product/8690060460266",
+    "title": "Chainstitch Monogram",
+    "status": "ACTIVE",
+    "seoHidden": null
+  }
+}

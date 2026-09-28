@@ -1,0 +1,27 @@
+# Batch 01 / step 1: create four merchant-owned metafield definitions.
+# Storefront API access is left at the default (none): only the Shopify-hosted theme
+# (Liquid) reads them, so the live Replit site (Storefront API) can't see them.
+mutation Batch01Definitions {
+  archiveLabel: metafieldDefinitionCreate(definition: {
+    ownerType: PRODUCT, namespace: "kambric", key: "archive_label",
+    name: "Archive label", type: "single_line_text_field",
+    description: "Fixed archive print name for the product page eyebrow, e.g. \"Parlor Rose\" -> \"Parlor Rose Archive Print\". Empty = the active print's name."
+  }) { createdDefinition { id namespace key } userErrors { field message code } }
+  cardImage: metafieldDefinitionCreate(definition: {
+    ownerType: COLLECTION, namespace: "kambric", key: "card_image",
+    name: "Card image", type: "file_reference",
+    validations: [{ name: "file_type_options", value: "[\"Image\"]" }],
+    description: "Image on the collection's card on /collections (4:3). Falls back to the collection image."
+  }) { createdDefinition { id namespace key } userErrors { field message code } }
+  headerImage: metafieldDefinitionCreate(definition: {
+    ownerType: COLLECTION, namespace: "kambric", key: "header_image",
+    name: "Header image", type: "file_reference",
+    validations: [{ name: "file_type_options", value: "[\"Image\"]" }],
+    description: "Wide image at the top of the collection page. Falls back to Card image, then the collection image."
+  }) { createdDefinition { id namespace key } userErrors { field message code } }
+  seoHidden: metafieldDefinitionCreate(definition: {
+    ownerType: PRODUCT, namespace: "seo", key: "hidden",
+    name: "Hide from search engines", type: "number_integer",
+    description: "1 = keep this product out of the Shopify-hosted site's sitemap and search (used for the chainstitch monogram fee)."
+  }) { createdDefinition { id namespace key } userErrors { field message code } }
+}
