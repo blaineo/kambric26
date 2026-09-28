@@ -1,0 +1,585 @@
+{% comment %}
+  Collection detail and sale listing: the collection's products expanded into
+  print cards (CollectionDetail.tsx / Sale.tsx).
+
+  - "Only prints from this collection" (default on): keeps prints whose
+    collection is this collection (product-prints `collection_handle`), so a
+    merged product shows only the prints that live here. Turn it off on the
+    sale template: prints of any collection qualify.
+  - "Print filter: on sale": keeps only prints whose compare-at price is above
+    the price; each print qualifies independently.
+  - "Show these first": pinned products lead the grid (replaces the source's
+    hard-coded Folklore/Arielle priority).
+  - Pagination (D-17): by products, so cards per page vary.
+  - JSON-LD: CollectionPage + ItemList of the rendered print cards.
+  - `show_on` hides the whole section (no JSON-LD) on /collections/all or
+    everywhere else, so collection.json can host the shop page too.
+{% endcomment %}
+{%- liquid
+  assign show_section = false
+  if collection.handle != blank
+    assign show_section = true
+    case section.settings.show_on
+      when 'all_only'
+        unless collection.handle == 'all'
+          assign show_section = false
+        endunless
+      when 'except_all'
+        if collection.handle == 'all'
+          assign show_section = false
+        endif
+    endcase
+  endif
+-%}
+{%- if show_section -%}
+  {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- liquid
+      assign eager_count = section.settings.eager_count
+      assign pinned_list = section.settings.pinned_products
+      assign card_layout = section.settings.card_layout
+      assign container = section.settings.container
+      assign entry_sep = '|~|'
+      assign list_sep = '|#|'
+
+      assign print_filter = blank
+      if section.settings.print_filter == 'sale'
+        assign print_filter = 'sale'
+      endif
+      assign print_collection = blank
+      if section.settings.match_collection
+        assign print_collection = collection.handle
+      endif
+
+      if container == 'full'
+        assign card_sizes = '(min-width: 48rem) calc((100vw - 8.5rem) / 3), calc((100vw - 5.25rem) / 2)'
+        assign root_class = 'collection-grid collection-grid--full full-width'
+      else
+        assign card_sizes = '(min-width: 80rem) 24rem, (min-width: 48rem) calc((100vw - 7rem) / 3), calc((100vw - 4.5rem) / 2)'
+        assign root_class = 'collection-grid collection-grid--page'
+      endif
+
+      assign card_heading_level = 3
+      if section.settings.label == blank
+        assign card_heading_level = 2
+      endif
+
+      comment
+        Products on this page (visibility guard) and the pinned ones among them.
+      endcomment
+      assign page_ids = ','
+      for product in collection.products
+        if product.tags contains 'hidden' or product.handle == 'chainstitch-monogram'
+          continue
+        endif
+        assign page_ids = page_ids | append: product.id | append: ','
+      endfor
+      assign pinned_ids = ','
+      for product in pinned_list
+        assign key = ',' | append: product.id | append: ','
+        if page_ids contains key
+          assign pinned_ids = pinned_ids | append: product.id | append: ','
+        endif
+      endfor
+
+      assign rendered = 0
+      assign card_entries = ''
+      capture grid_cards
+        for pass in (1..2)
+          if pass == 1
+            assign pass_products = pinned_list
+          else
+            assign pass_products = collection.products
+          endif
+          for product in pass_products
+            assign key = ',' | append: product.id | append: ','
+            unless page_ids contains key
+              continue
+            endunless
+            if pass == 2 and pinned_ids contains key
+              continue
+            endif
+
+            capture cards
+              render 'product-prints', product: product, collection_handle: print_collection, filter: print_filter, layout: card_layout, heading_level: card_heading_level, sizes: card_sizes, eager_count: eager_count, offset: rendered, item_class: 'collection-grid__item'
+            endcapture
+            assign count = cards | split: 'data-print-card' | size | minus: 1
+            if count > 0
+              echo cards
+              assign rendered = rendered | plus: count
+
+              capture values
+                render 'product-prints', product: product, collection_handle: print_collection, filter: print_filter, output: 'values'
+              endcapture
+              assign value_list = values | split: '|'
+              for raw_value in value_list
+                assign clean_value = raw_value | strip
+                assign card_entries = card_entries | append: list_sep | append: product.id | append: entry_sep | append: clean_value
+              endfor
+            endif
+          endfor
+        endfor
+      endcapture
+    -%}
+
+    <div class="{{ root_class }}">
+      {%- if section.settings.label != blank -%}
+        <h2 class="collection-grid__label">{{ section.settings.label | escape }}</h2>
+      {%- endif -%}
+
+      {%- if rendered > 0 -%}
+        <ul class="collection-grid__list" role="list">
+          {{- grid_cards -}}
+        </ul>
+      {%- else -%}
+        <div class="collection-grid__empty">
+          {%- if section.settings.empty_heading != blank -%}
+            <p class="collection-grid__empty-heading">{{ section.settings.empty_heading | escape }}</p>
+          {%- endif -%}
+          {%- if section.settings.empty_body != blank -%}
+            <div class="collection-grid__empty-body">{{ section.settings.empty_body }}</div>
+          {%- endif -%}
+          {%- if section.settings.empty_link_label != blank and section.settings.empty_link_url != blank -%}
+            <a class="collection-grid__empty-link" href="{{ section.settings.empty_link_url }}">
+              {{- section.settings.empty_link_label | escape -}}
+              <span aria-hidden="true"> &rarr;</span>
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      {%- if paginate.pages > 1 -%}
+        <nav class="collection-grid__pagination" aria-label="{{ 'collections.pagination.label' | t }}">
+          <ul class="collection-grid__pages" role="list">
+            {%- if paginate.previous -%}
+              <li>
+                <a class="collection-grid__page collection-grid__page--step" href="{{ paginate.previous.url }}">
+                  <span aria-hidden="true">&larr;</span>
+                  {{ 'collections.pagination.previous' | t -}}
+                </a>
+              </li>
+            {%- endif -%}
+            {%- for part in paginate.parts -%}
+              <li>
+                {%- if part.is_link -%}
+                  <a class="collection-grid__page" href="{{ part.url }}">
+                    <span class="visually-hidden">{{ 'collections.pagination.page' | t: number: part.title }}</span>
+                    <span aria-hidden="true">{{ part.title }}</span>
+                  </a>
+                {%- elsif part.title == paginate.current_page -%}
+                  <span class="collection-grid__page collection-grid__page--current" aria-current="page">
+                    <span class="visually-hidden">{{ 'collections.pagination.page' | t: number: part.title }}</span>
+                    <span aria-hidden="true">{{ part.title }}</span>
+                  </span>
+                {%- else -%}
+                  <span class="collection-grid__page">{{ part.title }}</span>
+                {%- endif -%}
+              </li>
+            {%- endfor -%}
+            {%- if paginate.next -%}
+              <li>
+                <a class="collection-grid__page collection-grid__page--step" href="{{ paginate.next.url }}">
+                  {{- 'collections.pagination.next' | t }}
+                  <span aria-hidden="true">&rarr;</span>
+                </a>
+              </li>
+            {%- endif -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+    </div>
+
+    {%- if section.settings.structured_data -%}
+      {%- liquid
+        comment
+          ItemList of the rendered cards, in page order. Merged products link
+          to the print's first available variant (?variant=), single-print
+          products to the product page.
+        endcomment
+        assign card_list = card_entries | split: list_sep
+        assign items = ''
+        assign position = 0
+        for entry in card_list
+          if entry == blank
+            continue
+          endif
+          assign entry_parts = entry | split: entry_sep
+          assign entry_id = entry_parts[0]
+          assign print_value = entry_parts[1]
+          for product in collection.products
+            assign product_id = product.id | append: ''
+            if product_id != entry_id
+              continue
+            endif
+
+            assign print_index = -1
+            for option in product.options_with_values
+              if option.name == 'Print' or option.name == 'Colorway'
+                assign print_index = option.position | minus: 1
+                break
+              endif
+            endfor
+            assign item_url = request.origin | append: product.url
+            if print_index >= 0
+              assign item_variant = nil
+              for variant in product.variants
+                if variant.options[print_index] == print_value
+                  if item_variant == nil
+                    assign item_variant = variant
+                  endif
+                  if variant.available
+                    assign item_variant = variant
+                    break
+                  endif
+                endif
+              endfor
+              if item_variant
+                assign item_url = item_url | append: '?variant=' | append: item_variant.id
+              endif
+            endif
+
+            assign item_name = product.title
+            if print_value != blank and print_value != product.title
+              assign item_name = item_name | append: ' — ' | append: print_value
+            endif
+
+            assign position = position | plus: 1
+            assign name_json = item_name | json
+            assign url_json = item_url | json
+            if position > 1
+              assign items = items | append: ','
+            endif
+            assign items = items | append: '{"@type":"ListItem","position":' | append: position | append: ',"name":' | append: name_json | append: ',"url":' | append: url_json | append: '}'
+            break
+          endfor
+        endfor
+
+        assign page_description = collection.description | strip_html | strip
+        assign page_name = collection.title
+        if collection.handle == 'all'
+          assign page_name = 'collections.structured_data.all_name' | t
+        endif
+        assign list_name = 'collections.structured_data.item_list_name' | t: collection: page_name, shop: shop.name
+      -%}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": {{ page_name | json }},
+          {%- if page_description != blank %}
+            "description": {{ page_description | json }},
+          {%- endif %}
+          "url": {{ canonical_url | json }}
+          {%- if position > 0 -%}
+            ,
+            "mainEntity": {
+              "@type": "ItemList",
+              "name": {{ list_name | json }},
+              "numberOfItems": {{ position }},
+              "itemListElement": [{{ items }}]
+            }
+          {%- endif %}
+        }
+      </script>
+    {%- endif -%}
+  {%- endpaginate -%}
+{%- endif -%}
+
+{% stylesheet %}
+  /*
+    Page container (CollectionDetail.tsx): max-w-7xl px-6, py-16 pb-28,
+    "The Pieces" divider mb-14, grid gap-6 / md:gap-8, standard cards.
+    Full container (Sale.tsx): px-8 / md:px-12, py-10 pb-20, gap-5.
+  */
+  .collection-grid--page {
+    padding-block: var(--space-16) calc(var(--space-24) + var(--space-4));
+  }
+
+  .collection-grid--full {
+    padding: var(--space-10) var(--space-8) var(--space-20);
+  }
+
+  .collection-grid__label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    margin-block-end: calc(var(--space-12) + var(--space-2));
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    font-weight: var(--weight-regular);
+    line-height: 1rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .collection-grid__label::before,
+  .collection-grid__label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  .collection-grid__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .collection-grid--full .collection-grid__list {
+    gap: var(--space-5);
+  }
+
+  /* Empty states: "No pieces yet." / "No pieces are on sale right now." */
+  .collection-grid__empty {
+    padding-block: calc(var(--space-24) + var(--space-4));
+    text-align: center;
+  }
+
+  .collection-grid--full .collection-grid__empty {
+    padding-block: var(--space-24);
+  }
+
+  .collection-grid__empty-heading {
+    font-family: var(--font-serif);
+    font-size: var(--text-30);
+    font-style: italic;
+    color: var(--color-muted-foreground);
+  }
+
+  .collection-grid--full .collection-grid__empty-heading {
+    font-size: var(--text-24);
+    color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+  }
+
+  .collection-grid__empty-body {
+    margin-block-start: var(--space-6);
+    font-size: var(--text-14);
+    font-weight: var(--weight-light);
+    color: var(--color-muted-foreground);
+  }
+
+  .collection-grid__empty-link {
+    display: inline-block;
+    margin-block-start: var(--space-6);
+    padding-block-end: var(--space-0-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+    border-block-end: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .collection-grid__empty-link:hover {
+    color: var(--color-foreground);
+  }
+
+  /* Pagination */
+  .collection-grid__pagination {
+    margin-block-start: var(--space-16);
+  }
+
+  .collection-grid__pages {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-nav);
+    text-transform: uppercase;
+  }
+
+  .collection-grid__page {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+    padding-inline: var(--space-2);
+    color: var(--color-muted-foreground);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  a.collection-grid__page:hover {
+    color: var(--color-foreground);
+  }
+
+  .collection-grid__page--current {
+    color: var(--color-foreground);
+    border-block-end: 1px solid var(--color-foreground);
+  }
+
+  @media (min-width: 48rem) {
+    .collection-grid--full {
+      padding-inline: var(--space-12);
+    }
+
+    .collection-grid__list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-8);
+    }
+
+    .collection-grid--full .collection-grid__list {
+      gap: var(--space-5);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.collection_product_grid.name",
+  "class": "section-collection-product-grid",
+  "enabled_on": {
+    "templates": ["collection"]
+  },
+  "settings": [
+    {
+      "type": "select",
+      "id": "show_on",
+      "label": "t:sections.collection_product_grid.settings.show_on.label",
+      "info": "t:sections.collection_product_grid.settings.show_on.info",
+      "options": [
+        { "value": "always", "label": "t:sections.collection_product_grid.settings.show_on.options.always" },
+        { "value": "all_only", "label": "t:sections.collection_product_grid.settings.show_on.options.all_only" },
+        { "value": "except_all", "label": "t:sections.collection_product_grid.settings.show_on.options.except_all" }
+      ],
+      "default": "always"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.collection_product_grid.settings.header_products.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "match_collection",
+      "label": "t:sections.collection_product_grid.settings.match_collection.label",
+      "info": "t:sections.collection_product_grid.settings.match_collection.info",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "print_filter",
+      "label": "t:sections.collection_product_grid.settings.print_filter.label",
+      "info": "t:sections.collection_product_grid.settings.print_filter.info",
+      "options": [
+        { "value": "none", "label": "t:sections.collection_product_grid.settings.print_filter.options.none" },
+        { "value": "sale", "label": "t:sections.collection_product_grid.settings.print_filter.options.sale" }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "product_list",
+      "id": "pinned_products",
+      "label": "t:sections.collection_product_grid.settings.pinned_products.label",
+      "info": "t:sections.collection_product_grid.settings.pinned_products.info",
+      "limit": 12
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "t:sections.collection_product_grid.settings.products_per_page.label",
+      "info": "t:sections.collection_product_grid.settings.products_per_page.info",
+      "min": 6,
+      "max": 48,
+      "step": 6,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "eager_count",
+      "label": "t:sections.collection_product_grid.settings.eager_count.label",
+      "info": "t:sections.collection_product_grid.settings.eager_count.info",
+      "min": 0,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "t:sections.collection_product_grid.settings.header_layout.content"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "t:sections.collection_product_grid.settings.label.label",
+      "info": "t:sections.collection_product_grid.settings.label.info",
+      "default": "The Pieces"
+    },
+    {
+      "type": "select",
+      "id": "card_layout",
+      "label": "t:sections.collection_product_grid.settings.card_layout.label",
+      "options": [
+        { "value": "standard", "label": "t:sections.collection_product_grid.settings.card_layout.options.standard" },
+        { "value": "archive", "label": "t:sections.collection_product_grid.settings.card_layout.options.archive" }
+      ],
+      "default": "standard"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "t:sections.collection_product_grid.settings.container.label",
+      "options": [
+        { "value": "page", "label": "t:sections.collection_product_grid.settings.container.options.page" },
+        { "value": "full", "label": "t:sections.collection_product_grid.settings.container.options.full" }
+      ],
+      "default": "page"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.collection_product_grid.settings.header_empty.content"
+    },
+    {
+      "type": "text",
+      "id": "empty_heading",
+      "label": "t:sections.collection_product_grid.settings.empty_heading.label",
+      "default": "No pieces yet."
+    },
+    {
+      "type": "richtext",
+      "id": "empty_body",
+      "label": "t:sections.collection_product_grid.settings.empty_body.label",
+      "default": "<p>New pieces from this collection will be added soon.</p>"
+    },
+    {
+      "type": "text",
+      "id": "empty_link_label",
+      "label": "t:sections.collection_product_grid.settings.empty_link_label.label"
+    },
+    {
+      "type": "url",
+      "id": "empty_link_url",
+      "label": "t:sections.collection_product_grid.settings.empty_link_url.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.collection_product_grid.settings.header_seo.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "structured_data",
+      "label": "t:sections.collection_product_grid.settings.structured_data.label",
+      "info": "t:sections.collection_product_grid.settings.structured_data.info",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.collection_product_grid.name"
+    }
+  ]
+}
+{% endschema %}

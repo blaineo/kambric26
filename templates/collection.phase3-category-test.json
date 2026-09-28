@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "groups": {
+      "type": "collection-product-groups",
+      "settings": {
+        "show_on": "always",
+        "product_type": "Dresses",
+        "pinned_products": ["arielle-dress"],
+        "group_order": ["psychedelics", "folklore", "whimsy"]
+      }
+    }
+  },
+  "order": ["groups"]
+}

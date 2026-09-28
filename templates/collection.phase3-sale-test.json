@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "grid": {
+      "type": "collection-product-grid",
+      "settings": {
+        "show_on": "always",
+        "match_collection": false,
+        "print_filter": "sale",
+        "label": "",
+        "card_layout": "archive",
+        "container": "full",
+        "empty_heading": "No pieces are on sale right now.",
+        "empty_body": "",
+        "empty_link_label": "Shop All Pieces",
+        "empty_link_url": "/collections/all"
+      }
+    }
+  },
+  "order": ["grid"]
+}
