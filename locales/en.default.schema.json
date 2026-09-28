@@ -72,6 +72,45 @@
       "title": "Title",
       "subtitle": "Subtitle",
       "normal": "Normal text"
+    }
+  },
+  "theme_settings": {
+    "brand": {
+      "name": "Logo and brand",
+      "logo": "Logo",
+      "logo_info": "Leave empty to use the built-in bronze Kambric Goods wordmark. Upload a transparent PNG or SVG, at least 600px wide.",
+      "logo_height": "Logo height (desktop)",
+      "logo_height_mobile": "Logo height (mobile)",
+      "favicon": "Favicon",
+      "favicon_info": "Square image, at least 96 × 96px. Leave empty to use the built-in Kambric icon.",
+      "share_image": "Default social sharing image",
+      "share_image_info": "Used when a page has no image of its own (e.g. links shared to Instagram, iMessage or Pinterest). 1200 × 630px recommended."
     },
+    "colors": {
+      "name": "Colors",
+      "info": "Defaults match the current kambricgoods.com palette. Change with care: text colors must stay readable on their backgrounds.",
+      "base": "Page",
+      "background": "Background (ivory)",
+      "foreground": "Text (cocoa)",
+      "border": "Lines and borders",
+      "brand": "Brand",
+      "primary": "Primary (ochre)",
+      "primary_foreground": "Text on primary",
+      "secondary": "Secondary (terracotta)",
+      "secondary_foreground": "Text on secondary",
+      "accent": "Accent (olive)",
+      "accent_foreground": "Text on accent",
+      "supporting": "Supporting",
+      "muted": "Muted surface (linen)",
+      "muted_foreground": "Muted text",
+      "hero_background": "Dark band background",
+      "hero_foreground": "Text on dark band",
+      "destructive": "Error"
+    },
+    "social": {
+      "name": "Social media",
+      "instagram": "Instagram URL",
+      "pinterest": "Pinterest URL"
+    }
   }
 }

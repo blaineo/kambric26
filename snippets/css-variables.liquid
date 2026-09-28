@@ -1,18 +1,27 @@
+{% doc %}
+  Emits the editor-controlled design tokens (colors) as CSS custom properties.
+  Static tokens (spacing, type, containers, motion) live in assets/critical.css.
+  Defaults come from the export's design/tokens.json (HSL converted to hex).
+{% enddoc %}
 {% style %}
-  {% # Loads all font variantions with display: swap %}
-  {{ settings.type_primary_font | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'weight', 'bold' | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-  {{ settings.type_primary_font | font_modify: 'style', 'italic' | font_face: font_display: 'swap' }}
-
   :root {
-    --font-primary--family: {{ settings.type_primary_font.family }}, {{ settings.type_primary_font.fallback_families }};
-    --font-primary--style: {{ settings.type_primary_font.style }};
-    --font-primary--weight: {{ settings.type_primary_font.weight }};
-    --page-width: {{ settings.max_page_width }};
-    --page-margin: {{ settings.min_page_margin }}px;
-    --color-background: {{ settings.background_color }};
-    --color-foreground: {{ settings.foreground_color }};
-    --style-border-radius-inputs: {{ settings.input_corner_radius }}px;
+    --color-background: {{ settings.color_background }};
+    --color-foreground: {{ settings.color_foreground }};
+    --color-border: {{ settings.color_border }};
+    --color-input: {{ settings.color_border }};
+    --color-ring: {{ settings.color_primary }};
+    --color-primary: {{ settings.color_primary }};
+    --color-primary-foreground: {{ settings.color_primary_foreground }};
+    --color-secondary: {{ settings.color_secondary }};
+    --color-secondary-foreground: {{ settings.color_secondary_foreground }};
+    --color-accent: {{ settings.color_accent }};
+    --color-accent-foreground: {{ settings.color_accent_foreground }};
+    --color-muted: {{ settings.color_muted }};
+    --color-muted-foreground: {{ settings.color_muted_foreground }};
+    --color-hero-background: {{ settings.color_hero_background }};
+    --color-hero-foreground: {{ settings.color_hero_foreground }};
+    --color-destructive: {{ settings.color_destructive }};
+    --logo-height: {{ settings.logo_height }}px;
+    --logo-height-mobile: {{ settings.logo_height_mobile }}px;
   }
 {% endstyle %}
