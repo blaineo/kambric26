@@ -56,7 +56,8 @@
 {% stylesheet %}
   /* Source: Layout.tsx announcement link (bg-secondary, h-9, 10/11px, 0.3em tracking) */
   .announcement-bar {
-    background: var(--color-secondary);
+    /* Terracotta darkened 6% toward cocoa: 4.63:1 text contrast (WCAG AA). Plain secondary is 4.32:1. */
+    background: color-mix(in srgb, var(--color-secondary) 94%, var(--color-foreground));
     color: var(--color-secondary-foreground);
   }
 
