@@ -53,6 +53,11 @@ Parity: `shop-*`, `category-*`, `collection-index-*`, `collection-*`.
 - Exclusions everywhere: tag `hidden`, handle `chainstitch-monogram`, collection `frontpage`.
 - JSON-LD: `CollectionPage` + `ItemList`, BreadcrumbList. First row of cards `eager`, rest `lazy`.
 
+**Phase 3 status (2026-09-28): built.** Sections `collection-product-groups`, `collection-product-grid`, `collection-hero`, `catalog-heading`, `category-nav`, `main-collections`, `text-cta`; templates `collection.json`, `collection.category.json`, `collection.sale.json`, `list-collections.json`. Verified on the dev theme: card counts match the source (shop 22, dresses 7 simulated, psychedelics 9, sale 6 simulated); one h1 and one CollectionPage (+ nested ItemList) per page; titles match SEO.md ("Shop All", "Heritage Print Collections"). Home-collection lookup now skips `frontpage`, `all` and category/sale-template collections everywhere. Chrome pass and live category/sale tests are pending the store data.
+- **Remove before launch:** `templates/collection.phase3-category-test.json`, `templates/collection.phase3-sale-test.json`.
+- **Store data (owner):** create the category/sale collections and assign templates `category`/`sale` (§3a-A1 + collection-copy.md); create menu `shop-categories`; fix `botanicals` → `whimsy` in `kambric.prints` (Whimsy is empty until then); set collection Card/Header images.
+- **Open:** one collection description serves both the detail hero and the shop group text (the source used separate long copy for groups); keep one, or add a `kambric.group_description` metafield? Shop page emits CollectionPage JSON-LD (the source emitted none). Orphan group has no heading by default (source parity). Suggested helper to de-duplicate the "first available variant of a print" logic (print-swatches, both grids).
+
 ### Phase 4: Home, about, events, journal (+ info pages)
 Parity: `home-*`, `about-*`, `events-*`, `journal-index-*`, `journal-post-*`, `wholesale-*`, `size-guide-*`, `contact-*`.
 - **Home** (`index.json`): hero (image `priority`, mobile art-direction), marquee strip (reuses the announcement marquee CSS), new arrivals, story, quote band, lookbook (5-col/6-row composition), featured. Framer Motion entrances become CSS/`IntersectionObserver` reveal (reduced-motion safe, no CLS: transform/opacity only).

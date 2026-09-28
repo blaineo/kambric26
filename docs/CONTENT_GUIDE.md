@@ -30,7 +30,7 @@ This guide is updated with every build phase. The [change log](#change-log) at t
 | Edit the **About page** text, photos, value cards | **Customize** → About page sections | Phase 4 |
 | Add, edit and reorder **events** | **Content → Metaobjects → Events** | Phase 4 |
 | Write **journal posts** (Markdown) | **Content → Blog posts → Journal** (visual editor, no Markdown) | Phase 4 |
-| Set **collection cover and header images** | **Products → Collections → (collection) → Metafields** | Phase 3 |
+| Set **collection cover and header images** | **Products → Collections → (collection) → Metafields**: *Card image* and *Header image* | ✅ Phase 3 |
 | Edit **info pages** (contact, shipping, returns, size guide, wholesale) | **Online Store → Pages** (these were locked in code before; now you can edit them) | Phase 4 |
 | Edit **privacy policy and terms** | **Settings → Policies** | Phase 4 |
 | Change the **newsletter pop-up** image | **Customize** → Pop-up section | Phase 5 |
@@ -122,6 +122,7 @@ The theme reads three menus. Shopify identifies each by its **handle** (a fixed 
 | Main menu | `main-menu` | Header navigation and the phone menu |
 | Footer menu | `footer` | Footer column **Shop** |
 | Footer info | `footer-info` | Footer column **Information** |
+| Shop categories | `shop-categories` | The category strip on the shop and category pages: **All** (`/collections/all`), **Dresses**, **Kaftans**, **Coats**, **Swimwear**, **Accessories** (the category collections from A1). Create it after A1, top-level links only. |
 
 Some links point at things that don't exist in Shopify yet (category collections, the About/Events pages, the Journal). Do **Part A** now and **Part B** when those pages are built (Phase 4).
 
@@ -289,6 +290,113 @@ These are Shopify's standard fields, so they also improve Shopify search, filter
 
 ---
 
+## 3d. Shop, category, collection and sale pages (Phase 3)
+
+**One-time setup:** create the category collections and assign their templates (table below), paste the copy from `docs/store-data/collection-copy.csv` (instructions in `collection-copy.md`), and create the **Shop categories** menu (§3a, menu `shop-categories`) for the category strip. Until that menu exists, the strip is simply hidden.
+
+### Product listings
+
+**Which template each page uses**
+| Page | Address | Template to assign |
+| --- | --- | --- |
+| Shop all | `/collections/all` | Nothing to assign. Shopify always uses the default collection template here, and the sections switch on for this page by themselves (their **Show on** setting). |
+| Category (Dresses, Kaftans, Coats, Swimwear, Accessories) | `/collections/dresses` … | Open the collection in the admin → *Theme template* → **category**. |
+| Sale | `/collections/sale` | Open the collection → *Theme template* → **sale**. |
+| Collection (Folklore, Psychedelics, Whimsy) | `/collections/folklore` … | **Default collection** (nothing to change). |
+
+⚠️ Creating the category and sale collections is shared with the live site; see §3a-A1 (Online Store channel only).
+
+**How cards are listed**
+- Every print is its own card (see §3b). On shop and category pages the cards are **grouped by each print's collection** (Psychedelics, Folklore, Whimsy). The heading and text of each group are the collection's **title** and **description**. Groups with no cards are hidden.
+- **Group order** (*Products grouped by collection* → *Group order*): pick collections in the order you want. Collections you don't pick follow alphabetically.
+- Prints whose collection doesn't exist (today: the prints still marked **botanicals**) are shown last, without a heading. Give them one with *Heading for pieces without a collection*.
+- Collection pages show only the prints that belong to that collection. The sale page shows every print with a compare-at price above its price, whatever its collection. A product can have some prints on sale and others at full price.
+- **Show these first** (both sections): pick products to lead the list, e.g. Arielle on the Dresses page or the Folklore page. The current site always put Arielle first on Dresses and Folklore; this setting replaces that rule. It's empty by default. On shop and category pages a pinned product leads every group it appears in.
+- Otherwise cards follow the collection's **sort order** (set it on each collection in the admin). `/collections/all` has no sort setting in the admin; Shopify lists it alphabetically.
+
+**Pages of results**
+- *Products per page* (default 24) counts **products, not cards**. A product with six prints makes six cards, so pages can hold different numbers of cards. Page links appear at the bottom only when there's more than one page.
+- On the shop and category pages, groups are formed per page, so a group can continue on the next page.
+
+**Empty pages**
+- Category: "Nothing in this category yet." Collection: "No pieces yet." plus a line of text. Sale: "No pieces are on sale right now." with a *Shop All Pieces* link. Each has editable heading, text and link settings under *When there's nothing to show*.
+
+**Other settings**
+- *Label above the grid* ("The Pieces") on collection pages; empty on sale.
+- *Only this product type*: leave empty. It's for testing, or for a category collection whose conditions let other products in.
+- *Describe the list for search engines*: leave on. It lists the cards on the page for Google and AI assistants.
+
+### Collection header (collection detail pages)
+
+Each collection's page (`/collections/folklore` etc.) opens with:
+
+- **Header image**, in order: the collection's **Header image** field
+  (`kambric.header_image`), then its **Card image** field
+  (`kambric.card_image`), then its Shopify collection image, then no image at
+  all (a plain dark header with just text — still fully usable).
+- **Season eyebrow**, e.g. "Fall 2024" — from that collection's **Season**
+  and **Year** fields. Shown only when at least one is set.
+- **Title and description** — the collection's own title/description.
+- **Piece count** ("N pieces") — this is new: it counts print cards the same
+  way the product grid does, so it always matches what's below it.
+
+All four (image, season, description, count) can be turned off per-section
+in the theme editor if a particular collection page shouldn't show one.
+
+### Shop / category / Sale heading
+
+The "All Pieces" / "Dresses" / etc. heading block above the product grid:
+
+- **Category pages** (Dresses, Kaftans, Coats, Swimwear, Accessories): leave
+  the section's Title and Intro fields blank. They pull the collection's own
+  title and **description** automatically — so a category's intro paragraph
+  is edited the same way as any collection's description, in the Shopify
+  admin, not in the theme editor.
+- **Shop (/collections/all)**: defaults to "All" / *"Pieces"* with no intro,
+  matching the current site. Override the Title/Second line fields if that
+  ever needs to change.
+- **Sale**: do **not** leave this one on the automatic fallback — a page
+  titled literally "Sale" (the collection's own title) reads thin. Set this
+  instance's Title / Second line / Intro directly. Suggested starting copy,
+  carried over from the current site (confirm the "20% off" figure still
+  matches your actual promotion before publishing — the section itself never
+  hard-codes a discount number):
+  - Title: **End of Summer**
+  - Second line (italic): **Sale**
+  - Intro: **20% off a selection of archive pieces through the end of
+    August. When a print is gone, it doesn't always return.**
+
+### Collections index (`/collections`)
+
+- Eyebrow/heading/intro at the top are editable (defaults: "Curated
+  Chapters" / "Collections" / the current intro paragraph).
+- **Which collections appear:** by default, every collection with a
+  **Season** set — today that's Folklore, Psychedelics and Whimsy. The
+  category collections (Dresses, …) and Sale never appear here, automatically
+  (they don't carry a Season). To show a specific set/order instead, use the
+  section's **Collections to show** list — when it's non-empty it takes over
+  completely.
+- **Empty state** ("Coming soon." / "The archive is being curated…") only
+  shows if that resolves to zero collections.
+- Each card's image is still the collection's **Card image** field
+  (`kambric.card_image`) → collection image → title-only placeholder, exactly
+  as already documented in CONTENT_GUIDE §3b "Collection cards".
+
+### Closing strips (text-cta)
+
+A small reusable strip used in two places, each its own instance with its
+own message/link — editing one doesn't affect the other:
+
+- **Bottom of every collection detail page:** "Explore more of the
+  archive." → All Collections (`/collections`).
+- **Bottom of Shop/category pages:** the limited-quantity message → "The
+  Archive →" (`/pages/about`).
+
+### Sale page copy
+Set the Sale heading's title and intro in the theme editor (Customize → a sale collection). The theme never hard-codes a discount. The old site's text ("End of Summer *Sale*", "20% off … through the end of August") is out of date; rewrite it for the current promotion.
+
+---
+
 ## 4. Photos: getting the best quality and speed
 
 The new theme automatically resizes every photo for each screen size and serves modern formats (WebP/AVIF) to browsers that support them. **You don't need to resize or compress photos yourself.**
@@ -336,6 +444,7 @@ These are tracked as decisions in `docs/MIGRATION_PLAN.md`. They're listed here 
 
 | Date | Phase | What changed for editors |
 | --- | --- | --- |
+| 2026-09-28 | 3: Listings | Shop, category, collection and sale pages; template assignment; group order and "Show these first"; collection header image, season, piece count; `/collections` index; category strip menu `shop-categories`; collection copy sheet (§3d). |
 | 2026-09-28 | 2: Product page | Product page blocks and settings, archive label, print photos and links, chainstitch monogram, notify-me form, product details (§3c). |
 | 2026-09-28 | 1: Global components | Blocks (heading, text, button, eyebrow, image, group), product and collection cards, print swatches, 404 page, breadcrumbs, robots.txt (§3b). |
 | 2026-09-28 | 0: Foundation (update) | Step-by-step announcement bar how-to; one-time menu setup (§3a). Announcement bar slightly darker for readability. |
