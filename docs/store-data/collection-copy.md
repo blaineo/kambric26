@@ -32,7 +32,7 @@ What will **NOT change** on the live site:
 2. Click **Create collection**
 3. Name the collection (e.g., "Dresses") and set Handle to match (e.g., `dresses`)
 4. Leave Conditions empty (will configure automated filtering per `docs/CONTENT_GUIDE.md` §3a-A1)
-5. Set **Channel availability** to **Online Store** only
+5. Set **Channel availability** to **no channels** (unpublished) until launch. The live site reads the Online Store channel, so publishing now would show the collection on kambricgoods.com. Publish to **Online Store** at cutover.
 6. Scroll to **Theme template** card and select:
    - For category collections: `collection.category`
    - For Sale: `collection.sale`
