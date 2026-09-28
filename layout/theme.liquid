@@ -1,9 +1,13 @@
 <!doctype html>
 <html lang="{{ request.locale.iso_code }}">
   <head>
+    {% # Fonts: preload the two faces used above the fold, then declare faces %}
+    {{ 'jost.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+    {{ 'fraunces-roman.woff2' | asset_url | preload_tag: as: 'font', type: 'font/woff2', crossorigin: 'anonymous' }}
+    {% render 'fonts' %}
+
     {% # Inlined CSS Variables %}
     {% render 'css-variables' %}
-
 
     {% # Load and preload the critical CSS %}
     {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}

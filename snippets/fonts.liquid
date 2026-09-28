@@ -1,0 +1,64 @@
+{% doc %}
+  Self-hosted fonts (SIL OFL 1.1, see licenses/ in the repo).
+
+  Files are the latin subsets Google Fonts serves to the current site:
+  - fraunces-roman.woff2 / fraunces-italic.woff2: variable, opsz 9–144, wght 100–900, SOFT 0–100
+  - jost.woff2: variable, wght 100–900 (the theme uses 300/400/500)
+
+  The "Fallback" faces are local system fonts scaled to Fraunces/Jost metrics,
+  so the swap from fallback to web font causes (almost) no layout shift.
+  Overrides computed with fontTools against macOS Georgia/Arial.
+
+  Rendered in <head> before critical.css. The two primary faces are preloaded
+  from layout/theme.liquid.
+{% enddoc %}
+{% style %}
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: normal;
+    font-weight: 300 800;
+    font-display: swap;
+    src: url('{{ 'fraunces-roman.woff2' | asset_url }}') format('woff2');
+  }
+  @font-face {
+    font-family: 'Fraunces';
+    font-style: italic;
+    font-weight: 300 800;
+    font-display: swap;
+    src: url('{{ 'fraunces-italic.woff2' | asset_url }}') format('woff2');
+  }
+  @font-face {
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 300 500;
+    font-display: swap;
+    src: url('{{ 'jost.woff2' | asset_url }}') format('woff2');
+  }
+  @font-face {
+    font-family: 'Fraunces Fallback';
+    font-style: normal;
+    src: local('Georgia');
+    size-adjust: 106.05%;
+    ascent-override: 92.22%;
+    descent-override: 24.05%;
+    line-gap-override: 0%;
+  }
+  @font-face {
+    font-family: 'Fraunces Fallback';
+    font-style: italic;
+    src: local('Georgia Italic'), local('Georgia-Italic');
+    size-adjust: 98.86%;
+    ascent-override: 98.93%;
+    descent-override: 25.79%;
+    line-gap-override: 0%;
+  }
+  @font-face {
+    font-family: 'Jost Fallback';
+    font-style: normal;
+    src: local('Arial'), local('ArialMT');
+    size-adjust: 92.71%;
+    ascent-override: 115.41%;
+    descent-override: 40.45%;
+    line-gap-override: 0%;
+  }
+{% endstyle %}
