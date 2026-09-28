@@ -1,0 +1,93 @@
+{
+ "steps": [
+  {
+   "staged": [
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/cec7dbeb-8638-4a56-a16a-aa4c69657e44/collection-folklore-cover.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/1bbbf86a-feba-476a-b733-750f0b75eb01/collection-folklore-header.png",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/f6b26805-a64f-41a1-aeb6-38d813887bb6/collection-psychedelics-cover.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/0dc7626a-9f03-46c9-ab75-b96d6cbab51b/collection-psychedelics-header.png",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/f186f986-5249-4f27-8c45-d39699d8a5f7/collection-whimsy-cover.png",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/62a6eb30-bb01-48c9-a8d4-8b4849fb6754/collection-whimsy-header.png"
+   ]
+  },
+  {
+   "uploaded": 6
+  }
+ ],
+ "files": [
+  {
+   "id": "gid://shopify/MediaImage/34838741516522",
+   "filename": "collection-folklore-cover.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34838741549290",
+   "filename": "collection-folklore-header.png"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34838741582058",
+   "filename": "collection-psychedelics-cover.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34838741614826",
+   "filename": "collection-psychedelics-header.png"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34838741647594",
+   "filename": "collection-whimsy-cover.png"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34838741680362",
+   "filename": "collection-whimsy-header.png"
+  }
+ ],
+ "metafields": [
+  {
+   "id": "gid://shopify/Metafield/37404770566378",
+   "key": "card_image",
+   "value": "gid://shopify/MediaImage/34838741516522",
+   "owner": {
+    "handle": "folklore"
+   }
+  },
+  {
+   "id": "gid://shopify/Metafield/37404770599146",
+   "key": "header_image",
+   "value": "gid://shopify/MediaImage/34838741549290",
+   "owner": {
+    "handle": "folklore"
+   }
+  },
+  {
+   "id": "gid://shopify/Metafield/37404770631914",
+   "key": "card_image",
+   "value": "gid://shopify/MediaImage/34838741582058",
+   "owner": {
+    "handle": "psychedelics"
+   }
+  },
+  {
+   "id": "gid://shopify/Metafield/37404770664682",
+   "key": "header_image",
+   "value": "gid://shopify/MediaImage/34838741614826",
+   "owner": {
+    "handle": "psychedelics"
+   }
+  },
+  {
+   "id": "gid://shopify/Metafield/37404770697450",
+   "key": "card_image",
+   "value": "gid://shopify/MediaImage/34838741647594",
+   "owner": {
+    "handle": "whimsy"
+   }
+  },
+  {
+   "id": "gid://shopify/Metafield/37404770730218",
+   "key": "header_image",
+   "value": "gid://shopify/MediaImage/34838741680362",
+   "owner": {
+    "handle": "whimsy"
+   }
+  }
+ ]
+}

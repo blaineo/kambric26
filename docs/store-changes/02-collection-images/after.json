@@ -1,0 +1,97 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186",
+    "myshopifyDomain": "7u2dfq-xf.myshopify.com"
+  },
+  "folklore": {
+    "id": "gid://shopify/Collection/451384180970",
+    "title": "Folklore",
+    "image": null,
+    "card": {
+      "id": "gid://shopify/Metafield/37404770566378",
+      "value": "gid://shopify/MediaImage/34838741516522"
+    },
+    "header": {
+      "id": "gid://shopify/Metafield/37404770599146",
+      "value": "gid://shopify/MediaImage/34838741549290"
+    }
+  },
+  "psychedelics": {
+    "id": "gid://shopify/Collection/451384148202",
+    "title": "Psychedelics",
+    "image": null,
+    "card": {
+      "id": "gid://shopify/Metafield/37404770631914",
+      "value": "gid://shopify/MediaImage/34838741582058"
+    },
+    "header": {
+      "id": "gid://shopify/Metafield/37404770664682",
+      "value": "gid://shopify/MediaImage/34838741614826"
+    }
+  },
+  "whimsy": {
+    "id": "gid://shopify/Collection/451384213738",
+    "title": "Whimsy",
+    "image": null,
+    "card": {
+      "id": "gid://shopify/Metafield/37404770697450",
+      "value": "gid://shopify/MediaImage/34838741647594"
+    },
+    "header": {
+      "id": "gid://shopify/Metafield/37404770730218",
+      "value": "gid://shopify/MediaImage/34838741680362"
+    }
+  },
+  "existingFiles": {
+    "nodes": [
+      {
+        "id": "gid://shopify/MediaImage/34838741516522",
+        "alt": "Model in a blue floral dress and headscarf sitting on a wooden fence in a green field",
+        "fileStatus": "READY",
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/collection-folklore-cover.jpg?v=1790629309"
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/34838741549290",
+        "alt": "Model in a red floral coat, dress and wide-brimmed hat standing in a meadow of dried teasels",
+        "fileStatus": "READY",
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/collection-folklore-header.png?v=1790629310"
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/34838741582058",
+        "alt": "Model in a pink and purple swirl-print one-piece leaning against a white camper van",
+        "fileStatus": "READY",
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/collection-psychedelics-cover.jpg?v=1790629310"
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/34838741614826",
+        "alt": "Model in a pink and purple swirl-print one-piece leaning out of a white camper van window",
+        "fileStatus": "READY",
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/collection-psychedelics-header.png?v=1790629309"
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/34838741647594",
+        "alt": "Model in a floral-print one-piece sitting on a wooden floor",
+        "fileStatus": "READY",
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/collection-whimsy-cover.png?v=1790629310"
+        }
+      },
+      {
+        "id": "gid://shopify/MediaImage/34838741680362",
+        "alt": "Model in a floral-print one-piece sitting on the floor of a bright room beside a brass watering can",
+        "fileStatus": "READY",
+        "image": {
+          "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/collection-whimsy-header.png?v=1790629310"
+        }
+      }
+    ]
+  }
+}
