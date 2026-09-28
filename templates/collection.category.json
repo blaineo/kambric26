@@ -13,14 +13,36 @@
       }
     },
     "groups": {
-      "type": "collection-product-groups",
+      "type": "product-listing",
+      "blocks": {
+        "psychedelics": {
+          "type": "collection_group",
+          "settings": {
+            "collection": "psychedelics"
+          }
+        },
+        "folklore": {
+          "type": "collection_group",
+          "settings": {
+            "collection": "folklore"
+          }
+        },
+        "whimsy": {
+          "type": "collection_group",
+          "settings": {
+            "collection": "whimsy"
+          }
+        }
+      },
+      "block_order": [
+        "psychedelics",
+        "folklore",
+        "whimsy"
+      ],
       "settings": {
         "show_on": "always",
-        "group_order": [
-          "psychedelics",
-          "folklore",
-          "whimsy"
-        ]
+        "empty_heading": "Nothing in this category yet.",
+        "empty_body": ""
       }
     },
     "cta": {

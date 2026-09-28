@@ -246,159 +246,6 @@
         "text": "Text"
       }
     },
-    "collection_product_groups": {
-      "name": "Products by collection",
-      "settings": {
-        "show_on": {
-          "label": "Show on",
-          "info": "The shop page is /collections/all, which uses the default collection template. \"Shop page only\" shows this section there; \"All collections except the shop page\" hides it there.",
-          "options": {
-            "always": "Every collection using this template",
-            "all_only": "Shop page only (/collections/all)",
-            "except_all": "All collections except the shop page"
-          }
-        },
-        "header_products": {
-          "content": "Products"
-        },
-        "pinned_products": {
-          "label": "Show these first",
-          "info": "These products lead the list, in this order, when they're on the page. Leave empty to keep the collection's sort order."
-        },
-        "products_per_page": {
-          "label": "Products per page",
-          "info": "Products, not cards: a product with several prints shows one card per print, so the number of cards per page varies."
-        },
-        "eager_count": {
-          "label": "Cards to load first",
-          "info": "The first row of cards loads immediately; the rest load as shoppers scroll. Keep this at 3 (one row on desktop)."
-        },
-        "header_empty": {
-          "content": "When there's nothing to show"
-        },
-        "empty_heading": {
-          "label": "Heading"
-        },
-        "empty_body": {
-          "label": "Text"
-        },
-        "empty_link_label": {
-          "label": "Link label"
-        },
-        "empty_link_url": {
-          "label": "Link"
-        },
-        "header_seo": {
-          "content": "Search engines"
-        },
-        "structured_data": {
-          "label": "Describe the list for search engines",
-          "info": "Adds structured data listing every card on the page. Leave on."
-        },
-        "product_type": {
-          "label": "Only this product type",
-          "info": "Optional, e.g. Dresses. Category collections already contain one type, so leave empty there."
-        },
-        "header_groups": {
-          "content": "Collection groups"
-        },
-        "group_order": {
-          "label": "Group order",
-          "info": "Cards are grouped by each print's collection. Groups listed here come first, in this order; the rest follow alphabetically. Empty groups are hidden."
-        },
-        "show_group_count": {
-          "label": "Show piece count per group"
-        },
-        "other_heading": {
-          "label": "Heading for pieces without a collection",
-          "info": "Prints whose collection doesn't exist are shown last. Leave empty to show them without a heading (like the current site)."
-        }
-      }
-    },
-    "collection_product_grid": {
-      "name": "Product grid",
-      "settings": {
-        "show_on": {
-          "label": "Show on",
-          "info": "The shop page is /collections/all, which uses the default collection template. \"Shop page only\" shows this section there; \"All collections except the shop page\" hides it there.",
-          "options": {
-            "always": "Every collection using this template",
-            "all_only": "Shop page only (/collections/all)",
-            "except_all": "All collections except the shop page"
-          }
-        },
-        "header_products": {
-          "content": "Products"
-        },
-        "pinned_products": {
-          "label": "Show these first",
-          "info": "These products lead the list, in this order, when they're on the page. Leave empty to keep the collection's sort order."
-        },
-        "products_per_page": {
-          "label": "Products per page",
-          "info": "Products, not cards: a product with several prints shows one card per print, so the number of cards per page varies."
-        },
-        "eager_count": {
-          "label": "Cards to load first",
-          "info": "The first row of cards loads immediately; the rest load as shoppers scroll. Keep this at 3 (one row on desktop)."
-        },
-        "header_empty": {
-          "content": "When there's nothing to show"
-        },
-        "empty_heading": {
-          "label": "Heading"
-        },
-        "empty_body": {
-          "label": "Text"
-        },
-        "empty_link_label": {
-          "label": "Link label"
-        },
-        "empty_link_url": {
-          "label": "Link"
-        },
-        "header_seo": {
-          "content": "Search engines"
-        },
-        "structured_data": {
-          "label": "Describe the list for search engines",
-          "info": "Adds structured data listing every card on the page. Leave on."
-        },
-        "match_collection": {
-          "label": "Only prints from this collection",
-          "info": "A product with several prints shows only the prints that belong to this collection. Turn off on the sale template."
-        },
-        "print_filter": {
-          "label": "Show",
-          "info": "\"Prints on sale\" keeps only prints with a compare-at price above the price. Each print qualifies on its own.",
-          "options": {
-            "none": "All prints",
-            "sale": "Prints on sale"
-          }
-        },
-        "header_layout": {
-          "content": "Layout"
-        },
-        "label": {
-          "label": "Label above the grid",
-          "info": "E.g. \"The Pieces\". Leave empty to hide."
-        },
-        "card_layout": {
-          "label": "Card style",
-          "options": {
-            "standard": "Standard (collection pages)",
-            "archive": "Archive (shop and sale pages)"
-          }
-        },
-        "container": {
-          "label": "Width",
-          "options": {
-            "page": "Page width",
-            "full": "Full width"
-          }
-        }
-      }
-    },
     "collection_hero": {
       "name": "Collection header",
       "show_on": "Show on",
@@ -443,6 +290,133 @@
       "collection_list": "Collections to show",
       "collection_list_info": "Leave empty to show every collection that has a Season set (the current chapters: Folklore, Psychedelics, Whimsy). Category and Sale collections never appear here by default.",
       "empty_header": "Empty state"
+    },
+    "product_listing": {
+      "name": "Product listing",
+      "settings": {
+        "modes": {
+          "content": "Add a Collection block for each group to list cards grouped by collection (shop and category pages). With no blocks, the section shows a single grid (collection and sale pages)."
+        },
+        "show_on": {
+          "label": "Show on",
+          "info": "The shop page is /collections/all, which uses the default collection template. \"Shop page only\" shows this section there; \"All collections except the shop page\" hides it there.",
+          "options": {
+            "always": "Every collection using this template",
+            "all_only": "Shop page only (/collections/all)",
+            "except_all": "All collections except the shop page"
+          }
+        },
+        "header_products": {
+          "content": "Products"
+        },
+        "pinned_products": {
+          "label": "Show these first",
+          "info": "These products lead the list (and every group they appear in), in this order, when they're on the page. Leave empty to keep the collection's sort order."
+        },
+        "products_per_page": {
+          "label": "Products per page",
+          "info": "Products, not cards: a product with several prints shows one card per print, so the number of cards per page varies."
+        },
+        "eager_count": {
+          "label": "Cards to load first",
+          "info": "The first row of cards loads immediately; the rest load as shoppers scroll. Keep this at 3 (one row on desktop)."
+        },
+        "header_groups": {
+          "content": "Collection groups"
+        },
+        "show_other": {
+          "label": "Show other pieces",
+          "info": "Lists, after the groups, every print whose collection has no block (e.g. a new collection you haven't added yet), so nothing disappears. Only used when the section has Collection blocks."
+        },
+        "other_heading": {
+          "label": "Heading for other pieces",
+          "info": "Leave empty to show them without a heading (like the current site)."
+        },
+        "header_grid": {
+          "content": "Single grid (no blocks)"
+        },
+        "match_collection": {
+          "label": "Only prints from this collection",
+          "info": "A product with several prints shows only the prints that belong to this collection. Turn off on the sale template."
+        },
+        "print_filter": {
+          "label": "Show",
+          "info": "\"Prints on sale\" keeps only prints with a compare-at price above the price. Each print qualifies on its own.",
+          "options": {
+            "none": "All prints",
+            "sale": "Prints on sale"
+          }
+        },
+        "label": {
+          "label": "Label above the grid",
+          "info": "E.g. \"The Pieces\". Leave empty to hide."
+        },
+        "card_layout": {
+          "label": "Card style",
+          "info": "Grouped listings always use the Archive style.",
+          "options": {
+            "standard": "Standard (collection pages)",
+            "archive": "Archive (shop and sale pages)"
+          }
+        },
+        "container": {
+          "label": "Width",
+          "options": {
+            "page": "Page width",
+            "full": "Full width"
+          }
+        },
+        "header_empty": {
+          "content": "When there's nothing to show"
+        },
+        "empty_heading": {
+          "label": "Heading"
+        },
+        "empty_body": {
+          "label": "Text"
+        },
+        "empty_link_label": {
+          "label": "Link label"
+        },
+        "empty_link_url": {
+          "label": "Link"
+        },
+        "header_seo": {
+          "content": "Search engines"
+        },
+        "structured_data": {
+          "label": "Describe the list for search engines",
+          "info": "Adds structured data listing every card on the page. Leave on."
+        },
+        "header_testing": {
+          "content": "Testing"
+        },
+        "product_type": {
+          "label": "Only this product type",
+          "info": "For testing a category on /collections/all, e.g. Dresses. Leave empty on real pages."
+        }
+      },
+      "blocks": {
+        "collection_group": {
+          "name": "Collection",
+          "settings": {
+            "collection": {
+              "label": "Collection",
+              "info": "Shows the page's prints that belong to this collection. Drag blocks to change the order. Groups with no pieces are hidden."
+            },
+            "heading": {
+              "label": "Heading",
+              "info": "Leave empty to use the collection's title."
+            },
+            "show_description": {
+              "label": "Show collection description"
+            },
+            "show_count": {
+              "label": "Show piece count"
+            }
+          }
+        }
+      }
     }
   },
   "_note": "No new schema (editor-facing) keys needed. Both new snippets are render-only partials with no section settings of their own, and the two dev-only preview files (sections/phase2-components-preview.liquid, templates/product.phase2-components.json) hardcode their section name/labels in English the same way sections/phase1-ui-preview.liquid and sections/phase1-breadcrumbs-preview.liquid already do (dev-only, not translated). Leaving this object here, empty, only so the file matches the requested {storefront, schema} shape."

@@ -7,7 +7,7 @@
       }
     },
     "grid": {
-      "type": "collection-product-grid",
+      "type": "product-listing",
       "settings": {
         "show_on": "always",
         "match_collection": false,

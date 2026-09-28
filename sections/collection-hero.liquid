@@ -13,8 +13,8 @@
 
   Breadcrumbs: renders `snippets/breadcrumbs.liquid`, which also emits the
   page's `BreadcrumbList` JSON-LD from `request.page_type` ('collection').
-  Render breadcrumbs from THIS section only — collection-product-grid /
-  collection-product-groups must not render them too, or the page would ship
+  Render breadcrumbs from THIS section only — product-listing /
+  product-listing must not render them too, or the page would ship
   two `BreadcrumbList` scripts and (if their `visible` param differs) two
   visible trails.
 
@@ -140,7 +140,7 @@
     </div>
   </div>
 
-  {%- comment -%} CollectionPage + ItemList JSON-LD comes from collection-product-grid (one per page). {%- endcomment -%}
+  {%- comment -%} CollectionPage + ItemList JSON-LD comes from product-listing (one per page). {%- endcomment -%}
 {%- endif -%}
 
 {% stylesheet %}

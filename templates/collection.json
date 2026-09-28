@@ -19,20 +19,48 @@
       }
     },
     "groups": {
-      "type": "collection-product-groups",
+      "type": "product-listing",
+      "blocks": {
+        "psychedelics": {
+          "type": "collection_group",
+          "settings": {
+            "collection": "psychedelics"
+          }
+        },
+        "folklore": {
+          "type": "collection_group",
+          "settings": {
+            "collection": "folklore"
+          }
+        },
+        "whimsy": {
+          "type": "collection_group",
+          "settings": {
+            "collection": "whimsy"
+          }
+        }
+      },
+      "block_order": [
+        "psychedelics",
+        "folklore",
+        "whimsy"
+      ],
       "settings": {
         "show_on": "all_only",
-        "group_order": [
-          "psychedelics",
-          "folklore",
-          "whimsy"
-        ]
+        "empty_heading": "Nothing in this category yet.",
+        "empty_body": ""
       }
     },
     "grid": {
-      "type": "collection-product-grid",
+      "type": "product-listing",
       "settings": {
-        "show_on": "except_all"
+        "show_on": "except_all",
+        "match_collection": true,
+        "label": "The Pieces",
+        "card_layout": "standard",
+        "container": "page",
+        "empty_heading": "No pieces yet.",
+        "empty_body": "<p>New pieces from this collection will be added soon.</p>"
       }
     },
     "cta_shop": {
