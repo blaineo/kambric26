@@ -61,6 +61,15 @@
     assign max_height = max_width | divided_by: aspect_ratio | round
   endif
 
+  comment
+    Editors can set a focal point on images in the admin (Content → Files);
+    honour it wherever CSS crops the image (object-fit: cover).
+  endcomment
+  assign focal_style = nil
+  if image.presentation.focal_point != blank
+    assign focal_style = 'object-position: ' | append: image.presentation.focal_point
+  endif
+
   assign img_loading = 'lazy'
   assign fetchpriority = 'auto'
   assign preload = false
@@ -123,7 +132,8 @@
         fetchpriority: fetchpriority,
         decoding: decoding,
         preload: preload,
-        class: img_class
+        class: img_class,
+        style: focal_style
     -}}
   {%- else -%}
     {{-
@@ -137,7 +147,8 @@
         fetchpriority: fetchpriority,
         decoding: decoding,
         preload: preload,
-        class: img_class
+        class: img_class,
+        style: focal_style
     -}}
   {%- endif -%}
 </picture>
