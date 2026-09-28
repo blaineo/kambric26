@@ -3,7 +3,7 @@
 **Status:** first draft for owner review, 2026-09-28. Decisions are marked **⚠️ D-n** and collected in [§5](#5-open-decisions).
 **Scope:** rebuild kambricgoods.com (React/Vite on Replit, Shopify Storefront API + checkout) as the Online Store 2.0 theme in this repo (`kambric26`), then cut over the domain.
 **Environments:** kambricgoods.com (Replit) is live and reads catalog + checkout from the same store, so **catalog, collection-publication, metafield and checkout changes are shared and immediate**. The Shopify-hosted Online Store (`kambric-goods-2.myshopify.com`) is the playground: theme and Online-Store-only content work there is low risk. **Cutover = DNS**, once the Shopify-hosted site is production-ready. Blast-radius table: CLAUDE.md guardrail 1.
-**Sources:** `../replit site/` (export). Page-level blueprints will come from `../replit site/liquid/` (rendered HTML, `COMPONENTS.md`, `SECTIONS.md`, `hardcoded.json`, `navigation.json`, `BEHAVIOR.md`) once it lands.
+**Sources:** `../replit site/` (export) and `../liquid/` (Liquid supplement: 24 captured HTML pages, `SECTIONS.md`, `COMPONENTS.md`, `BEHAVIOR.md`, `SEO.md`, `content/`, and a read-only live Admin catalog audit in `shopify/`: 40 products (10 active, 30 draft), 4 collections, `DATA_ISSUES.md`).
 
 Cross-cutting requirements for every phase: CLAUDE.md "Definition of done", **SEO/AEO**, **Core Web Vitals** (LCP < 2.5s, CLS < 0.05, INP < 200ms, mobile), and a `docs/CONTENT_GUIDE.md` update.
 
@@ -24,7 +24,7 @@ Parity targets: every screenshot's header and footer; `404-*`, `contact-*` (simp
 - Performance baseline: Lighthouse mobile on home, product and collection shells, recorded in this doc.
 
 ### Phase 2: Product page (highest risk)
-Parity: `product-1440/390.png`; rendered-HTML variants for merged multi-print, single-print, Arielle, monogrammable and sold-out.
+Parity: `product-1440/390.png`; `../liquid/html/product-{multi-print,single-print,arielle,monogrammable,sold-out-variant}.html`. Arielle has real `Colorway` × `Size` options: no special case.
 - **Print model** (see SHOPIFY_DATA_MAP): merged products (option `Print`/`Colorway`) vs single-print (`kambric.print_name`/`print_story`); per-print data from `kambric.prints` JSON (`story`, `collection`, `featured`, `newArrival`, `legacyId`). **⚠️ D-6, D-7, D-8, D-14**
 - Server-rendered first paint of the selected print (Liquid can't read `?print=`, so the default print is rendered and `<kg-product-form>` switches on load **without layout shift**: same-size gallery, preloaded first image). **⚠️ D-7**
 - Size selection, per-print price/compare-at/availability, sold-out state and **back-in-stock** entry point. **⚠️ D-12**
@@ -87,21 +87,29 @@ All definitions below are **proposals**. Creating them is a store-data change: t
 
 Owner-run changes, each written as a reviewed script/plan first:
 
-1. **Arielle uses `Size` as its colorway** (Olive/Terracotta), with images matched by filename. Rename the option to `Colorway` and give it real sizes (or a single `One size`), and attach images per colour (D-8). This removes both code special cases.
-2. **Print image grouping via image alt text.** Alt text currently equals the print name, which is poor for accessibility, SEO and AEO. Move grouping to variant media or a print metafield, then write descriptive alt text. **⚠️ D-8**
-3. **Category collections** (steps in CONTENT_GUIDE §3a-A1, restricted to the Online Store channel so the live Replit site doesn't list them): create automated collections `dresses`, `kaftans`, `coats`, `swimwear`, `accessories` (product type equals…) and `sale`. Audit for product types outside the five labels. **⚠️ D-10**
-4. **Monogram product** `chainstitch-monogram`: keep it unpublished from collections, and set `seo.hidden = 1` so it's out of search and the sitemap.
-5. **`hidden`-tagged products:** at cutover, prefer unpublishing them from the Online Store channel. The theme keeps filtering the tag as a safety net.
-6. **Journal categories** have inconsistent casing ("The Archive" vs "the archive"; "craft") → normalise as tags.
-7. **Four collection images return 404** (IDs in `assets/EXPORT_NOTES.md`). Re-upload or drop them.
-8. **Collection image overrides** are keyed by numeric collection ID → map to handles, upload to Files, set the metafields.
-9. **Swatches** are code-owned local images (14 prints) → upload to Files / Prints metaobjects (D-14).
-10. **Collection copy** hard-coded in `Shop.tsx` (Folklore, Botanicals→Whimsy, Psychedelics) and `categoryMeta.ts` → collection descriptions + SEO fields.
-11. **Events** use free-text dates → real `date` values plus display labels.
-12. **Policies** (privacy/terms) → Shopify policy pages.
-13. **Menus:** `main-menu`, `footer`, `footer-info`: step-by-step in CONTENT_GUIDE §3a (Part A now, Part B in Phase 4).
-14. **Personal data** (subscribers, back-in-stock) is migrated separately with consent preserved. It's never committed to this repo.
-15. **Search listings:** check every product, collection and page for a unique SEO title/description, and write alt text for all product media.
+From `../liquid/shopify/DATA_ISSUES.md` (live audit 2026-09-28) plus the export. ⚠️ = **shared with the live Replit site**: stage these so they don't break it before cutover.
+
+1. ~~Arielle uses `Size` as its colorway~~ **Resolved:** the live Admin record already has `Colorway` [Terracotta, Olive] × `Size` [2XS–2XL] (14 variants). The theme treats Arielle like any other multi-print product, with no special case. Only its images still rely on the old app's filename matching; fold that into item 2.
+2. ⚠️ **Print image grouping via image alt text.** The Replit app groups gallery images by `altText == print value`, and **95 images have empty alt text** (21 products). Target: variant media for grouping plus descriptive alt text. Don't rewrite alt text until the Replit site is retired, or its galleries break; add new grouping data first. **⚠️ D-8**
+3. ⚠️ **`kambric.prints` references a non-existent collection:** 9 print entries point to `botanicals` (renamed `whimsy`): margit-one-piece (Wildflowers); zadie-linen-dress (Wildflowers, Candied Plaid, Cherry Coupe); and draft linen products. Update them to `whimsy`. The Replit app currently falls back silently; the theme will too, but the data should be right.
+4. **Drafts never appear.** Shopify never renders draft products on the Online Store, and the theme adds no bypass. 30 drafts are the old per-print products (`margit-one-piece-in-*`, `zadie-…-in-*`, `esther-…-in-*`, `vera-coat-in-*`) and unreleased linens. Keep them as drafts (their old handles get redirects, §4.1) or archive them. Owner decision per product line.
+5. **Monogram fee product** `chainstitch-monogram` ($25, type `Add-on`, tags `hidden` + `monogram-fee`) **must stay published**, because unpublished products can't be added to the cart. The theme keeps it out of listings, search and predictive search (filter by the `hidden` tag) and marks its page `noindex` (done). **Sitemap exclusion needs store data:** set the product metafield `seo.hidden = 1` (it also hides it from Shopify search). It has no image, so the cart line needs a theme fallback (Phase 5). ⚠️ `seo.hidden` isn't read by the Replit site, so it's safe to set now.
+6. **`hidden`-tagged products:** only the monogram today. The theme treats the tag as "not browsable"; don't unpublish tagged products that must stay purchasable.
+7. **The four "missing" collection images need no replacement.** All four 404 paths belong to collection IDs `517595562279`, `517595791655` and `517595824423`, which **don't exist in this store** (orphaned rows). All six images for the live collections (Folklore, Psychedelics, Whimsy: cover + header) were exported. Drop the orphaned rows.
+8. **Collection image overrides:** upload the six exported images (`../replit site/assets/uploads/`; suggested names in `../liquid/assets/usage-map.csv`) to Files and set `kambric.card_image` / `kambric.header_image` on the three collections. Safe: new metafields the Replit site doesn't read.
+9. **Swatches:** 14 code-owned swatch images, plus 5 prints with none (Retro Stripe, Sunset Plumes, Saffron Damask, Amber Orchard, Sunrise Plumes, all on draft linens). Upload to Files / Prints metaobjects (D-14).
+10. **Blank SKUs** on variants of every product (e.g. all 10 active ones). Not a theme blocker; set SKUs if operations need them (⚠️ shared, but harmless to the Replit site).
+11. **Products without images:** the monogram plus 14 drafts. Fine while they're drafts; they need images before being activated.
+12. **`frontpage` collection** has no season/year. It's excluded from all listings; no change needed.
+13. **Category collections** (steps in CONTENT_GUIDE §3a-A1, restricted to the Online Store channel so the live Replit site doesn't list them): automated collections `dresses`, `kaftans`, `coats`, `swimwear`, `accessories` (product type equals…) and `sale`. The monogram's type `Add-on` keeps it out automatically. **⚠️ D-10**
+14. **Journal categories** have inconsistent casing ("The Archive" vs "the archive"; "craft") → normalise as tags.
+15. **Collection copy** hard-coded in `Shop.tsx` and `categoryMeta.ts` (titles/descriptions in `../liquid/SEO.md`) → collection descriptions + SEO fields, so titles like `Heritage Print Dresses | Kambric Goods` carry over.
+16. **Store SEO title/description** (Online Store → Preferences): `Kambric Goods | Heritage Prints, Modern Womenswear` + the home description from `../liquid/SEO.md`.
+17. **Events** use free-text dates → real `date` values plus display labels.
+18. **Policies** (privacy/terms) → Shopify policy pages (⚠️ also shown at checkout).
+19. **Menus:** `main-menu`, `footer`, `footer-info`: step-by-step in CONTENT_GUIDE §3a (Part A now, Part B in Phase 4).
+20. **Personal data** (subscribers, back-in-stock) is migrated separately with consent preserved. It's never committed to this repo.
+21. **Search listings:** check every product, collection and page for a unique SEO title/description, and write alt text for all product media (after item 2).
 
 ---
 
@@ -123,6 +131,7 @@ Shopify URL redirects only fire when the source path would 404 in Shopify, and t
 | `/journal/{slug}` (5) | `/blogs/journal/{slug}` | redirect ×5 (no wildcards in Shopify; add one per future post, or keep new posts on /blogs only) |
 | `/products/kati-slip-dress-in-sunset-plumes` | `/products/jessie-slip-dress-in-twilight-plumes` | redirect (Shopify auto-creates these on handle change) |
 | `/collections/botanicals` | `/collections/whimsy` | redirect |
+| `/products/{old per-print handle}` (e.g. `margit-one-piece-in-dahlia-seed`; 17 draft products: margit ×8, zadie ×3, esther ×3, vera-coat ×3) | `/products/{merged handle}?print={Print}` (or the plain merged handle when the print isn't on it, e.g. Sunrise Plumes) | redirect ×17 ⚠️ verify Shopify fires redirects for handles of *draft* products (they 404 publicly); if not, archive/rename the drafts' handles first |
 | `/products/{legacy numeric id}` (8 product IDs) | `/products/{handle}` | redirect ×8 |
 | `/products/{legacy per-print id}` (18, from `kambric.prints[].legacyId`) | `/products/{handle}?print={Print}` | redirect ×18; target query supported |
 | `/products/{handle}?print=X` | same URL; theme JS selects the print; canonical stays `/products/{handle}` | theme (D-7) |
@@ -171,7 +180,7 @@ The final CSV is generated from `urls/redirects.csv` + `current-urls.csv` + the 
 | **D-6** | Print data model | **Keep `kambric.prints` JSON for per-product data + add `kambric_print` metaobjects for shared story/swatch** · all-metaobject · JSON only (swatches stay in theme assets) | Phase 2 |
 | **D-6b** | Events storage | **Metaobject `kambric_event`** · page blocks | Phase 4 |
 | **D-7** | Print selection URL | **Keep `?print=` (preserves 18 legacy redirects + shared links); canonical without query** · switch to native `?variant=` | Phase 2 |
-| **D-8** | Print ↔ image mapping | **Variant media (native)** · print metafield on media · keep alt-text matching (hurts a11y/SEO) | Phase 2 |
+| **D-8** | Print ↔ image mapping | **Variant media (native) for new grouping; alt text becomes descriptive after the Replit site is retired** · print metafield on media · keep alt-text matching (hurts a11y/SEO; 95 images have empty alt today) | Phase 2 |
 | **D-9** | Monogram fee linking | **Two cart lines linked by a hidden `_monogram_for` line-item property + theme-side sync** (simple; not enforced at checkout) · Cart Transform function (robust, needs a custom app) · single product with a monogram variant/option | Phase 2 |
 | **D-10** | Category pages | **Automated collections by product type** (`/collections/dresses`…) · `/collections/all?filter.p.product_type=` (weaker SEO). Owner creating them now (Online Store channel only) per CONTENT_GUIDE §3a-A1 | Phase 3 |
 | **D-11** | Newsletter + WELCOME15 | **Shopify customer form + Shopify Email welcome automation sending the code** · show the code on-screen (current; code is public) · third-party ESP (Klaviyo) | Phase 5 |

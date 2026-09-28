@@ -59,7 +59,30 @@ We're rebuilding **kambricgoods.com** (currently a React/Vite/Tailwind v4 app on
 | `urls/` | `current-urls.csv` (live crawl) and `redirects.csv` (redirect rules) |
 | `data/*.json` | CMS content snapshot (journal, events, about, home, settings, collection images) |
 | `assets/` | Built assets (`built/assets/index-*.css` is the **compiled Tailwind**, and `index-*.js` holds the exact markup/classes), original images, uploads, `manifest.csv` |
-| `liquid/` (coming) | Rendered HTML per page, component catalog, section breakdown, hard-coded copy, nav JSON, behaviour specs. Prefer this over the JS bundle once it exists. |
+
+**Liquid supplement:** `~/Code/kambric/liquid/` (next to the export, not inside it). Prefer it over the JS bundle.
+
+| Path | What it's for |
+| --- | --- |
+| `README.md` | Scope and boundaries (raw HTML is pre-hydration) |
+| `html/*.html` | 24 exact production responses: home, shop, category, collections, product variants (multi-print, single-print, Arielle, monogrammable, sold-out), info pages, journal, cart, 404. **Markup source for porting.** |
+| `SECTIONS.md`, `COMPONENTS.md` | Page → section/blocks blueprint; component catalog (static / section / interactive) |
+| `BEHAVIOR.md` | Print/size selection, cart, monogram, search, popup, events: JS specs |
+| `SEO.md` | Per-route titles, descriptions, robots, JSON-LD examples. **Match these.** |
+| `css/compiled.css`, `css/used-classes.txt` | Production Tailwind bundle and the 479 classes in server HTML: the exact-value reference |
+| `content/hardcoded.json`, `content/navigation.json` | All code-owned copy (source-line attributed) and menu structures |
+| `shopify/` | Read-only live Admin audit: `products.json`, `collections.json`, `metafield-definitions.json`, `chainstitch-monogram.json`, **`DATA_ISSUES.md`** |
+| `assets/usage-map.csv` | App Storage images → content field and suggested filename |
+| `emails/` | Back-in-stock and campaign templates |
+| `source-snapshot.zip` | React source. Unzip only into the scratchpad, never into this repo. |
+
+**Catalog facts (live audit, 2026-09-28):**
+- 40 products: 10 active, 30 draft. **Drafts must never appear.** Shopify doesn't render them; never add a bypass.
+- Prints: merged products use a `Print`/`Colorway` option; single-print products use `kambric.print_name`/`print_story`. Per-print data lives in the `kambric.prints` JSON. Gallery images are grouped by alt text = print value (legacy; see D-8).
+- **Arielle** has real `Colorway` × `Size` options. Treat it like any multi-print product, with no special case.
+- Categories = `product.type` (Dresses, Kaftans, Coats, Swimwear, Accessories).
+- `chainstitch-monogram`: **published**, $25, type `Add-on`, tags `hidden` + `monogram-fee`, no image. Keep it out of listings, search, predictive search and the sitemap. The theme filters the `hidden` tag everywhere and noindexes its page.
+- Collections: `folklore`, `psychedelics`, `whimsy` (+ `frontpage`, always excluded); metafields `kambric.season`, `kambric.year`. `kambric.prints` still references `botanicals` (the old name for whimsy).
 
 ## Folder conventions
 

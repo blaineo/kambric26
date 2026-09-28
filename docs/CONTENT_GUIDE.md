@@ -150,7 +150,6 @@ Some links point at things that don't exist in Shopify yet (category collections
 6. Scroll to **Search engine listing** → **Edit**. Check the URL ends in `/collections/dresses` (lowercase, matching the title). Fix the handle there if needed.
 7. Click **Save**.
 8. Check that https://kambricgoods.com/collections does **not** list the new collection. If it does, re-check step 5 and tell the developer.
-9. Open the new collection and look at its products. If the **chainstitch monogram** fee item appears (it's a fee, not something to browse), tell the developer; it needs one more condition.
 
 **A2. Main menu** (`main-menu`: it already exists in every Shopify store)
 1. Go to **Content → Menus** and click **Main menu**.
