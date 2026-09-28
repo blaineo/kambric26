@@ -2,6 +2,7 @@
 
 **Status:** first draft for owner review, 2026-09-28. Decisions are marked **⚠️ D-n** and collected in [§5](#5-open-decisions).
 **Scope:** rebuild kambricgoods.com (React/Vite on Replit, Shopify Storefront API + checkout) as the Online Store 2.0 theme in this repo (`kambric26`), then cut over the domain.
+**Environments:** kambricgoods.com (Replit) is live and reads catalog + checkout from the same store, so **catalog, collection-publication, metafield and checkout changes are shared and immediate**. The Shopify-hosted Online Store (`kambric-goods-2.myshopify.com`) is the playground: theme and Online-Store-only content work there is low risk. **Cutover = DNS**, once the Shopify-hosted site is production-ready. Blast-radius table: CLAUDE.md guardrail 1.
 **Sources:** `../replit site/` (export). Page-level blueprints will come from `../replit site/liquid/` (rendered HTML, `COMPONENTS.md`, `SECTIONS.md`, `hardcoded.json`, `navigation.json`, `BEHAVIOR.md`) once it lands.
 
 Cross-cutting requirements for every phase: CLAUDE.md "Definition of done", **SEO/AEO**, **Core Web Vitals** (LCP < 2.5s, CLS < 0.05, INP < 200ms, mobile), and a `docs/CONTENT_GUIDE.md` update.
@@ -88,7 +89,7 @@ Owner-run changes, each written as a reviewed script/plan first:
 
 1. **Arielle uses `Size` as its colorway** (Olive/Terracotta), with images matched by filename. Rename the option to `Colorway` and give it real sizes (or a single `One size`), and attach images per colour (D-8). This removes both code special cases.
 2. **Print image grouping via image alt text.** Alt text currently equals the print name, which is poor for accessibility, SEO and AEO. Move grouping to variant media or a print metafield, then write descriptive alt text. **⚠️ D-8**
-3. **Category collections:** create automated collections `dresses`, `kaftans`, `coats`, `swimwear`, `accessories` (product type equals…) and `sale`. Audit for product types outside the five labels. **⚠️ D-10**
+3. **Category collections** (steps in CONTENT_GUIDE §3a-A1, restricted to the Online Store channel so the live Replit site doesn't list them): create automated collections `dresses`, `kaftans`, `coats`, `swimwear`, `accessories` (product type equals…) and `sale`. Audit for product types outside the five labels. **⚠️ D-10**
 4. **Monogram product** `chainstitch-monogram`: keep it unpublished from collections, and set `seo.hidden = 1` so it's out of search and the sitemap.
 5. **`hidden`-tagged products:** at cutover, prefer unpublishing them from the Online Store channel. The theme keeps filtering the tag as a safety net.
 6. **Journal categories** have inconsistent casing ("The Archive" vs "the archive"; "craft") → normalise as tags.
@@ -98,7 +99,7 @@ Owner-run changes, each written as a reviewed script/plan first:
 10. **Collection copy** hard-coded in `Shop.tsx` (Folklore, Botanicals→Whimsy, Psychedelics) and `categoryMeta.ts` → collection descriptions + SEO fields.
 11. **Events** use free-text dates → real `date` values plus display labels.
 12. **Policies** (privacy/terms) → Shopify policy pages.
-13. **Menus:** create `main-menu`, `footer`, `footer-info` with the links in CONTENT_GUIDE §3.
+13. **Menus:** `main-menu`, `footer`, `footer-info`: step-by-step in CONTENT_GUIDE §3a (Part A now, Part B in Phase 4).
 14. **Personal data** (subscribers, back-in-stock) is migrated separately with consent preserved. It's never committed to this repo.
 15. **Search listings:** check every product, collection and page for a unique SEO title/description, and write alt text for all product media.
 
@@ -137,17 +138,23 @@ The final CSV is generated from `urls/redirects.csv` + `current-urls.csv` + the 
 - robots.txt keeps AI crawlers allowed; the sitemap is submitted in Google Search Console and Bing Webmaster Tools the same day.
 - Core Web Vitals checked on the unpublished theme preview (Lighthouse mobile ×3 runs, median) before publishing.
 
-### 4.3 Cutover checklist (owner runs store and DNS steps)
-1. Content freeze on Replit `/admin`; take a final export (content JSON, subscribers, back-in-stock).
-2. Run the reviewed data plan (§2 definitions, §3 cleanup, content import) on the store.
-3. `shopify theme push --unpublished` the release commit, then review the preview: every page type at 1440/390, Theme Check, Lighthouse, console, checkout test order (then refund/cancel).
-4. Import the redirect CSV; spot-check 10 random legacy URLs on the preview domain.
-5. Install and configure the Meta channel (D-13), email/newsletter (D-11) and back-in-stock (D-12).
-6. **Owner publishes the theme.**
-7. DNS: point `kambricgoods.com` + `www` to Shopify, set the primary domain (www → apex), and wait for SSL.
-8. Post-launch: crawl all old URLs (expect 200/301), submit the sitemap, watch GSC coverage and 404s daily for 2 weeks, compare CrUX after 28 days.
-9. Rollback: keep the Replit deployment running read-only for 14 days; rolling back means reverting DNS.
-10. Decommission the Replit Storefront API token, Admin token and webhooks after the rollback window.
+### 4.3 Readiness and cutover
+
+**Before cutover (on the playground, any time):**
+1. Publish the Kambric26 theme on the Shopify-hosted Online Store once it's stable, so editors can enter content that carries over at cutover (**⚠️ D-21**). From then on, editors own its JSON; pull before every push (CLAUDE.md guardrail 9).
+2. Enter content on the playground: pages, journal, events, menus, theme editor sections.
+3. Run the reviewed data plan (§2 definitions, §3 cleanup), staging every **shared** change so it doesn't break the live Replit site (e.g. keep `kambric.prints` JSON intact while adding new fields, keep alt text grouping until the Replit site is retired, publish new collections to the Online Store channel only).
+4. Import the redirect CSV (Online Store only, so it's safe early), then spot-check 10 legacy URLs on the `myshopify.com` domain.
+5. Production-readiness review on the playground domain: every page type at 1440/390, Theme Check, Lighthouse (median of 3 mobile runs), console, a checkout test order (refund/cancel), JSON-LD validation.
+6. Configure the Meta channel (D-13), email/newsletter (D-11) and back-in-stock (D-12). Where these touch checkout or notifications they're **shared**, so time them for cutover.
+
+**Cutover (DNS):**
+7. Content freeze on Replit `/admin`; final export (content JSON, subscribers, back-in-stock) and import of any late changes.
+8. Remove the Online Store password (if set) and confirm the Kambric26 theme is published.
+9. DNS: point `kambricgoods.com` + `www` to Shopify, set it as the primary domain (www → apex), and wait for SSL.
+10. Post-launch: crawl all old URLs (expect 200/301), submit the sitemap to GSC and Bing, watch coverage and 404s daily for 2 weeks, compare CrUX after 28 days.
+11. Rollback: keep the Replit deployment running for 14 days; rolling back means reverting DNS. Avoid irreversible shared-data changes in this window.
+12. After the rollback window: decommission the Replit Storefront/Admin tokens and webhooks, then remove Replit-only workarounds from the catalog (e.g. alt-text print grouping, `hidden` tag logic if unpublished instead).
 
 ---
 
@@ -155,17 +162,17 @@ The final CSV is generated from `urls/redirects.csv` + `current-urls.csv` + the 
 
 | ID | Decision | Options (recommendation first) | Needed by |
 | --- | --- | --- | --- |
-| **D-1** | Announcement bar style | **Static by default + optional marquee (built)** · marquee by default | Phase 0 review |
-| **D-2** | Where announcement settings live | **Section settings in the header group (built)** · global theme settings | Phase 0 review |
-| **D-3** | Footer menu handles | **`footer` (Shop) + `footer-info` (Information) (built)** · one `footer` menu with nested groups | Phase 0 review |
-| **D-4** | Fraunces font weight (bytes) | Ship full axes as briefed (270 KB for both files) · **pin `SOFT=0` (never used by the site; −44%, 149 KB, visually identical)** | Phase 1 |
-| **D-5** | Contrast below WCAG AA | Terracotta announcement bar text is 4.32:1 (needs 4.5): **darken bar ~4% L** · keep. Mobile "Menu" label raised 60%→70% opacity already (4.0→5.4:1) | Phase 1 |
+| **D-1** | Announcement bar style | ✅ **Decided:** static by default + optional marquee (built) | Done |
+| **D-2** | Where announcement settings live | ✅ **Decided:** section settings in the header group; how-to in CONTENT_GUIDE §3 | Done |
+| **D-3** | Footer menu handles | ✅ **Decided:** `footer` (Shop) + `footer-info` (Information); owner setup steps in CONTENT_GUIDE §3a | Done |
+| **D-4** | Fraunces font weight (bytes) | ✅ **Decided:** `SOFT` pinned to 0 (never used; −44%, 270 → 149 KB, visually identical). Revert: re-download with `SOFT@0..100` | Done |
+| **D-5** | Contrast below WCAG AA | ✅ **Decided:** announcement bar darkened 6% toward cocoa (4.32 → 4.63:1); mobile "Menu" label at 70% opacity (5.4:1) | Done |
 | **D-6** | Print data model | **Keep `kambric.prints` JSON for per-product data + add `kambric_print` metaobjects for shared story/swatch** · all-metaobject · JSON only (swatches stay in theme assets) | Phase 2 |
 | **D-6b** | Events storage | **Metaobject `kambric_event`** · page blocks | Phase 4 |
 | **D-7** | Print selection URL | **Keep `?print=` (preserves 18 legacy redirects + shared links); canonical without query** · switch to native `?variant=` | Phase 2 |
 | **D-8** | Print ↔ image mapping | **Variant media (native)** · print metafield on media · keep alt-text matching (hurts a11y/SEO) | Phase 2 |
 | **D-9** | Monogram fee linking | **Two cart lines linked by a hidden `_monogram_for` line-item property + theme-side sync** (simple; not enforced at checkout) · Cart Transform function (robust, needs a custom app) · single product with a monogram variant/option | Phase 2 |
-| **D-10** | Category pages | **Automated collections by product type** (`/collections/dresses`…) · `/collections/all?filter.p.product_type=` (weaker SEO) | Phase 3 |
+| **D-10** | Category pages | **Automated collections by product type** (`/collections/dresses`…) · `/collections/all?filter.p.product_type=` (weaker SEO). Owner creating them now (Online Store channel only) per CONTENT_GUIDE §3a-A1 | Phase 3 |
 | **D-11** | Newsletter + WELCOME15 | **Shopify customer form + Shopify Email welcome automation sending the code** · show the code on-screen (current; code is public) · third-party ESP (Klaviyo) | Phase 5 |
 | **D-12** | Back-in-stock | Lightweight app (e.g. a Shopify-built or well-reviewed notify-me app) · Klaviyo back-in-stock · drop feature | Phase 2 |
 | **D-13** | Meta Pixel | **Facebook & Instagram by Meta channel (Customer Events, no theme JS)** · custom pixel | Phase 5 |
@@ -175,4 +182,5 @@ The final CSV is generated from `urls/redirects.csv` + `current-urls.csv` + the 
 | **D-17** | Per-print cards and pagination | **Render print cards per product; paginate by products (card count varies per page)** · combined listings (Shopify Plus only) | Phase 3 |
 | **D-18** | Dark palette from source CSS | **Drop (unused by the storefront)** · keep as tokens | Phase 1 |
 | **D-19** | `llms.txt` | **Skip for now** (Shopify can't serve root files without an app proxy; AEO is covered by structured data + clean HTML) · app proxy | Post-launch |
-| **D-20** | Newsletter form on the dev theme | Submitting creates a real customer on `kambric-goods-2`: **use `+test` addresses and delete after testing (owner)** | Phase 0 review |
+| **D-21** | When to publish Kambric26 on the Shopify-hosted Online Store | **As soon as the Phase 1 shell is stable, so editors can start entering content on the playground** · keep it unpublished until cutover (content has to be entered in a preview) | Phase 1 |
+| **D-20** | Newsletter form on the dev theme | ✅ **Decided:** test with `+test` addresses; owner deletes test customers | Done |

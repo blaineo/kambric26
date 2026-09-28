@@ -5,7 +5,15 @@
 
 This guide is updated with every build phase. The [change log](#change-log) at the bottom lists what's new each time.
 
-> **Status:** the new theme is in development and **not live**. Keep using the current `/admin` page until launch day. Nothing you change in the Shopify theme editor affects the live site yet.
+> **Status:** the new theme is in development. Keep using the current `/admin` page for the live site until launch day.
+>
+> **Two websites, one Shopify store (until launch):**
+> - **kambricgoods.com** is still the current (Replit) site, and it **reads products, collections and checkout from this Shopify store**. Changing a product, price, product photo, collection or discount in Shopify changes the live site **immediately**.
+> - **kambric-goods-2.myshopify.com** is the new Shopify-hosted site. It's our **practice space**: no customers go there, so theme edits, menus, pages and blog posts there are safe to experiment with.
+> - **Launch = switching the web address.** On launch day kambricgoods.com is pointed at the Shopify-hosted site. Everything you set up there beforehand carries over as-is.
+
+**Safe to change now** (only affects the practice site): the theme editor (Customize), menus, pages, blog posts, theme settings.
+**Also changes the live site right away:** products (text, prices, photos, **photo alt text**, tags, product type), collections (new ones, and their *Publishing* channels), discounts, checkout, shipping and policies. The steps in this guide call these out with ⚠️.
 
 ---
 
@@ -38,41 +46,53 @@ This guide is updated with every build phase. The [change log](#change-log) at t
 - **Sections and blocks:** each page is a stack of *sections* (e.g. Header, Footer). Some sections contain *blocks* (e.g. each footer column is a block) that can be added, removed, reordered or hidden with the eye icon.
 - **Menus:** **Content → Menus**. Drag links to reorder. Drag a link *under and to the right of* another to nest it (that makes a dropdown).
 - **Files:** **Content → Files** holds uploaded images. Images you pick in the theme editor are stored here.
-- **Preview before launch:** until launch, the developer shares a preview link. Please don't publish any theme; launch is scheduled and done by the developer.
+- **Before launch:** you'll work on the Shopify-hosted practice site (`kambric-goods-2.myshopify.com`). The developer will tell you when the new theme is ready there to receive content. Until then the developer may replace it, so hold off on entering real content. Please leave publishing and theme switching to the developer.
 
 ---
 
 ## 3. What you can edit right now (Phase 0)
 
 ### Announcement bar
-*Customize → Announcement bar* (top of every page)
 
-| Setting | What it does |
-| --- | --- |
-| Show announcement | Turns the bar on or off. It's **off** today, matching the current site. |
-| Message | e.g. "Summer Sale · 20% Off Select Styles". Keep it short (under ~45 characters reads well on phones). |
-| Link label | The underlined words after the message, e.g. "Shop Now". Hidden on small phones and shown only if there's a link. |
-| Link | Where the bar goes when clicked. Pick a collection or page, or paste a URL. |
-| Style | **Static** (like today) or **Scrolling**. Scrolling pauses when hovered and stays still for visitors who've asked their device to reduce motion. |
+The thin terracotta strip above the header, on every page. It's **off** today, matching the current site.
+
+> **Where you edit it:** on the Kambric Goods theme (**Online Store → Themes → Kambric Goods → Customize**). Before launch, that only changes the practice site; after launch, it's the real site. The live kambricgoods.com bar is still edited in the Replit `/admin` until launch.
+
+**Turn it on**
+1. Go to **Online Store → Themes**. On the *Kambric Goods* theme, click **Customize**.
+2. In the left sidebar under **Header**, click **Announcement bar**. (If you don't see it, click the eye icon next to it: the section itself might be hidden.)
+3. Tick **Show announcement**.
+4. Fill in **Message** (see "Change what it says" below).
+5. Click **Save** (top right). On the live theme, it's on the site immediately.
+
+**Turn it off**
+1. Open **Customize → Announcement bar** as above.
+2. Untick **Show announcement** and click **Save**.
+
+Your message, link and style are kept, so next time you only need to tick the box again. (Don't use the eye icon to hide it; the checkbox is the switch.)
+
+**Change what it says**
+
+| Field | What to enter | Example |
+| --- | --- | --- |
+| **Message** | The announcement. Aim for under ~45 characters so it fits on one line on phones. Use " · " to separate phrases. | `Summer Sale · 20% Off Select Styles` |
+| **Link label** | Optional underlined words after the message. Shown only when there's a link, and hidden on small phones (the whole bar is still clickable). | `Shop Now` |
+| **Link** | Where a click goes. Click the field and search for a collection, product, page or blog post, or paste a web address. Leave empty for a bar that isn't a link. | *Sale* collection |
+| **Style** | **Static** (centred, like today) or **Scrolling** (moves slowly right to left). | Static |
+
+Tips:
+- **Scrolling** repeats your message across the bar, pauses when someone hovers over it, and stays still for visitors whose device is set to reduce motion. Screen readers read it once.
+- There's no built-in scheduler. For a sale that starts or ends at a set time, set yourself a reminder to switch it on and off.
+- The colour is the theme's terracotta, slightly darkened so the small text passes accessibility contrast. Changing *Theme settings → Colors → Secondary* changes it too.
+- Discount codes in the bar are visible to everyone, so only put public codes there.
 
 ### Header menu
-*Content → Menus → Main menu* (handle `main-menu`)
+*Content → Menus → Main menu* (handle `main-menu`). One-time setup is in [section 3a](#3a-setting-up-the-menus-one-time-before-launch).
 
 - Top-level links appear across the header on desktop and in the full-screen **Menu** on phones.
 - Links nested under a top-level link become its **dropdown**.
 - If a dropdown contains **only collections**, it's shown in the large italic style (like "Collections" today). Otherwise it uses the small uppercase style (like "Shop").
 - On phones, a dropdown of plain links (e.g. Shop → Dresses, Kaftans…) is listed directly in the menu, just like today.
-
-Recommended structure, matching today's site (the developer supplies exact links at launch):
-```
-Shop            → Shop all
-  Dresses, Kaftans, Coats, Swimwear, Accessories, Sale
-Collections     → All collections
-  Folklore, Whimsy, Psychedelics   (collection links)
-Story           → About page
-Events          → Events page
-Journal         → Journal blog
-```
 
 ### Footer
 *Customize → Footer*
@@ -90,6 +110,91 @@ Journal         → Journal blog
 | Logo and brand | Logo, logo height (desktop/mobile), favicon, default social sharing image | Leave the logo empty to use the built-in bronze wordmark. The sharing image is used when a page has none (1200 × 630 px). |
 | Colors | Ivory background, cocoa text, ochre, terracotta, olive, linen, dark band | Pre-set to today's palette. **Change with care:** text must stay readable against its background. |
 | Social media | Instagram URL, Pinterest URL | Also tells Google these profiles belong to Kambric Goods. |
+
+---
+
+## 3a. Setting up the menus (one time, before launch)
+
+The theme reads three menus. Shopify identifies each by its **handle** (a fixed internal name), so the handles must be exactly:
+
+| Menu | Handle | Used for |
+| --- | --- | --- |
+| Main menu | `main-menu` | Header navigation and the phone menu |
+| Footer menu | `footer` | Footer column **Shop** |
+| Footer info | `footer-info` | Footer column **Information** |
+
+Some links point at things that don't exist in Shopify yet (category collections, the About/Events pages, the Journal). Do **Part A** now and **Part B** when those pages are built (Phase 4).
+
+> ⚠️ **Protect the live site.** Today's kambricgoods.com (the Replit site) shows every Shopify collection it can see. When you create a new collection in step A1, restrict it to the **Online Store** sales channel as described, or it will appear on the live site right away. Menus and pages are safe: the live site doesn't read them.
+
+> ℹ️ Menus only affect the Shopify-hosted practice site, so editing them is safe.
+
+### Part A: now
+
+**A1. Create the category collections** (needed for the Shop links; decision D-10). Repeat for each row:
+
+| Title | Condition |
+| --- | --- |
+| Dresses | Product type · is equal to · `Dresses` |
+| Kaftans | Product type · is equal to · `Kaftans` |
+| Coats | Product type · is equal to · `Coats` |
+| Swimwear | Product type · is equal to · `Swimwear` |
+| Accessories | Product type · is equal to · `Accessories` |
+| Sale | Compare-at price · is greater than · `0` |
+
+1. Go to **Products → Collections → Create collection**.
+2. **Title:** as in the table (e.g. `Dresses`).
+3. **Collection type:** choose **Automated**.
+4. **Conditions:** "Products must match **all conditions**". Add the condition from the table, then **Add another condition**: *Product tag · is not equal to · `hidden`*.
+5. ⚠️ **Publishing** (right-hand card) → **Manage** → leave **only "Online Store"** ticked and untick every other channel (e.g. *Headless* or the Replit app's channel). **Save** the dialog.
+6. Scroll to **Search engine listing** → **Edit**. Check the URL ends in `/collections/dresses` (lowercase, matching the title). Fix the handle there if needed.
+7. Click **Save**.
+8. Check that https://kambricgoods.com/collections does **not** list the new collection. If it does, re-check step 5 and tell the developer.
+9. Open the new collection and look at its products. If the **chainstitch monogram** fee item appears (it's a fee, not something to browse), tell the developer; it needs one more condition.
+
+**A2. Main menu** (`main-menu`: it already exists in every Shopify store)
+1. Go to **Content → Menus** and click **Main menu**.
+2. Delete the default items (e.g. *Home*, *Catalog*, *Contact*): click the item's **⋯** (or trash) icon → **Delete**.
+3. Click **Add menu item**:
+   - **Label** `Shop`, **Link** → click the field → **Collections** → **All products** (`/collections/all`) → **Add**.
+4. Click **Add menu item** under *Shop* ("Add menu item to Shop"), or add it at the top level and drag it **under and slightly to the right of** *Shop* to nest it. Add, in order:
+   `Dresses`, `Kaftans`, `Coats`, `Swimwear`, `Accessories`, `Sale`, each linked to its collection from A1.
+5. Add top-level **Label** `Collections` → **Link** → **Collections** → **All collections** (`/collections`).
+6. Nest under *Collections*: `Folklore`, `Whimsy`, `Psychedelics`, each linked to its **collection**. They must be collection links (not typed web addresses): that's what gives them the large italic dropdown style.
+7. Click **Save menu**.
+8. Check the **Handle**: on the menu's page, it should read `main-menu`. If there's no Handle field, it's fine, because the default Main menu always has that handle.
+
+**A3. Footer menu** (`footer`: also exists by default)
+1. **Content → Menus → Footer menu**.
+2. Delete the default items (e.g. *Search*).
+3. Add, top level and in order: `Dresses`, `Kaftans`, `Coats`, `Swimwear`, `Accessories`, `Sale`, linked to the collections from A1.
+4. **Save menu.** (The column heading "Shop" is set in the theme, not by the menu's name.)
+
+**A4. Footer info menu** (`footer-info`: new)
+1. **Content → Menus → Create menu**.
+2. **Title:** `Footer info`. Shopify creates the handle `footer-info` from the title. If a Handle field is shown, make sure it reads exactly `footer-info`.
+3. Leave it without items for now (the pages arrive in Phase 4). An empty menu is simply hidden in the footer.
+4. **Save menu.**
+
+**A5. Check it**
+Open the theme preview link the developer shares (or **Customize** on the Kambric Goods theme). You should see *SHOP ⌄* and *COLLECTIONS ⌄* in the header with working dropdowns, a Shop column in the footer, and the same list in the phone **Menu**.
+
+### Part B: when the pages exist (Phase 4)
+
+The developer will confirm when these exist; then add:
+
+| Menu | Label | Link to |
+| --- | --- | --- |
+| Main menu (top level, after Collections) | `Story` | Pages → *About* |
+|  | `Events` | Pages → *Events* |
+|  | `Journal` | Blogs → *Journal* |
+| Footer info | `Contact Us` | Pages → *Contact* |
+|  | `Wholesale` | Pages → *Wholesale* |
+|  | `Size Guide` | Pages → *Size guide* |
+|  | `Shipping` | Pages → *Shipping* |
+|  | `Returns & Exchanges` | Pages → *Returns* |
+
+After that, the header and footer match today's site exactly.
 
 ---
 
@@ -141,4 +246,5 @@ These are tracked as decisions in `docs/MIGRATION_PLAN.md`. They're listed here 
 
 | Date | Phase | What changed for editors |
 | --- | --- | --- |
+| 2026-09-28 | 0: Foundation (update) | Step-by-step announcement bar how-to; one-time menu setup (§3a). Announcement bar slightly darker for readability. |
 | 2026-09-28 | 0: Foundation | Announcement bar, header menu (`main-menu`), footer (brand text, menu columns `footer` and `footer-info`, newsletter heading, location), theme settings (logo, favicon, sharing image, colours, social links). Guide created. |

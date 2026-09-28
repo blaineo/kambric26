@@ -5,19 +5,32 @@
 We're rebuilding **kambricgoods.com** (currently a React/Vite/Tailwind v4 app on Replit) as a custom **Shopify Online Store 2.0 Liquid theme**, starting from Shopify's Skeleton theme.
 
 - Store: `kambric-goods-2.myshopify.com` (CLI env `development` in `shopify.theme.toml`).
-- Today the live storefront is still the Replit site. It uses Shopify only through the Storefront API and checkout. **This theme isn't live**, and the Online Store theme is only published at cutover, by the owner.
+- **Two storefronts share one store today:**
+  - **kambricgoods.com = the live Replit site.** It reads catalog data through the Storefront API and uses Shopify checkout. Real customers are there.
+  - **The Shopify-hosted Online Store (`kambric-goods-2.myshopify.com`) is our playground.** No customer traffic goes there, so theme work there has little or no consequence.
+- **Cutover = DNS.** We get the Shopify-hosted site production-ready, then point kambricgoods.com at Shopify.
 - The owner is a software engineer and reviews everything. Plan first, commit small, and surface decisions rather than guessing.
 - Phase plan and open decisions: `docs/MIGRATION_PLAN.md`. What content editors need to know: `docs/CONTENT_GUIDE.md`.
 
 ## Guardrails (non-negotiable)
 
-1. **Never publish.** No `shopify theme publish`, no `theme push --live`/`--allow-live`, no pushing to the published theme, no `theme delete`/`rename`. Use `shopify theme dev -e development`. Only when explicitly asked: `shopify theme push --unpublished`.
-2. **Never change store data.** No creating, editing or deleting products, collections, metafields, metafield/metaobject definitions, metaobjects, menus, pages, blogs/articles, files, redirects, discounts or settings through the CLI, the Admin API or the browser. Store data changes are written up as a reviewed plan and the owner runs them. Read-only queries are fine when asked.
-3. **Never commit secrets:** no `.env*`, tokens, passwords, or `.shopify/` session data. Never print secret values.
-4. **Match the current site; don't redesign.** The screenshots in the export are the visual spec. Where the export and the brief disagree, ask.
-5. **Native first.** Prefer Shopify features (menus, metafields, metaobjects, blogs, pages, customer forms, predictive search, URL redirects) over apps and custom JS. For interactivity, use vanilla JS in custom elements: no React, no jQuery, no build step.
-6. **Accessibility, SEO, AEO and performance are requirements** (see below), not polish.
-7. **Every change an editor would notice goes in `docs/CONTENT_GUIDE.md`,** in the same commit. That covers any new setting, section, block, metafield, metaobject, menu handle, or "where did X move to". The goal is a clean, simple transition for content maintainers.
+1. **Know the blast radius** before touching anything in the store:
+
+   | Safe playground (Online Store only) | **Shared with the live Replit site: be careful** |
+   | --- | --- |
+   | Themes (dev, unpublished, and even the published Online Store theme), theme settings and editor content | Products, variants, prices, inventory, images and **image alt text** (it groups prints), tags, product types |
+   | Menus, pages, blogs/articles, new metaobjects, Online Store URL redirects, `robots.txt.liquid` | Collections: creating one, or its **sales-channel publication**; the Replit site lists every collection it can see |
+   | | Metafields the Replit site reads: `kambric.prints`, `print_name`, `print_story`, `season`, `year` |
+   | | Checkout, discounts, shipping, payments, markets, policies, customer accounts, notifications (one checkout serves both sites) |
+
+2. **Themes: work freely, but publish only on request.** Use `shopify theme dev -e development` and, when asked, `shopify theme push --unpublished`. Publishing or pushing to the published Online Store theme only affects the playground domain, but it still happens **only when the owner explicitly asks in the session**. Never `theme delete`.
+3. **Store data: the owner runs changes.** No creating, editing or deleting products, collections, metafields, metaobject definitions/entries, menus, pages, blogs/articles, files, redirects, discounts or settings through the CLI, Admin API or browser. Write a reviewed plan (or step-by-step instructions in `docs/CONTENT_GUIDE.md`) that **flags every shared item** from the table above. Read-only queries are fine when asked.
+4. **Never commit secrets:** no `.env*`, tokens, passwords, or `.shopify/` session data. Never print secret values.
+5. **Match the current site; don't redesign.** The screenshots in the export are the visual spec. Where the export and the brief disagree, ask.
+6. **Native first.** Prefer Shopify features (menus, metafields, metaobjects, blogs, pages, customer forms, predictive search, URL redirects) over apps and custom JS. For interactivity, use vanilla JS in custom elements: no React, no jQuery, no build step.
+7. **Accessibility, SEO, AEO and performance are requirements** (see below), not polish.
+8. **Every change an editor would notice goes in `docs/CONTENT_GUIDE.md`,** in the same commit. That covers any new setting, section, block, metafield, metaobject, menu handle, or "where did X move to". The goal is a clean, simple transition for content maintainers.
+9. **Once editors start entering content on a Shopify theme, they own its JSON** (`config/settings_data.json`, `templates/*.json`, `sections/*-group.json`). Never push over them: pull from that theme and commit first.
 
 `.claude/settings.json` denies the most dangerous commands as a backstop. It's prefix-matched, so it isn't a guarantee: the rules above still apply.
 

@@ -3,7 +3,7 @@
 Custom Shopify Online Store 2.0 theme for [kambricgoods.com](https://kambricgoods.com), replacing the React/Vite storefront on Replit. Built on Shopify's [Skeleton theme](https://github.com/Shopify/skeleton-theme), using hand-written CSS on design tokens and vanilla-JS custom elements. There is no build step.
 
 - Store: `kambric-goods-2.myshopify.com`
-- Status: **not live.** The published Online Store theme only changes at cutover (see `docs/MIGRATION_PLAN.md`).
+- Status: in development. kambricgoods.com is still the **live Replit site**, which reads the same Shopify catalog and checkout, so catalog/checkout changes affect it. The Shopify-hosted Online Store (`kambric-goods-2.myshopify.com`) is the **playground** for this theme. Cutover is a DNS change (see `docs/MIGRATION_PLAN.md`).
 - Guardrails and conventions for humans and agents: [`CLAUDE.md`](./CLAUDE.md)
 
 ## Prerequisites
