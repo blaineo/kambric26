@@ -20,7 +20,7 @@ Optional: the [Shopify Liquid VS Code extension](https://shopify.dev/docs/storef
 ## Development workflow
 
 ```bash
-cd ~/Code/kambric/theme
+cd ~/Code/kambric/kambric26
 
 # 1. Local preview against a *development* theme (hot reload). The first run
 #    opens a browser login; do that yourself. Store comes from shopify.theme.toml.
