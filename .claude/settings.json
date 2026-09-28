@@ -3,7 +3,6 @@
     "deny": [
       "Bash(shopify theme delete:*)",
       "Bash(shopify theme rename:*)",
-      "Bash(shopify store:*)",
       "Bash(shopify app:*)",
       "Read(./.env)",
       "Read(./.env.*)",
