@@ -1,0 +1,54 @@
+{
+  "mainMenu": {
+    "menu": {
+      "id": "gid://shopify/Menu/224754598122",
+      "handle": "main-menu",
+      "items": [
+        {
+          "title": "Shop",
+          "url": "/collections/all",
+          "items": []
+        },
+        {
+          "title": "Collections",
+          "url": "/collections",
+          "items": [
+            {
+              "title": "Psychedelics",
+              "url": "/collections/psychedelics"
+            },
+            {
+              "title": "Folklore",
+              "url": "/collections/folklore"
+            },
+            {
+              "title": "Whimsy",
+              "url": "/collections/whimsy"
+            }
+          ]
+        }
+      ]
+    },
+    "userErrors": []
+  },
+  "footerInfo": {
+    "menu": {
+      "id": "gid://shopify/Menu/226777202922",
+      "handle": "footer-info"
+    },
+    "userErrors": []
+  },
+  "shopCategories": {
+    "menu": {
+      "id": "gid://shopify/Menu/226777235690",
+      "handle": "shop-categories",
+      "items": [
+        {
+          "title": "All",
+          "url": "/collections/all"
+        }
+      ]
+    },
+    "userErrors": []
+  }
+}

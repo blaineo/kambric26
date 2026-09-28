@@ -36,13 +36,13 @@ Claude can't change its own permission settings, so:
 Proposed guardrail 3 wording:
 > 3. **Store data: the owner approves every change.** By default Claude doesn't create, edit or delete store data. **Exception (owner decision 2026-09-28):** Claude may run 🟢 and 🟡 tasks from `docs/OWNER_TASKS.md`, one batch at a time, each explicitly approved by the owner, only through the process in `docs/store-changes/README.md` (snapshots, reviewed change, generated rollback, live-site diff). Any difference on kambricgoods.com → stop, roll back, report. 🔴 tasks stay owner-only.
 
-## Batches (status: 01–02 ✅ done; the rest planned)
+## Batches (status: 01, 02, 04 ✅ done; 03 at cutover; the rest planned)
 | # | Batch | Tier | Creates / changes | Rollback |
 | --- | --- | --- | --- | --- |
 | 01 ✅ | Custom-field definitions | 🟢 | Definitions `kambric.archive_label` (product), `kambric.card_image`, `kambric.header_image` (collection), `seo.hidden` (product); values: Arielle archive label "Parlor Rose", monogram `seo.hidden = 1` | `metafieldDefinitionDelete` (with its values) for each definition created; `metafieldsDelete` for the two values |
 | 02 ✅ | Collection images | 🟢 | Upload 6 images to Files; set `card_image`/`header_image` on Folklore, Psychedelics, Whimsy | `metafieldsDelete` the 6 values; `fileDelete` the 6 files |
 | 03 ⏳ cutover | Category and sale collections | 🔴 (at cutover) | 6 automated collections, templates `category`/`sale`, copy + SEO from `store-data/collection-copy.csv`, **created and published to Online Store in one step**; prepared + dry-run tested, see `03-category-collections/plan.md` | `rollback.py`: `collectionDelete` ×6 (IDs from `apply-log.json`) |
-| 04 | Menus | 🟢 | `main-menu`, `footer` (replace items), `footer-info`, `shop-categories` (new) | Restore `main-menu`/`footer` items from `before.json`; `menuDelete` the two new menus |
+| 04 ✅ | Menus | 🟢 | `main-menu`, `footer` (replace items), `footer-info`, `shop-categories` (new) | Restore `main-menu`/`footer` items from `before.json`; `menuDelete` the two new menus |
 | 05 | Search listings | 🟢 | SEO title/description on the 3 existing collections (not their Description field) | Restore previous SEO values from `before.json` |
 | 06 | URL redirects | 🟢 | 68 redirects from `redirects-draft.csv` | `urlRedirectDelete` by the IDs recorded in `log.md` |
 | 07 | Admin UI settings | 🟢 | Homepage title/description; contact-form recipients (Chrome, owner logged in) | Previous values recorded in `log.md` before editing; re-enter them |

@@ -8,17 +8,17 @@
 
 How "safe" was decided: the live site reads products (title, description, type, tags, options, variants, prices, stock, images and **image alt text**), collections (title, description, image, and whichever collections its sales channel can see), five custom fields (`kambric.prints`, `kambric.print_name`, `kambric.print_story`, `kambric.season`, `kambric.year`), and uses Shopify **checkout** (so discounts, shipping, taxes, payments, policies and notifications are shared). Everything else (theme, menus, pages, blog, URL redirects, new custom fields, SEO fields, Online Store preferences) is Shopify-hosted only. Verified against the live site's source, 2026-09-28.
 
-Status: ☐ to do · ☑ done · ⏳ waiting on the theme build. Tick items here (or tell Claude and it will).
+Status: ☐ to do · ◐ partly done (rest at a later step) · ☑ done · ⏳ waiting on the theme build. Tick items here (or tell Claude and it will).
 
 ---
 
 ## A. Safe now 🟢
 
 ### A1. Menus (Content → Menus): guide §3a
-- ☐ **Main menu** (`main-menu`): Shop → All products, Collections (+ Folklore, Psychedelics, Whimsy nested, as *collection* links). The category links (Dresses … Sale) wait for the collections to be published at cutover (C2).
+- ◐ **Main menu** (`main-menu`): Shop → All products, Collections (+ Folklore, Psychedelics, Whimsy nested, as *collection* links). The category links (Dresses … Sale) wait for the collections to be published at cutover (C2). *(Done, batch 04, 2026-09-28; category links at cutover.)*
 - ☐ **Footer menu** (`footer`): the five categories + Sale, at cutover once they're published (C2). Until then leave the default or use All products.
-- ☐ **Footer info** (`footer-info`): create now, empty. ⏳ Add Contact, Wholesale, Size Guide, Shipping, Returns once the pages exist (Phase 4).
-- ☐ **Shop categories** (`shop-categories`): create now with **All**; add the five categories at cutover (C2).
+- ◐ **Footer info** (`footer-info`): create now, empty. ⏳ Add Contact, Wholesale, Size Guide, Shipping, Returns once the pages exist (Phase 4). *(Created empty, batch 04.)*
+- ◐ **Shop categories** (`shop-categories`): create now with **All**; add the five categories at cutover (C2). *(Created with All, batch 04.)*
 - ⏳ Main menu Part B (Story, Events, Journal) once Phase 4 pages exist.
 
 ### A2. New custom fields (Settings → Custom data)
