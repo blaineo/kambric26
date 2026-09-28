@@ -1,0 +1,269 @@
+{% comment %}
+  `/collections` index (Phase 3): breadcrumbs, intro (eyebrow/heading/body)
+  and a `collection-card` grid of the store's browsable "chapters"
+  (Folklore, Psychedelics, Whimsy, and any future ones) — never the
+  `frontpage`, category (Dresses/Kaftans/…) or Sale collections.
+
+  Which collections show, in order:
+  1. `collection_list` setting set (non-empty) → exactly those collections,
+     in the order chosen there (still skipping `frontpage` defensively).
+  2. Otherwise (the default) → every collection with `kambric.season` set,
+     in the store's own collection order. This is the simplest rule that's
+     also automatically correct: the category and Sale collections are
+     product-type/price rules, not seasonal chapters, so they've never had
+     `kambric.season` set, and `frontpage` is documented as never having a
+     season/year either (MIGRATION_PLAN §3.12) — so the exclusion is a side
+     effect of the inclusion rule, not a separate list to maintain.
+
+  Empty state: no collections resolved (e.g. a manual list that turns out
+  empty after excluding `frontpage`, or literally zero seasonal collections)
+  shows `empty_heading`/`empty_body` instead of the grid.
+
+  Images: `collection-card.liquid` itself resolves `kambric.card_image` →
+  collection image → placeholder. This section only decides loading: the
+  first row (first 2 cards, the 2-column desktop breakpoint) loads `eager`,
+  the rest `lazy` — never `priority` (the page's `<h1>` is above the grid).
+
+  JSON-LD: `CollectionPage` (name "{shop name} Collections", the intro as
+  `description`, `/collections` as `url`) with a `mainEntity` `ItemList`,
+  followed by a second bare `ItemList` — matches SEO.md's collections-index
+  example. Both list the same collections, in the same order, as the grid.
+
+  @setting {text} eyebrow - Small label above the heading (default "Curated Chapters")
+  @setting {text} heading - Page heading (default "Collections")
+  @setting {richtext} intro - Intro paragraph
+  @setting {collection_list} collection_list - Optional manual override; leave empty for the automatic season-based rule above
+  @setting {text} empty_heading - Shown when no collections resolve (default "Coming soon.")
+  @setting {text} empty_body - Shown under empty_heading
+{% endcomment %}
+{%- liquid
+  assign eyebrow = section.settings.eyebrow
+  assign heading = section.settings.heading
+  assign intro = section.settings.intro
+
+  assign has_manual_list = false
+  if section.settings.collection_list.size > 0
+    assign has_manual_list = true
+  endif
+
+  assign page_name = shop.name | append: ' Collections'
+-%}
+
+<div class="main-collections">
+  <div class="main-collections__intro">
+    {%- render 'breadcrumbs' -%}
+    {%- if eyebrow != blank -%}
+      {%- render 'eyebrow', text: eyebrow, class: 'main-collections__eyebrow' -%}
+    {%- endif -%}
+    {%- render 'section-heading', heading: heading, tag: 'h1', size: 'hero', class: 'main-collections__heading' -%}
+    {%- if intro != blank -%}
+      <div class="main-collections__body">
+        {%- render 'rte', content: intro -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- capture grid_markup -%}
+    {%- liquid
+      assign position = 0
+      if has_manual_list
+        for col in section.settings.collection_list
+          unless col.handle == 'frontpage'
+            assign card_loading = 'lazy'
+            if position < 2
+              assign card_loading = 'eager'
+            endif
+            echo '<li class="main-collections__item">'
+            render 'collection-card', collection: col, loading: card_loading
+            echo '</li>'
+            assign position = position | plus: 1
+          endunless
+        endfor
+      else
+        for col in collections
+          if col.handle != 'frontpage' and col.metafields.kambric.season.value != blank
+            assign card_loading = 'lazy'
+            if position < 2
+              assign card_loading = 'eager'
+            endif
+            echo '<li class="main-collections__item">'
+            render 'collection-card', collection: col, loading: card_loading
+            echo '</li>'
+            assign position = position | plus: 1
+          endif
+        endfor
+      endif
+    -%}
+  {%- endcapture -%}
+
+  {%- if grid_markup != blank -%}
+    <ul class="main-collections__grid" role="list">
+      {{- grid_markup -}}
+    </ul>
+  {%- else -%}
+    <div class="main-collections__empty">
+      <p class="main-collections__empty-heading">{{ section.settings.empty_heading | default: 'Coming soon.' }}</p>
+      {%- if section.settings.empty_body != blank -%}
+        <p class="main-collections__empty-body">{{ section.settings.empty_body }}</p>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{%- liquid
+  assign json_items = ''
+  assign position = 0
+  if has_manual_list
+    for col in section.settings.collection_list
+      unless col.handle == 'frontpage'
+        if position > 0
+          assign json_items = json_items | append: ','
+        endif
+        assign position = position | plus: 1
+        capture item_json
+          echo '{"@type":"ListItem","position":' | append: position | append: ',"name":'
+          echo col.title | json
+          echo ',"url":'
+          echo request.origin | append: col.url | json
+          echo '}'
+        endcapture
+        assign json_items = json_items | append: item_json
+      endunless
+    endfor
+  else
+    for col in collections
+      if col.handle != 'frontpage' and col.metafields.kambric.season.value != blank
+        if position > 0
+          assign json_items = json_items | append: ','
+        endif
+        assign position = position | plus: 1
+        capture item_json
+          echo '{"@type":"ListItem","position":' | append: position | append: ',"name":'
+          echo col.title | json
+          echo ',"url":'
+          echo request.origin | append: col.url | json
+          echo '}'
+        endcapture
+        assign json_items = json_items | append: item_json
+      endif
+    endfor
+  endif
+-%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": {{ page_name | json }},
+    "description": {{ intro | strip_html | json }},
+    "url": {{ request.origin | append: routes.collections_url | json }},
+    "mainEntity": {
+      "@type": "ItemList",
+      "name": {{ page_name | json }},
+      "itemListElement": [{{ json_items }}]
+    }
+  }
+</script>
+
+{% stylesheet %}
+  .main-collections {
+    padding-block: var(--space-16) var(--space-24);
+  }
+
+  .main-collections__intro {
+    max-width: 34rem;
+    margin-block-end: var(--space-16);
+  }
+
+  .main-collections__eyebrow {
+    margin-block: var(--space-6) var(--space-3);
+  }
+
+  .main-collections__body .rte {
+    font-size: var(--text-14);
+    color: var(--color-muted-foreground);
+    margin-block-start: var(--space-4);
+  }
+
+  .main-collections__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .main-collections__empty {
+    padding-block: var(--space-24);
+    text-align: center;
+  }
+
+  .main-collections__empty-heading {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-serif);
+    font-size: var(--text-30);
+    font-style: italic;
+    color: var(--color-muted-foreground);
+  }
+
+  .main-collections__empty-body {
+    margin: 0;
+    font-size: var(--text-14);
+    color: var(--color-muted-foreground);
+  }
+
+  @media (min-width: 48rem) {
+    .main-collections__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-16) var(--space-12);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_collections.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:general.eyebrow",
+      "default": "Curated Chapters"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:general.heading",
+      "default": "Collections"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "t:sections.main_collections.intro",
+      "default": "<p>Each collection draws from different inspirations and themes within the archive, shaped into a cohesive story.</p>"
+    },
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "t:sections.main_collections.collection_list",
+      "info": "t:sections.main_collections.collection_list_info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_collections.empty_header"
+    },
+    {
+      "type": "text",
+      "id": "empty_heading",
+      "label": "t:general.heading",
+      "default": "Coming soon."
+    },
+    {
+      "type": "text",
+      "id": "empty_body",
+      "label": "t:labels.text",
+      "default": "The archive is being curated. Check back shortly."
+    }
+  ]
+}
+{% endschema %}

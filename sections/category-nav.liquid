@@ -1,0 +1,149 @@
+{% comment %}
+  The category strip on Shop and category pages (Phase 3): All + the five
+  categories, from a `link_list` setting. Source: Shop.tsx's CATEGORY_META
+  strip (All/Dresses/Kaftans/Coats/Swimwear/Accessories), now editor-owned as
+  a menu instead of a code array.
+
+  Menu setup (see the content guide): create a menu with the handle
+  `shop-categories` containing "All" → `/collections/all`, then one link per
+  category collection (Dresses → `/collections/dresses`, etc.) and, if
+  wanted, Sale → `/collections/sale`. Active state uses Shopify's own
+  `link.current` (exact URL match) — no theme logic decides which tab is
+  "on".
+
+  Horizontal scroll on mobile: the list scrolls with the scrollbar hidden,
+  but keeps `overflow-y: visible`-safe padding so a focused link's
+  `:focus-visible` ring (global, 2px + 2px offset) isn't clipped by the
+  scroll container.
+
+  Renders nothing when the menu setting is empty, except a design-mode-only
+  hint so the editor knows to pick a menu.
+
+  @setting {select} show_on - 'always' (default) | 'all_only' | 'except_all'
+  @setting {link_list} menu - The category strip menu. No schema default: the
+    suggested handle `shop-categories` doesn't exist yet (Shopify rejects a
+    schema default pointing at a menu that isn't there), so pick it in the
+    theme editor once it's created; until then this section renders nothing.
+{% endcomment %}
+{%- liquid
+  assign show_on = section.settings.show_on | default: 'always'
+  assign should_render = true
+  if show_on == 'all_only' and collection.handle != 'all'
+    assign should_render = false
+  elsif show_on == 'except_all' and collection.handle == 'all'
+    assign should_render = false
+  endif
+
+  assign menu = section.settings.menu
+  assign has_menu = false
+  if menu != blank and menu.links.size > 0
+    assign has_menu = true
+  endif
+-%}
+{%- if should_render -%}
+  {%- if has_menu -%}
+    <nav class="category-nav full-width" aria-label="{{ 'collections.nav.aria_label' | t }}">
+      <ul class="category-nav__list" role="list">
+        {%- for link in menu.links -%}
+          <li class="category-nav__item">
+            <a
+              class="category-nav__link{% if link.current %} category-nav__link--active{% endif %}"
+              href="{{ link.url }}"
+              {%- if link.current %} aria-current="page"{% endif %}
+            >{{ link.title | escape }}</a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    </nav>
+  {%- elsif request.design_mode -%}
+    <div class="category-nav category-nav--empty full-width">
+      <p class="category-nav__hint">{{ 'collections.nav.empty_hint' | t }}</p>
+    </div>
+  {%- endif -%}
+{%- endif -%}
+
+{% stylesheet %}
+  .category-nav {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 30;
+    background: var(--color-background);
+    border-block-end: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  }
+
+  .category-nav__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    margin: 0;
+    padding: var(--space-2) var(--page-margin);
+    list-style: none;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .category-nav__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-nav__link {
+    display: inline-flex;
+    align-items: center;
+    height: 2.75rem;
+    padding-inline: var(--space-3-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-nav);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .category-nav__link:hover,
+  .category-nav__link:focus-visible,
+  .category-nav__link--active {
+    color: var(--color-foreground);
+  }
+
+  .category-nav__link--active {
+    font-weight: var(--weight-medium);
+  }
+
+  .category-nav--empty {
+    padding: var(--space-4) var(--page-margin);
+    color: var(--color-muted-foreground);
+    font-size: var(--text-12);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.category_nav.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "show_on",
+      "label": "t:sections.collection_hero.show_on",
+      "options": [
+        { "value": "always", "label": "t:sections.collection_hero.show_on_always" },
+        { "value": "all_only", "label": "t:sections.collection_hero.show_on_all_only" },
+        { "value": "except_all", "label": "t:sections.collection_hero.show_on_except_all" }
+      ],
+      "default": "always",
+      "info": "t:sections.collection_hero.show_on_info"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "t:labels.menu",
+      "info": "t:sections.category_nav.menu_info"
+    }
+  ],
+  "presets": [{ "name": "t:sections.category_nav.name" }]
+}
+{% endschema %}

@@ -1,0 +1,317 @@
+{% comment %}
+  Collection detail header (Phase 3): breadcrumbs, season/year eyebrow, title,
+  description and an optional full-bleed header image. Used on the default
+  `collection.json` template, which also serves `/collections/all` (Shop) —
+  set `show_on: except_all` (the default wiring) so this section is silent
+  there and `catalog-heading`/`category-nav` take over instead.
+
+  Image priority: `kambric.header_image` (file_reference, image) →
+  `kambric.card_image` (file_reference, image) → the native Shopify
+  collection image → none (text-only layout on the dark hero band). The
+  header image is the page's LCP element, so it always loads with
+  `loading: 'priority'`.
+
+  Breadcrumbs: renders `snippets/breadcrumbs.liquid`, which also emits the
+  page's `BreadcrumbList` JSON-LD from `request.page_type` ('collection').
+  Render breadcrumbs from THIS section only — collection-product-grid /
+  collection-product-groups must not render them too, or the page would ship
+  two `BreadcrumbList` scripts and (if their `visible` param differs) two
+  visible trails.
+
+  Also emits a minimal `CollectionPage` JSON-LD script (name/description/url)
+  per SEO.md's collection-detail example; `breadcrumbs` supplies the
+  `BreadcrumbList` alongside it.
+
+  Piece count: total print cards for this collection, via the same
+  `product-prints`(output: 'values') definition catalog-heading uses —
+  see that section's doc for the exact rule. Uses `collection.products`
+  un-paginated (fine at this catalog's size; revisit if a collection ever
+  exceeds Shopify's ~50-item default page).
+
+  @setting {select} show_on - 'always' (default) | 'all_only' | 'except_all'
+  @setting {checkbox} show_image - Show the header image when one resolves (default true)
+  @setting {range} overlay_opacity - Strength of the dark gradient over the image, 0-100 (default 88, matches the source's bottom-stop opacity)
+  @setting {checkbox} show_season - Show the season/year eyebrow from kambric.season/kambric.year (default true)
+  @setting {checkbox} show_description - Show the collection description (default true)
+  @setting {checkbox} show_count - Show the "N pieces" count (default true; not in the original spec list, added for visual parity with collection-*.png — see section report)
+{% endcomment %}
+{%- liquid
+  assign show_on = section.settings.show_on | default: 'always'
+  assign should_render = true
+  if show_on == 'all_only' and collection.handle != 'all'
+    assign should_render = false
+  elsif show_on == 'except_all' and collection.handle == 'all'
+    assign should_render = false
+  endif
+  if collection == blank
+    assign should_render = false
+  endif
+-%}
+{%- if should_render -%}
+  {%- liquid
+    assign header_image = nil
+    if section.settings.show_image
+      assign header_file = collection.metafields.kambric.header_image.value
+      if header_file.preview_image
+        assign header_image = header_file.preview_image
+      elsif header_file.width
+        assign header_image = header_file
+      endif
+
+      if header_image == nil
+        assign card_file = collection.metafields.kambric.card_image.value
+        if card_file.preview_image
+          assign header_image = card_file.preview_image
+        elsif card_file.width
+          assign header_image = card_file
+        endif
+      endif
+
+      if header_image == nil
+        assign header_image = collection.image
+      endif
+    endif
+
+    assign season = collection.metafields.kambric.season.value
+    assign year = collection.metafields.kambric.year.value
+    assign season_eyebrow = blank
+    if section.settings.show_season
+      if season != blank and year != blank
+        assign season_eyebrow = season | append: ' ' | append: year
+      elsif season != blank
+        assign season_eyebrow = season
+      elsif year != blank
+        assign season_eyebrow = year
+      endif
+    endif
+
+    assign description = collection.description
+
+    assign piece_count = 0
+    if section.settings.show_count
+      for count_product in collection.products
+        capture count_values
+          render 'product-prints', product: count_product, output: 'values'
+        endcapture
+        assign count_values = count_values | strip
+        unless count_values == blank
+          assign piece_count = piece_count | plus: count_values | split: '|' | size
+        endunless
+      endfor
+    endif
+
+    assign overlay_strength = section.settings.overlay_opacity | default: 88
+  -%}
+
+  <div class="collection-hero full-width" data-has-image="{% if header_image %}true{% else %}false{% endif %}">
+    {%- if header_image -%}
+      <div class="collection-hero__media" style="--overlay-strength: {{ overlay_strength }}%;">
+        {%- render 'picture',
+          image: header_image,
+          sizes: '100vw',
+          loading: 'priority',
+          alt: collection.title,
+          class: 'collection-hero__picture picture--cover'
+        -%}
+        <div class="collection-hero__overlay" aria-hidden="true"></div>
+      </div>
+    {%- endif -%}
+
+    <div class="collection-hero__content">
+      <div class="collection-hero__inner">
+        {%- render 'breadcrumbs' -%}
+
+        {%- if season_eyebrow != blank -%}
+          {%- render 'eyebrow', text: season_eyebrow, on_dark: true, class: 'collection-hero__eyebrow' -%}
+        {%- endif -%}
+
+        {%- render 'section-heading', heading: collection.title, tag: 'h1', size: 'hero', on_dark: true, class: 'collection-hero__title' -%}
+
+        {%- if section.settings.show_description and description != blank -%}
+          <div class="collection-hero__description">
+            {%- render 'rte', content: description -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_count -%}
+          <p class="collection-hero__count">{{ 'collections.catalog.count' | t: count: piece_count }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+
+  {%- comment -%} CollectionPage + ItemList JSON-LD comes from collection-product-grid (one per page). {%- endcomment -%}
+{%- endif -%}
+
+{% stylesheet %}
+  .collection-hero {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-hero-background);
+    color: var(--color-hero-foreground);
+  }
+
+  .collection-hero[data-has-image='true'] {
+    min-height: clamp(22rem, 55vh, 38rem);
+  }
+
+  .collection-hero__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .collection-hero__media > .collection-hero__picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .collection-hero__overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-hero-background) calc(var(--overlay-strength) * 0.28), transparent) 0%,
+      color-mix(in srgb, var(--color-hero-background) calc(var(--overlay-strength) * 0.51), transparent) 45%,
+      color-mix(in srgb, var(--color-hero-background) var(--overlay-strength), transparent) 100%
+    );
+  }
+
+  .collection-hero__content {
+    position: relative;
+    z-index: 1;
+    padding-block: var(--space-20) var(--space-16);
+  }
+
+  .collection-hero[data-has-image='true'] .collection-hero__content {
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    padding-block: var(--space-10) var(--space-8);
+  }
+
+  .collection-hero__inner {
+    max-width: var(--page-width);
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
+  /* Breadcrumbs and rte are shared snippets styled for a light background;
+     scope-override for this section's dark hero band (higher specificity
+     than the bare snippet class beats bundle order either way). */
+  .collection-hero .breadcrumbs__list {
+    color: color-mix(in srgb, var(--color-hero-foreground) 65%, transparent);
+    margin-block-end: var(--space-6);
+  }
+
+  .collection-hero .breadcrumbs__link:hover,
+  .collection-hero .breadcrumbs__link:focus-visible {
+    color: var(--color-hero-foreground);
+  }
+
+  .collection-hero .breadcrumbs__current {
+    color: color-mix(in srgb, var(--color-hero-foreground) 85%, transparent);
+  }
+
+  .collection-hero__eyebrow {
+    margin-block-end: var(--space-4);
+  }
+
+  .collection-hero__title {
+    max-width: 40rem;
+  }
+
+  .collection-hero__description {
+    max-width: 36rem;
+    margin-block-start: var(--space-4);
+  }
+
+  .collection-hero__description .rte {
+    font-size: var(--text-15);
+    color: color-mix(in srgb, var(--color-hero-foreground) 82%, transparent);
+  }
+
+  .collection-hero__description .rte a {
+    color: inherit;
+  }
+
+  .collection-hero__count {
+    margin: var(--space-5) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-hero-foreground) 55%, transparent);
+  }
+
+  @media (min-width: 48rem) {
+    .collection-hero[data-has-image='true'] .collection-hero__content {
+      padding-block: var(--space-12) var(--space-10);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.collection_hero.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "show_on",
+      "label": "t:sections.collection_hero.show_on",
+      "options": [
+        { "value": "always", "label": "t:sections.collection_hero.show_on_always" },
+        { "value": "all_only", "label": "t:sections.collection_hero.show_on_all_only" },
+        { "value": "except_all", "label": "t:sections.collection_hero.show_on_except_all" }
+      ],
+      "default": "always",
+      "info": "t:sections.collection_hero.show_on_info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.collection_hero.header_image_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "label": "t:sections.collection_hero.show_image",
+      "default": true,
+      "info": "t:sections.collection_hero.show_image_info"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "%",
+      "label": "t:sections.collection_hero.overlay_opacity",
+      "default": 88
+    },
+    {
+      "type": "header",
+      "content": "t:sections.collection_hero.content_header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_season",
+      "label": "t:sections.collection_hero.show_season",
+      "default": true,
+      "info": "t:sections.collection_hero.show_season_info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "t:sections.collection_hero.show_description",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "t:sections.collection_hero.show_count",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "t:sections.collection_hero.name" }]
+}
+{% endschema %}

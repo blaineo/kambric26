@@ -1,0 +1,232 @@
+{% comment %}
+  Listing header for the Shop-all, category and Sale pages (Phase 3): eyebrow,
+  `<h1>` title (with an optional italic second line), an intro paragraph, and
+  a piece count. All three pages share the default `collection.json`
+  template with Shop ('/collections/all'), or their own alternate
+  (`collection.category.json`, `collection.sale.json`) — use `show_on` so the
+  right copy shows on the right page.
+
+  Title / intro defaults (only apply when the matching setting is blank):
+  - `/collections/all` (collection.handle == 'all'): title "All" / italic
+    second line "Pieces" (source: Shop.tsx `allPageHeading`), no intro.
+  - every other collection (category or sale): title falls back to
+    `collection.title`, intro falls back to `collection.description`. This is
+    intentional per CONTENT_GUIDE: category intro copy lives in the
+    category collection's description (D-10), and the Sale collection's
+    description can hold its intro too.
+  Sale note: this section does NOT hard-code "20% off" anywhere. The Sale
+  template instance should have its own `title`/`title_em`/`intro` settings
+  filled in by the editor (defaults may mirror sale.html — see the content
+  guide) rather than relying on the generic collection.title/description
+  fallback, since "Sale" alone reads poorly as a page title.
+
+  Count definition: the number of print cards in `collection.products`,
+  via `product-prints`(output: 'values') — i.e. exactly what
+  collection-product-grid/-groups would render, not a raw product count. A
+  merged product contributes one count per print. On the Sale collection
+  (handle 'sale') the count additionally applies product-prints' `filter:
+  'sale'` (compareAt > price per print), matching Sale.tsx's own filter — a
+  collection can otherwise contain a product with some prints on sale and
+  others not. Optionally narrow by `product_type_filter` (exact
+  `product.type` match) if a template needs to mirror an extra filter the
+  grid applies; leave blank to count everything in the collection.
+
+  @setting {select} show_on - 'always' (default) | 'all_only' | 'except_all'
+  @setting {text} eyebrow - Small label above the title (default "Kambric Goods")
+  @setting {text} title - Title first line; blank uses the fallback above
+  @setting {text} title_em - Optional italic second line; blank uses the fallback above
+  @setting {richtext} intro - Intro paragraph; blank uses the fallback above
+  @setting {checkbox} show_count - Show the "N pieces" count (default true)
+  @setting {text} product_type_filter - Optional: only count products of this exact `product.type`
+{% endcomment %}
+{%- liquid
+  assign show_on = section.settings.show_on | default: 'always'
+  assign should_render = true
+  if show_on == 'all_only' and collection.handle != 'all'
+    assign should_render = false
+  elsif show_on == 'except_all' and collection.handle == 'all'
+    assign should_render = false
+  endif
+  if collection == blank
+    assign should_render = false
+  endif
+-%}
+{%- if should_render -%}
+  {%- liquid
+    assign eyebrow = section.settings.eyebrow
+
+    assign heading = section.settings.title
+    assign heading_em = section.settings.title_em
+    if heading == blank and heading_em == blank
+      if collection.handle == 'all'
+        assign heading = 'All'
+        assign heading_em = 'Pieces'
+      else
+        assign heading = collection.title
+      endif
+    endif
+
+    assign intro = section.settings.intro
+    if intro == blank and collection.handle != 'all'
+      assign intro = collection.description
+    endif
+
+    assign count_filter = blank
+    if collection.template_suffix == 'sale'
+      assign count_filter = 'sale'
+    endif
+    assign product_type_filter = section.settings.product_type_filter
+
+    assign piece_count = 0
+    if section.settings.show_count
+      for count_product in collection.products
+        if product_type_filter != blank and count_product.type != product_type_filter
+          continue
+        endif
+        capture count_values
+          render 'product-prints', product: count_product, filter: count_filter, output: 'values'
+        endcapture
+        assign count_values = count_values | strip
+        unless count_values == blank
+          assign piece_count = piece_count | plus: count_values | split: '|' | size
+        endunless
+      endfor
+    endif
+  -%}
+
+  <div class="catalog-heading">
+    <div class="catalog-heading__row">
+      <div class="catalog-heading__text">
+        {%- if eyebrow != blank -%}
+          {%- render 'eyebrow', text: eyebrow, class: 'catalog-heading__eyebrow' -%}
+        {%- endif -%}
+
+        {%- render 'section-heading', heading: heading, heading_em: heading_em, tag: 'h1', size: 'hero', class: 'catalog-heading__title' -%}
+
+        {%- if intro != blank -%}
+          <div class="catalog-heading__intro">
+            {%- render 'rte', content: intro -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.show_count -%}
+        <p class="catalog-heading__count">
+          {%- if collection.template_suffix == 'sale' -%}
+            {{- 'collections.catalog.count_on_sale' | t: count: piece_count -}}
+          {%- else -%}
+            {{- 'collections.catalog.count' | t: count: piece_count -}}
+          {%- endif -%}
+        </p>
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .catalog-heading {
+    padding-block: var(--space-10) var(--space-7);
+    border-block-end: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  }
+
+  .catalog-heading__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
+
+  .catalog-heading__eyebrow {
+    margin-block-end: var(--space-3);
+  }
+
+  .catalog-heading__title {
+    max-width: 40rem;
+  }
+
+  .catalog-heading__intro {
+    max-width: 42rem;
+    margin-block-start: var(--space-5);
+  }
+
+  .catalog-heading__intro .rte {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-14);
+    line-height: var(--leading-loose);
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .catalog-heading__count {
+    flex-shrink: 0;
+    margin: 0 0 var(--space-1);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-14);
+    color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+  }
+
+  @media (max-width: 47.99rem) {
+    .catalog-heading__count {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.catalog_heading.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "show_on",
+      "label": "t:sections.collection_hero.show_on",
+      "options": [
+        { "value": "always", "label": "t:sections.collection_hero.show_on_always" },
+        { "value": "all_only", "label": "t:sections.collection_hero.show_on_all_only" },
+        { "value": "except_all", "label": "t:sections.collection_hero.show_on_except_all" }
+      ],
+      "default": "always",
+      "info": "t:sections.collection_hero.show_on_info"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:general.eyebrow",
+      "default": "Kambric Goods"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.catalog_heading.title",
+      "info": "t:sections.catalog_heading.title_info"
+    },
+    {
+      "type": "text",
+      "id": "title_em",
+      "label": "t:labels.heading_em",
+      "info": "t:labels.heading_em_info"
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "t:sections.catalog_heading.intro",
+      "info": "t:sections.catalog_heading.intro_info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "t:sections.catalog_heading.show_count",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "product_type_filter",
+      "label": "t:sections.catalog_heading.product_type_filter",
+      "info": "t:sections.catalog_heading.product_type_filter_info"
+    }
+  ],
+  "presets": [{ "name": "t:sections.catalog_heading.name" }]
+}
+{% endschema %}

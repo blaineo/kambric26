@@ -1,0 +1,157 @@
+{% comment %}
+  Generic closing strip (Phase 3): a message plus one link, in two layouts
+  matching the two places the source uses this pattern:
+
+  - `style: 'centered'` — the collection-detail bottom CTA: centered italic
+    serif message, underlined link below (source: "Explore more of the
+    archive." → All Collections, CollectionDetail.tsx).
+  - `style: 'split'` — the Shop/category footer strip: message left, link
+    right, on a faint muted band (source: the limited-quantity message → "The
+    Archive →" /about, Shop.tsx).
+
+  Both links use `button.liquid`'s underline variant (the source doesn't use
+  the animated text-arrow style here — where the label needs an arrow, as on
+  the shop footer, it's typed into the label itself, e.g. "The Archive →").
+
+  @setting {select} show_on - 'always' (default) | 'all_only' | 'except_all'
+  @setting {select} style - 'centered' (default) | 'split'
+  @setting {text} message - The strip's message
+  @setting {text} link_label - Link text
+  @setting {url} link_url - Link destination
+{% endcomment %}
+{%- liquid
+  assign show_on = section.settings.show_on | default: 'always'
+  assign should_render = true
+  if show_on == 'all_only' and collection.handle != 'all'
+    assign should_render = false
+  elsif show_on == 'except_all' and collection.handle == 'all'
+    assign should_render = false
+  endif
+
+  assign style = section.settings.style | default: 'centered'
+  assign message = section.settings.message
+  assign link_label = section.settings.link_label
+  assign link_url = section.settings.link_url
+  assign has_link = false
+  if link_label != blank and link_url != blank
+    assign has_link = true
+  endif
+
+  assign has_content = false
+  if message != blank or has_link
+    assign has_content = true
+  endif
+-%}
+{%- if should_render and has_content -%}
+  <div class="text-cta text-cta--{{ style }}">
+    <div class="text-cta__inner">
+      {%- if message != blank -%}
+        <p class="text-cta__message">{{ message }}</p>
+      {%- endif -%}
+      {%- if has_link -%}
+        {%- render 'button', label: link_label, url: link_url, variant: 'underline', class: 'text-cta__link' -%}
+      {%- endif -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .text-cta {
+    border-block-start: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  }
+
+  .text-cta--centered {
+    padding-block: var(--space-12);
+    text-align: center;
+  }
+
+  .text-cta--centered .text-cta__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-5);
+  }
+
+  .text-cta--centered .text-cta__message {
+    margin: 0;
+    max-width: 32rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-22);
+    color: color-mix(in srgb, var(--color-foreground) 78%, transparent);
+  }
+
+  .text-cta--split {
+    padding-block: var(--space-5);
+    background: color-mix(in srgb, var(--color-muted) 22%, transparent);
+  }
+
+  .text-cta--split .text-cta__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .text-cta--split .text-cta__message {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-15);
+    color: color-mix(in srgb, var(--color-foreground) 78%, transparent);
+  }
+
+  .text-cta--split .text-cta__link {
+    flex-shrink: 0;
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.text_cta.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "show_on",
+      "label": "t:sections.collection_hero.show_on",
+      "options": [
+        { "value": "always", "label": "t:sections.collection_hero.show_on_always" },
+        { "value": "all_only", "label": "t:sections.collection_hero.show_on_all_only" },
+        { "value": "except_all", "label": "t:sections.collection_hero.show_on_except_all" }
+      ],
+      "default": "always",
+      "info": "t:sections.collection_hero.show_on_info"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:sections.text_cta.style",
+      "options": [
+        { "value": "centered", "label": "t:sections.text_cta.style_centered" },
+        { "value": "split", "label": "t:sections.text_cta.style_split" }
+      ],
+      "default": "centered"
+    },
+    {
+      "type": "text",
+      "id": "message",
+      "label": "t:sections.text_cta.message",
+      "default": "Explore more of the archive."
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:labels.button_label",
+      "default": "All Collections"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "t:labels.link",
+      "default": "/collections"
+    }
+  ],
+  "presets": [{ "name": "t:sections.text_cta.name" }]
+}
+{% endschema %}
