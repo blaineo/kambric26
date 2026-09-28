@@ -1,0 +1,32 @@
+{
+  "folklore": {
+    "collection": {
+      "handle": "folklore",
+      "seo": {
+        "title": "Folklore | Kambric Goods",
+        "description": "Rooted in Kati's earliest work — folk motifs, handwoven references, the geometry of old-world textiles rendered in her unmistakable hand."
+      }
+    },
+    "userErrors": []
+  },
+  "psychedelics": {
+    "collection": {
+      "handle": "psychedelics",
+      "seo": {
+        "title": "Psychedelics | Kambric Goods",
+        "description": "The most vivid prints in the archive. Kati made these in the early '70s — kaleidoscopic colour fields that still feel ahead of their time."
+      }
+    },
+    "userErrors": []
+  },
+  "whimsy": {
+    "collection": {
+      "handle": "whimsy",
+      "seo": {
+        "title": "Whimsy | Kambric Goods",
+        "description": "Inspiration drawn from fresh fruit on her table and advertisements in the latest women's fashion magazines to bouquets of freshly cut wildflowers in a vase."
+      }
+    },
+    "userErrors": []
+  }
+}

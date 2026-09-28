@@ -20,7 +20,7 @@ Store ID **71406846186** ("Kambric Goods"): permanent domain **`7u2dfq-xf.myshop
 3. **Owner approves** the batch (plan + apply + rollback reviewed).
 4. **Apply** with `shopify store execute` (mutations exactly as reviewed). Record created IDs in `log.md`.
 5. **Verify on the Shopify-hosted site** (the change did what it should) and in the Admin (`after.json`).
-6. **Live check:** wait 2 minutes (the live site refreshes on Shopify webhooks), snapshot again → `live-after.json`, then `tools/live_site_snapshot.py diff live-before.json live-after.json`.
+6. **Live check** (use absolute paths to `tools/live_site_snapshot.py`; background jobs may run from another folder): wait 2 minutes (the live site refreshes on Shopify webhooks), snapshot again → `live-after.json`, then `tools/live_site_snapshot.py diff live-before.json live-after.json`.
    - **No change** → batch done; tick the items in OWNER_TASKS.md; commit the batch folder.
    - **Any change** → **stop**, run `rollback.graphql`, re-snapshot until the diff is clean again, and report to the owner with the diff.
 7. Batches never mix 🟢/🟡 with 🔴 work, and never touch records outside `plan.md`.
@@ -36,14 +36,14 @@ Claude can't change its own permission settings, so:
 Proposed guardrail 3 wording:
 > 3. **Store data: the owner approves every change.** By default Claude doesn't create, edit or delete store data. **Exception (owner decision 2026-09-28):** Claude may run 🟢 and 🟡 tasks from `docs/OWNER_TASKS.md`, one batch at a time, each explicitly approved by the owner, only through the process in `docs/store-changes/README.md` (snapshots, reviewed change, generated rollback, live-site diff). Any difference on kambricgoods.com → stop, roll back, report. 🔴 tasks stay owner-only.
 
-## Batches (status: 01, 02, 04 ✅ done; 03 at cutover; the rest planned)
+## Batches (status: 01, 02, 04, 05 ✅ done; 03 at cutover; 06–08 planned)
 | # | Batch | Tier | Creates / changes | Rollback |
 | --- | --- | --- | --- | --- |
 | 01 ✅ | Custom-field definitions | 🟢 | Definitions `kambric.archive_label` (product), `kambric.card_image`, `kambric.header_image` (collection), `seo.hidden` (product); values: Arielle archive label "Parlor Rose", monogram `seo.hidden = 1` | `metafieldDefinitionDelete` (with its values) for each definition created; `metafieldsDelete` for the two values |
 | 02 ✅ | Collection images | 🟢 | Upload 6 images to Files; set `card_image`/`header_image` on Folklore, Psychedelics, Whimsy | `metafieldsDelete` the 6 values; `fileDelete` the 6 files |
 | 03 ⏳ cutover | Category and sale collections | 🔴 (at cutover) | 6 automated collections, templates `category`/`sale`, copy + SEO from `store-data/collection-copy.csv`, **created and published to Online Store in one step**; prepared + dry-run tested, see `03-category-collections/plan.md` | `rollback.py`: `collectionDelete` ×6 (IDs from `apply-log.json`) |
 | 04 ✅ | Menus | 🟢 | `main-menu`, `footer` (replace items), `footer-info`, `shop-categories` (new) | Restore `main-menu`/`footer` items from `before.json`; `menuDelete` the two new menus |
-| 05 | Search listings | 🟢 | SEO title/description on the 3 existing collections (not their Description field) | Restore previous SEO values from `before.json` |
+| 05 ✅ | Search listings | 🟢 | SEO title/description on the 3 existing collections (not their Description field) | Restore previous SEO values from `before.json` |
 | 06 | URL redirects | 🟢 | 68 redirects from `redirects-draft.csv` | `urlRedirectDelete` by the IDs recorded in `log.md` |
 | 07 | Admin UI settings | 🟢 | Homepage title/description; contact-form recipients (Chrome, owner logged in) | Previous values recorded in `log.md` before editing; re-enter them |
 | 08 | Publish Kambric26 on the Shopify-hosted store | 🟢 | Theme publish (CLI) | Re-publish the previously published theme (ID recorded in `log.md`) |

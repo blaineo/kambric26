@@ -1,0 +1,32 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186"
+  },
+  "folklore": {
+    "id": "gid://shopify/Collection/451384180970",
+    "title": "Folklore",
+    "descriptionHtml": "<p>Rooted in Kati's earliest work — folk motifs, handwoven references, references to old-world textiles rendered in her unmistakable hand.</p>",
+    "seo": {
+      "title": "Folklore | Kambric Goods",
+      "description": "Rooted in Kati's earliest work — folk motifs, handwoven references, the geometry of old-world textiles rendered in her unmistakable hand."
+    }
+  },
+  "psychedelics": {
+    "id": "gid://shopify/Collection/451384148202",
+    "title": "Psychedelics",
+    "descriptionHtml": "<p>Kaleidoscopic color fields and geometric shapes</p>",
+    "seo": {
+      "title": "Psychedelics | Kambric Goods",
+      "description": "The most vivid prints in the archive. Kati made these in the early '70s — kaleidoscopic colour fields that still feel ahead of their time."
+    }
+  },
+  "whimsy": {
+    "id": "gid://shopify/Collection/451384213738",
+    "title": "Whimsy",
+    "descriptionHtml": "<p>Inspiration drawn from fresh fruit on her table and advertisements in the latest women's fashion magazines to bouquets of freshly cut wildflowers in a vase. </p>",
+    "seo": {
+      "title": "Whimsy | Kambric Goods",
+      "description": "Inspiration drawn from fresh fruit on her table and advertisements in the latest women's fashion magazines to bouquets of freshly cut wildflowers in a vase."
+    }
+  }
+}

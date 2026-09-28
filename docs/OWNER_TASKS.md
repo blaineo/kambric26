@@ -30,7 +30,7 @@ New definitions the live site doesn't read.
 
 ### A3. Search listings (not read by the live site)
 - ☐ **Online Store → Preferences:** homepage title `Kambric Goods | Heritage Prints, Modern Womenswear` and the description from `../liquid/SEO.md`.
-- ☐ **Collection search listings** (each collection → *Search engine listing*): titles and descriptions from `docs/store-data/collection-copy.csv` (`seo_title`, `seo_description`). **Don't touch the collection *Description* field yet** (that's 🔴 C2).
+- ◐ **Collection search listings** (each collection → *Search engine listing*): titles and descriptions from `docs/store-data/collection-copy.csv` (`seo_title`, `seo_description`). **Don't touch the collection *Description* field yet** (that's 🔴 C2). *(Folklore, Psychedelics, Whimsy done in batch 05, 2026-09-28; the category/sale collections get theirs when batch 03 runs at cutover.)*
 - ☐ Product search listings: unique title and description per product (optional before launch).
 
 ### A4. Theme editor (Online Store → Themes → Kambric Goods → Customize)
