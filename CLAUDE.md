@@ -34,6 +34,16 @@ We're rebuilding **kambricgoods.com** (currently a React/Vite/Tailwind v4 app on
 
 `.claude/settings.json` denies the most dangerous commands as a backstop. It's prefix-matched, so it isn't a guarantee: the rules above still apply.
 
+**Pre-cutover exception (owner decision D-21, 2026-09-28):** the deny rules for `shopify theme publish` and `theme push --live/-l/--allow-live/-a` are **temporarily removed** so Kambric26 can be published on the Shopify-hosted playground. Guardrail 2 still applies: only publish or push live when the owner asks in the session. **They must be restored at DNS cutover** (MIGRATION_PLAN §4.3, step 9a):
+
+```json
+"Bash(shopify theme publish:*)",
+"Bash(shopify theme push --live:*)",
+"Bash(shopify theme push -l:*)",
+"Bash(shopify theme push --allow-live:*)",
+"Bash(shopify theme push -a:*)"
+```
+
 ## Reference export (read-only, never modify)
 
 `~/Code/kambric/replit site/` (quote the path; it contains a space):

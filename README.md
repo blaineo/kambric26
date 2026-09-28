@@ -34,7 +34,7 @@ shopify theme check
 shopify theme push --unpublished -e development
 ```
 
-**Never** run `shopify theme publish`, `theme push --live`/`--allow-live`, or `theme delete`, and never push to the published theme. `.claude/settings.json` denies these for Claude Code as a backstop, but the rule itself lives in `CLAUDE.md`.
+**Publishing:** until DNS cutover, the published Online Store theme is only the playground (`kambric-goods-2.myshopify.com`). Publishing Kambric26 there is allowed when the owner decides; the Claude Code deny rules for publish/live-push are lifted until cutover and restored then (see `CLAUDE.md`). Never run `theme delete`. **Remember:** catalog, collection and checkout changes still affect the live Replit site.
 
 ### Editor changes vs. the repo
 

@@ -152,6 +152,7 @@ The final CSV is generated from `urls/redirects.csv` + `current-urls.csv` + the 
 7. Content freeze on Replit `/admin`; final export (content JSON, subscribers, back-in-stock) and import of any late changes.
 8. Remove the Online Store password (if set) and confirm the Kambric26 theme is published.
 9. DNS: point `kambricgoods.com` + `www` to Shopify, set it as the primary domain (www → apex), and wait for SSL.
+9a. **Restore the publish/live-push deny rules** in `.claude/settings.json` (list in CLAUDE.md, "Pre-cutover exception") and commit. From here on the published theme is the real site.
 10. Post-launch: crawl all old URLs (expect 200/301), submit the sitemap to GSC and Bing, watch coverage and 404s daily for 2 weeks, compare CrUX after 28 days.
 11. Rollback: keep the Replit deployment running for 14 days; rolling back means reverting DNS. Avoid irreversible shared-data changes in this window.
 12. After the rollback window: decommission the Replit Storefront/Admin tokens and webhooks, then remove Replit-only workarounds from the catalog (e.g. alt-text print grouping, `hidden` tag logic if unpublished instead).
@@ -182,5 +183,5 @@ The final CSV is generated from `urls/redirects.csv` + `current-urls.csv` + the 
 | **D-17** | Per-print cards and pagination | **Render print cards per product; paginate by products (card count varies per page)** · combined listings (Shopify Plus only) | Phase 3 |
 | **D-18** | Dark palette from source CSS | **Drop (unused by the storefront)** · keep as tokens | Phase 1 |
 | **D-19** | `llms.txt` | **Skip for now** (Shopify can't serve root files without an app proxy; AEO is covered by structured data + clean HTML) · app proxy | Post-launch |
-| **D-21** | When to publish Kambric26 on the Shopify-hosted Online Store | **As soon as the Phase 1 shell is stable, so editors can start entering content on the playground** · keep it unpublished until cutover (content has to be entered in a preview) | Phase 1 |
+| **D-21** | When to publish Kambric26 on the Shopify-hosted Online Store | ✅ **Decided:** publish once the Phase 1 shell is stable so editors can pre-load content; publish/live-push deny rules lifted until DNS cutover (restore at step 9a) | Phase 1 |
 | **D-20** | Newsletter form on the dev theme | ✅ **Decided:** test with `+test` addresses; owner deletes test customers | Done |
