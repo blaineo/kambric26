@@ -1,0 +1,30 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186",
+    "myshopifyDomain": "7u2dfq-xf.myshopify.com"
+  },
+  "folklore": {
+    "id": "gid://shopify/Collection/451384180970",
+    "title": "Folklore",
+    "image": null,
+    "card": null,
+    "header": null
+  },
+  "psychedelics": {
+    "id": "gid://shopify/Collection/451384148202",
+    "title": "Psychedelics",
+    "image": null,
+    "card": null,
+    "header": null
+  },
+  "whimsy": {
+    "id": "gid://shopify/Collection/451384213738",
+    "title": "Whimsy",
+    "image": null,
+    "card": null,
+    "header": null
+  },
+  "existingFiles": {
+    "nodes": []
+  }
+}

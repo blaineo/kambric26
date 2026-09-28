@@ -1,0 +1,25 @@
+{
+  "store": "7u2dfq-xf.myshopify.com",
+  "shop_id": "gid://shopify/Shop/71406846186",
+  "source_dir": "/Users/blaine/Code/kambric/replit site/assets/uploads",
+  "images": [
+    {"collection": "gid://shopify/Collection/451384180970", "handle": "folklore", "key": "card_image",
+     "source": "76bdc047-c655-433b-8cd6-6ce18bb6ab71.jpg", "filename": "collection-folklore-cover.jpg", "mime": "image/jpeg",
+     "alt": "Model in a blue floral dress and headscarf sitting on a wooden fence in a green field"},
+    {"collection": "gid://shopify/Collection/451384180970", "handle": "folklore", "key": "header_image",
+     "source": "a4d624d7-8c60-49b3-8df0-d061e890d604.png", "filename": "collection-folklore-header.png", "mime": "image/png",
+     "alt": "Model in a red floral coat, dress and wide-brimmed hat standing in a meadow of dried teasels"},
+    {"collection": "gid://shopify/Collection/451384148202", "handle": "psychedelics", "key": "card_image",
+     "source": "4ae0a17c-e819-4f45-b708-82737b0ae597.jpg", "filename": "collection-psychedelics-cover.jpg", "mime": "image/jpeg",
+     "alt": "Model in a pink and purple swirl-print one-piece leaning against a white camper van"},
+    {"collection": "gid://shopify/Collection/451384148202", "handle": "psychedelics", "key": "header_image",
+     "source": "db14140a-5b90-4399-9754-04eb382684b0.png", "filename": "collection-psychedelics-header.png", "mime": "image/png",
+     "alt": "Model in a pink and purple swirl-print one-piece leaning out of a white camper van window"},
+    {"collection": "gid://shopify/Collection/451384213738", "handle": "whimsy", "key": "card_image",
+     "source": "52d857e4-9dec-49e7-9fc5-2e1c1c95e3db.png", "filename": "collection-whimsy-cover.png", "mime": "image/png",
+     "alt": "Model in a floral-print one-piece sitting on a wooden floor"},
+    {"collection": "gid://shopify/Collection/451384213738", "handle": "whimsy", "key": "header_image",
+     "source": "44ac7a54-7d95-4e74-858e-2490cc340fa9.png", "filename": "collection-whimsy-header.png", "mime": "image/png",
+     "alt": "Model in a floral-print one-piece sitting on the floor of a bright room beside a brass watering can"}
+  ]
+}

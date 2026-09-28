@@ -1,0 +1,14 @@
+# Batch 02 read-only snapshot: the three collections' image fields + any existing Files with our names.
+query Batch02Before {
+  shop { id myshopifyDomain }
+  folklore: collectionByHandle(handle: "folklore") { id title image { url }
+    card: metafield(namespace: "kambric", key: "card_image") { id value }
+    header: metafield(namespace: "kambric", key: "header_image") { id value } }
+  psychedelics: collectionByHandle(handle: "psychedelics") { id title image { url }
+    card: metafield(namespace: "kambric", key: "card_image") { id value }
+    header: metafield(namespace: "kambric", key: "header_image") { id value } }
+  whimsy: collectionByHandle(handle: "whimsy") { id title image { url }
+    card: metafield(namespace: "kambric", key: "card_image") { id value }
+    header: metafield(namespace: "kambric", key: "header_image") { id value } }
+  existingFiles: files(first: 20, query: "filename:collection-*") { nodes { id alt fileStatus ... on MediaImage { image { url } } } }
+}
