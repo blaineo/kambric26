@@ -24,10 +24,9 @@
   first row (first 2 cards, the 2-column desktop breakpoint) loads `eager`,
   the rest `lazy` — never `priority` (the page's `<h1>` is above the grid).
 
-  JSON-LD: `CollectionPage` (name "{shop name} Collections", the intro as
-  `description`, `/collections` as `url`) with a `mainEntity` `ItemList`,
-  followed by a second bare `ItemList` — matches SEO.md's collections-index
-  example. Both list the same collections, in the same order, as the grid.
+  JSON-LD: one `CollectionPage` (name "{shop name} Collections", the intro as
+  `description`, `/collections` as `url`) with a nested `mainEntity`
+  `ItemList` listing the same collections, in the same order, as the grid.
 
   @setting {text} eyebrow - Small label above the heading (default "Curated Chapters")
   @setting {text} heading - Page heading (default "Collections")

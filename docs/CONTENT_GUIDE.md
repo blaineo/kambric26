@@ -19,6 +19,8 @@ This guide is updated with every build phase. The [change log](#change-log) at t
 
 ## 1. The short version
 
+New to the shop's structure? Start with **§2b How the shop is organized**.
+
 | You used to… (Replit `/admin`) | After launch you'll… (Shopify admin) | Ready? |
 | --- | --- | --- |
 | Toggle and edit the **announcement banner** | **Online Store → Themes → Customize** → the *Announcement bar* at the top of any page | ✅ Now |
@@ -49,6 +51,73 @@ This guide is updated with every build phase. The [change log](#change-log) at t
 - **Before launch:** you'll work on the Shopify-hosted practice site (`kambric-goods-2.myshopify.com`). The developer will tell you when the new theme is ready there to receive content. Until then the developer may replace it, so hold off on entering real content. Please leave publishing and theme switching to the developer.
 
 ---
+
+## 2b. How the shop is organized
+
+Read this once; the rest of the guide builds on it.
+
+### The building blocks
+```
+Collection (Folklore, Psychedelics, Whimsy)   ← a family of prints, curated by you
+   └── Print (Matyó Floral, Dahlia Seed, …)    ← shown as its own card
+          └── Product (Margit One-Piece, Kati Slip Dress, …) in sizes
+
+Category (Dresses, Kaftans, Coats, Swimwear, Accessories)  ← automatic, from the product's "Type"
+Sale                                                      ← automatic, from compare-at prices
+```
+- **Product**: what you sell, managed under **Products** as today. A product either has several prints (a *Print* or *Colorway* option, like Margit or Arielle) or is a single print (like Kati Slip Dress in Matyó Floral).
+- **Print**: every print gets its **own card** in listings, with its own photo, price and sale or sold-out badge. Clicking it opens the product with that print selected.
+- **Collection**: an editorial family of prints (Folklore, Psychedelics, Whimsy). **You** decide which products belong, on the product or collection page in the admin. A print shows up in its product's collection. Only a product whose prints belong to *different* collections (today: Margit) sets the collection per print.
+- **Category**: a collection Shopify fills **automatically** from each product's **Type** field (Dresses, Kaftans, …). You never add products to a category by hand; set the product's Type and it appears.
+- **Sale**: also automatic. A print appears on the sale page when its price is lower than its **compare-at price**.
+
+### Where each one appears on the site
+| Page | Address | What it shows | How it's organized |
+| --- | --- | --- | --- |
+| Shop | `/collections/all` | Every print | Grouped by collection, one **Collection block** per group, in the order you drag them |
+| Category | `/collections/dresses` … | That category's prints | Grouped by collection, the same way |
+| Collection | `/collections/folklore` … | That collection's prints | One grid, collection header on top |
+| Sale | `/collections/sale` | Prints on sale, any collection | One grid |
+| Collections | `/collections` | A card per collection (those with a *Season*) | Alphabetical, unless you pick collections and their order in the section's *Collections to show* |
+
+### Common tasks
+⚠️ = before launch, this also changes the live kambricgoods.com (products, collections and prices are shared).
+
+**Add a new collection** (e.g. "Garden Party")
+1. ⚠️ **Products → Collections → Create collection**: title, description (shown as the group text on the shop page and in the collection header), *Manual* type. Under *Publishing*, **Online Store only** until launch. Set **Season** and **Year**, then **Card image** and **Header image**.
+2. Add products: on each product, add the collection under **Collections**, or add them from the collection page.
+3. Show it as a group: **Online Store → Themes → Customize** → template picker at the top → **Collections → Default collection** → *Product listing* (the one shown on the shop page) → **Add block → Collection** → pick it → drag it into place. Repeat on the **category** template. Until you do this, its prints still appear at the end of those pages under "other pieces", so nothing goes missing.
+4. It appears on `/collections` automatically once it has a Season.
+
+**Put a product in a collection or move it** ⚠️
+Edit the product → *Collections*. If a product's prints belong to different collections (like Margit), ask the developer; that's set per print.
+
+**Reorder collections on the shop and category pages**
+Customize → **Default collection** (and **category**) template → *Product listing* → drag the Collection blocks.
+
+**Change the order of cards inside a collection** ⚠️
+Products → Collections → the collection → **Sort** (e.g. *Manually*, then drag). To put one product first on a single page without changing the collection, use **Show these first** in that page's *Product listing*.
+
+**Rename or retire a collection** ⚠️
+- Rename: edit the title. If you also change its web address (*Search engine listing → URL handle*), keep **"Create a URL redirect"** ticked.
+- Retire: remove its Collection block from the templates, then set the collection's *Publishing* to off (or delete it). Add a URL redirect (search "URL redirects" in the admin) from its old address to `/collections` so old links still work.
+
+**Add a new category** (e.g. "Tops") ⚠️
+1. Create an **automated** collection "Tops": condition *Product type is equal to Tops* plus *Product tag is not equal to hidden*; Online Store only (see §3a-A1).
+2. Set its **Theme template** to **category**, then add its description and search listing.
+3. Add it to the **Shop categories** menu (Content → Menus) so it appears in the category strip, and to the footer menu if you like.
+4. Set **Type = Tops** on the products.
+
+**Put something on sale or take it off** ⚠️
+On the product's variants, set a **compare-at price** higher than the price (on sale) or clear it (off sale). Sale badges, the sale page and struck-through prices update automatically. The sale page's heading is set in Customize (a *sale* collection).
+
+**Hide or remove a product** ⚠️
+- **Draft** (product *Status*): gone from the site entirely, including its page. Use this for products that aren't ready or are discontinued.
+- **Tag `hidden`**: stays purchasable by link but never appears in listings or search (used for the monogram fee). Rarely needed otherwise.
+- **Archived**: like Draft, but kept out of your product list.
+
+### What happens automatically (no setting to look for)
+Sold-out and Sale badges, "N pieces" counts, which photo a print card shows (see §3b), search-engine descriptions of every listing, and the "other pieces" safety net for collections that don't have a block yet.
 
 ## 3. What you can edit right now (Phase 0)
 
@@ -306,25 +375,37 @@ These are Shopify's standard fields, so they also improve Shopify search, filter
 
 ⚠️ Creating the category and sale collections is shared with the live site; see §3a-A1 (Online Store channel only).
 
-**How cards are listed**
-- Every print is its own card (see §3b). On shop and category pages the cards are **grouped by each print's collection** (Psychedelics, Folklore, Whimsy). The heading and text of each group are the collection's **title** and **description**. Groups with no cards are hidden.
-- **Group order** (*Products grouped by collection* → *Group order*): pick collections in the order you want. Collections you don't pick follow alphabetically.
-- Prints whose collection doesn't exist (today: the prints still marked **botanicals**) are shown last, without a heading. Give them one with *Heading for pieces without a collection*.
-- Collection pages show only the prints that belong to that collection. The sale page shows every print with a compare-at price above its price, whatever its collection. A product can have some prints on sale and others at full price.
-- **Show these first** (both sections): pick products to lead the list, e.g. Arielle on the Dresses page or the Folklore page. The current site always put Arielle first on Dresses and Folklore; this setting replaces that rule. It's empty by default. On shop and category pages a pinned product leads every group it appears in.
+**One section, two ways of listing: _Product listing_**
+
+Every listing page uses the **Product listing** section. What it shows depends on whether it has blocks:
+
+- **With Collection blocks (shop and category pages): cards grouped by collection.** Each **Collection** block is one group: pick the collection, and the group shows the page's prints that belong to it. On a category page that means only that category's pieces (e.g. the Dresses page groups dresses by Psychedelics, Folklore, Whimsy). The group's heading and text are the collection's **title** and **description**. You can override the heading in the block, and turn the description or the "N pieces" count off per block. Groups with no cards are hidden automatically.
+  - **Order:** drag the blocks in the sidebar. The block order is the order on the page.
+  - **New collection?** Add a Collection block for it on the default *collection* template (the shop page) and on the *category* template, then drag it into place. Until you do, its prints still appear under **other pieces** (below), so nothing goes missing.
+  - **Show other pieces** (on by default): prints whose collection has no block are listed after the groups. Today these are a few prints with an outdated collection setting; the developer's data plan fixes them. They have no heading unless you fill in *Heading for other pieces*. Turn this off only if you really want those prints hidden.
+  - Where the shop and category templates already exist, the blocks are set up (Psychedelics, Folklore, Whimsy). If you add a new Product listing section, it starts with no blocks.
+- **With no blocks (collection and sale pages): a single grid** of the page's prints.
+  - *Only prints from this collection* (on by default): a product with several prints shows only the prints that belong to this collection. It's turned off on the sale template, where prints of any collection qualify.
+  - *Show → Prints on sale* (sale template): keeps only prints with a compare-at price above their price. A product can have some prints on sale and others at full price.
+  - *Label above the grid* ("The Pieces") on collection pages; empty on sale. *Card style* and *Width* also apply only here (grouped listings always use the archive card style at full width).
+
+**Both ways**
+- Every print is its own card (see §3b).
+- **Show these first**: pick products to lead the list, e.g. Arielle on the Dresses page or the Folklore page. The current site always put Arielle first on Dresses and Folklore; this setting replaces that rule. It's empty by default. In a grouped listing a pinned product leads every group it appears in.
 - Otherwise cards follow the collection's **sort order** (set it on each collection in the admin). `/collections/all` has no sort setting in the admin; Shopify lists it alphabetically.
 
 **Pages of results**
 - *Products per page* (default 24) counts **products, not cards**. A product with six prints makes six cards, so pages can hold different numbers of cards. Page links appear at the bottom only when there's more than one page.
-- On the shop and category pages, groups are formed per page, so a group can continue on the next page.
+- In a grouped listing, groups are formed per page, so a group can continue on the next page.
 
 **Empty pages**
 - Category: "Nothing in this category yet." Collection: "No pieces yet." plus a line of text. Sale: "No pieces are on sale right now." with a *Shop All Pieces* link. Each has editable heading, text and link settings under *When there's nothing to show*.
 
 **Other settings**
-- *Label above the grid* ("The Pieces") on collection pages; empty on sale.
-- *Only this product type*: leave empty. It's for testing, or for a category collection whose conditions let other products in.
+- *Only this product type* (under *Testing*): leave empty. It's for previewing a category on `/collections/all`, or for a category collection whose conditions let other products in.
 - *Describe the list for search engines*: leave on. It lists the cards on the page for Google and AI assistants.
+
+**Where did it move?** *Products grouped by collection* and *Product grid* were merged into **Product listing**. The old *Group order* list is now the order of the Collection blocks. Collections you haven't added as a block no longer get their own automatic group (they used to follow alphabetically); their prints appear under *other pieces* until you add a block. *Show piece count per group* is now *Show piece count* on each block.
 
 ### Collection header (collection detail pages)
 
@@ -444,6 +525,7 @@ These are tracked as decisions in `docs/MIGRATION_PLAN.md`. They're listed here 
 
 | Date | Phase | What changed for editors |
 | --- | --- | --- |
+| 2026-09-28 | 3: Listings (update) | New **§2b How the shop is organized**: products, prints, collections, categories and sale, where each appears, and step-by-step recipes to add, edit, reorder, retire and hide. Listings now use one **Product listing** section with a **Collection block** per group (drag to reorder); the *Group order* setting is gone (§3d). Per-print collections are only needed for products spanning collections (Margit). |
 | 2026-09-28 | 3: Listings | Shop, category, collection and sale pages; template assignment; group order and "Show these first"; collection header image, season, piece count; `/collections` index; category strip menu `shop-categories`; collection copy sheet (§3d). |
 | 2026-09-28 | 2: Product page | Product page blocks and settings, archive label, print photos and links, chainstitch monogram, notify-me form, product details (§3c). |
 | 2026-09-28 | 1: Global components | Blocks (heading, text, button, eyebrow, image, group), product and collection cards, print swatches, 404 page, breadcrumbs, robots.txt (§3b). |
