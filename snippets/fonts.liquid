@@ -2,7 +2,10 @@
   Self-hosted fonts (SIL OFL 1.1, see licenses/ in the repo).
 
   Files are the latin subsets Google Fonts serves to the current site:
-  - fraunces-roman.woff2 / fraunces-italic.woff2: variable, opsz 9–144, wght 100–900, SOFT 0–100
+  - fraunces-roman.woff2 / fraunces-italic.woff2: variable, opsz 9–144, wght 100–900.
+    SOFT is pinned to 0 (its default; the site never sets it), which cuts the
+    files by 44% (270 KB → 149 KB). To restore the axis, re-download from
+    Google Fonts with SOFT@0..100 (decision D-4 in docs/MIGRATION_PLAN.md).
   - jost.woff2: variable, wght 100–900 (the theme uses 300/400/500)
 
   The "Fallback" faces are local system fonts scaled to Fraunces/Jost metrics,
