@@ -11,6 +11,9 @@ Claude runs these **only** after the owner has (1) cleared the permission gate (
 | `after.json` | The same query as `before.json`, run after |
 | `log.md` | What ran, when, the IDs created, the live-site diff result |
 
+## Target store (verified 2026-09-28)
+Store ID **71406846186** ("Kambric Goods"): permanent domain **`7u2dfq-xf.myshopify.com`**, display domain `kambric-goods-2.myshopify.com` (the permanent domain 301-redirects to it; both report the same ID in `/meta.json`). `shopify store` commands must use the permanent domain. Every batch's first read-only query checks the shop ID is `71406846186` and aborts otherwise.
+
 ## The procedure (every batch)
 1. **Live baseline:** `tools/live_site_snapshot.py snapshot docs/store-changes/NN/live-before.json`. This reads only kambricgoods.com's public endpoints.
 2. **Store snapshot:** read-only Admin queries → `before.json`. Generate `rollback.graphql` from it **before** applying anything.
@@ -28,7 +31,7 @@ The live site caches pages for up to a day, but its **JSON API** reflects Shopif
 Claude can't change its own permission settings, so:
 1. **Unblock the Admin CLI:** in `.claude/settings.json`, delete the line `"Bash(shopify store:*)",` from the `deny` list.
 2. **Update guardrail 3 in `CLAUDE.md`**, or tell Claude "you may edit guardrail 3 to add the batch exception" (the wording is below).
-3. **Authenticate:** run `! shopify store auth --store kambric-goods-2` (or whatever the CLI prompts) in the Claude Code prompt and complete the login in your browser. Claude never handles your password.
+3. **Authenticate:** run `! shopify store auth --store 7u2dfq-xf.myshopify.com --scopes write_products,write_files,write_online_store_navigation,write_publications` in the Claude Code prompt and complete the login in your browser. Claude never handles your password.
 
 Proposed guardrail 3 wording:
 > 3. **Store data: the owner approves every change.** By default Claude doesn't create, edit or delete store data. **Exception (owner decision 2026-09-28):** Claude may run 🟢 and 🟡 tasks from `docs/OWNER_TASKS.md`, one batch at a time, each explicitly approved by the owner, only through the process in `docs/store-changes/README.md` (snapshots, reviewed change, generated rollback, live-site diff). Any difference on kambricgoods.com → stop, roll back, report. 🔴 tasks stay owner-only.
