@@ -1,0 +1,44 @@
+[
+  {
+    "handle": "embroidery-pop-up-june-20-2026",
+    "fields": {
+      "title": "Embroidery Pop-up",
+      "start_date": "2026-06-20",
+      "date_label": "June 20, 2026",
+      "time_label": "6-8pm",
+      "venue": "The Box Office",
+      "city": "San Anselmo, CA",
+      "description": "Celebrate the Grand opening of The Box Office and get something embroidered!",
+      "status_override": null,
+      "sort_order": 1
+    }
+  },
+  {
+    "handle": "pop-up-shop-june-27-2026",
+    "fields": {
+      "title": "Pop-Up Shop",
+      "start_date": "2026-06-27",
+      "date_label": "June 27, 2026",
+      "time_label": "11-4pm",
+      "venue": "River Electric",
+      "city": "Guerneville, CA",
+      "description": "Join us by the pool at River Electric in Guerneville, Saturday June 27th for their Adults Only weekend. Grab a day pass, lounge by the pool and shop some of our newest swim styles and summer linens.",
+      "status_override": null,
+      "sort_order": 2
+    }
+  },
+  {
+    "handle": "summer-soiree-july-11-2026",
+    "fields": {
+      "title": "Summer Soiree",
+      "start_date": "2026-07-11",
+      "date_label": "July 11, 2026",
+      "time_label": "11-4pm",
+      "venue": "House of Still",
+      "city": "San Rafael, CA",
+      "description": "Come shop from local designers and makers, enjoy live music, food and drinks at the gorgeous new space curated by The Still Collective.",
+      "status_override": null,
+      "sort_order": 3
+    }
+  }
+]

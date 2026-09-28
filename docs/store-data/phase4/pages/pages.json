@@ -1,0 +1,52 @@
+[
+  {
+    "handle": "contact",
+    "title": "Contact Us",
+    "template_suffix": "contact",
+    "seo": {
+      "title": "Contact | Kambric Goods",
+      "description": "Get in touch with Kambric Goods — questions about orders, the archive, wholesale, or press."
+    },
+    "body_file": "contact.html"
+  },
+  {
+    "handle": "wholesale",
+    "title": "Wholesale",
+    "template_suffix": "wholesale",
+    "seo": {
+      "title": "Wholesale | Kambric Goods",
+      "description": "Stock Kambric Goods in your shop — wholesale inquiries for our heritage-print womenswear and home goods."
+    },
+    "body_file": "wholesale.html"
+  },
+  {
+    "handle": "size-guide",
+    "title": "Size Guide",
+    "template_suffix": "size-guide",
+    "seo": {
+      "title": "Size Guide | Kambric Goods",
+      "description": "Kambric Goods size guide — measurements and fit notes to help you choose the right size."
+    },
+    "body_file": "size-guide.html"
+  },
+  {
+    "handle": "shipping",
+    "title": "Shipping",
+    "template_suffix": "",
+    "seo": {
+      "title": "Shipping | Kambric Goods",
+      "description": "Shipping information for Kambric Goods orders — processing times, rates, and delivery details."
+    },
+    "body_file": "shipping.html"
+  },
+  {
+    "handle": "returns",
+    "title": "Returns & Exchanges",
+    "template_suffix": "",
+    "seo": {
+      "title": "Returns & Exchanges | Kambric Goods",
+      "description": "Kambric Goods returns and exchanges policy — how to return or exchange your order."
+    },
+    "body_file": "returns.html"
+  }
+]
