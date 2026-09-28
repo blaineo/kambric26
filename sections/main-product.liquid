@@ -1,0 +1,840 @@
+{%- comment -%}
+  Product page (Phase 2). One template serves merged multi-print products
+  (option `Print`/`Colorway`), single-print products (`kambric.print_name` /
+  `kambric.print_story`), monogrammable and sold-out products.
+
+  Print selection (D-7): Shopify's native `?variant=` picks the print on the
+  server, so the right gallery/price/story render with no flash. Without
+  `?variant=` the first print is shown and no size is preselected (source).
+  `<kg-product>` (assets/component-product.js) swaps prints in place via the
+  Section Rendering API, resolves legacy `?print=` links, handles size
+  changes, the monogram (D-9) and the back-in-stock hand-off (D-12).
+
+  Every purchase input uses `form="{{ form_id }}"`, so editors can reorder
+  the info-column blocks freely.
+{%- endcomment -%}
+{%- liquid
+  assign form_id = 'ProductForm-' | append: section.id
+
+  assign print_option = nil
+  assign print_index = -1
+  for option in product.options_with_values
+    if option.name == 'Print' or option.name == 'Colorway'
+      assign print_option = option
+      assign print_index = option.position | minus: 1
+      break
+    endif
+  endfor
+
+  assign size_option_name = nil
+  for option in product.options_with_values
+    if option.position != print_option.position
+      assign size_option_name = option.name
+      break
+    endif
+  endfor
+  assign size_option_name = size_option_name | default: 'Size'
+
+  assign current_variant = product.selected_variant
+  assign prints_meta = product.metafields.kambric.prints.value
+
+  if print_option
+    if current_variant
+      assign active_print = current_variant.options[print_index]
+    else
+      assign first_value = print_option.values.first
+      assign active_print = first_value.name | default: first_value
+    endif
+    assign print_meta = nil
+    for entry in prints_meta
+      if entry.value == active_print
+        assign print_meta = entry
+        break
+      endif
+    endfor
+    assign print_story = print_meta.story | default: product.metafields.kambric.print_story.value
+    assign print_collection_handle = print_meta.collection
+  else
+    assign active_print = product.metafields.kambric.print_name.value
+    assign print_story = product.metafields.kambric.print_story.value
+    assign print_collection_handle = nil
+  endif
+
+  comment
+    Collection for breadcrumbs and "View Collection": the print's collection
+    when it exists (stale handles such as `botanicals` fall through), else the
+    product's first collection that isn't `frontpage`.
+  endcomment
+  assign print_collection = nil
+  if print_collection_handle != blank
+    assign candidate = collections[print_collection_handle]
+    if candidate.handle != blank
+      assign print_collection = candidate
+    endif
+  endif
+  if print_collection == nil
+    for c in product.collections
+      if c.handle != 'frontpage'
+        assign print_collection = c
+        break
+      endif
+    endfor
+  endif
+
+  if print_option
+    capture summary
+      render 'print-summary', product: product, print: active_print
+    endcapture
+  else
+    capture summary
+      render 'print-summary', product: product
+    endcapture
+  endif
+  assign summary = summary | strip | split: '|'
+  assign print_price = summary[0] | plus: 0
+  assign print_compare = summary[1] | plus: 0
+  assign print_available = false
+  if summary[2] == 'true'
+    assign print_available = true
+  endif
+
+  if current_variant
+    assign display_price = current_variant.price
+    assign display_compare = current_variant.compare_at_price | default: 0
+  else
+    assign display_price = print_price
+    assign display_compare = print_compare
+  endif
+
+  capture media_indexes
+    render 'product-print-media', product: product, print: active_print
+  endcapture
+  assign media_indexes = media_indexes | strip
+
+  assign archive_label = product.metafields.kambric.archive_label.value | default: active_print
+
+  comment
+    Monogram (D-9): tagged product + available print + purchasable fee product.
+  endcomment
+  assign fee_variant = nil
+  assign monogram_ok = false
+  if product.tags contains 'monogrammable' and print_available
+    assign fee_product = all_products['chainstitch-monogram']
+    if fee_product.available
+      assign fee_variant = fee_product.first_available_variant
+      if fee_variant
+        assign monogram_ok = true
+      endif
+    endif
+  endif
+
+  assign sizes_blocks = section.blocks | where: 'type', 'sizes'
+  assign has_sizes_block = false
+  if sizes_blocks.size > 0 and product.has_only_default_variant == false
+    assign has_sizes_block = true
+  endif
+
+  assign fallback_variant = current_variant
+  if fallback_variant == nil
+    for variant in product.variants
+      if print_option and variant.options[print_index] != active_print
+        continue
+      endif
+      if fallback_variant == nil or variant.available
+        assign fallback_variant = variant
+      endif
+      if variant.available
+        break
+      endif
+    endfor
+  endif
+
+  if current_variant or has_sizes_block == false
+    assign buy_state = 'ready'
+    assign buy_variant = current_variant | default: fallback_variant
+    unless buy_variant.available
+      assign buy_state = 'notify'
+    endunless
+  else
+    assign buy_state = 'select'
+  endif
+  unless print_available
+    assign buy_state = 'notify'
+  endunless
+
+  assign label_select = 'products.product.select_option' | t: option: size_option_name
+  assign label_notify = 'products.product.notify_me' | t
+  assign label_add = 'products.product.add_to_cart' | t
+  case buy_state
+    when 'ready'
+      assign buy_label = label_add
+    when 'notify'
+      assign buy_label = label_notify
+    else
+      assign buy_label = label_select
+  endcase
+
+  assign for_label = product.title
+  if active_print != blank
+    assign for_label = product.title | append: ' — ' | append: active_print
+  endif
+-%}
+
+<kg-product
+  class="product"
+  data-section-id="{{ section.id }}"
+  data-form-id="{{ form_id }}"
+  data-product-title="{{ product.title | escape }}"
+  data-product-url="{{ product.url }}"
+  data-print="{{ active_print | escape }}"
+  data-print-available="{{ print_available }}"
+  data-for="{{ for_label | escape }}"
+  data-cart-url="{{ routes.cart_url }}"
+  data-cart-add-url="{{ routes.cart_add_url }}"
+>
+  {%- if section.settings.show_breadcrumbs -%}
+    {% render 'breadcrumbs', collection: print_collection, class: 'product__breadcrumbs' %}
+  {%- else -%}
+    {% render 'breadcrumbs', collection: print_collection, visible: false %}
+  {%- endif -%}
+
+  <div class="product__grid">
+    <div class="product__media">
+      {% render 'product-gallery',
+        product: product,
+        indexes: media_indexes,
+        print: active_print,
+        id: section.id,
+        layout: section.settings.gallery_layout,
+        show_tag: section.settings.show_print_tag
+      %}
+    </div>
+
+    <div class="product__info">
+      {%- form 'product', product, id: form_id, class: 'product__form' -%}
+        {%- unless has_sizes_block -%}
+          <input type="hidden" name="id" value="{{ fallback_variant.id }}" data-fixed-variant data-available="{{ fallback_variant.available }}">
+        {%- endunless -%}
+      {%- endform -%}
+
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when '@app' -%}
+            {% render block %}
+
+          {%- when 'eyebrow' -%}
+            {%- if archive_label != blank -%}
+              {%- assign eyebrow_text = 'products.product.archive_print' | t: print: archive_label -%}
+              <p class="product__eyebrow" {{ block.shopify_attributes }}>{{ eyebrow_text }}</p>
+            {%- endif -%}
+
+          {%- when 'title' -%}
+            <h1 class="product__title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
+
+          {%- when 'price' -%}
+            {%- liquid
+              assign price_variants_differ = false
+              for variant in product.variants
+                if print_option and variant.options[print_index] != active_print
+                  continue
+                endif
+                assign v_compare = variant.compare_at_price | default: 0
+                if variant.price != print_price or v_compare != print_compare
+                  assign price_variants_differ = true
+                  break
+                endif
+              endfor
+            -%}
+            <div class="product__price" data-product-price {{ block.shopify_attributes }}>
+              {%- render 'product-price', price: display_price, compare_at_price: display_compare -%}
+            </div>
+            {%- if price_variants_differ -%}
+              <template data-price-for="default">
+                {%- render 'product-price', price: print_price, compare_at_price: print_compare -%}
+              </template>
+              {%- for variant in product.variants -%}
+                {%- if print_option and variant.options[print_index] != active_print -%}
+                  {%- continue -%}
+                {%- endif -%}
+                <template data-price-for="{{ variant.id }}">
+                  {%- render 'product-price', price: variant.price, compare_at_price: variant.compare_at_price -%}
+                </template>
+              {%- endfor -%}
+            {%- endif -%}
+
+          {%- when 'prints' -%}
+            {%- if print_option and print_option.values.size > 1 -%}
+              <div class="product__block product__prints" {{ block.shopify_attributes }}>
+                {% render 'print-swatches', product: product, selected: active_print, as: 'variant' %}
+              </div>
+            {%- endif -%}
+
+          {%- when 'description' -%}
+            {%- if product.description != blank -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'rte', content: product.description, class: 'product__description' %}
+              </div>
+            {%- endif -%}
+
+          {%- when 'print_story' -%}
+            {%- if print_story != blank -%}
+              <div class="product__story" {{ block.shopify_attributes }}>
+                <p class="product-label product__story-label">
+                  {%- if active_print != blank -%}
+                    {{- 'products.product.print_story_heading' | t: print: active_print -}}
+                  {%- else -%}
+                    {{- 'products.product.print_story_heading_generic' | t -}}
+                  {%- endif -%}
+                </p>
+                <div class="product__story-text">{{ print_story | newline_to_br }}</div>
+              </div>
+            {%- endif -%}
+
+          {%- when 'divider' -%}
+            <hr class="product__divider" {{ block.shopify_attributes }}>
+
+          {%- when 'sizes' -%}
+            {%- if has_sizes_block -%}
+              {%- liquid
+                assign size_label_id = section.id | append: '-size-label'
+                assign sold_out_note_id = section.id | append: '-size-note'
+                assign any_sold_out = false
+                for variant in product.variants
+                  if print_option and variant.options[print_index] != active_print
+                    continue
+                  endif
+                  unless variant.available
+                    assign any_sold_out = true
+                  endunless
+                endfor
+              -%}
+              <div class="product__block product-sizes" {{ block.shopify_attributes }}>
+                <div class="product-sizes__header">
+                  <p class="product-label" id="{{ size_label_id }}">{{ size_option_name }}</p>
+                  <p class="product-sizes__selected" data-size-selected data-word="{{ 'products.product.selected' | t | escape }}">
+                    {%- if current_variant -%}
+                      {%- assign selected_size = '' -%}
+                      {%- for value in current_variant.options -%}
+                        {%- unless forloop.index0 == print_index -%}
+                          {%- if selected_size != '' -%}{%- assign selected_size = selected_size | append: ' / ' -%}{%- endif -%}
+                          {%- assign selected_size = selected_size | append: value -%}
+                        {%- endunless -%}
+                      {%- endfor -%}
+                      {{ 'products.product.selected' | t }} <span>{{ selected_size }}</span>
+                    {%- endif -%}
+                  </p>
+                </div>
+                <div class="product-sizes__list" role="radiogroup" aria-labelledby="{{ size_label_id }}" {% if any_sold_out %}aria-describedby="{{ sold_out_note_id }}"{% endif %}>
+                  {%- for variant in product.variants -%}
+                    {%- liquid
+                      if print_option and variant.options[print_index] != active_print
+                        continue
+                      endif
+                      assign size_value = ''
+                      for value in variant.options
+                        if forloop.index0 == print_index
+                          continue
+                        endif
+                        if size_value != ''
+                          assign size_value = size_value | append: ' / '
+                        endif
+                        assign size_value = size_value | append: value
+                      endfor
+                    -%}
+                    <label
+                      class="product-size{% unless variant.available %} product-size--sold-out{% endunless %}"
+                      {% unless variant.available %}
+                        title="{{ 'products.product.sold_out_tap' | t }}"
+                      {% endunless %}
+                      data-size
+                    >
+                      <input
+                        class="visually-hidden"
+                        type="radio"
+                        name="id"
+                        value="{{ variant.id }}"
+                        form="{{ form_id }}"
+                        data-size-value="{{ size_value | escape }}"
+                        required
+                        {% if current_variant.id == variant.id %}
+                          checked
+                        {% endif %}
+                        {% unless variant.available %}
+                          disabled
+                          data-sold-out
+                        {% endunless %}
+                      >
+                      <span class="product-size__label">{{ size_value }}</span>
+                      {%- unless variant.available -%}
+                        <span class="visually-hidden">{{ 'products.product.sold_out_hint' | t }}</span>
+                      {%- endunless -%}
+                    </label>
+                  {%- endfor -%}
+                </div>
+                {%- if any_sold_out -%}
+                  {%- assign size_option_lower = size_option_name | downcase -%}
+                  <p class="product-note" id="{{ sold_out_note_id }}">
+                    {{- 'products.product.sold_out_note' | t: option: size_option_lower -}}
+                  </p>
+                {%- endif -%}
+                {%- if block.settings.size_guide_url != blank and block.settings.size_guide_label != blank -%}
+                  <a class="product-sizes__guide" href="{{ block.settings.size_guide_url }}">{{ block.settings.size_guide_label }}</a>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+
+          {%- when 'monogram' -%}
+            {%- if monogram_ok -%}
+              <div {{ block.shopify_attributes }}>
+                {% render 'product-monogram', id: section.id, fee_variant: fee_variant %}
+              </div>
+            {%- endif -%}
+
+          {%- when 'buy_buttons' -%}
+            <div class="product-buy" {{ block.shopify_attributes }}>
+              <button
+                type="submit"
+                form="{{ form_id }}"
+                class="product-buy__button"
+                data-state="{{ buy_state }}"
+                data-buy-button
+                data-label-add="{{ label_add | escape }}"
+                data-label-select="{{ label_select | escape }}"
+                data-label-notify="{{ label_notify | escape }}"
+                data-label-monogram="{{ 'products.product.complete_monogram' | t | escape }}"
+                data-label-adding="{{ 'products.product.adding' | t | escape }}"
+                data-label-added="{{ 'products.product.added' | t | escape }}"
+                {% if buy_state == 'notify' %}
+                  disabled
+                {% endif %}
+              >
+                {{- buy_label -}}
+              </button>
+              <p class="product-buy__error" role="alert" hidden data-buy-error>{{ 'products.product.add_error' | t }}</p>
+              <p class="visually-hidden" role="status" data-buy-status></p>
+            </div>
+
+          {%- when 'specs' -%}
+            <div class="product__specs" {{ block.shopify_attributes }}>{% render 'product-specs', product: product %}</div>
+
+          {%- when 'meta' -%}
+            <dl class="product-meta" {{ block.shopify_attributes }}>
+              {%- if product.type != blank -%}
+                <div class="product-meta__row">
+                  <dt class="product-label">{{ 'products.product.category' | t }}</dt>
+                  <dd class="product-meta__value">{{ product.type }}</dd>
+                </div>
+              {%- endif -%}
+              {%- if print_collection -%}
+                <div class="product-meta__row">
+                  <dt class="product-label">{{ 'products.product.collection' | t }}</dt>
+                  <dd class="product-meta__value">
+                    <a href="{{ print_collection.url }}">
+                      {{- 'products.product.view_collection' | t -}}
+                      <span class="visually-hidden">: {{ print_collection.title }}</span>
+                    </a>
+                  </dd>
+                </div>
+              {%- endif -%}
+            </dl>
+
+          {%- when 'text' -%}
+            {%- if block.settings.text != blank -%}
+              <div class="product__block" {{ block.shopify_attributes }}>
+                {% render 'rte', content: block.settings.text, class: 'product__text' %}
+              </div>
+            {%- endif -%}
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</kg-product>
+
+{%- comment -%} Outside <kg-product> so print swaps don't replace the dialog. {%- endcomment -%}
+{% render 'back-in-stock', product: product %}
+
+<script src="{{ 'component-product.js' | asset_url }}" type="module" defer="defer"></script>
+
+{% stylesheet %}
+  .product {
+    display: block;
+    padding-block: var(--space-8) var(--space-20);
+  }
+
+  .product__breadcrumbs {
+    margin-block-end: var(--space-10);
+  }
+
+  .product__grid {
+    display: grid;
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 48rem) {
+    .product__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    .product__info {
+      padding-block-start: var(--space-2);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .product__grid {
+      column-gap: var(--space-24);
+    }
+  }
+
+  .product__form {
+    display: contents;
+  }
+
+  .product-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .product-note {
+    margin-block-start: var(--space-3);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: 0.025em;
+    color: var(--color-muted-foreground);
+  }
+
+  .product__eyebrow {
+    margin-block-end: var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .product__title {
+    margin-block-end: var(--space-4);
+    font-family: var(--font-serif);
+    font-size: var(--text-36);
+    font-weight: var(--weight-regular);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-heading);
+  }
+
+  @media (min-width: 48rem) {
+    .product__title {
+      font-size: var(--text-48);
+    }
+  }
+
+  .product__price {
+    margin-block-end: var(--space-8);
+  }
+
+  .product-price,
+  .product-price__amounts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-4);
+  }
+
+  .product-price .price__item--current {
+    font-family: var(--font-serif);
+    font-size: var(--text-24);
+  }
+
+  .product-price .price__item--compare {
+    font-size: var(--text-16);
+    font-weight: var(--weight-light);
+  }
+
+  .product-price__badge {
+    align-self: center;
+    padding: var(--space-0-5) var(--space-2);
+    border: 1px solid color-mix(in srgb, var(--color-primary) 40%, transparent);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .product__block {
+    margin-block-end: var(--space-8);
+  }
+
+  .product__description {
+    max-width: 24rem;
+    margin-block-end: var(--space-8);
+    font-size: var(--text-14);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-loose);
+    color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+  }
+
+  .product__story {
+    max-width: 24rem;
+    margin-block-end: var(--space-8);
+    padding-inline-start: var(--space-5);
+    border-inline-start: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  }
+
+  .product__story-label {
+    margin-block-end: var(--space-3);
+  }
+
+  .product__story-text {
+    font-family: var(--font-serif);
+    font-size: var(--text-15);
+    font-style: italic;
+    line-height: var(--leading-relaxed);
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .product__divider {
+    height: 1px;
+    margin: 0 0 var(--space-8);
+    border: 0;
+    background: color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  .product-sizes__header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-block-end: var(--space-4);
+  }
+
+  .product-sizes__selected {
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-footer);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+
+  .product-sizes__selected span {
+    color: var(--color-foreground);
+  }
+
+  .product-sizes__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .product-size {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    height: 3rem;
+    padding-inline: var(--space-2);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-sans);
+    font-size: var(--text-12);
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+    cursor: pointer;
+    transition:
+      border-color var(--duration-medium) var(--ease-standard),
+      color var(--duration-medium) var(--ease-standard),
+      background-color var(--duration-medium) var(--ease-standard);
+  }
+
+  .product-size:hover {
+    border-color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+    color: var(--color-foreground);
+  }
+
+  .product-size:has(:checked) {
+    border-color: var(--color-foreground);
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+
+  .product-size:has(:focus-visible) {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  .product-size--sold-out,
+  .product-size--sold-out:has(:checked) {
+    border-color: color-mix(in srgb, var(--color-border) 40%, transparent);
+    background: transparent;
+    color: var(--color-muted-foreground);
+    text-decoration: line-through;
+  }
+
+  .product-size--sold-out:has(:checked) {
+    border-color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+
+  .product-size--sold-out:hover {
+    border-color: color-mix(in srgb, var(--color-foreground) 40%, transparent);
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .product-sizes__guide {
+    display: inline-block;
+    margin-block-start: var(--space-3);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label-xs);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .product-buy__button {
+    width: 100%;
+    padding-block: var(--space-4);
+    background: var(--color-foreground);
+    color: var(--color-background);
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color var(--duration-slow) var(--ease-standard), color var(--duration-slow) var(--ease-standard);
+  }
+
+  .product-buy__button:hover {
+    background: var(--color-primary);
+  }
+
+  .product-buy__button[data-state='select'],
+  .product-buy__button[data-state='monogram'],
+  .product-buy__button:disabled {
+    background: color-mix(in srgb, var(--color-muted) 60%, transparent);
+    color: var(--color-muted-foreground);
+    cursor: not-allowed;
+  }
+
+  .product-buy__button[data-state='added'] {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  .product-buy__error {
+    margin-block-start: var(--space-3);
+    font-size: var(--text-11);
+    letter-spacing: 0.025em;
+    color: var(--color-destructive);
+  }
+
+  .product__specs {
+    margin-block-start: var(--space-8);
+  }
+
+  .product-meta {
+    display: grid;
+    gap: var(--space-3);
+    margin: var(--space-8) 0 0;
+    padding-block-start: var(--space-6);
+    border-block-start: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+
+  .product-meta__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-meta__row .product-label {
+    letter-spacing: var(--tracking-button);
+  }
+
+  .product-meta__value {
+    margin: 0;
+    font-size: var(--text-12);
+    font-weight: var(--weight-light);
+    color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+  }
+
+  .product-meta__value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .product-meta__value a:hover {
+    color: var(--color-primary);
+  }
+
+  kg-product[aria-busy='true'] .product__grid {
+    opacity: 0.6;
+    transition: opacity var(--duration-fast) var(--ease-standard);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.main_product.name",
+  "tag": "section",
+  "class": "section-main-product",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "t:sections.main_product.show_breadcrumbs",
+      "info": "t:sections.main_product.show_breadcrumbs_info",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_product.gallery_header"
+    },
+    {
+      "type": "select",
+      "id": "gallery_layout",
+      "label": "t:sections.main_product.gallery_layout",
+      "options": [
+        { "value": "carousel", "label": "t:sections.main_product.gallery_layout_carousel" },
+        { "value": "stacked", "label": "t:sections.main_product.gallery_layout_stacked" }
+      ],
+      "default": "carousel"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_print_tag",
+      "label": "t:sections.main_product.show_print_tag",
+      "default": true
+    }
+  ],
+  "blocks": [
+    { "type": "@app" },
+    { "type": "eyebrow", "name": "t:sections.main_product.blocks.eyebrow", "limit": 1 },
+    { "type": "title", "name": "t:sections.main_product.blocks.title", "limit": 1 },
+    { "type": "price", "name": "t:sections.main_product.blocks.price", "limit": 1 },
+    { "type": "prints", "name": "t:sections.main_product.blocks.prints", "limit": 1 },
+    { "type": "description", "name": "t:sections.main_product.blocks.description", "limit": 1 },
+    { "type": "print_story", "name": "t:sections.main_product.blocks.print_story", "limit": 1 },
+    { "type": "divider", "name": "t:sections.main_product.blocks.divider" },
+    {
+      "type": "sizes",
+      "name": "t:sections.main_product.blocks.sizes",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "size_guide_label", "label": "t:sections.main_product.size_guide_label" },
+        { "type": "url", "id": "size_guide_url", "label": "t:sections.main_product.size_guide_url" }
+      ]
+    },
+    { "type": "monogram", "name": "t:sections.main_product.blocks.monogram", "limit": 1 },
+    { "type": "buy_buttons", "name": "t:sections.main_product.blocks.buy_buttons", "limit": 1 },
+    { "type": "specs", "name": "t:sections.main_product.blocks.specs", "limit": 1 },
+    { "type": "meta", "name": "t:sections.main_product.blocks.meta", "limit": 1 },
+    {
+      "type": "text",
+      "name": "t:sections.main_product.blocks.text",
+      "settings": [
+        { "type": "richtext", "id": "text", "label": "t:sections.main_product.text" }
+      ]
+    }
+  ]
+}
+{% endschema %}

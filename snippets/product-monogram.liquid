@@ -1,0 +1,251 @@
+{% doc %}
+  Chainstitch monogram opt-in (D-9). Render only when the product is tagged
+  `monogrammable`, the active print is available and the fee product is
+  purchasable (main-product.liquid checks all three).
+
+  The controls have no `name`, so a no-JS form post never sends a monogram
+  without its fee. The fieldset is `disabled` until `<kg-product>` loads, and
+  JS adds the garment + fee lines together in one `/cart/add.js` request.
+
+  Thread colours are cart-line values (they appear on orders), so they are
+  fixed English names, not translations. Their hex values are thread data,
+  not theme colours, so they're inline custom properties.
+
+  @param {string} id - Unique id prefix (e.g. the section id)
+  @param {variant} fee_variant - The chainstitch-monogram fee variant
+
+  @example
+  {% render 'product-monogram', id: section.id, fee_variant: fee_variant %}
+{% enddoc %}
+{%- liquid
+  assign max_length = 10
+  assign fee_price = fee_variant.price | money
+  assign thread_names = 'Black|Ivory|Gray|Brown|Red|Light pink|Sage green|Navy blue|Gold|Lavender' | split: '|'
+  assign thread_hexes = '#1a1a1a|#f3ecdd|#8a8a8a|#6b4a32|#a51f24|#f3c4cd|#9aa886|#1f2a4a|#c2962c|#b79fd0' | split: '|'
+  assign text_id = id | append: '-monogram-text'
+  assign hint_id = id | append: '-monogram-hint'
+  assign fields_id = id | append: '-monogram-fields'
+  assign colour_label_id = id | append: '-monogram-colour'
+-%}
+<fieldset class="product-monogram" data-monogram data-fee-variant="{{ fee_variant.id }}" disabled>
+  <legend class="visually-hidden">{{ 'products.monogram.legend' | t }}</legend>
+  <label class="product-monogram__toggle">
+    <input
+      type="checkbox"
+      class="product-monogram__checkbox visually-hidden"
+      aria-controls="{{ fields_id }}"
+      aria-expanded="false"
+      data-monogram-toggle
+    >
+    <span class="product-monogram__box" aria-hidden="true">
+      <svg width="10" height="10" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5.5"/></svg>
+    </span>
+    <span>
+      <span class="product-monogram__title">{{ 'products.monogram.add' | t }}</span>
+      <span class="product-monogram__fee">
+        {{- 'products.monogram.fee' | t: price: fee_price -}}
+      </span>
+    </span>
+  </label>
+
+  <div class="product-monogram__fields" id="{{ fields_id }}" hidden data-monogram-fields>
+    <div>
+      <div class="product-monogram__row">
+        <label class="product-label" for="{{ text_id }}">{{ 'products.monogram.text_label' | t }}</label>
+        <span class="product-monogram__count" aria-hidden="true" data-monogram-count>0/{{ max_length }}</span>
+      </div>
+      <input
+        class="product-monogram__input"
+        id="{{ text_id }}"
+        type="text"
+        maxlength="{{ max_length }}"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="{{ 'products.monogram.placeholder' | t }}"
+        aria-describedby="{{ hint_id }}"
+        data-monogram-text
+      >
+      <p class="product-note" id="{{ hint_id }}">{{ 'products.monogram.hint' | t: count: max_length }}</p>
+    </div>
+
+    <div role="radiogroup" aria-labelledby="{{ colour_label_id }}">
+      <p class="product-label product-monogram__colour-label" id="{{ colour_label_id }}">
+        {{- 'products.monogram.colour_label' | t -}}
+        <span class="product-monogram__colour-name" data-monogram-colour-name></span>
+      </p>
+      <div class="product-monogram__colours">
+        {%- for name in thread_names -%}
+          <label class="product-monogram__colour" title="{{ name }}" style="--thread: {{ thread_hexes[forloop.index0] }}">
+            <input type="radio" class="visually-hidden" name="{{ id }}-thread" value="{{ name }}" data-monogram-colour>
+            <span class="visually-hidden">{{ 'products.monogram.colour_option' | t: colour: name }}</span>
+          </label>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+{% stylesheet %}
+  .product-monogram {
+    margin: 0 0 var(--space-8);
+    padding: 0;
+    border: 0;
+    min-inline-size: 0;
+  }
+
+  .product-monogram__toggle {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    cursor: pointer;
+  }
+
+  .product-monogram[disabled] .product-monogram__toggle {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .product-monogram__box {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    margin-block-start: 0.125rem;
+    border: 1px solid color-mix(in srgb, var(--color-foreground) 40%, transparent);
+    color: var(--color-background);
+    transition: background-color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .product-monogram__box svg {
+    visibility: hidden;
+  }
+
+  .product-monogram__toggle:hover .product-monogram__box {
+    border-color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .product-monogram__checkbox:checked + .product-monogram__box {
+    background: var(--color-foreground);
+    border-color: var(--color-foreground);
+  }
+
+  .product-monogram__checkbox:checked + .product-monogram__box svg {
+    visibility: visible;
+  }
+
+  .product-monogram__checkbox:focus-visible + .product-monogram__box {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+  }
+
+  .product-monogram__title {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-button);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 80%, transparent);
+  }
+
+  .product-monogram__fee {
+    display: block;
+    margin-block-start: var(--space-1);
+    font-size: var(--text-12);
+    font-weight: var(--weight-light);
+    color: var(--color-muted-foreground);
+  }
+
+  .product-monogram__fields {
+    display: grid;
+    gap: var(--space-5);
+    margin-block-start: var(--space-5);
+    padding-inline-start: var(--space-7);
+  }
+
+  .product-monogram__fields[hidden] {
+    display: none;
+  }
+
+  .product-monogram__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-block-end: var(--space-3);
+  }
+
+  .product-monogram__count {
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: 0.2em;
+    color: color-mix(in srgb, var(--color-foreground) 40%, transparent);
+  }
+
+  .product-monogram__input {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--color-border);
+    background: transparent;
+    font-family: var(--font-serif);
+    font-size: var(--text-14);
+    letter-spacing: 0.025em;
+    color: var(--color-foreground);
+    transition: border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .product-monogram__input:focus {
+    border-color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+
+  .product-monogram__input::placeholder {
+    color: color-mix(in srgb, var(--color-foreground) 30%, transparent);
+  }
+
+  .product-monogram__colour-label {
+    margin-block-end: var(--space-3);
+  }
+
+  .product-monogram__colour-name {
+    letter-spacing: 0.2em;
+    text-transform: none;
+    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+
+  .product-monogram__colour-name:not(:empty)::before {
+    content: ' \00b7  ';
+  }
+
+  .product-monogram__colours {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2-5);
+  }
+
+  .product-monogram__colour {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--thread);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-border) 60%, transparent);
+    cursor: pointer;
+    transition: box-shadow var(--duration-fast) var(--ease-standard), scale var(--duration-fast) var(--ease-standard);
+  }
+
+  .product-monogram__colour:hover {
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-foreground) 40%, transparent);
+  }
+
+  .product-monogram__colour:has(:checked) {
+    scale: 1.05;
+    box-shadow:
+      0 0 0 2px var(--color-background),
+      0 0 0 3px var(--color-foreground);
+  }
+
+  .product-monogram__colour:has(:focus-visible) {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 4px;
+  }
+{% endstylesheet %}

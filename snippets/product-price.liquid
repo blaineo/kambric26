@@ -1,0 +1,19 @@
+{% doc %}
+  Product page price: price.liquid plus the source's bordered "Sale" badge
+  when the compare-at price is above the price.
+
+  @param {number} price - Price in cents
+  @param {number} [compare_at_price] - Compare-at price in cents
+
+  @example
+  {% render 'product-price', price: variant.price, compare_at_price: variant.compare_at_price %}
+{% enddoc %}
+{%- liquid
+  assign compare_at_price = compare_at_price | default: 0
+-%}
+<div class="product-price">
+  {%- render 'price', price: price, compare_at_price: compare_at_price, class: 'product-price__amounts' -%}
+  {%- if compare_at_price > price -%}
+    <span class="product-price__badge" aria-hidden="true">{{ 'products.card.sale' | t }}</span>
+  {%- endif -%}
+</div>

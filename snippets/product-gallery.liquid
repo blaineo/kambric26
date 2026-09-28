@@ -1,0 +1,303 @@
+{% doc %}
+  Product page gallery for the active print: a CSS scroll-snap track (swipe
+  on touch, no JS library), a print-name tag, prev/next buttons that wrap and
+  a thumbnail row. Works without JS (swipe/scroll and thumbnail anchor links);
+  `<kg-gallery>` (assets/component-product.js) adds the buttons and keeps the
+  thumbnails in sync.
+
+  The first image is the page's single `priority` (LCP) image; the rest are
+  lazy. Images are cropped to 3:4 at the CDN with explicit dimensions, so
+  nothing shifts.
+
+  Alt text: the image's own alt when it's descriptive (not blank and not just
+  the print name or the product title, which Shopify substitutes for an
+  empty alt; see D-8), otherwise "{Product} — {Print}, view N".
+
+  @param {product} product - The product
+  @param {string} indexes - Comma-separated image indexes (from product-print-media.liquid)
+  @param {string} [print] - Active print name (tag + alt text)
+  @param {string} id - Unique id prefix (e.g. the section id)
+  @param {string} [layout] - 'carousel' (default) | 'stacked' (all images stacked from md up)
+  @param {boolean} [show_tag] - Show the print-name tag on the image (default true)
+
+  @example
+  {% render 'product-gallery', product: product, indexes: media_indexes, print: active_print, id: section.id %}
+{% enddoc %}
+{%- liquid
+  assign layout = layout | default: 'carousel'
+  if show_tag == nil
+    assign show_tag = true
+  endif
+  assign index_list = indexes | split: ','
+  assign count = index_list.size
+  assign main_sizes = '(min-width: 80rem) 568px, (min-width: 64rem) calc(50vw - 4.5rem), (min-width: 48rem) calc(50vw - 3rem), calc(100vw - 3rem)'
+  assign thumb_sizes = '(min-width: 80rem) 108px, (min-width: 48rem) calc(10vw - 1rem), calc(20vw - 1rem)'
+  assign track_id = id | append: '-gallery'
+  assign gallery_label = 'products.product.gallery_label' | t: title: product.title
+-%}
+<kg-gallery
+  class="product-gallery product-gallery--{{ layout }}"
+  role="region"
+  aria-roledescription="{{ 'products.product.gallery_roledescription' | t }}"
+  aria-label="{{ gallery_label | escape }}"
+>
+  <div class="product-gallery__stage">
+    {%- if count > 0 -%}
+      <div class="product-gallery__track" id="{{ track_id }}" tabindex="0" aria-label="{{ gallery_label | escape }}" data-gallery-track>
+        {%- for i in index_list -%}
+          {%- liquid
+            assign image_index = i | plus: 0
+            assign image = product.images[image_index]
+            assign n = forloop.index
+            if image.alt != blank and image.alt != print and image.alt != product.title
+              assign alt = image.alt
+            elsif print != blank
+              assign alt = 'products.product.image_alt_print' | t: title: product.title, print: print, number: n
+            else
+              assign alt = 'products.product.image_alt' | t: title: product.title, number: n
+            endif
+            if forloop.first
+              assign img_loading = 'priority'
+            else
+              assign img_loading = 'lazy'
+            endif
+          -%}
+          <div
+            class="product-gallery__slide"
+            id="{{ track_id }}-{{ n }}"
+            role="group"
+            aria-roledescription="{{ 'products.product.slide_roledescription' | t }}"
+            aria-label="{{ 'products.product.slide_label' | t: number: n, count: count }}"
+            data-gallery-slide
+          >
+            {%- render 'picture',
+              image: image,
+              alt: alt,
+              sizes: main_sizes,
+              widths: '360, 540, 720, 900, 1080, 1296',
+              aspect_ratio: 0.75,
+              loading: img_loading,
+              class: 'product-gallery__picture',
+              img_class: 'product-gallery__image'
+            -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <div class="product-gallery__placeholder">
+        <span class="product-gallery__placeholder-mark" aria-hidden="true">✦</span>
+        <p class="product-gallery__placeholder-name">{{ print | default: product.title }}</p>
+      </div>
+    {%- endif -%}
+
+    {%- if show_tag and print != blank -%}
+      <p class="product-gallery__tag">{{ print }}</p>
+    {%- endif -%}
+
+    {%- if count > 1 -%}
+      <button type="button" class="product-gallery__nav product-gallery__nav--prev" aria-controls="{{ track_id }}" data-gallery-prev>
+        <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15.2 4.6c-2.4 2.4-4.8 4.9-7.1 7.4 2.3 2.5 4.7 4.9 7.1 7.4"/></svg>
+        <span class="visually-hidden">{{ 'products.product.previous_image' | t }}</span>
+      </button>
+      <button type="button" class="product-gallery__nav product-gallery__nav--next" aria-controls="{{ track_id }}" data-gallery-next>
+        <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8.8 4.6c2.4 2.4 4.8 4.9 7.1 7.4-2.3 2.5-4.7 4.9-7.1 7.4"/></svg>
+        <span class="visually-hidden">{{ 'products.product.next_image' | t }}</span>
+      </button>
+    {%- endif -%}
+  </div>
+
+  {%- if count > 1 -%}
+    <ul class="product-gallery__thumbs" role="list">
+      {%- for i in index_list -%}
+        {%- assign thumb_index = i | plus: 0 -%}
+        <li>
+          <a
+            class="product-gallery__thumb"
+            href="#{{ track_id }}-{{ forloop.index }}"
+            {% if forloop.first %}
+              aria-current="true"
+            {% endif %}
+            data-gallery-thumb="{{ forloop.index0 }}"
+          >
+            {%- render 'picture',
+              image: product.images[thumb_index],
+              alt: '',
+              sizes: thumb_sizes,
+              widths: '120, 180, 240',
+              aspect_ratio: 0.75,
+              loading: 'lazy',
+              img_class: 'product-gallery__thumb-image'
+            -%}
+            <span class="visually-hidden">{{ 'products.product.show_image' | t: number: forloop.index, count: count }}</span>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+</kg-gallery>
+
+{% stylesheet %}
+  .product-gallery__stage {
+    position: relative;
+    margin-block-end: var(--space-3);
+  }
+
+  .product-gallery__track {
+    display: flex;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    background: var(--color-muted);
+  }
+
+  .product-gallery__track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-gallery__slide {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+  }
+
+  .product-gallery__picture,
+  .product-gallery__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .product-gallery__image {
+    object-fit: cover;
+  }
+
+  .product-gallery__placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+    aspect-ratio: 3 / 4;
+    padding: var(--space-8);
+    background: var(--color-muted);
+  }
+
+  .product-gallery__placeholder-mark {
+    font-family: var(--font-serif);
+    font-size: var(--text-30);
+    font-style: italic;
+    color: color-mix(in srgb, var(--color-foreground) 15%, transparent);
+  }
+
+  .product-gallery__placeholder-name {
+    font-family: var(--font-serif);
+    font-size: var(--text-20);
+    font-style: italic;
+    text-align: center;
+    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+
+  .product-gallery__tag {
+    position: absolute;
+    inset-block-start: var(--space-4);
+    inset-inline-start: var(--space-4);
+    padding: var(--space-1-5) var(--space-3);
+    background: color-mix(in srgb, var(--color-background) 90%, transparent);
+    backdrop-filter: blur(4px);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-button);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+    pointer-events: none;
+  }
+
+  .product-gallery__nav {
+    position: absolute;
+    inset-block-start: 50%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    translate: 0 -50%;
+    color: color-mix(in srgb, var(--color-foreground) 35%, transparent);
+    filter: drop-shadow(0 1px 1px color-mix(in srgb, var(--color-foreground) 5%, transparent));
+    transition: color var(--duration-medium) var(--ease-standard);
+  }
+
+  .product-gallery__nav:hover {
+    color: color-mix(in srgb, var(--color-foreground) 80%, transparent);
+  }
+
+  .product-gallery__nav--prev {
+    inset-inline-start: var(--space-3);
+  }
+
+  .product-gallery__nav--next {
+    inset-inline-end: var(--space-3);
+  }
+
+  kg-gallery:not(:defined) .product-gallery__nav {
+    visibility: hidden;
+  }
+
+  .product-gallery__thumbs {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--space-2);
+  }
+
+  .product-gallery__thumb {
+    display: block;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    opacity: 0.45;
+    transition:
+      opacity var(--duration-medium) var(--ease-standard),
+      box-shadow var(--duration-medium) var(--ease-standard);
+  }
+
+  .product-gallery__thumb:hover {
+    opacity: 0.75;
+  }
+
+  .product-gallery__thumb[aria-current='true'] {
+    opacity: 1;
+    box-shadow:
+      0 0 0 1px var(--color-background),
+      0 0 0 2px var(--color-foreground);
+  }
+
+  .product-gallery__thumb .picture,
+  .product-gallery__thumb-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (min-width: 48rem) {
+    .product-gallery--stacked .product-gallery__track {
+      display: grid;
+      gap: var(--space-3);
+      overflow: visible;
+      background: none;
+    }
+
+    .product-gallery--stacked .product-gallery__nav,
+    .product-gallery--stacked .product-gallery__thumbs {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .product-gallery__track {
+      scroll-behavior: auto;
+    }
+  }
+{% endstylesheet %}

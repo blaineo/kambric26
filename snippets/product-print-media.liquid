@@ -1,0 +1,82 @@
+{% doc %}
+  Gallery image indexes for one print (no markup). Outputs the 0-based
+  indexes into `product.images`, comma-separated, e.g. `4,5,6`, so callers
+  can `capture` it and `split: ','`.
+
+  Same grouping rules as print-summary.liquid (SHOPIFY_DATA_MAP, D-8), but
+  returns every image of the print instead of the first two. First match wins:
+    1. images whose alt text equals the print value (the live Replit rule)
+    2. the featured images of the print's variants (native variant media,
+       the D-8 target) together with 3. images whose file name contains the
+       print value (lowercase, with or without spaces, e.g.
+       ArielleDress_Olive_1.jpg for "Olive"), in product image order. They're
+       merged because a variant usually points at a single image.
+    4. all product images (the Replit fallback)
+
+  Single-print products (no `Print`/`Colorway` option) and a blank `print`
+  always get every image (source: the gallery is `product.images`).
+
+  @param {product} product - The product
+  @param {string} [print] - Active print value (`Print`/`Colorway` option value)
+
+  @example
+  {%- capture media_indexes -%}{% render 'product-print-media', product: product, print: active_print %}{%- endcapture -%}
+  {%- assign media_indexes = media_indexes | strip | split: ',' -%}
+{% enddoc %}
+{%- liquid
+  assign option_index = -1
+  for option in product.options_with_values
+    if option.name == 'Print' or option.name == 'Colorway'
+      assign option_index = option.position | minus: 1
+      break
+    endif
+  endfor
+
+  assign found = ''
+
+  if option_index >= 0 and print != blank
+    comment
+      1. Alt text equals the print value.
+    endcomment
+    for image in product.images
+      if image.alt == print
+        assign found = found | append: forloop.index0 | append: ','
+      endif
+    endfor
+
+    comment
+      2 + 3. Native variant media of the print's variants, plus images whose
+      file name contains the print value. Merged (in product order) because a
+      variant usually points at one image, while the file names group the
+      whole set (Arielle: variant image + ArielleDress_Olive_1..3).
+    endcomment
+    if found == ''
+      assign variant_image_ids = ''
+      for variant in product.variants
+        if variant.options[option_index] == print and variant.featured_image
+          assign variant_image_ids = variant_image_ids | append: ',' | append: variant.featured_image.id | append: ','
+        endif
+      endfor
+      assign needle = print | downcase
+      assign needle_compact = needle | remove: ' '
+      for image in product.images
+        assign needle_id = ',' | append: image.id | append: ','
+        assign haystack = image.src | url_decode | downcase
+        if variant_image_ids contains needle_id or haystack contains needle or haystack contains needle_compact
+          assign found = found | append: forloop.index0 | append: ','
+        endif
+      endfor
+    endif
+  endif
+
+  comment
+    4. Every image.
+  endcomment
+  if found == ''
+    for image in product.images
+      assign found = found | append: forloop.index0 | append: ','
+    endfor
+  endif
+
+  echo found | remove_last: ','
+-%}

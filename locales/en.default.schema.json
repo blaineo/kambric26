@@ -217,6 +217,35 @@
       "link_1_url": "First link URL",
       "link_2_label": "Second link label",
       "link_2_url": "Second link URL"
+    },
+    "main_product": {
+      "name": "Product",
+      "show_breadcrumbs": "Show breadcrumbs",
+      "show_breadcrumbs_info": "Search engines still get the breadcrumb trail when hidden.",
+      "gallery_header": "Gallery",
+      "gallery_layout": "Desktop gallery layout",
+      "gallery_layout_carousel": "One image with thumbnails",
+      "gallery_layout_stacked": "All images stacked",
+      "show_print_tag": "Show the print name on the image",
+      "size_guide_label": "Size guide link label",
+      "size_guide_url": "Size guide link",
+      "text": "Text",
+      "blocks": {
+        "eyebrow": "Archive print label",
+        "title": "Title",
+        "price": "Price",
+        "prints": "Print swatches",
+        "description": "Description",
+        "print_story": "Print story",
+        "divider": "Divider",
+        "sizes": "Sizes",
+        "monogram": "Chainstitch monogram",
+        "buy_buttons": "Add to cart",
+        "specs": "Product details",
+        "meta": "Category and collection",
+        "text": "Text"
+      }
     }
-  }
+  },
+  "_note": "No new schema (editor-facing) keys needed. Both new snippets are render-only partials with no section settings of their own, and the two dev-only preview files (sections/phase2-components-preview.liquid, templates/product.phase2-components.json) hardcode their section name/labels in English the same way sections/phase1-ui-preview.liquid and sections/phase1-breadcrumbs-preview.liquid already do (dev-only, not translated). Leaving this object here, empty, only so the file matches the requested {storefront, schema} shape."
 }

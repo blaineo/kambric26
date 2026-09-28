@@ -10,11 +10,28 @@
 {
   "sections": {
     "main": {
-      "type": "product",
-      "settings": {}
+      "type": "main-product",
+      "blocks": {
+        "eyebrow": { "type": "eyebrow", "settings": {} },
+        "title": { "type": "title", "settings": {} },
+        "price": { "type": "price", "settings": {} },
+        "prints": { "type": "prints", "settings": {} },
+        "description": { "type": "description", "settings": {} },
+        "print_story": { "type": "print_story", "settings": {} },
+        "divider": { "type": "divider", "settings": {} },
+        "sizes": { "type": "sizes", "settings": { "size_guide_label": "", "size_guide_url": "" } },
+        "monogram": { "type": "monogram", "settings": {} },
+        "buy_buttons": { "type": "buy_buttons", "settings": {} },
+        "specs": { "type": "specs", "settings": {} },
+        "meta": { "type": "meta", "settings": {} }
+      },
+      "block_order": ["eyebrow", "title", "price", "prints", "description", "print_story", "divider", "sizes", "monogram", "buy_buttons", "specs", "meta"],
+      "settings": {
+        "show_breadcrumbs": true,
+        "gallery_layout": "carousel",
+        "show_print_tag": true
+      }
     }
   },
-  "order": [
-    "main"
-  ]
+  "order": ["main"]
 }

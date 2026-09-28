@@ -20,10 +20,15 @@
       a `<kg-…>` product-form element does the switching.
     'link': `<a href="product.url?print=…">` with `aria-current` on the
       selected print (works without JS).
+    'variant': `<a href="product.url?variant=…">` (D-7: Shopify renders the
+      print server-side), pointing at the print's first available variant,
+      else its first variant; `aria-current` on the selected print. The PDP's
+      `<kg-product>` swaps the print in place via the Section Rendering API.
+      Every mode puts `data-print-value` on the swatch.
 
   @param {product} product - The product
   @param {string} [selected] - Selected print value (default: the first print)
-  @param {string} [as] - 'button' (default) | 'link'
+  @param {string} [as] - 'button' (default) | 'link' | 'variant'
   @param {boolean} [show_label] - Show the label row (option name + selected value). Default true.
 
   @example
@@ -118,18 +123,48 @@
             assign on_sale = true
           endif
 
+          assign swatch_variant = nil
+          if as == 'variant'
+            assign print_index = print_option.position | minus: 1
+            for variant in product.variants
+              if variant.options[print_index] == print_value
+                if swatch_variant == nil
+                  assign swatch_variant = variant
+                endif
+                if variant.available
+                  assign swatch_variant = variant
+                  break
+                endif
+              endif
+            endfor
+          endif
+
           assign crop_image = nil
           if swatch_file == nil and s_image_index >= 0
             assign crop_image = product.images[s_image_index]
           endif
         -%}
         <li>
-          {%- if as == 'link' -%}
-            {%- assign encoded_print = print_value | url_encode | replace: '+', '%20' -%}
+          {%- liquid
+            assign is_link = false
+            if as == 'variant'
+              assign is_link = true
+              assign swatch_href = product.url | append: '?variant=' | append: swatch_variant.id
+            elsif as == 'link'
+              assign is_link = true
+              assign encoded_print = print_value | url_encode | replace: '+', '%20'
+              assign swatch_href = product.url | append: '?print=' | append: encoded_print
+            endif
+          -%}
+          {%- if is_link -%}
             <a
               class="print-swatch"
-              href="{{ product.url }}?print={{ encoded_print }}"
+              href="{{ swatch_href }}"
               title="{{ print_value | escape }}"
+              data-print-value="{{ print_value | escape }}"
+              {% if swatch_variant %}
+                data-variant-id="{{ swatch_variant.id }}"
+              {% endif %}
               {% if is_selected %}
                 aria-current="true"
               {% endif %}
@@ -201,7 +236,7 @@
           {%- if on_sale -%}
             <span class="print-swatch__sale">{{ 'products.card.sale' | t }}</span>
           {%- endif -%}
-          {%- if as == 'link' -%}
+          {%- if is_link -%}
             </a>
           {%- else -%}
             </button>
