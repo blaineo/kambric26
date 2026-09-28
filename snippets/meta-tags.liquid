@@ -32,13 +32,24 @@
   if request.page_type contains 'customers/'
     assign noindex = true
   endif
+
+  # Products tagged `hidden` (e.g. the published chainstitch-monogram fee) are
+  # never indexed. Sitemap exclusion needs the product's seo.hidden metafield
+  # (store data, see docs/MIGRATION_PLAN.md §3).
+  if request.page_type == 'product' and product.tags contains 'hidden'
+    assign noindex = true
+  endif
 -%}
 
+{%- comment -%}
+  Title pattern matches the current site (liquid/SEO.md): "{Page} | Kambric Goods".
+  The home title is the store's SEO title (Online Store → Preferences).
+{%- endcomment -%}
 <title>
   {{- page_title -}}
   {%- if current_tags %} &ndash; {{ current_tags | join: ', ' }}{% endif -%}
   {%- if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif -%}
-  {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  {%- unless page_title contains shop.name %} | {{ shop.name }}{% endunless -%}
 </title>
 
 {%- if page_description %}
@@ -88,3 +99,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ og_title | escape }}">
 <meta name="twitter:description" content="{{ og_description | escape }}">
+{%- if share_image %}
+  <meta name="twitter:image" content="https:{{ share_image | image_url: width: 1200 }}">
+{%- else %}
+  <meta name="twitter:image" content="https:{{ 'og-default.jpg' | asset_url }}">
+{%- endif %}
