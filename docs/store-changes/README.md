@@ -36,10 +36,10 @@ Claude can't change its own permission settings, so:
 Proposed guardrail 3 wording:
 > 3. **Store data: the owner approves every change.** By default Claude doesn't create, edit or delete store data. **Exception (owner decision 2026-09-28):** Claude may run 🟢 and 🟡 tasks from `docs/OWNER_TASKS.md`, one batch at a time, each explicitly approved by the owner, only through the process in `docs/store-changes/README.md` (snapshots, reviewed change, generated rollback, live-site diff). Any difference on kambricgoods.com → stop, roll back, report. 🔴 tasks stay owner-only.
 
-## Planned batches (none run yet)
+## Batches (status: 01 ✅ done; the rest planned)
 | # | Batch | Tier | Creates / changes | Rollback |
 | --- | --- | --- | --- | --- |
-| 01 | Custom-field definitions | 🟢 | Definitions `kambric.archive_label` (product), `kambric.card_image`, `kambric.header_image` (collection), `seo.hidden` (product); values: Arielle archive label "Parlor Rose", monogram `seo.hidden = 1` | `metafieldDefinitionDelete` (with its values) for each definition created; `metafieldsDelete` for the two values |
+| 01 ✅ | Custom-field definitions | 🟢 | Definitions `kambric.archive_label` (product), `kambric.card_image`, `kambric.header_image` (collection), `seo.hidden` (product); values: Arielle archive label "Parlor Rose", monogram `seo.hidden = 1` | `metafieldDefinitionDelete` (with its values) for each definition created; `metafieldsDelete` for the two values |
 | 02 | Collection images | 🟢 | Upload 6 images to Files; set `card_image`/`header_image` on Folklore, Psychedelics, Whimsy | `metafieldsDelete` the 6 values; `fileDelete` the 6 files |
 | 03 | Category and sale collections | 🟡 | 6 automated collections, published to **Online Store only** (by publication ID), templates `category`/`sale`, descriptions + SEO from `store-data/collection-copy.csv` | `collectionDelete` ×6 (IDs from `log.md`) |
 | 04 | Menus | 🟢 | `main-menu`, `footer` (replace items), `footer-info`, `shop-categories` (new) | Restore `main-menu`/`footer` items from `before.json`; `menuDelete` the two new menus |

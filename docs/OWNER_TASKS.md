@@ -23,10 +23,10 @@ Status: ☐ to do · ☑ done · ⏳ waiting on the theme build. Tick items here
 
 ### A2. New custom fields (Settings → Custom data)
 New definitions the live site doesn't read.
-- ☐ **Product** `kambric.archive_label`, single-line text. Then set **"Parlor Rose"** on Arielle (D-22).
-- ☐ **Collection** `kambric.card_image`, file (image). **Collection** `kambric.header_image`, file (image).
+- ☑ **Product** `kambric.archive_label`, single-line text. Then set **"Parlor Rose"** on Arielle (D-22). *(Done by Claude, batch 01, 2026-09-28.)*
+- ☑ **Collection** `kambric.card_image`, file (image). **Collection** `kambric.header_image`, file (image). *(Done, batch 01.)*
 - ☐ Upload the six collection images (`../replit site/assets/uploads/`, names in `../liquid/assets/usage-map.csv`) to **Content → Files**, then set Card image + Header image on Folklore, Psychedelics, Whimsy.
-- ☐ **Monogram fee product** (`chainstitch-monogram`): Settings → Custom data → Products → **Add definition**, namespace and key **`seo.hidden`**, type **Integer**; then on the monogram product set it to **1**. This keeps it out of the Shopify-hosted sitemap and search (the theme already hides it from listings). The live site doesn't read this field.
+- ☑ **Monogram fee product** (`chainstitch-monogram`): Settings → Custom data → Products → **Add definition**, namespace and key **`seo.hidden`**, type **Integer**; then on the monogram product set it to **1**. This keeps it out of the Shopify-hosted sitemap and search (the theme already hides it from listings). The live site doesn't read this field. *(Done, batch 01.)*
 
 ### A3. Search listings (not read by the live site)
 - ☐ **Online Store → Preferences:** homepage title `Kambric Goods | Heritage Prints, Modern Womenswear` and the description from `../liquid/SEO.md`.

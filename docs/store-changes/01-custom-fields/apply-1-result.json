@@ -1,0 +1,34 @@
+{
+  "archiveLabel": {
+    "createdDefinition": {
+      "id": "gid://shopify/MetafieldDefinition/81135534314",
+      "namespace": "kambric",
+      "key": "archive_label"
+    },
+    "userErrors": []
+  },
+  "cardImage": {
+    "createdDefinition": {
+      "id": "gid://shopify/MetafieldDefinition/81135567082",
+      "namespace": "kambric",
+      "key": "card_image"
+    },
+    "userErrors": []
+  },
+  "headerImage": {
+    "createdDefinition": {
+      "id": "gid://shopify/MetafieldDefinition/81135599850",
+      "namespace": "kambric",
+      "key": "header_image"
+    },
+    "userErrors": []
+  },
+  "seoHidden": {
+    "createdDefinition": {
+      "id": "gid://shopify/MetafieldDefinition/81135632618",
+      "namespace": "seo",
+      "key": "hidden"
+    },
+    "userErrors": []
+  }
+}

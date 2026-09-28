@@ -1,0 +1,143 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186",
+    "name": "Kambric Goods",
+    "myshopifyDomain": "7u2dfq-xf.myshopify.com"
+  },
+  "productKambric": {
+    "nodes": [
+      {
+        "id": "gid://shopify/MetafieldDefinition/66936897770",
+        "namespace": "kambric",
+        "key": "print_name",
+        "name": "Print Name",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/66936930538",
+        "namespace": "kambric",
+        "key": "print_story",
+        "name": "Print Story",
+        "type": {
+          "name": "multi_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/69853806826",
+        "namespace": "kambric",
+        "key": "prints",
+        "name": "Prints",
+        "type": {
+          "name": "json"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/81135534314",
+        "namespace": "kambric",
+        "key": "archive_label",
+        "name": "Archive label",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "access": {
+          "storefront": "NONE"
+        }
+      }
+    ]
+  },
+  "productSeo": {
+    "nodes": [
+      {
+        "id": "gid://shopify/MetafieldDefinition/81135632618",
+        "namespace": "seo",
+        "key": "hidden",
+        "name": "Hide from search engines",
+        "type": {
+          "name": "number_integer"
+        }
+      }
+    ]
+  },
+  "collectionKambric": {
+    "nodes": [
+      {
+        "id": "gid://shopify/MetafieldDefinition/66936963306",
+        "namespace": "kambric",
+        "key": "season",
+        "name": "Season",
+        "type": {
+          "name": "single_line_text_field"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/66936996074",
+        "namespace": "kambric",
+        "key": "year",
+        "name": "Year",
+        "type": {
+          "name": "number_integer"
+        },
+        "access": {
+          "storefront": "PUBLIC_READ"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/81135567082",
+        "namespace": "kambric",
+        "key": "card_image",
+        "name": "Card image",
+        "type": {
+          "name": "file_reference"
+        },
+        "access": {
+          "storefront": "NONE"
+        }
+      },
+      {
+        "id": "gid://shopify/MetafieldDefinition/81135599850",
+        "namespace": "kambric",
+        "key": "header_image",
+        "name": "Header image",
+        "type": {
+          "name": "file_reference"
+        },
+        "access": {
+          "storefront": "NONE"
+        }
+      }
+    ]
+  },
+  "arielle": {
+    "id": "gid://shopify/Product/8721345642730",
+    "title": "Arielle Slip Dress",
+    "status": "ACTIVE",
+    "archiveLabel": {
+      "id": "gid://shopify/Metafield/37404735471850",
+      "value": "Parlor Rose"
+    }
+  },
+  "monogram": {
+    "id": "gid://shopify/Product/8690060460266",
+    "title": "Chainstitch Monogram",
+    "status": "ACTIVE",
+    "seoHidden": {
+      "id": "gid://shopify/Metafield/37404735504618",
+      "value": "1",
+      "type": "number_integer"
+    }
+  }
+}

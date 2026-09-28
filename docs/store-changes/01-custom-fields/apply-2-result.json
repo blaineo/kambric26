@@ -1,0 +1,25 @@
+{
+  "metafieldsSet": {
+    "metafields": [
+      {
+        "id": "gid://shopify/Metafield/37404735471850",
+        "namespace": "kambric",
+        "key": "archive_label",
+        "value": "Parlor Rose",
+        "owner": {
+          "handle": "arielle-dress"
+        }
+      },
+      {
+        "id": "gid://shopify/Metafield/37404735504618",
+        "namespace": "seo",
+        "key": "hidden",
+        "value": "1",
+        "owner": {
+          "handle": "chainstitch-monogram"
+        }
+      }
+    ],
+    "userErrors": []
+  }
+}
