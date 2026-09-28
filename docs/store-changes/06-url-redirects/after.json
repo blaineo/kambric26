@@ -1,0 +1,347 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186"
+  },
+  "urlRedirects": {
+    "nodes": [
+      {
+        "id": "gid://shopify/UrlRedirect/483642114282",
+        "path": "/about",
+        "target": "/pages/about"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642147050",
+        "path": "/admin",
+        "target": "/"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642179818",
+        "path": "/api/sitemap.xml",
+        "target": "/sitemap.xml"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642212586",
+        "path": "/collections/botanicals",
+        "target": "/collections/whimsy"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642245354",
+        "path": "/contact",
+        "target": "/pages/contact"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642278122",
+        "path": "/events",
+        "target": "/pages/events"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642310890",
+        "path": "/journal",
+        "target": "/blogs/journal"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642343658",
+        "path": "/journal/arielle-dress",
+        "target": "/blogs/journal/arielle-dress"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642376426",
+        "path": "/journal/chainstitch",
+        "target": "/blogs/journal/chainstitch"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642409194",
+        "path": "/journal/first-look-ss27",
+        "target": "/blogs/journal/first-look-ss27"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642441962",
+        "path": "/journal/gearing-up-for-dallas",
+        "target": "/blogs/journal/gearing-up-for-dallas"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642474730",
+        "path": "/journal/where-kambric-began",
+        "target": "/blogs/journal/where-kambric-began"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642507498",
+        "path": "/privacy-policy",
+        "target": "/policies/privacy-policy"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642540266",
+        "path": "/returns",
+        "target": "/pages/returns"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642573034",
+        "path": "/sale",
+        "target": "/collections/sale"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642605802",
+        "path": "/shipping",
+        "target": "/pages/shipping"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642638570",
+        "path": "/shop/accessories",
+        "target": "/collections/accessories"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642671338",
+        "path": "/shop/coats",
+        "target": "/collections/coats"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642704106",
+        "path": "/shop/dresses",
+        "target": "/collections/dresses"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642736874",
+        "path": "/shop/kaftans",
+        "target": "/collections/kaftans"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642769642",
+        "path": "/shop/swimwear",
+        "target": "/collections/swimwear"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642802410",
+        "path": "/size-guide",
+        "target": "/pages/size-guide"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642835178",
+        "path": "/terms-of-service",
+        "target": "/policies/terms-of-service"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642867946",
+        "path": "/wholesale",
+        "target": "/pages/wholesale"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642900714",
+        "path": "/products/8681284010218",
+        "target": "/products/vera-car-coat?variant=46124608258282"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642933482",
+        "path": "/products/8681284075754",
+        "target": "/products/vera-car-coat?variant=46124608356586"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642966250",
+        "path": "/products/8681284141290",
+        "target": "/products/zadie-linen-dress?variant=46124607373546"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483642999018",
+        "path": "/products/8681284206826",
+        "target": "/products/zadie-linen-dress?variant=46124607537386"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643031786",
+        "path": "/products/8681284239594",
+        "target": "/products/zadie-linen-dress?variant=46124607799530"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643064554",
+        "path": "/products/8681284272362",
+        "target": "/products/kati-slip-dress-in-matyo-floral"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643097322",
+        "path": "/products/8681284305130",
+        "target": "/products/jessie-slip-dress-in-twilight-plumes"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643130090",
+        "path": "/products/8681284370666",
+        "target": "/products/margit-one-piece?variant=46124605898986"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643162858",
+        "path": "/products/8681284403434",
+        "target": "/products/margit-one-piece?variant=46124606095594"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643195626",
+        "path": "/products/8681284436202",
+        "target": "/products/margit-one-piece?variant=46124606292202"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643228394",
+        "path": "/products/8681284468970",
+        "target": "/products/margit-one-piece?variant=46124606488810"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643261162",
+        "path": "/products/8681284501738",
+        "target": "/products/margit-one-piece?variant=46124606685418"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643293930",
+        "path": "/products/8681284534506",
+        "target": "/products/margit-one-piece?variant=46124606882026"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643326698",
+        "path": "/products/8681284567274",
+        "target": "/products/esther-kaftan?variant=46124607930602"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643359466",
+        "path": "/products/8681284600042",
+        "target": "/products/esther-kaftan?variant=46124608094442"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643392234",
+        "path": "/products/8681284632810",
+        "target": "/products/esther-kaftan?variant=46124608127210"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643425002",
+        "path": "/products/8681284665578",
+        "target": "/products/bodie-scarf-in-twilight-plumes"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643457770",
+        "path": "/products/8681284698346",
+        "target": "/products/goldie-bandana-in-matyo-floral"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643490538",
+        "path": "/products/8681285058794",
+        "target": "/products/margit-one-piece?variant=46124607078634"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643523306",
+        "path": "/products/8681285091562",
+        "target": "/products/margit-one-piece?variant=46124607209706"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643556074",
+        "path": "/products/8690544312554",
+        "target": "/products/margit-one-piece"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643588842",
+        "path": "/products/8690544345322",
+        "target": "/products/zadie-linen-dress"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643621610",
+        "path": "/products/8690544378090",
+        "target": "/products/esther-kaftan"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643654378",
+        "path": "/products/8690544410858",
+        "target": "/products/vera-car-coat"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643687146",
+        "path": "/products/8721345642730",
+        "target": "/products/arielle-dress"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643719914",
+        "path": "/products/esther-kaftan-in-dahlia-seed",
+        "target": "/products/esther-kaftan?variant=46124608094442"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643752682",
+        "path": "/products/esther-kaftan-in-good-vibrations",
+        "target": "/products/esther-kaftan?variant=46124607930602"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643785450",
+        "path": "/products/esther-kaftan-in-magnolia",
+        "target": "/products/esther-kaftan?variant=46124608127210"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643818218",
+        "path": "/products/kati-slip-dress-in-sunset-plumes",
+        "target": "/products/jessie-slip-dress-in-twilight-plumes"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643850986",
+        "path": "/products/margit-one-piece-in-dahlia-seed",
+        "target": "/products/margit-one-piece?variant=46124605898986"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643883754",
+        "path": "/products/margit-one-piece-in-good-vibrations",
+        "target": "/products/margit-one-piece?variant=46124606292202"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643916522",
+        "path": "/products/margit-one-piece-in-magnolia",
+        "target": "/products/margit-one-piece?variant=46124606882026"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643949290",
+        "path": "/products/margit-one-piece-in-matyo-floral",
+        "target": "/products/margit-one-piece?variant=46124607078634"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483643982058",
+        "path": "/products/margit-one-piece-in-moon-illusion",
+        "target": "/products/margit-one-piece?variant=46124606095594"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483644014826",
+        "path": "/products/margit-one-piece-in-orange-asterisk",
+        "target": "/products/margit-one-piece?variant=46124606685418"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483644047594",
+        "path": "/products/margit-one-piece-in-pastel-asterisk",
+        "target": "/products/margit-one-piece?variant=46124606488810"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483644080362",
+        "path": "/products/margit-one-piece-in-wildflowers",
+        "target": "/products/margit-one-piece?variant=46124607209706"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483644113130",
+        "path": "/products/vera-coat-in-matyo-floral",
+        "target": "/products/vera-car-coat?variant=46124608356586"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483644145898",
+        "path": "/products/vera-coat-in-midnight-plumes",
+        "target": "/products/vera-car-coat?variant=46124608258282"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483644178666",
+        "path": "/products/vera-coat-in-sunrise-plumes",
+        "target": "/products/vera-car-coat"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483644211434",
+        "path": "/products/zadie-linen-dress-in-wildflowers",
+        "target": "/products/zadie-linen-dress?variant=46124607373546"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483644244202",
+        "path": "/products/zadie-linen-dress-in-candied-plaid",
+        "target": "/products/zadie-linen-dress?variant=46124607537386"
+      },
+      {
+        "id": "gid://shopify/UrlRedirect/483644276970",
+        "path": "/products/zadie-linen-dress-in-cherry-coupe",
+        "target": "/products/zadie-linen-dress?variant=46124607799530"
+      }
+    ],
+    "pageInfo": {
+      "hasNextPage": false
+    }
+  }
+}

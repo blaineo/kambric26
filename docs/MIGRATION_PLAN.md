@@ -154,7 +154,7 @@ Shopify URL redirects only fire when the source path would 404 in Shopify, and t
 | `/journal/{slug}` (5) | `/blogs/journal/{slug}` | redirect ×5 (no wildcards in Shopify; add one per future post, or keep new posts on /blogs only) |
 | `/products/kati-slip-dress-in-sunset-plumes` | `/products/jessie-slip-dress-in-twilight-plumes` | redirect (Shopify auto-creates these on handle change) |
 | `/collections/botanicals` | `/collections/whimsy` | redirect |
-| `/products/{old per-print handle}` → `?variant=` (e.g. `margit-one-piece-in-dahlia-seed`; 17 draft products: margit ×8, zadie ×3, esther ×3, vera-coat ×3) | `/products/{merged handle}?print={Print}` (or the plain merged handle when the print isn't on it, e.g. Sunrise Plumes) | redirect ×17 ⚠️ verify Shopify fires redirects for handles of *draft* products (they 404 publicly); if not, archive/rename the drafts' handles first |
+| `/products/{old per-print handle}` → `?variant=` (e.g. `margit-one-piece-in-dahlia-seed`; 17 draft products: margit ×8, zadie ×3, esther ×3, vera-coat ×3) | `/products/{merged handle}?print={Print}` (or the plain merged handle when the print isn't on it, e.g. Sunrise Plumes) | redirect ×18 ✅ imported 2026-09-28 (batch 06); verified that Shopify fires redirects on draft-product handles |
 | `/products/{legacy numeric id}` (8 product IDs) | `/products/{handle}` | redirect ×8 |
 | `/products/{legacy per-print id}` (18, from `kambric.prints[].legacyId`) | `/products/{handle}?variant={first available variant of the print}` | redirect ×18 (D-7) |
 | `/products/{handle}?print=X` | same URL; theme JS resolves it to the print's variant; canonical stays `/products/{handle}` | theme (D-7) |
@@ -176,7 +176,7 @@ The final CSV is generated from `urls/redirects.csv` + `current-urls.csv` + the 
 1. Publish the Kambric26 theme on the Shopify-hosted Online Store once it's stable, so editors can enter content that carries over at cutover (**⚠️ D-21**). From then on, editors own its JSON; pull before every push (CLAUDE.md guardrail 9).
 2. Enter content on the playground: pages, journal, events, menus, theme editor sections.
 3. Run the reviewed data plan (§2 definitions, §3 cleanup), staging every **shared** change so it doesn't break the live Replit site (e.g. keep `kambric.prints` JSON intact while adding new fields, keep alt text grouping until the Replit site is retired, create new collections unpublished and publish them at cutover, because the live site reads the Online Store channel; see `store-changes/03-category-collections/finding.md`).
-4. Import the redirect CSV (Online Store only, so it's safe early), then spot-check 10 legacy URLs on the `myshopify.com` domain.
+4. ✅ Redirects imported (batch 06, 67 rows, all verified firing on the `myshopify.com` domain). `/shop` is handled in the theme (Shopify reserves it as a home alias).
 5. Production-readiness review on the playground domain: every page type at 1440/390, Theme Check, Lighthouse (median of 3 mobile runs), console, a checkout test order (refund/cancel), JSON-LD validation.
 6. Configure the Meta channel (D-13), email/newsletter (D-11) and back-in-stock (D-12). Where these touch checkout or notifications they're **shared**, so time them for cutover.
 

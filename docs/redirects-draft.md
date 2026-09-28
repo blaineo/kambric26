@@ -65,3 +65,6 @@ Shopify URL redirects cannot have query-string sources. The following patterns f
 
 
 > **`/shop` removed (2026-09-28):** Shopify serves the home page at `/shop` (a reserved alias), so a URL redirect there never fires. The theme handles it instead: `snippets/meta-tags.liquid` outputs an instant meta refresh + canonical to `/collections/all` when the path is exactly `/shop`. The `/shop/<category>` redirects are unaffected (those paths are real 404s).
+
+
+> ✅ **Imported 2026-09-28 (batch 06):** 67 redirects created, 0 rejected, all spot-checked firing on the Shopify-hosted site, including draft-product handles.

@@ -40,7 +40,7 @@ New definitions the live site doesn't read.
 
 ### A5. Store settings that only affect the Shopify-hosted site
 - ☐ **Contact form recipients** (Settings → Notifications → Staff notifications → Contact form): the "Notify me" back-in-stock requests arrive here. The live site doesn't use Shopify's contact form.
-- ☐ **URL redirects:** import `docs/redirects-draft.csv` (search "URL redirects" in the admin → Import). They only fire on the Shopify-hosted site. Then spot-check a few old links on `kambric-goods-2.myshopify.com`, including a draft-product one (e.g. `/products/margit-one-piece-in-dahlia-seed`).
+- ☑ **URL redirects:** import `docs/redirects-draft.csv` (search "URL redirects" in the admin → Import). They only fire on the Shopify-hosted site. Then spot-check a few old links on `kambric-goods-2.myshopify.com`, including a draft-product one (e.g. `/products/margit-one-piece-in-dahlia-seed`). *(Done, batch 06, 2026-09-28: 67 redirects, all firing, including draft-product handles. `/shop` is handled in the theme.)*
 - ☐ **Online Store password:** keep it on until cutover (Online Store → Preferences) if you don't want the preview site public.
 - ☐ Testing the footer or pop-up signup creates real customers; use `+test` addresses and delete them after.
 
