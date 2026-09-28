@@ -1,0 +1,32 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186"
+  },
+  "folklore": {
+    "id": "gid://shopify/Collection/451384180970",
+    "title": "Folklore",
+    "descriptionHtml": "<p>Rooted in Kati's earliest work — folk motifs, handwoven references, references to old-world textiles rendered in her unmistakable hand.</p>",
+    "seo": {
+      "title": null,
+      "description": null
+    }
+  },
+  "psychedelics": {
+    "id": "gid://shopify/Collection/451384148202",
+    "title": "Psychedelics",
+    "descriptionHtml": "<p>Kaleidoscopic color fields and geometric shapes</p>",
+    "seo": {
+      "title": null,
+      "description": null
+    }
+  },
+  "whimsy": {
+    "id": "gid://shopify/Collection/451384213738",
+    "title": "Whimsy",
+    "descriptionHtml": "<p>Inspiration drawn from fresh fruit on her table and advertisements in the latest women's fashion magazines to bouquets of freshly cut wildflowers in a vase. </p>",
+    "seo": {
+      "title": null,
+      "description": null
+    }
+  }
+}

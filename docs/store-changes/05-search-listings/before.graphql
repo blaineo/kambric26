@@ -1,0 +1,7 @@
+# Batch 05 read-only snapshot: search listing (SEO) fields of the three existing collections.
+query Batch05Before {
+  shop { id }
+  folklore: collectionByHandle(handle: "folklore") { id title descriptionHtml seo { title description } }
+  psychedelics: collectionByHandle(handle: "psychedelics") { id title descriptionHtml seo { title description } }
+  whimsy: collectionByHandle(handle: "whimsy") { id title descriptionHtml seo { title description } }
+}

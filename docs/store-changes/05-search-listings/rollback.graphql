@@ -1,0 +1,6 @@
+# Batch 05 rollback: before.json shows all three had no search listing (seo title/description null).
+mutation Batch05Rollback {
+  folklore: collectionUpdate(input: { id: "gid://shopify/Collection/451384180970", seo: { title: null, description: null } }) { collection { handle seo { title description } } userErrors { field message } }
+  psychedelics: collectionUpdate(input: { id: "gid://shopify/Collection/451384148202", seo: { title: null, description: null } }) { collection { handle seo { title description } } userErrors { field message } }
+  whimsy: collectionUpdate(input: { id: "gid://shopify/Collection/451384213738", seo: { title: null, description: null } }) { collection { handle seo { title description } } userErrors { field message } }
+}

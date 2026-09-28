@@ -1,0 +1,7 @@
+# Batch 05 (🟢): collection search listings only. Title and description (descriptionHtml) are NOT
+# sent, so the fields the live site reads stay exactly as they are.
+mutation Batch05 {
+  folklore: collectionUpdate(input: { id: "gid://shopify/Collection/451384180970", seo: { title: "Folklore | Kambric Goods", description: "Rooted in Kati's earliest work — folk motifs, handwoven references, the geometry of old-world textiles rendered in her unmistakable hand." } }) { collection { handle seo { title description } } userErrors { field message } }
+  psychedelics: collectionUpdate(input: { id: "gid://shopify/Collection/451384148202", seo: { title: "Psychedelics | Kambric Goods", description: "The most vivid prints in the archive. Kati made these in the early '70s — kaleidoscopic colour fields that still feel ahead of their time." } }) { collection { handle seo { title description } } userErrors { field message } }
+  whimsy: collectionUpdate(input: { id: "gid://shopify/Collection/451384213738", seo: { title: "Whimsy | Kambric Goods", description: "Inspiration drawn from fresh fruit on her table and advertisements in the latest women's fashion magazines to bouquets of freshly cut wildflowers in a vase." } }) { collection { handle seo { title description } } userErrors { field message } }
+}
