@@ -1,0 +1,161 @@
+{% comment %}
+  DEV-ONLY preview of the Phase 2 product-page components:
+  snippets/product-specs.liquid and snippets/back-in-stock.liquid +
+  assets/component-back-in-stock.js.
+
+  Reachable at /products/<active-handle>?view=phase2-components via
+  templates/product.phase2-components.json.
+
+  Remove this section, that template, and
+  locales/en.default.json's `products.back_in_stock.*` / `products.specs.*`
+  dev-only notes before launch if the components themselves move — the
+  components stay; only this harness is dev-only (see docs/CONTENT_GUIDE.md).
+{% endcomment %}
+
+<div class="phase2-preview">
+  {%- render 'section-heading', heading: 'Phase 2', heading_em: 'product components', tag: 'h1', size: 'xl' -%}
+  <p class="phase2-preview__intro">
+    Dev-only preview for <code>product.title</code>: {{ product.title }}. Not part of the storefront; remove before
+    launch.
+  </p>
+
+  <section class="phase2-preview__group">
+    <h2 class="phase2-preview__group-title">Product specs — snippets/product-specs.liquid</h2>
+    <p class="phase2-preview__note">
+      Renders nothing when the product has none of the Shopify taxonomy Category metafields set (Fabric, Color/
+      Pattern, Neckline, Sleeve length, Dress style, Skirt/dress length, Hemline, Outerwear features). None of the
+      current catalog's products have these set yet, so the block below is expected to be empty until an editor adds
+      them under Admin → this product → Category → Category metafields.
+    </p>
+    {%- render 'product-specs', product: product -%}
+  </section>
+
+  <section class="phase2-preview__group">
+    <h2 class="phase2-preview__group-title">Back in stock — snippets/back-in-stock.liquid</h2>
+    <p class="phase2-preview__note">
+      Simulates the product page dispatching <code>kg:notify-request</code> on <code>document</code>. Uses this
+      page's actual product/variant data where possible.
+    </p>
+    <div class="phase2-preview__row">
+      <button type="button" class="phase2-preview__trigger" data-phase2-notify data-print data-size="M">
+        Sold out — {{ product.title }}, size M (no print)
+      </button>
+      {%- assign sample_option = product.options_with_values | where: 'name', 'Print' | first -%}
+      {%- unless sample_option -%}
+        {%- assign sample_option = product.options_with_values | where: 'name', 'Colorway' | first -%}
+      {%- endunless -%}
+      {%- if sample_option -%}
+        <button
+          type="button"
+          class="phase2-preview__trigger"
+          data-phase2-notify
+          data-print="{{ sample_option.values.first | escape }}"
+          data-size="S"
+        >
+          Sold out — {{ product.title }}, {{ sample_option.values.first }}, size S
+        </button>
+      {%- endif -%}
+      {%- assign sample_variant = product.variants.first -%}
+      {%- if sample_variant -%}
+        <button
+          type="button"
+          class="phase2-preview__trigger"
+          data-phase2-notify
+          data-print="{{ sample_option.values.first | escape }}"
+          data-size="{{ sample_variant.title | escape }}"
+          data-variant-id="{{ sample_variant.id }}"
+        >
+          Sold out — with variant ID ({{ sample_variant.id }})
+        </button>
+      {%- endif -%}
+    </div>
+    {%- render 'back-in-stock', product: product -%}
+  </section>
+</div>
+
+<script type="module">
+  document.querySelectorAll('[data-phase2-notify]').forEach((button) => {
+    button.addEventListener('click', () => {
+      document.dispatchEvent(
+        new CustomEvent('kg:notify-request', {
+          detail: {
+            productTitle: {{ product.title | json }},
+            productUrl: {{ product.url | json }},
+            print: button.dataset.print || undefined,
+            size: button.dataset.size || undefined,
+            variantId: button.dataset.variantId || undefined,
+          },
+        })
+      );
+    });
+  });
+</script>
+
+{% stylesheet %}
+  .phase2-preview {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-16);
+    max-width: var(--container-7xl);
+    margin-inline: auto;
+    padding: var(--space-16) var(--page-margin);
+  }
+
+  .phase2-preview__intro {
+    max-width: 60ch;
+    color: var(--color-muted-foreground);
+  }
+
+  .phase2-preview__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-top: var(--space-8);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .phase2-preview__group-title {
+    font-family: var(--font-sans);
+    font-size: var(--text-12);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-label-xs);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .phase2-preview__note {
+    max-width: 70ch;
+    font-size: var(--text-14);
+    color: var(--color-muted-foreground);
+  }
+
+  .phase2-preview__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .phase2-preview__trigger {
+    padding: var(--space-3) var(--space-5);
+    border: 1px solid color-mix(in srgb, var(--color-foreground) 25%, transparent);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    color: var(--color-foreground);
+    transition:
+      background-color var(--duration-medium) var(--ease-standard),
+      color var(--duration-medium) var(--ease-standard);
+  }
+
+  .phase2-preview__trigger:hover,
+  .phase2-preview__trigger:focus-visible {
+    background: var(--color-foreground);
+    color: var(--color-background);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Phase 2 preview (dev)",
+  "settings": []
+}
+{% endschema %}

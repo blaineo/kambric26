@@ -1,0 +1,199 @@
+{% doc %}
+  Plain-text `<dl>` of the product's populated Shopify standard taxonomy
+  category metafields (all `list.metaobject_reference`). This is for AEO:
+  answer-first facts a plain-text/answer-engine crawler can read and quote,
+  so it's server-rendered, always visible (no JS, no collapsed-by-default
+  `<details>`) and produces no markup at all when nothing has a value.
+
+  Field → label, in display order (see docs/CONTENT_GUIDE.md for where
+  editors set these — Admin → product → Category → Category metafields):
+
+    shopify.fabric                      → Fabric
+    shopify.color-pattern               → Color / Pattern
+    shopify.neckline                    → Neckline
+    shopify.sleeve-length-type          → Sleeve Length
+    shopify.dress-style                 → Dress Style
+    shopify.skirt-dress-length-type     → Skirt/Dress Length
+    shopify.hemline-style               → Hemline
+    shopify.outerwear-clothing-features → Outerwear Features
+
+  A field's value is a comma-joined list of its referenced metaobjects'
+  `label` field — Shopify's standard taxonomy attribute-value metaobjects
+  (e.g. the "Cotton" entry under Fabric) use `label` as their display-name
+  field.
+
+  Deliberately omits Size, Target gender and Age group: those are
+  filtering/targeting attributes rather than garment facts worth quoting.
+
+  @param {product} product - The current product
+
+  @example
+  {% render 'product-specs', product: product %}
+{% enddoc %}
+{%- liquid
+  capture fabric_value
+    for tag in product.metafields.shopify.fabric.value
+      echo tag.label | escape
+      unless forloop.last
+        echo ', '
+      endunless
+    endfor
+  endcapture
+
+  capture pattern_value
+    for tag in product.metafields.shopify['color-pattern'].value
+      echo tag.label | escape
+      unless forloop.last
+        echo ', '
+      endunless
+    endfor
+  endcapture
+
+  capture neckline_value
+    for tag in product.metafields.shopify.neckline.value
+      echo tag.label | escape
+      unless forloop.last
+        echo ', '
+      endunless
+    endfor
+  endcapture
+
+  capture sleeve_value
+    for tag in product.metafields.shopify['sleeve-length-type'].value
+      echo tag.label | escape
+      unless forloop.last
+        echo ', '
+      endunless
+    endfor
+  endcapture
+
+  capture dress_style_value
+    for tag in product.metafields.shopify['dress-style'].value
+      echo tag.label | escape
+      unless forloop.last
+        echo ', '
+      endunless
+    endfor
+  endcapture
+
+  capture skirt_length_value
+    for tag in product.metafields.shopify['skirt-dress-length-type'].value
+      echo tag.label | escape
+      unless forloop.last
+        echo ', '
+      endunless
+    endfor
+  endcapture
+
+  capture hemline_value
+    for tag in product.metafields.shopify['hemline-style'].value
+      echo tag.label | escape
+      unless forloop.last
+        echo ', '
+      endunless
+    endfor
+  endcapture
+
+  capture outerwear_value
+    for tag in product.metafields.shopify['outerwear-clothing-features'].value
+      echo tag.label | escape
+      unless forloop.last
+        echo ', '
+      endunless
+    endfor
+  endcapture
+
+  assign has_any = false
+  if fabric_value != blank or pattern_value != blank or neckline_value != blank or sleeve_value != blank or dress_style_value != blank or skirt_length_value != blank or hemline_value != blank or outerwear_value != blank
+    assign has_any = true
+  endif
+-%}
+{%- if has_any -%}
+  <dl class="product-specs">
+    {%- if fabric_value != blank -%}
+      <div class="product-specs__row">
+        <dt>{{ 'products.specs.fabric' | t }}</dt>
+        <dd>{{ fabric_value }}</dd>
+      </div>
+    {%- endif -%}
+    {%- if pattern_value != blank -%}
+      <div class="product-specs__row">
+        <dt>{{ 'products.specs.color_pattern' | t }}</dt>
+        <dd>{{ pattern_value }}</dd>
+      </div>
+    {%- endif -%}
+    {%- if neckline_value != blank -%}
+      <div class="product-specs__row">
+        <dt>{{ 'products.specs.neckline' | t }}</dt>
+        <dd>{{ neckline_value }}</dd>
+      </div>
+    {%- endif -%}
+    {%- if sleeve_value != blank -%}
+      <div class="product-specs__row">
+        <dt>{{ 'products.specs.sleeve_length' | t }}</dt>
+        <dd>{{ sleeve_value }}</dd>
+      </div>
+    {%- endif -%}
+    {%- if dress_style_value != blank -%}
+      <div class="product-specs__row">
+        <dt>{{ 'products.specs.dress_style' | t }}</dt>
+        <dd>{{ dress_style_value }}</dd>
+      </div>
+    {%- endif -%}
+    {%- if skirt_length_value != blank -%}
+      <div class="product-specs__row">
+        <dt>{{ 'products.specs.skirt_dress_length' | t }}</dt>
+        <dd>{{ skirt_length_value }}</dd>
+      </div>
+    {%- endif -%}
+    {%- if hemline_value != blank -%}
+      <div class="product-specs__row">
+        <dt>{{ 'products.specs.hemline' | t }}</dt>
+        <dd>{{ hemline_value }}</dd>
+      </div>
+    {%- endif -%}
+    {%- if outerwear_value != blank -%}
+      <div class="product-specs__row">
+        <dt>{{ 'products.specs.outerwear_features' | t }}</dt>
+        <dd>{{ outerwear_value }}</dd>
+      </div>
+    {%- endif -%}
+  </dl>
+{%- endif -%}
+
+{% stylesheet %}
+  .product-specs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin: 0;
+    padding-top: var(--space-6);
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+
+  .product-specs__row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .product-specs__row dt {
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .product-specs__row dd {
+    margin: 0;
+    max-width: 65%;
+    font-size: var(--text-12);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-snug);
+    text-align: right;
+    color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+  }
+{% endstylesheet %}

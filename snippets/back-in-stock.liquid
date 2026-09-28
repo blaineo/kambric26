@@ -1,0 +1,304 @@
+{% doc %}
+  "Notify me when it's back" dialog (owner decision D-12: native form now,
+  an app can replace this later). Uses Shopify's contact form
+  (`{% form 'contact' %}`) so the store owner receives an email — there is
+  no back-in-stock API/app wired up yet, so customers are not automatically
+  emailed when the item restocks.
+
+  Listens on `document` for `kg:notify-request`, a CustomEvent the product
+  page dispatches when a shopper picks a sold-out size/colorway:
+
+    document.dispatchEvent(new CustomEvent('kg:notify-request', {
+      detail: { productTitle, productUrl, print, size, variantId }
+    }))
+
+  `productTitle` is expected on every dispatch (falls back to this
+  product's title); `productUrl`, `print`, `size` and `variantId` are all
+  optional. On receipt, `assets/component-back-in-stock.js` fills the
+  hidden `contact[...]` fields and the visible summary sentence, then opens
+  the native <dialog> (focus trap, Escape and the inert background all
+  come from `showModal()`; focus returns to whatever triggered the event
+  when the dialog closes).
+
+  Renders once per page. Without JS, nothing here is visible: the only way
+  to reach this dialog is the `kg:notify-request` event, which is itself
+  dispatched by JS on the product page — a no-JS shopper only ever sees
+  that page's plain "Sold out" text, per the product page contract.
+
+  @param {product} product - The current product. Required; also supplies
+    the initial/no-JS-fallback summary text and hidden field values.
+
+  @example
+  {% render 'back-in-stock', product: product %}
+{% enddoc %}
+{%- if product -%}
+  {%- assign back_in_stock_eyebrow_text = 'products.back_in_stock.eyebrow' | t -%}
+  {%- assign back_in_stock_submit_label = 'products.back_in_stock.submit' | t -%}
+  {%- capture back_in_stock_panel -%}
+    <button
+      type="button"
+      class="back-in-stock__close"
+      data-back-in-stock-close
+      aria-label="{{ 'products.back_in_stock.close' | t }}"
+    >
+      {%- render 'icon', name: 'close' -%}
+    </button>
+
+    {% form 'contact', id: 'BackInStockForm', class: 'back-in-stock__form' %}
+      <input type="hidden" name="contact[Request]" value="Back in stock">
+      <input type="hidden" name="contact[Product]" value="{{ product.title | escape }}" data-back-in-stock-field="product">
+      <input type="hidden" name="contact[Print]" value="" data-back-in-stock-field="print">
+      <input type="hidden" name="contact[Size]" value="" data-back-in-stock-field="size">
+      <input type="hidden" name="contact[Variant ID]" value="" data-back-in-stock-field="variant-id">
+      <input type="hidden" name="contact[Product URL]" value="{{ shop.url | append: product.url | escape }}" data-back-in-stock-field="product-url">
+      <input
+        type="hidden"
+        name="contact[body]"
+        value="{{ 'products.back_in_stock.body_fallback' | t: product: product.title }}"
+        data-back-in-stock-field="body"
+      >
+
+      <div class="back-in-stock__view" data-back-in-stock-view="form" {% if form.posted_successfully? %}hidden{% endif %}>
+        {%- render 'eyebrow', text: back_in_stock_eyebrow_text, class: 'back-in-stock__eyebrow' -%}
+        <h2 class="back-in-stock__heading">{{ 'products.back_in_stock.heading' | t }}</h2>
+        <p class="back-in-stock__copy">
+          {{- 'products.back_in_stock.copy_prefix' | t -}}
+          <strong data-back-in-stock-summary>{{ product.title | escape }}</strong>
+          {{- 'products.back_in_stock.copy_suffix' | t -}}
+        </p>
+
+        <label class="visually-hidden" for="BackInStockEmail">{{ 'products.back_in_stock.email_label' | t }}</label>
+        <input
+          id="BackInStockEmail"
+          class="back-in-stock__input"
+          type="email"
+          name="contact[email]"
+          autocomplete="email"
+          required
+          placeholder="{{ 'products.back_in_stock.email_placeholder' | t }}"
+          {% if form.errors %}
+            aria-invalid="true" aria-describedby="BackInStockError"
+          {% endif %}
+        >
+
+        {%- render 'button', label: back_in_stock_submit_label, variant: 'solid', type: 'submit', class: 'back-in-stock__submit' -%}
+
+        <p
+          id="BackInStockError"
+          class="back-in-stock__message back-in-stock__message--error"
+          role="alert"
+          data-back-in-stock-error
+          {% unless form.errors %}hidden{% endunless %}
+        >{{ 'products.back_in_stock.error' | t }}</p>
+      </div>
+
+      <div class="back-in-stock__view" data-back-in-stock-view="success" {% unless form.posted_successfully? %}hidden{% endunless %} tabindex="-1" data-back-in-stock-focus>
+        <p class="back-in-stock__heading back-in-stock__heading--serif">{{ 'products.back_in_stock.success_heading' | t }}</p>
+        <p class="back-in-stock__copy">
+          {{- 'products.back_in_stock.success_copy_prefix' | t -}}
+          <strong data-back-in-stock-summary-success>{{ product.title | escape }}</strong>
+          {{- 'products.back_in_stock.success_copy_suffix' | t -}}
+        </p>
+        <button type="button" class="back-in-stock__continue" data-back-in-stock-close>
+          {{- 'products.back_in_stock.continue' | t -}}
+        </button>
+      </div>
+    {% endform %}
+  {%- endcapture -%}
+
+  <kg-back-in-stock
+    class="back-in-stock"
+    data-product-title="{{ product.title | escape }}"
+    data-product-url="{{ shop.url | append: product.url | escape }}"
+  >
+    <dialog
+      id="BackInStock"
+      class="back-in-stock__dialog"
+      aria-label="{{ 'products.back_in_stock.heading' | t }}"
+      scroll-lock
+    >
+      {{ back_in_stock_panel }}
+    </dialog>
+  </kg-back-in-stock>
+
+  <script src="{{ 'component-back-in-stock.js' | asset_url }}" type="module" defer="defer"></script>
+{%- endif -%}
+
+{% stylesheet %}
+  .back-in-stock__dialog {
+    width: min(28rem, calc(100vw - var(--space-12)));
+    max-width: none;
+    margin: auto;
+    padding: var(--space-10) var(--space-9);
+    border: 0;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .back-in-stock__dialog::backdrop {
+    background: color-mix(in srgb, var(--color-foreground) 40%, transparent);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .back-in-stock__dialog {
+      opacity: 1;
+      transform: none;
+      transition:
+        opacity var(--duration-medium) var(--ease-out-expo),
+        transform var(--duration-medium) var(--ease-out-expo),
+        display var(--duration-medium) allow-discrete,
+        overlay var(--duration-medium) allow-discrete;
+    }
+
+    .back-in-stock__dialog::backdrop {
+      opacity: 1;
+      transition:
+        opacity var(--duration-fast) var(--ease-standard),
+        display var(--duration-fast) allow-discrete,
+        overlay var(--duration-fast) allow-discrete;
+    }
+
+    @starting-style {
+      .back-in-stock__dialog[open] {
+        opacity: 0;
+        transform: translateY(24px) scale(0.98);
+      }
+
+      .back-in-stock__dialog[open]::backdrop {
+        opacity: 0;
+      }
+    }
+  }
+
+  .back-in-stock__close {
+    position: absolute;
+    top: var(--space-4);
+    right: var(--space-5);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    color: color-mix(in srgb, var(--color-foreground) 40%, transparent);
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .back-in-stock__close:hover,
+  .back-in-stock__close:focus-visible {
+    color: var(--color-foreground);
+  }
+
+  .back-in-stock__form {
+    position: relative;
+  }
+
+  .back-in-stock__view[hidden] {
+    display: none;
+  }
+
+  .back-in-stock__eyebrow {
+    margin-bottom: var(--space-4);
+  }
+
+  .back-in-stock__heading {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-serif);
+    font-size: var(--text-30);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-heading);
+  }
+
+  .back-in-stock__heading--serif {
+    font-style: italic;
+  }
+
+  .back-in-stock__copy {
+    margin: 0 0 var(--space-7);
+    font-size: var(--text-14);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-relaxed);
+    color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+  }
+
+  .back-in-stock__copy strong {
+    font-weight: var(--weight-regular);
+    color: var(--color-foreground);
+  }
+
+  .back-in-stock__input {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--space-6);
+    padding: var(--space-3) 0;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-14);
+    font-weight: var(--weight-light);
+    transition: border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .back-in-stock__input::placeholder {
+    color: color-mix(in srgb, var(--color-muted-foreground) 70%, transparent);
+  }
+
+  .back-in-stock__input:focus {
+    outline: none;
+    border-bottom-color: var(--color-foreground);
+  }
+
+  .back-in-stock__submit {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: var(--space-4) var(--space-8);
+  }
+
+  .back-in-stock__message {
+    margin: var(--space-4) 0 0;
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-body);
+    color: var(--color-destructive);
+  }
+
+  .back-in-stock__message[hidden] {
+    display: none;
+  }
+
+  .back-in-stock__view[data-back-in-stock-view='success'] {
+    text-align: center;
+    padding: var(--space-4) 0;
+    outline: none;
+  }
+
+  .back-in-stock__view[data-back-in-stock-view='success'] .back-in-stock__copy {
+    max-width: 22rem;
+    margin-inline: auto;
+  }
+
+  .back-in-stock__continue {
+    display: inline-flex;
+    margin-top: var(--space-4);
+    padding-bottom: var(--space-0-5);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-foreground) 30%, transparent);
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-button);
+    text-transform: uppercase;
+    color: var(--color-foreground);
+    transition:
+      color var(--duration-medium) var(--ease-standard),
+      border-color var(--duration-medium) var(--ease-standard);
+  }
+
+  .back-in-stock__continue:hover,
+  .back-in-stock__continue:focus-visible {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+{% endstylesheet %}
