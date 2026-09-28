@@ -74,7 +74,7 @@
   endif
   if print_collection == nil
     for c in product.collections
-      if c.handle != 'frontpage'
+      if c.handle != 'frontpage' and c.handle != 'all' and c.template_suffix != 'category' and c.template_suffix != 'sale'
         assign print_collection = c
         break
       endif

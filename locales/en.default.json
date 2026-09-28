@@ -29,7 +29,33 @@
         "one": "{{ count }} piece",
         "other": "{{ count }} pieces"
       }
-    }
+    },
+    "pagination": {
+      "label": "Pagination",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {{ number }}"
+    },
+    "structured_data": {
+      "all_name": "Shop All",
+      "item_list_name": "{{ collection }} from {{ shop }}"
+    },
+    "catalog": {
+      "count": {
+        "one": "{{ count }} piece",
+        "other": "{{ count }} pieces"
+      },
+      "count_on_sale": {
+        "one": "{{ count }} piece on sale",
+        "other": "{{ count }} pieces on sale"
+      }
+    },
+    "nav": {
+      "aria_label": "Shop by category",
+      "empty_hint": "Choose a menu in the section settings (default handle: shop-categories) to show the category strip."
+    },
+    "shop_all_title": "Shop All",
+    "index_title": "Heritage Print Collections"
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",

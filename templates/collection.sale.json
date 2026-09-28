@@ -1,0 +1,40 @@
+{
+  "sections": {
+    "heading": {
+      "type": "catalog-heading",
+      "settings": {
+        "show_on": "always"
+      }
+    },
+    "grid": {
+      "type": "collection-product-grid",
+      "settings": {
+        "show_on": "always",
+        "match_collection": false,
+        "print_filter": "sale",
+        "label": "",
+        "card_layout": "archive",
+        "container": "full",
+        "empty_heading": "No pieces are on sale right now.",
+        "empty_body": "",
+        "empty_link_label": "Shop All Pieces",
+        "empty_link_url": "/collections/all"
+      }
+    },
+    "cta": {
+      "type": "text-cta",
+      "settings": {
+        "show_on": "always",
+        "style": "split",
+        "message": "Each piece is made in limited quantities — when a print is gone, it doesn't always return.",
+        "link_label": "The Archive →",
+        "link_url": "/pages/about"
+      }
+    }
+  },
+  "order": [
+    "heading",
+    "grid",
+    "cta"
+  ]
+}

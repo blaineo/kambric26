@@ -8,8 +8,9 @@
     - single-print product: one entry, `kambric.print_name` (fallback: title)
 
   A print's collection is `kambric.prints[].collection` (merged products, when
-  the entry has one), otherwise the product's first collection that isn't
-  `frontpage`. With `collection_handle`, only prints whose collection equals
+  the entry has one), otherwise the product's first *editorial* collection:
+  not `frontpage`/`all` and not using the `category` or `sale` template (those
+  automated collections must never become a print's home collection). With `collection_handle`, only prints whose collection equals
   that handle are kept (stale handles like `botanicals` simply never match).
   `collection_handle: 'all'` or blank means no filter.
 
@@ -77,7 +78,7 @@
 
     assign default_collection = nil
     for c in product.collections
-      if c.handle != 'frontpage'
+      if c.handle != 'frontpage' and c.handle != 'all' and c.template_suffix != 'category' and c.template_suffix != 'sale'
         assign default_collection = c.handle
         break
       endif

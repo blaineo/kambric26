@@ -49,7 +49,7 @@
       if product_collection == blank or product_collection.handle == blank
         assign product_collection = blank
         for product_collection_option in product.collections
-          if product_collection_option.handle != 'frontpage'
+          if product_collection_option.handle != 'frontpage' and product_collection_option.handle != 'all' and product_collection_option.template_suffix != 'category' and product_collection_option.template_suffix != 'sale'
             assign product_collection = product_collection_option
             break
           endif

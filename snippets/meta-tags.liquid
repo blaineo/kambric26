@@ -9,6 +9,13 @@
   if request.page_type == '404'
     assign page_title = 'general.page_not_found' | t
   endif
+  # Source parity: /collections/all is the shop page, titled "Shop All | Kambric Goods".
+  if request.page_type == 'collection' and collection.handle == 'all' and current_tags == blank
+    assign page_title = 'collections.shop_all_title' | t
+  endif
+  if request.page_type == 'list-collections'
+    assign page_title = 'collections.index_title' | t
+  endif
   assign og_title = page_title | default: shop.name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'

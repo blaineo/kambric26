@@ -3,25 +3,19 @@
     "heading": {
       "type": "catalog-heading",
       "settings": {
-        "show_on": "all_only"
+        "show_on": "always"
       }
     },
     "nav": {
       "type": "category-nav",
       "settings": {
-        "show_on": "all_only"
-      }
-    },
-    "hero": {
-      "type": "collection-hero",
-      "settings": {
-        "show_on": "except_all"
+        "show_on": "always"
       }
     },
     "groups": {
       "type": "collection-product-groups",
       "settings": {
-        "show_on": "all_only",
+        "show_on": "always",
         "group_order": [
           "psychedelics",
           "folklore",
@@ -29,40 +23,21 @@
         ]
       }
     },
-    "grid": {
-      "type": "collection-product-grid",
-      "settings": {
-        "show_on": "except_all"
-      }
-    },
-    "cta_shop": {
+    "cta": {
       "type": "text-cta",
       "settings": {
-        "show_on": "all_only",
+        "show_on": "always",
         "style": "split",
         "message": "Each piece is made in limited quantities — when a print is gone, it doesn't always return.",
         "link_label": "The Archive →",
         "link_url": "/pages/about"
-      }
-    },
-    "cta_detail": {
-      "type": "text-cta",
-      "settings": {
-        "show_on": "except_all",
-        "style": "centered",
-        "message": "Explore more of the archive.",
-        "link_label": "All Collections",
-        "link_url": "/collections"
       }
     }
   },
   "order": [
     "heading",
     "nav",
-    "hero",
     "groups",
-    "grid",
-    "cta_shop",
-    "cta_detail"
+    "cta"
   ]
 }
