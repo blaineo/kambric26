@@ -112,5 +112,44 @@
       "instagram": "Instagram URL",
       "pinterest": "Pinterest URL"
     }
+  },
+  "sections": {
+    "announcement": {
+      "name": "Announcement bar",
+      "enabled": "Show announcement",
+      "text": "Message",
+      "cta_label": "Link label",
+      "cta_label_info": "Underlined text after the message (hidden on small phones). Needs a link.",
+      "link": "Link",
+      "style": "Style",
+      "style_static": "Static",
+      "style_marquee": "Scrolling (marquee)",
+      "style_info": "The current site uses Static. Scrolling pauses on hover and is turned off for visitors who prefer reduced motion."
+    },
+    "header": {
+      "menu_info": "Top-level links become the header navigation. Links nested under a top-level link become its dropdown. A dropdown made only of collections uses the large italic style."
+    },
+    "footer": {
+      "location": "Location text",
+      "blocks": {
+        "brand": {
+          "name": "Brand text and social",
+          "text": "Text",
+          "show_social": "Show social icons",
+          "show_social_info": "Links come from Theme settings → Social media."
+        },
+        "menu": {
+          "name": "Menu column",
+          "heading": "Heading",
+          "heading_info": "Leave empty to use the menu's own title.",
+          "menu": "Menu"
+        },
+        "newsletter": {
+          "name": "Newsletter signup",
+          "heading": "Heading",
+          "info": "Sign-ups are saved as customers tagged \"newsletter\" with email marketing consent (Customers in the Shopify admin)."
+        }
+      }
+    }
   }
 }

@@ -48,5 +48,43 @@
     "submit": "Search",
     "no_results_html": "No results found for {{ terms }}",
     "results_for_html": "{{ count }} results found for {{ terms }}"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content"
+  },
+  "general": {
+    "page": "Page {{ page }}"
+  },
+  "header": {
+    "menu": "Menu",
+    "close": "Close",
+    "nav_label": "Main",
+    "search": "Search",
+    "cart": "Cart",
+    "cart_count": {
+      "one": "{{ count }} item",
+      "other": "{{ count }} items"
+    },
+    "toggle_submenu": "{{ title }} menu"
+  },
+  "footer": {
+    "social_instagram": "{{ shop }} on Instagram",
+    "social_pinterest": "{{ shop }} on Pinterest",
+    "newsletter_label": "Email address",
+    "newsletter_placeholder": "Your email address",
+    "newsletter_submit": "Subscribe",
+    "newsletter_success": "You're on the list. Thank you."
+  },
+  "sections": {
+    "announcement": {
+      "label": "Announcement",
+      "editor_hint": "Announcement bar is hidden. Turn it on and add text in this section's settings."
+    },
+    "header": {
+      "editor_hint_menu": "Choose a menu with links in this section's settings (default: main-menu)."
+    },
+    "footer": {
+      "editor_hint_menu": "This column's menu is empty or missing. Choose a menu in the block settings."
+    }
   }
 }

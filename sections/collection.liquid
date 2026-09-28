@@ -12,14 +12,15 @@
     {% for product in collection.products %}
       <div class="collection-product">
         {% if product.featured_image %}
-          {% render 'image',
-            class: 'collection-product__image',
-            image: product.featured_image,
-            url: product.url,
-            width: 400,
-            height: 400,
-            crop: 'center'
-          %}
+          <a href="{{ product.url }}" class="collection-product__image" tabindex="-1" aria-hidden="true">
+            {% render 'picture',
+              image: product.featured_image,
+              sizes: '(min-width: 48rem) 33vw, 50vw',
+              widths: '200, 300, 400, 600, 800',
+              aspect_ratio: 1,
+              alt: ''
+            %}
+          </a>
         {% endif %}
         <div class="collection-product__content">
           <p>{{ product.title | escape | link_to: product.url }}</p>

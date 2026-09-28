@@ -31,7 +31,9 @@
           <div class="search-result">
             {% assign featured_image = result.featured_image | default: result.image %}
             {% if featured_image %}
-              {% render 'image', class: 'search-result__image', image: featured_image, url: result.url, width: 400 %}
+              <a href="{{ result.url }}" class="search-result__image" tabindex="-1" aria-hidden="true">
+                {% render 'picture', image: featured_image, sizes: '200px', widths: '200, 400', alt: '' %}
+              </a>
             {% endif %}
             <div class="search-result__content">
               <p>

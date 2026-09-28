@@ -7,7 +7,14 @@
 
 <div class="product-images">
   {% for image in product.images %}
-    {% render 'image', class: 'product-image', image: image %}
+    {% liquid
+      if forloop.first
+        assign img_loading = 'priority'
+      else
+        assign img_loading = 'lazy'
+      endif
+    %}
+    {% render 'picture', class: 'product-image', image: image, sizes: '(min-width: 48rem) 50vw, 100vw', loading: img_loading %}
   {% endfor %}
 </div>
 

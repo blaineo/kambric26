@@ -1,0 +1,144 @@
+{% doc %}
+  Responsive <picture> for any Shopify image. Use this for every image in the theme.
+
+  - srcset from Shopify CDN widths (the CDN picks AVIF/WebP per browser, so no
+    format <source>s are needed); never upscales past the original width
+  - explicit width/height on <img> (and <source>) so the browser reserves space → no CLS
+  - optional art-directed mobile image via <source media>
+  - loading strategy:
+      'lazy'     (default) below-the-fold images
+      'eager'    above the fold but not the LCP element (e.g. logo)
+      'priority' THE LCP image (max one per page): eager + fetchpriority=high + preload
+
+  @param {image} image - Shopify image (e.g. product.featured_image, section.settings.image)
+  @param {string} sizes - The `sizes` attribute, e.g. '(min-width: 48rem) 33vw, 50vw'. Be accurate: it decides which file downloads.
+  @param {string} [alt] - Alt text override. Defaults to the image's alt text from the admin. Pass '' for decorative images.
+  @param {string} [loading] - 'lazy' | 'eager' | 'priority' (default 'lazy')
+  @param {string} [widths] - Comma-separated srcset widths (default '360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048')
+  @param {number} [aspect_ratio] - Crop to a width/height ratio (e.g. 0.75 for 3:4) at the CDN
+  @param {string} [crop] - Crop position when aspect_ratio is set (default 'center')
+  @param {image} [mobile_image] - Optional art-directed image below the md breakpoint
+  @param {number} [mobile_aspect_ratio] - Crop ratio for mobile_image
+  @param {string} [mobile_sizes] - `sizes` for mobile_image (default '100vw')
+  @param {string} [class] - Class(es) on <picture>
+  @param {string} [img_class] - Class(es) on <img>
+
+  @example
+  {% render 'picture',
+    image: section.settings.image,
+    sizes: '100vw',
+    loading: 'priority',
+    mobile_image: section.settings.image_mobile,
+    class: 'hero__media picture--cover'
+  %}
+{% enddoc %}
+
+{%- if image == blank -%}
+  {%- if request.design_mode -%}
+    {{- 'image' | placeholder_svg_tag: 'picture__placeholder' -}}
+  {%- endif -%}
+{%- else -%}
+{%- liquid
+  assign loading = loading | default: 'lazy'
+  assign widths = widths | default: '360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048'
+  assign crop = crop | default: 'center'
+  assign mobile_sizes = mobile_sizes | default: '100vw'
+  assign width_list = widths | split: ','
+
+  if alt == nil
+    assign alt = image.alt | default: ''
+  endif
+
+  comment
+    Largest requested width, capped at the original (the CDN never upscales).
+  endcomment
+  assign max_width = width_list | last | strip | plus: 0
+  if image.width < max_width
+    assign max_width = image.width
+  endif
+
+  if aspect_ratio
+    assign max_height = max_width | divided_by: aspect_ratio | round
+  endif
+
+  assign img_loading = 'lazy'
+  assign fetchpriority = 'auto'
+  assign preload = false
+  assign decoding = 'async'
+  case loading
+    when 'eager'
+      assign img_loading = 'eager'
+    when 'priority'
+      assign img_loading = 'eager'
+      assign fetchpriority = 'high'
+      assign preload = true
+      assign decoding = 'sync'
+  endcase
+-%}
+
+<picture class="picture {{ class }}">
+  {%- if mobile_image != blank -%}
+    {%- liquid
+      assign m_max = width_list | last | strip | plus: 0
+      if mobile_image.width < m_max
+        assign m_max = mobile_image.width
+      endif
+      if mobile_aspect_ratio
+        assign m_height = m_max | divided_by: mobile_aspect_ratio | round
+      else
+        assign m_height = m_max | divided_by: mobile_image.aspect_ratio | round
+      endif
+    -%}
+    <source
+      media="(max-width: 47.99rem)"
+      sizes="{{ mobile_sizes }}"
+      width="{{ m_max }}"
+      height="{{ m_height }}"
+      srcset="
+        {%- for w in width_list -%}
+          {%- assign w = w | strip | plus: 0 -%}
+          {%- if w <= mobile_image.width -%}
+            {%- if mobile_aspect_ratio -%}
+              {%- assign h = w | divided_by: mobile_aspect_ratio | round -%}
+              {{- mobile_image | image_url: width: w, height: h, crop: crop }} {{ w }}w
+            {%- else -%}
+              {{- mobile_image | image_url: width: w }} {{ w }}w
+            {%- endif -%}
+            {%- unless forloop.last %}, {% endunless -%}
+          {%- endif -%}
+        {%- endfor -%}
+      "
+    >
+  {%- endif -%}
+
+  {%- if aspect_ratio -%}
+    {{-
+      image
+      | image_url: width: max_width, height: max_height, crop: crop
+      | image_tag:
+        widths: widths,
+        sizes: sizes,
+        alt: alt,
+        loading: img_loading,
+        fetchpriority: fetchpriority,
+        decoding: decoding,
+        preload: preload,
+        class: img_class
+    -}}
+  {%- else -%}
+    {{-
+      image
+      | image_url: width: max_width
+      | image_tag:
+        widths: widths,
+        sizes: sizes,
+        alt: alt,
+        loading: img_loading,
+        fetchpriority: fetchpriority,
+        decoding: decoding,
+        preload: preload,
+        class: img_class
+    -}}
+  {%- endif -%}
+</picture>
+{%- endif -%}

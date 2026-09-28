@@ -12,7 +12,9 @@
     {% for item in cart.items %}
       <tr>
         <td>
-          {% render 'image', image: item.image, url: item.url %}
+          <a href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+            {% render 'picture', image: item.image, sizes: '120px', widths: '120, 240, 360', alt: '' %}
+          </a>
         </td>
         <td>
           <p>{{ item.product.title }}</p>

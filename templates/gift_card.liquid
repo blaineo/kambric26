@@ -42,7 +42,7 @@
 
         <p>
           {% if settings.logo %}
-            {{ settings.logo | image_url: width: 300 | image_tag: alt: shop.name }}
+            {% render 'picture', image: settings.logo, sizes: '300px', widths: '300, 600', alt: shop.name, loading: 'eager' %}
           {% else %}
             <img
               src="{{ 'gift-card/card.svg' | shopify_asset_url }}"

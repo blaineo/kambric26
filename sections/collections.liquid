@@ -14,12 +14,13 @@
   {% for collection in collections %}
     <a class="collection-card" href="{{ collection.url }}">
       {% if collection.featured_image %}
-        {% render 'image',
+        {% render 'picture',
           class: 'collection-card__image',
           image: collection.featured_image,
-          width: 600,
-          height: 600,
-          crop: 'center'
+          sizes: '(min-width: 48rem) 33vw, 100vw',
+          widths: '300, 450, 600, 900, 1200',
+          aspect_ratio: 1,
+          alt: ''
         %}
       {% endif %}
 
