@@ -23,6 +23,11 @@ Parity targets: every screenshot's header and footer; `404-*`, `contact-*` (simp
 - Verify on the dev theme: whether CDN `crop` honours the admin focal point (else prefer CSS `object-fit` + focal `object-position`, already emitted by `picture`).
 - Performance baseline: Lighthouse mobile on home, product and collection shells, recorded in this doc.
 
+**Phase 1 status (2026-09-28): built.** Snippets: `button`, `eyebrow`, `section-heading`, `rte`, `price`, `product-card` (standard/archive layouts), `product-prints` (print expansion + visibility guard; see its LiquidDoc for the calling pattern), `print-summary`, `print-swatches`, `collection-card`, `breadcrumbs`. Blocks: `heading`, `text`, `button`, `eyebrow`, `image`, `group`. `sections/404.liquid`, `templates/robots.txt.liquid`. Verified: Theme Check clean; card counts match the source (shop 22, psychedelics 9, sale 6). Still to do: Chrome check of the cards and 404 at 1440/390, and the Lighthouse baseline.
+- **Wire in later:** `{% render 'breadcrumbs' %}` in the product, collection, article, page, blog, list-collections and search sections as they're built.
+- **Remove before launch (dev-only previews):** `sections/phase1-{ui,cards,breadcrumbs}-preview.liquid`, `templates/index.phase1-ui.json`, `templates/collection.phase1-cards.json`, `templates/{product,collection}.phase1-breadcrumbs.json`.
+- **Open from Phase 1:** keep the hover second image on cards (desktop only)? Card zoom uses the source values (1.05/1000ms standard, 1.04/700ms archive), not `--image-hover-scale`. Card image alt is empty (the link text names the product).
+
 ### Phase 2: Product page (highest risk)
 Parity: `product-1440/390.png`; `../liquid/html/product-{multi-print,single-print,arielle,monogrammable,sold-out-variant}.html`. Arielle has real `Colorway` × `Size` options: no special case.
 - **Print model** (see SHOPIFY_DATA_MAP): merged products (option `Print`/`Colorway`) vs single-print (`kambric.print_name`/`print_story`); per-print data from `kambric.prints` JSON (`story`, `collection`, `featured`, `newArrival`, `legacyId`). **⚠️ D-6, D-7, D-8, D-14**

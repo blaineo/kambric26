@@ -197,6 +197,48 @@ After that, the header and footer match today's site exactly.
 
 ---
 
+## 3b. Page building blocks, product cards and the 404 page (Phase 1)
+
+### Blocks you can add to sections
+Where a section says **Add block**, these are available:
+
+| Block | What it's for | Key settings |
+| --- | --- | --- |
+| **Heading** | Serif headings, with an optional italic second line (e.g. "Her legacy," / *"carried on."*). This replaces the old `*italic*` trick. | **Heading level (SEO):** use H1 once per page for the page title, H2/H3 everywhere else. **Size** is separate, so pick whatever looks right. |
+| **Text** | Paragraphs with bold, italic, links and lists | Style: body / lead (larger) / small |
+| **Button** | Links styled as buttons | Style: *Outline* (boxed), *Solid* (filled), *Text with arrow* ("Shop the Collection →"), *Underline* (404 links). Turn on **Use light text** on dark photos or bands. |
+| **Eyebrow** | The small uppercase label above headings | **Show ornament** adds the dashes: "— New Arrivals —" |
+| **Image** | A photo | **Loading:** leave *Lazy* unless the image is at the top of the page. Use **Priority** for the single biggest image at the top of a page, at most once per page. **Crop:** natural, square, portrait, landscape, wide. |
+| **Group** | Puts blocks side by side or stacked | Direction, gap, padding, alignment |
+
+Rich text in pages and journal posts is styled automatically, including **real tables** (use them for size charts: search engines and AI assistants can read tables, not pictures of tables).
+
+### How products appear as cards
+- **One card per print.** A product with a *Print* or *Colorway* option shows one card for each value, in the order listed on the product. Reorder the values to reorder the cards.
+- A product without that option shows one card, named by its **Print name** field.
+- A card's price, **Sale** badge and **Sold out** badge come from that print's sizes. It says "Sold out" only when every size of that print is gone.
+- **Which collection a print appears in:** set per print in the product's *Prints* data (`collection`). Otherwise it's the product's first collection. ⚠️ Shared with the live site: four prints still point to the old **botanicals** collection, so **Whimsy currently shows no products**. The developer's data plan fixes this.
+- **Which photo a card shows:**
+  1. Photos whose alt text is exactly the print name (e.g. `Dahlia Seed`). ⚠️ Leave these alt texts alone until launch; the live site uses them too.
+  2. Otherwise, the photo assigned to that print's variants (safe to set).
+  3. Otherwise, the product's first photos.
+  The second photo fades in on hover (desktop only). Cards are cropped to 3:4, so set a **focal point** to move the crop.
+- Products tagged **hidden** (such as the chainstitch monogram fee) and **draft** products never appear.
+
+### Print swatches
+The small fabric squares on product pages use built-in images for the 14 current prints (Dahlia Seed, Orange Asterisk, Pastel Asterisk, Matyó Floral, Cherry Coupe, Wildflowers, Magnolia, Moon Illusion, Good Vibrations, Candied Plaid, Midnight Plumes, Twilight Plumes, Olive, Terracotta). Names must match exactly, including the accent in "Matyó". A new print shows a close-up crop of its photo until a swatch is added; ask the developer for now (making swatches editable is decision D-14).
+
+### Collection cards (the Collections page)
+Image: the collection's **Card image** field (`kambric.card_image`) if set, otherwise the collection image, otherwise the first product photo. **Set Card image on Folklore, Psychedelics and Whimsy** (safe: the live site doesn't read it). Title, description (first two lines) and "N pieces" come from the collection.
+
+### 404 page
+*Customize* → choose the **404 page** template from the page picker at the top. You can edit the small "404" label, the heading ("This page seems to have wandered off.") and the two links. Leave a link's label empty to hide it.
+
+### Breadcrumbs and robots.txt
+Nothing to set up. Breadcrumbs ("Home › Folklore › Arielle Slip Dress") use your product, collection and page titles, and tell Google where each page sits. `robots.txt` keeps Shopify's defaults and explicitly welcomes the AI assistants the current site allows (ChatGPT, Claude, Perplexity, Google's AI).
+
+---
+
 ## 4. Photos: getting the best quality and speed
 
 The new theme automatically resizes every photo for each screen size and serves modern formats (WebP/AVIF) to browsers that support them. **You don't need to resize or compress photos yourself.**
@@ -245,5 +287,6 @@ These are tracked as decisions in `docs/MIGRATION_PLAN.md`. They're listed here 
 
 | Date | Phase | What changed for editors |
 | --- | --- | --- |
+| 2026-09-28 | 1: Global components | Blocks (heading, text, button, eyebrow, image, group), product and collection cards, print swatches, 404 page, breadcrumbs, robots.txt (§3b). |
 | 2026-09-28 | 0: Foundation (update) | Step-by-step announcement bar how-to; one-time menu setup (§3a). Announcement bar slightly darker for readability. |
 | 2026-09-28 | 0: Foundation | Announcement bar, header menu (`main-menu`), footer (brand text, menu columns `footer` and `footer-info`, newsletter heading, location), theme settings (logo, favicon, sharing image, colours, social links). Guide created. |
