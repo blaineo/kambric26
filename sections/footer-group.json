@@ -13,9 +13,43 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "brand": {
+          "type": "brand",
+          "settings": {
+            "text": "<p>Small-batch contemporary womenswear rooted in hand-painted heritage prints from the 1960's and 70s.</p>",
+            "show_social": true
+          }
+        },
+        "menu_shop": {
+          "type": "menu",
+          "settings": {
+            "heading": "Shop",
+            "menu": "footer"
+          }
+        },
+        "menu_info": {
+          "type": "menu",
+          "settings": {
+            "heading": "Information",
+            "menu": "footer-info"
+          }
+        },
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Stay close"
+          }
+        }
+      },
+      "block_order": [
+        "brand",
+        "menu_shop",
+        "menu_info",
+        "newsletter"
+      ],
       "settings": {
-        "menu": "",
-        "show_payment_icons": true
+        "location": "Northern California"
       }
     }
   },

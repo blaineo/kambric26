@@ -11,12 +11,25 @@
   "type": "header",
   "name": "t:general.header",
   "sections": {
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "enabled": false,
+        "text": "Summer Sale · 20% Off Select Styles",
+        "cta_label": "Shop Now",
+        "link": "",
+        "style": "static"
+      }
+    },
     "header": {
       "type": "header",
-      "settings": {}
+      "settings": {
+        "menu": "main-menu"
+      }
     }
   },
   "order": [
+    "announcement_bar",
     "header"
-  ],
+  ]
 }

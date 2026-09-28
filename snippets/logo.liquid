@@ -1,0 +1,37 @@
+{% doc %}
+  Kambric Goods logo as a <picture>. Uses the "Logo" theme setting when set,
+  otherwise the bundled bronze wordmark (assets/kambric-wordmark-*.png,
+  733×188 aspect incl. built-in padding, matching the current site's box).
+
+  @param {number} height - Rendered CSS height in px (drives `sizes`)
+  @param {string} [class] - Class on <picture>
+  @param {string} [loading] - 'eager' (header) | 'lazy' (footer). Default 'lazy'.
+
+  @example
+  {% render 'logo', height: settings.logo_height, loading: 'eager', class: 'site-header__logo' %}
+{% enddoc %}
+{%- liquid
+  assign loading = loading | default: 'lazy'
+  if settings.logo != blank
+    assign logo_width = height | times: settings.logo.aspect_ratio | ceil
+    assign logo_sizes = logo_width | append: 'px'
+    render 'picture', image: settings.logo, alt: shop.name, sizes: logo_sizes, widths: '120, 180, 240, 360, 480, 720', loading: loading, class: class
+  else
+    assign logo_width = height | times: 733 | divided_by: 188
+    assign logo_sizes = logo_width | append: 'px'
+  endif
+-%}
+{%- if settings.logo == blank -%}
+  <picture class="picture {{ class }}">
+    <img
+      src="{{ 'kambric-wordmark-218w.png' | asset_url }}"
+      srcset="{{ 'kambric-wordmark-218w.png' | asset_url }} 218w, {{ 'kambric-wordmark-328w.png' | asset_url }} 328w"
+      sizes="{{ logo_sizes }}"
+      width="733"
+      height="188"
+      alt="{{ shop.name | escape }}"
+      loading="{{ loading }}"
+      decoding="async"
+    >
+  </picture>
+{%- endif -%}
