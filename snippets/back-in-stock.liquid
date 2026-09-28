@@ -62,9 +62,9 @@
         {%- render 'eyebrow', text: back_in_stock_eyebrow_text, class: 'back-in-stock__eyebrow' -%}
         <h2 class="back-in-stock__heading">{{ 'products.back_in_stock.heading' | t }}</h2>
         <p class="back-in-stock__copy">
-          {{- 'products.back_in_stock.copy_prefix' | t -}}
+          {{- 'products.back_in_stock.copy_prefix' | t }}
           <strong data-back-in-stock-summary>{{ product.title | escape }}</strong>
-          {{- 'products.back_in_stock.copy_suffix' | t -}}
+          {{ 'products.back_in_stock.copy_suffix' | t -}}
         </p>
 
         <label class="visually-hidden" for="BackInStockEmail">{{ 'products.back_in_stock.email_label' | t }}</label>
@@ -95,9 +95,9 @@
       <div class="back-in-stock__view" data-back-in-stock-view="success" {% unless form.posted_successfully? %}hidden{% endunless %} tabindex="-1" data-back-in-stock-focus>
         <p class="back-in-stock__heading back-in-stock__heading--serif">{{ 'products.back_in_stock.success_heading' | t }}</p>
         <p class="back-in-stock__copy">
-          {{- 'products.back_in_stock.success_copy_prefix' | t -}}
+          {{- 'products.back_in_stock.success_copy_prefix' | t }}
           <strong data-back-in-stock-summary-success>{{ product.title | escape }}</strong>
-          {{- 'products.back_in_stock.success_copy_suffix' | t -}}
+          {{ 'products.back_in_stock.success_copy_suffix' | t -}}
         </p>
         <button type="button" class="back-in-stock__continue" data-back-in-stock-close>
           {{- 'products.back_in_stock.continue' | t -}}
@@ -251,8 +251,10 @@
     border-bottom-color: var(--color-foreground);
   }
 
-  .back-in-stock__submit {
-    display: block;
+  /* .btn. prefix: beats snippets/button.liquid regardless of bundle order */
+  .btn.back-in-stock__submit {
+    display: flex;
+    justify-content: center;
     width: 100%;
     text-align: center;
     padding: var(--space-4) var(--space-8);

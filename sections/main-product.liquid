@@ -568,7 +568,8 @@
     margin-block-end: var(--space-8);
   }
 
-  .product__description {
+  /* .rte. prefix: beats snippets/rte.liquid regardless of bundle order */
+  .rte.product__description, .product__description {
     max-width: 24rem;
     margin-block-end: var(--space-8);
     font-size: var(--text-14);
@@ -577,7 +578,8 @@
     color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
   }
 
-  .product__story {
+  /* .rte. prefix: beats snippets/rte.liquid regardless of bundle order */
+  .rte.product__story, .product__story {
     max-width: 24rem;
     margin-block-end: var(--space-8);
     padding-inline-start: var(--space-5);
