@@ -75,7 +75,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 - ☐ Normalise journal/product tags if needed (MIGRATION_PLAN §3).
 
 ### C3. Checkout, marketing and policies (shared)
-- ☐ **Privacy policy and Terms** (Settings → Policies): shown at checkout.
+- ☐ **Privacy policy and Terms** (Settings → Policies): shown at checkout. Then ask Claude to add the held redirect `/terms-conditions` → `/policies/terms-of-service` (batch 14 log).
 - ☐ **Newsletter and WELCOME15** (D-11): create the WELCOME15 discount (the pop-up shows it after sign-up; blank its *Discount code* setting instead if Shopify Email will send it), welcome email, import subscribers with their consent state.
 - ☐ **Back-in-stock** (D-12): stays manual (contact-form emails) at launch; an app is optional later. Import the old requests list and handle it by hand.
 - ☐ **Meta Pixel** (D-13): install the Facebook & Instagram channel. It affects checkout events, so do it at cutover.

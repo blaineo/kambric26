@@ -1,0 +1,204 @@
+{
+ "created": [
+  {
+   "id": "gid://shopify/UrlRedirect/483667706090",
+   "path": "/home/p/maty-car-coat",
+   "target": "/products/vera-car-coat?variant=46124608356586"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483667738858",
+   "path": "/home/p/wildflowers-linen-slip-dress",
+   "target": "/products/zadie-linen-dress?variant=46124607340778"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483667771626",
+   "path": "/home/p/presale-linen-slip-dress-in-grapefruit-tartan",
+   "target": "/products/zadie-linen-dress?variant=46124607537386"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483667804394",
+   "path": "/home/p/maty-slip-dress-nwg8z",
+   "target": "/products/jessie-slip-dress-in-twilight-plumes"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483667837162",
+   "path": "/home/p/maty-slip-dress",
+   "target": "/products/kati-slip-dress-in-matyo-floral"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483667869930",
+   "path": "/home/p/pastel-asterisk-one-piece",
+   "target": "/products/margit-one-piece?variant=46124606488810"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483667902698",
+   "path": "/home/p/orange-asterisk-one-piece",
+   "target": "/products/margit-one-piece?variant=46124606685418"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483667935466",
+   "path": "/home/p/moonillusion-onepiece",
+   "target": "/products/margit-one-piece?variant=46124606095594"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483667968234",
+   "path": "/home/p/dahlia-seed-one-piece",
+   "target": "/products/margit-one-piece?variant=46124605898986"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668001002",
+   "path": "/home/p/magnolia-one-piece",
+   "target": "/products/margit-one-piece?variant=46124606882026"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668033770",
+   "path": "/home/p/good-vibrations-one-piece",
+   "target": "/products/margit-one-piece?variant=46124606292202"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668066538",
+   "path": "/home/p/magnolia-kaftan-dress",
+   "target": "/products/esther-kaftan?variant=46124608127210"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668099306",
+   "path": "/home/p/dahlia-seed-kaftan-dress",
+   "target": "/products/esther-kaftan?variant=46124608028906"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668132074",
+   "path": "/home/p/good-vibrations-kaftan-dress",
+   "target": "/products/esther-kaftan?variant=46124607930602"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668164842",
+   "path": "/home/p/rattlesnake-scarf-k2afd",
+   "target": "/products/goldie-bandana-in-matyo-floral"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668197610",
+   "path": "/home/p/rattlesnake-scarf-3l62x",
+   "target": "/products/bodie-scarf-in-twilight-plumes"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668230378",
+   "path": "/home/p/rattlesnake-scarf",
+   "target": "/collections/accessories"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668263146",
+   "path": "/home/p/rattlesnake-scarf-k2afd-8wz8j",
+   "target": "/collections/accessories"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668295914",
+   "path": "/home/p/dahlia-seed-scarf",
+   "target": "/collections/accessories"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668328682",
+   "path": "/home",
+   "target": "/collections/all"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668361450",
+   "path": "/home/accessories",
+   "target": "/collections/accessories"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668394218",
+   "path": "/home/scarves",
+   "target": "/collections/accessories"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668426986",
+   "path": "/home/kaftans",
+   "target": "/collections/kaftans"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668459754",
+   "path": "/home/womenswear",
+   "target": "/collections/all"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668492522",
+   "path": "/home/womenswear/dresses",
+   "target": "/collections/dresses"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668525290",
+   "path": "/home/womenswear/kaftans",
+   "target": "/collections/kaftans"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668558058",
+   "path": "/home/womenswear/coats",
+   "target": "/collections/coats"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668590826",
+   "path": "/home/womenswear/swimwear",
+   "target": "/collections/swimwear"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668623594",
+   "path": "/home/swimwear",
+   "target": "/collections/swimwear"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668656362",
+   "path": "/home/dresses",
+   "target": "/collections/dresses"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668689130",
+   "path": "/home/coats",
+   "target": "/collections/coats"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668721898",
+   "path": "/return-policy",
+   "target": "/pages/returns"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668754666",
+   "path": "/story",
+   "target": "/pages/about"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668787434",
+   "path": "/happenings",
+   "target": "/pages/events"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668820202",
+   "path": "/philosophy",
+   "target": "/pages/about"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668852970",
+   "path": "/shipping-returns",
+   "target": "/pages/shipping"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668885738",
+   "path": "/shop/kati-dress",
+   "target": "/products/kati-slip-dress-in-matyo-floral"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668918506",
+   "path": "/services/chainstitch-embroidery",
+   "target": "/blogs/journal/chainstitch"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668951274",
+   "path": "/services",
+   "target": "/pages/contact"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483668984042",
+   "path": "/book-an-appointment",
+   "target": "/pages/contact"
+  }
+ ]
+}
