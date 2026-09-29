@@ -102,6 +102,24 @@
   if request.page_type == 'product' and product.tags contains 'hidden'
     assign noindex = true
   endif
+
+  # Anything an editor hid from search engines (Shopify's seo.hidden = 1, which already drops it
+  # from the sitemap) also gets noindex, so the two signals agree.
+  case request.page_type
+    when 'product'
+      assign seo_hidden = product.metafields.seo.hidden.value
+    when 'collection'
+      assign seo_hidden = collection.metafields.seo.hidden.value
+    when 'page'
+      assign seo_hidden = page.metafields.seo.hidden.value
+    when 'article'
+      assign seo_hidden = article.metafields.seo.hidden.value
+    when 'blog'
+      assign seo_hidden = blog.metafields.seo.hidden.value
+  endcase
+  if seo_hidden == 1 or seo_hidden == '1' or seo_hidden == true
+    assign noindex = true
+  endif
 -%}
 
 {%- comment -%}
