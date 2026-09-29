@@ -9,8 +9,8 @@
       'lazy'     (default) below-the-fold images
       'eager'    above the fold but not the LCP element (e.g. logo)
       'priority' THE LCP image (max one per page): eager + fetchpriority=high + preload
-                 (with mobile_image: one media-scoped preload per viewport, so phones
-                 never fetch the desktop image)
+                 via our own <link> (Shopify's Link-header preload is malformed); with
+                 mobile_image, one media-scoped preload per viewport
 
   @param {image} image - Shopify image (e.g. product.featured_image, section.settings.image)
   @param {string} sizes - The `sizes` attribute, e.g. '(min-width: 48rem) 33vw, 50vw'. Be accurate: it decides which file downloads.
@@ -87,48 +87,55 @@
   endcase
 
   comment
-    With an art-directed phone image, image_tag's preload (no media query) would make
-    phones fetch the desktop image too. Preload each source for its own viewport instead.
+    Priority images are preloaded with our own <link> tags, never image_tag's `preload`:
+    Shopify writes that preload into the HTTP Link header with imagesrcset/imagesizes
+    unquoted, and their commas split the header, so browsers drop the srcset and fetch
+    the wrong file (seen in Lighthouse as a 2-3 s LCP load delay). With an art-directed
+    phone image there's one media-scoped preload per viewport.
   endcomment
-  assign media_preload = false
-  if preload and mobile_image != blank
-    assign preload = false
-    assign media_preload = true
-  endif
+  assign own_preload = preload
+  assign preload = false
 -%}
-{%- if media_preload -%}
+{%- if own_preload -%}
+  {%- assign sep = '' -%}
   {%- capture desktop_srcset -%}
-    {%- for w in width_list -%}
-      {%- assign w = w | strip | plus: 0 -%}
+    {%- for width_item in width_list -%}
+      {%- assign w = width_item | strip | plus: 0 -%}
       {%- if w <= image.width -%}
+        {{- sep -}}
         {%- if aspect_ratio -%}
           {%- assign h = w | divided_by: aspect_ratio | round -%}
           {{- image | image_url: width: w, height: h, crop: crop }} {{ w }}w
         {%- else -%}
           {{- image | image_url: width: w }} {{ w }}w
         {%- endif -%}
-        {%- unless forloop.last %}, {% endunless -%}
+        {%- assign sep = ', ' -%}
       {%- endif -%}
     {%- endfor -%}
   {%- endcapture -%}
-  {%- capture phone_srcset -%}
-    {%- for w in width_list -%}
-      {%- assign w = w | strip | plus: 0 -%}
-      {%- if w <= mobile_image.width -%}
-        {%- if mobile_aspect_ratio -%}
-          {%- assign h = w | divided_by: mobile_aspect_ratio | round -%}
-          {{- mobile_image | image_url: width: w, height: h, crop: crop }} {{ w }}w
-        {%- else -%}
-          {{- mobile_image | image_url: width: w }} {{ w }}w
-        {%- endif -%}
-        {%- unless forloop.last %}, {% endunless -%}
-      {%- endif -%}
-    {%- endfor -%}
-  {%- endcapture -%}
-  {%- # image_tag's preload can't take a media query, and art direction needs one preload per viewport. -%}
   {% # theme-check-disable AssetPreload %}
-  <link rel="preload" as="image" fetchpriority="high" media="(max-width: 47.99rem)" imagesrcset="{{ phone_srcset | strip }}" imagesizes="{{ mobile_sizes }}">
-  <link rel="preload" as="image" fetchpriority="high" media="(min-width: 48rem)" imagesrcset="{{ desktop_srcset | strip }}" imagesizes="{{ sizes }}">
+  {%- if mobile_image != blank -%}
+    {%- assign sep = '' -%}
+    {%- capture phone_srcset -%}
+      {%- for width_item in width_list -%}
+        {%- assign w = width_item | strip | plus: 0 -%}
+        {%- if w <= mobile_image.width -%}
+          {{- sep -}}
+          {%- if mobile_aspect_ratio -%}
+            {%- assign h = w | divided_by: mobile_aspect_ratio | round -%}
+            {{- mobile_image | image_url: width: w, height: h, crop: crop }} {{ w }}w
+          {%- else -%}
+            {{- mobile_image | image_url: width: w }} {{ w }}w
+          {%- endif -%}
+          {%- assign sep = ', ' -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endcapture -%}
+    <link rel="preload" as="image" fetchpriority="high" media="(max-width: 47.99rem)" imagesrcset="{{ phone_srcset }}" imagesizes="{{ mobile_sizes }}">
+    <link rel="preload" as="image" fetchpriority="high" media="(min-width: 48rem)" imagesrcset="{{ desktop_srcset }}" imagesizes="{{ sizes }}">
+  {%- else -%}
+    <link rel="preload" as="image" fetchpriority="high" imagesrcset="{{ desktop_srcset }}" imagesizes="{{ sizes }}">
+  {%- endif -%}
   {% # theme-check-enable AssetPreload %}
 {%- endif -%}
 
@@ -151,16 +158,18 @@
       width="{{ m_max }}"
       height="{{ m_height }}"
       srcset="
-        {%- for w in width_list -%}
-          {%- assign w = w | strip | plus: 0 -%}
+        {%- assign sep = '' -%}
+        {%- for width_item in width_list -%}
+          {%- assign w = width_item | strip | plus: 0 -%}
           {%- if w <= mobile_image.width -%}
+            {{- sep -}}
             {%- if mobile_aspect_ratio -%}
               {%- assign h = w | divided_by: mobile_aspect_ratio | round -%}
               {{- mobile_image | image_url: width: w, height: h, crop: crop }} {{ w }}w
             {%- else -%}
               {{- mobile_image | image_url: width: w }} {{ w }}w
             {%- endif -%}
-            {%- unless forloop.last %}, {% endunless -%}
+            {%- assign sep = ', ' -%}
           {%- endif -%}
         {%- endfor -%}
       "

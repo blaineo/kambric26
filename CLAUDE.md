@@ -117,7 +117,7 @@ Targets on mobile (Lighthouse mobile plus field CrUX once live): **LCP < 2.5s, C
 
 - **Images: always `{% render 'picture' %}`** (`snippets/picture.liquid`). Never write a bare `<img>` or `image_tag` in sections. The snippet outputs `<picture>` with an optional art-directed mobile `<source>`, and an inner `<img>` (generated with `image_tag`) carrying a `srcset` from `image_url` widths, `sizes`, explicit `width`/`height` so nothing shifts, `alt`, and `decoding="async"`. The Shopify CDN negotiates AVIF/WebP automatically, so don't add format `<source>`s.
 - **Loading** uses the snippet's `loading` param:
-  - `'priority'`: at most one per page, the LCP image (hero or first product image). It's eager, gets `fetchpriority="high"`, and is preloaded with `imagesrcset` (via `image_tag`'s `preload: true`).
+  - `'priority'`: at most one per page, the LCP image (hero or first product image). It's eager, gets `fetchpriority="high"`, and is preloaded by our own `<link rel="preload" imagesrcset imagesizes>` in the snippet. **Never use `image_tag`'s `preload: true`**: Shopify sends it as an HTTP Link header with unquoted `imagesrcset`/`imagesizes`, the commas break the header, and the browser preloads the wrong file.
   - `'eager'`: anything else above the fold at 1440 or 390 (e.g. the logo).
   - `'lazy'`: the default, everything else.
 - **Size and quality:** pass a realistic `sizes` value, cap widths at what's displayed ×2 (DPR), and crop at the CDN (`crop`/`height`) rather than in CSS. Bundled assets in `assets/` must be optimised before commit (PNG → palette PNG/WebP/SVG where lossless; JPG q≈78–82).

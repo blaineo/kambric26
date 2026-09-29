@@ -70,6 +70,8 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 - **Every change an editor would notice** goes into CONTENT_GUIDE, and every owner step into OWNER_TASKS, in the same commit.
 
 ## 7. Gotchas learned the hard way
+- `image_tag`'s `preload: true` emits a malformed HTTP Link header (unquoted `imagesrcset`/`imagesizes`), so the browser preloads the wrong file. `picture.liquid` writes its own `<link rel="preload">` instead (LCP on product/collection pages went from 5–6 s to 3–4 s in Lighthouse mobile).
+- Inside `{% for w in … %}`, `assign w = …` does **not** change `w` (the loop variable wins). Use a different name.
 - A literal `}` inside `{{ … }}` breaks the upload (Theme Check misses it); build such strings in `{% liquid %}`.
 - `render` named arguments can't take filters (assign first); inside `{% liquid %}` keep each `render` on one line.
 - Sections use `{% comment %}`, not `{% doc %}`; schema `name` ≤ 25 characters.
