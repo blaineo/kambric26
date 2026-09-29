@@ -300,9 +300,9 @@
     color: var(--rail-link);
   }
 
+  /* Source: flex items-baseline justify-between (one row; the heading and link wrap inside it) */
   .product-rail__header {
     display: flex;
-    flex-wrap: wrap;
     align-items: baseline;
     justify-content: space-between;
     gap: var(--space-4);
@@ -321,6 +321,9 @@
   }
 
   .btn--underline.product-rail__link {
+    flex-shrink: 1;
+    max-width: 50%;
+    white-space: normal;
     font-size: var(--text-11);
     font-weight: var(--weight-regular);
     letter-spacing: var(--tracking-label);

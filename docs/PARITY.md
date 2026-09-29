@@ -23,14 +23,16 @@ Pages: home, shop (`/shop` vs `/collections/all`), collections index, Folklore, 
 
 Verified after the fixes: About hero 682 px (= live), Events within 16 px, Wholesale text positions within a few px, Folklore/Shop orders and counts identical to live.
 
-## 🔧 Still to fix (theme, small)
+## ✅ Small fixes (done 2026-09-29)
 
-1. **Home, "From the Collections" at 390:** live wraps the heading onto two lines with "View all pieces" on the right; ours is one line with the link below.
-2. **Journal index at 1440:** live grid is full-bleed (wider cards); ours sits in the page container.
-3. **Journal post at 1440:** live text column and cover image are narrower (~656 px).
-4. **About:** eyebrow "— The Archive" has a leading rule on live; the closing CTA banner is taller with a lighter overlay on live.
-5. **Events at 390:** heading breaks "Where / to find us" (live: "Where to find / us").
-6. **Footer at 390:** link rows a little taller than live.
+1. Home "From the Collections" at 390: heading and "View all pieces" share one row, as live.
+2. Journal index: full-bleed grid with the source gutters (32 → 48 px) and header rule.
+3. Journal post: one 720 px article column (656 px of text, cover and footer), as live.
+4. About: "— The Archive" eyebrow rule; closing banner padding py-28.
+5. Events at 390: heading no longer balanced ("Where to find / us", as live).
+6. Footer: link rows 20 px tall, as live.
+
+Note: with the pop-up on, Shopify shows its **hCaptcha badge** (bottom-right) whenever a sign-up form is on screen. That's platform bot protection for customer forms; it isn't hidden, since hCaptcha's terms require the notice.
 
 ## ⏳ Blocked until cutover (store data, 🔴)
 

@@ -81,10 +81,11 @@
 </article>
 
 {% stylesheet %}
+  /* Source: JournalPost.tsx, article max-w-[720px] mx-auto px-8: text, cover and footer share one 656px column */
   .main-article {
-    max-width: var(--container-3xl);
+    max-width: 45rem;
     margin-inline: auto;
-    padding-inline: var(--page-margin);
+    padding-inline: var(--space-8);
     padding-block: var(--space-10) var(--space-20);
   }
 
@@ -137,12 +138,10 @@
   }
 
   .main-article__body .rte {
-    max-width: 40rem;
     margin-inline: auto;
   }
 
   .main-article__products {
-    max-width: 40rem;
     margin: var(--space-16) auto 0;
     padding-block-start: var(--space-10);
     border-block-start: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
@@ -171,7 +170,6 @@
     align-items: center;
     justify-content: space-between;
     gap: var(--space-4);
-    max-width: 40rem;
     margin: var(--space-16) auto 0;
     padding-block-start: var(--space-10);
     border-block-start: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);

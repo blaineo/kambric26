@@ -97,9 +97,22 @@
     padding-inline: var(--page-margin);
   }
 
+  /* Source: a 40px rule then the label, both hsl(34 22% 68%) at 30% / 50% */
   .about-hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
     margin-block-end: var(--space-7);
-    opacity: 0.85;
+    opacity: 0.5;
+  }
+
+  .about-hero__eyebrow::before {
+    content: '';
+    flex: none;
+    width: var(--space-10);
+    height: 1px;
+    background: currentColor;
+    opacity: 0.6;
   }
 
   .about-hero__title {
