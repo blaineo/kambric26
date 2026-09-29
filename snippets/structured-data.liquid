@@ -4,7 +4,7 @@
 
   - Organization: every page (brand entity: name, logo, social profiles)
   - WebSite + SearchAction: home page (sitelinks search box)
-  - Product: product pages (Shopify's structured_data; extended in Phase 2)
+  - ProductGroup: product pages (built here; see the comment at that branch)
   - Article: journal articles (Shopify's structured_data)
   BreadcrumbList, Event and FAQPage arrive with their pages (see docs/MIGRATION_PLAN.md).
 {% enddoc %}
@@ -63,8 +63,109 @@
     }
   </script>
 {%- elsif request.page_type == 'product' %}
+  {%- comment -%}
+    ProductGroup built here (not Shopify's `structured_data`) so Google gets what its product-data
+    guidance asks for and what Merchant Center receives: brand, material, per-variant print
+    (pattern, or color for a Colorway option) and size, variesBy, condition, identifiers when set,
+    price/availability per variant, and the return policy from the Returns page (14 days, by mail).
+  {%- endcomment -%}
+  {%- liquid
+    assign print_pos = 0
+    assign size_pos = 0
+    assign print_prop = 'pattern'
+    for option in product.options_with_values
+      if option.name == 'Print' or option.name == 'Colorway'
+        assign print_pos = option.position
+        if option.name == 'Colorway'
+          assign print_prop = 'color'
+        endif
+      elsif option.name == 'Size'
+        assign size_pos = option.position
+      endif
+    endfor
+    assign single_print = product.metafields.kambric.print_name.value
+
+    assign materials = ''
+    for m in product.metafields.shopify.fabric.value
+      assign m_label = m.label.value | default: m.label
+      if m_label != blank
+        assign materials = materials | append: m_label | append: ', '
+      endif
+    endfor
+    assign materials = materials | remove_last: ', '
+
+    assign varies = ''
+    if size_pos > 0
+      assign varies = varies | append: '"https://schema.org/size",'
+    endif
+    if print_pos > 0
+      assign varies = varies | append: '"https://schema.org/' | append: print_prop | append: '",'
+    endif
+    assign varies = varies | remove_last: ','
+    assign group_url = shop.url | append: product.url
+    assign print_idx = print_pos | minus: 1
+    assign size_idx = size_pos | minus: 1
+  -%}
   <script type="application/ld+json">
-    {{ product | structured_data }}
+    {
+      "@context": "https://schema.org",
+      "@type": "ProductGroup",
+      "@id": {{ group_url | append: '#product' | json }},
+      "productGroupID": {{ product.id | json }},
+      "name": {{ product.title | json }},
+      "description": {{ product.description | strip_html | strip_newlines | strip | json }},
+      "url": {{ group_url | json }},
+      "brand": { "@type": "Brand", "name": {{ product.vendor | default: shop.name | json }} },
+      {%- if product.category %}"category": {{ product.category.name | json }},{% elsif product.type != blank %}"category": {{ product.type | json }},{% endif %}
+      {%- if materials != blank %}"material": {{ materials | json }},{% endif %}
+      {%- if single_print != blank %}"pattern": {{ single_print | json }},{% endif %}
+      {%- if varies != blank %}"variesBy": [{{ varies }}],{% endif %}
+      "image": [{%- for image in product.images limit: 5 -%}{{ image | image_url: width: 1600 | prepend: 'https:' | json }}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}],
+      "hasVariant": [
+        {%- for variant in product.variants -%}
+          {%- liquid
+            assign v_image = variant.featured_image | default: product.featured_image
+            assign v_url = group_url | append: '?variant=' | append: variant.id
+            if print_pos > 0
+              assign v_print = variant.options[print_idx]
+            else
+              assign v_print = single_print
+            endif
+            if size_pos > 0
+              assign v_size = variant.options[size_idx]
+            else
+              assign v_size = blank
+            endif
+          -%}
+          {
+            "@type": "Product",
+            "@id": {{ v_url | append: '#variant' | json }},
+            "name": {{ product.title | append: ' - ' | append: variant.title | json }},
+            {%- if variant.sku != blank %}"sku": {{ variant.sku | json }},{% endif %}
+            {%- if variant.barcode != blank %}"gtin": {{ variant.barcode | json }},{% endif %}
+            {%- if v_image %}"image": {{ v_image | image_url: width: 1600 | prepend: 'https:' | json }},{% endif %}
+            {%- if v_print != blank %}{{ print_prop | json }}: {{ v_print | json }},{% endif %}
+            {%- if v_size != blank %}"size": {{ v_size | json }},{% endif %}
+            "offers": {
+              "@type": "Offer",
+              "url": {{ v_url | json }},
+              "price": {{ variant.price | divided_by: 100.0 | json }},
+              "priceCurrency": {{ cart.currency.iso_code | json }},
+              "itemCondition": "https://schema.org/NewCondition",
+              "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+              "seller": { "@type": "Organization", "name": {{ shop.name | json }} },
+              "hasMerchantReturnPolicy": {
+                "@type": "MerchantReturnPolicy",
+                "applicableCountry": "US",
+                "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+                "merchantReturnDays": 14,
+                "returnMethod": "https://schema.org/ReturnByMail"
+              }
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
   </script>
 {%- elsif request.page_type == 'article' %}
   <script type="application/ld+json">
