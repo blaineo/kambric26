@@ -36,7 +36,7 @@ Claude can't change its own permission settings, so:
 Proposed guardrail 3 wording:
 > 3. **Store data: the owner approves every change.** By default Claude doesn't create, edit or delete store data. **Exception (owner decision 2026-09-28):** Claude may run 🟢 and 🟡 tasks from `docs/OWNER_TASKS.md`, one batch at a time, each explicitly approved by the owner, only through the process in `docs/store-changes/README.md` (snapshots, reviewed change, generated rollback, live-site diff). Any difference on kambricgoods.com → stop, roll back, report. 🔴 tasks stay owner-only.
 
-## Batches (status: 01, 02, 04, 05, 06, 08, 10 ✅ done; 03 at cutover; 07, 09, 11 planned)
+## Batches (status: 01, 02, 04, 05, 06, 08, 10, 11 ✅ done; 03 at cutover; 07, 09 planned)
 | # | Batch | Tier | Creates / changes | Rollback |
 | --- | --- | --- | --- | --- |
 | 01 ✅ | Custom-field definitions | 🟢 | Definitions `kambric.archive_label` (product), `kambric.card_image`, `kambric.header_image` (collection), `seo.hidden` (product); values: Arielle archive label "Parlor Rose", monogram `seo.hidden = 1` | `metafieldDefinitionDelete` (with its values) for each definition created; `metafieldsDelete` for the two values |
@@ -49,6 +49,6 @@ Proposed guardrail 3 wording:
 | 08 ✅ | Content import | 🟢 | Pages (About, Events, 5 info pages; `contact` updated), `journal` blog + 5 posts, `kambric_event` definition + 3 events, Story/Events/Journal in `main-menu`, `footer-info` links; see `08-content-import/plan.md` | `rollback.py` (IDs from `apply-log.json`; menus + contact page restored from `before*.json`) |
 | 09 | Publish Kambric26 on the Shopify-hosted store | 🟢 | Theme publish (CLI) | Re-publish the previously published theme (ID recorded in `log.md`) |
 | 10 ✅ | Photos | 🟢 | Upload 16 home/About/Events photos to Files; the theme templates reference them (`10-photos/plan.md`) | `git revert` the template change; `rollback.py` (fileDelete) |
-| 11 | Pop-up photo | 🟢 | Upload `newsletter-signup-popup.jpg`; the pop-up section references it (`11-popup-photo/plan.md`) | `git revert` the theme change; `rollback.py` (fileDelete) |
+| 11 ✅ | Pop-up photo | 🟢 | Upload `newsletter-signup-popup.jpg`; the pop-up section references it (`11-popup-photo/plan.md`) | `git revert` the theme change; `rollback.py` (fileDelete) |
 
 **Batch 03 (2026-09-28):** the live site reads the Online Store channel itself, so "Online Store only" is not a safeguard (`03-category-collections/finding.md`). Owner decision: create and publish in one step at cutover.

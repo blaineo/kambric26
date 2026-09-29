@@ -1,0 +1,19 @@
+{
+ "steps": [
+  {
+   "staged": [
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/f3ba18a6-2394-412b-8321-de4470a05051/newsletter-signup-popup.jpg"
+   ]
+  },
+  {
+   "uploaded": 1
+  }
+ ],
+ "files": [
+  {
+   "id": "gid://shopify/MediaImage/34839684481258",
+   "filename": "newsletter-signup-popup.jpg",
+   "cdn_filename": "newsletter-signup-popup.jpg"
+  }
+ ]
+}

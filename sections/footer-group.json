@@ -57,7 +57,8 @@
       "settings": {
         "enabled": true,
         "show_on": "all",
-        "delay_seconds": 6
+        "delay_seconds": 6,
+        "image": "shopify://shop_images/newsletter-signup-popup.jpg"
       }
     }
   },
