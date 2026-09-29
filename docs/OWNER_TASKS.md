@@ -87,6 +87,14 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 - ☐ Claude restores the publish/live-push safety rules in the repo (step 9a).
 - ☐ Google Search Console: verify with the **HTML tag** method (the tag is already on the home page, theme setting *Google Search Console verification code*), then submit the sitemap (`/sitemap.xml`); same for Bing; watch 404s for 2 weeks.
 
+### C6. Google free listings (Merchant Center), 2026-09-29
+- ☐ Install Shopify's **Google & YouTube** sales channel (free), sign in with the Google account that owns Search Console, create/link **Merchant Center**, turn on **free listings**. Don't make `chainstitch-monogram` (the fee product) available to the Google channel.
+- ☐ In Merchant Center: **shipping** (match Shopify's rates) and **returns** (14 days from delivery, by mail; say who pays return shipping). The site's structured data already declares the 14-day, by-mail policy; keep the two in agreement.
+- ☐ **Identifiers:** the pieces have no barcodes (normal for small-batch). In the Google channel, mark them as custom products / "no GTIN"; optionally add SKUs (Claude can generate a scheme, e.g. `KG-MARGIT-DAHLIA-M`).
+- ☐ **Product category** on Jessie, Bodie, Goldie, Esther (Google uses it to classify listings). Note it can change tax calculation in some states; confirm with whoever handles tax.
+- ☐ **Fabric and Color/pattern** fields (Category metafields) on the 6 products missing them: Kati, Jessie, Bodie, Goldie, Margit, Esther. They feed both Google and the product-details list.
+- ☐ After products sync, fix anything Merchant Center flags under *Products → Needs attention*.
+
 ### C5. After the rollback window (about 14 days)
 - ☐ Decommission the Replit tokens and webhooks.
 - ☐ Now safe: rewrite product image **alt text** descriptively and move print grouping to variant media (D-8). The Replit site used alt text to group photos.
