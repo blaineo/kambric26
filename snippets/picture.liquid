@@ -55,8 +55,47 @@
     Largest requested width, capped at the original (the CDN never upscales).
   endcomment
   assign max_width = width_list | last | strip | plus: 0
-  if image.width < max_width
-    assign max_width = image.width
+
+  comment
+    Widest crop the CDN can actually make. It never upscales, and a crop taller than the original
+    is silently skipped (it returns the uncropped image). So a landscape photo shown in a portrait
+    frame (aspect_ratio < the image's) can be at most image.height × aspect_ratio wide.
+  endcomment
+  assign crop_limit = image.width
+  if aspect_ratio and aspect_ratio < image.aspect_ratio
+    assign crop_limit = image.height | times: aspect_ratio | floor
+  endif
+  if crop_limit < max_width
+    assign max_width = crop_limit
+  endif
+
+  comment
+    Only the widths the CDN can deliver (plus the capped maximum when nothing fits).
+  endcomment
+  assign usable_widths = ''
+  for width_item in width_list
+    assign cw = width_item | strip | plus: 0
+    if cw <= crop_limit
+      assign usable_widths = usable_widths | append: cw | append: ','
+    endif
+  endfor
+  comment
+    When the crop limit cuts the list short, offer the limit itself as the largest size.
+  endcomment
+  assign last_width = width_list | last | strip | plus: 0
+  if crop_limit < last_width
+    assign limit_key = ',' | append: crop_limit | append: ','
+    assign have = ',' | append: usable_widths
+    unless have contains limit_key
+      assign usable_widths = usable_widths | append: crop_limit | append: ','
+    endunless
+  endif
+  assign widths = usable_widths | remove_last: ','
+  assign width_list = widths | split: ','
+
+  assign m_crop_limit = mobile_image.width
+  if mobile_image != blank and mobile_aspect_ratio and mobile_aspect_ratio < mobile_image.aspect_ratio
+    assign m_crop_limit = mobile_image.height | times: mobile_aspect_ratio | floor
   endif
 
   if aspect_ratio
@@ -106,7 +145,7 @@
   {%- capture desktop_srcset -%}
     {%- for width_item in width_list -%}
       {%- assign w = width_item | strip | plus: 0 -%}
-      {%- if w <= image.width -%}
+      {%- if w <= crop_limit -%}
         {{- sep -}}
         {%- if aspect_ratio -%}
           {%- assign h = w | divided_by: aspect_ratio | round -%}
@@ -124,7 +163,7 @@
     {%- capture phone_srcset -%}
       {%- for width_item in width_list -%}
         {%- assign w = width_item | strip | plus: 0 -%}
-        {%- if w <= mobile_image.width -%}
+        {%- if w <= m_crop_limit -%}
           {{- sep -}}
           {%- if mobile_aspect_ratio -%}
             {%- assign h = w | divided_by: mobile_aspect_ratio | round -%}
@@ -148,8 +187,8 @@
   {%- if mobile_image != blank -%}
     {%- liquid
       assign m_max = width_list | last | strip | plus: 0
-      if mobile_image.width < m_max
-        assign m_max = mobile_image.width
+      if m_crop_limit < m_max
+        assign m_max = m_crop_limit
       endif
       if mobile_aspect_ratio
         assign m_height = m_max | divided_by: mobile_aspect_ratio | round
@@ -166,7 +205,7 @@
         {%- assign sep = '' -%}
         {%- for width_item in width_list -%}
           {%- assign w = width_item | strip | plus: 0 -%}
-          {%- if w <= mobile_image.width -%}
+          {%- if w <= m_crop_limit -%}
             {{- sep -}}
             {%- if mobile_aspect_ratio -%}
               {%- assign h = w | divided_by: mobile_aspect_ratio | round -%}
