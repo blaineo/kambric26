@@ -30,7 +30,7 @@
   @param {string} [selected] - Selected print value (default: the first print)
   @param {string} [as] - 'button' (default) | 'link' | 'variant'
   @param {boolean} [show_label] - Show the label row (option name + selected value). Default true.
-  @param {string} [loading] - 'lazy' (default) | 'eager'. Use 'eager' where swatches are above the fold (product page) so they don't pop in.
+  @param {string} [loading] - 'lazy' (default) | 'eager'. Default lazy (they're tiny, CDN-resized WebP with fixed 56px boxes, so nothing shifts). 'eager' only if a page needs them before anything else.
 
   @example
   {% render 'print-swatches', product: product, selected: selected_print %}
@@ -183,7 +183,8 @@
           {%- if swatch_file -%}
             <img
               class="print-swatch__image"
-              src="{{ swatch_file | asset_url }}"
+              src="{{ swatch_file | asset_img_url: '112x112', crop: 'center' }}"
+              srcset="{{ swatch_file | asset_img_url: '56x56', crop: 'center' }} 1x, {{ swatch_file | asset_img_url: '112x112', crop: 'center' }} 2x, {{ swatch_file | asset_img_url: '168x168', crop: 'center' }} 3x"
               alt=""
               width="56"
               height="56"

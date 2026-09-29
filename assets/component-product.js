@@ -28,6 +28,29 @@ class KgGallery extends HTMLElement {
       { root: this.track, threshold: 0.6 }
     );
     this.slides.forEach((slide) => this.observer.observe(slide));
+
+    // Slides 3+ are rendered without image sources (see product-gallery.liquid); restore them
+    // as soon as the shopper engages with the gallery, or once the page is idle.
+    if (this.querySelector('[data-defer-src], [data-defer-srcset]')) {
+      const load = () => this.loadDeferred();
+      this.track.addEventListener('scroll', load, { once: true, passive: true });
+      this.addEventListener('pointerenter', load, { once: true });
+      this.addEventListener('focusin', load, { once: true });
+      const idle = () => ('requestIdleCallback' in window ? requestIdleCallback(load, { timeout: 4000 }) : setTimeout(load, 1500));
+      if (document.readyState === 'complete') setTimeout(idle, 2500);
+      else window.addEventListener('load', () => setTimeout(idle, 2500), { once: true });
+    }
+  }
+
+  loadDeferred() {
+    this.querySelectorAll('[data-defer-srcset]').forEach((el) => {
+      el.setAttribute('srcset', el.dataset.deferSrcset);
+      el.removeAttribute('data-defer-srcset');
+    });
+    this.querySelectorAll('[data-defer-src]').forEach((el) => {
+      el.setAttribute('src', el.dataset.deferSrc);
+      el.removeAttribute('data-defer-src');
+    });
   }
 
   disconnectedCallback() {
@@ -38,6 +61,7 @@ class KgGallery extends HTMLElement {
     const target = event.target.closest('[data-gallery-prev], [data-gallery-next], [data-gallery-thumb]');
     if (!target) return;
     event.preventDefault();
+    this.loadDeferred();
     const count = this.slides.length;
     if (target.hasAttribute('data-gallery-thumb')) this.go(Number(target.dataset.galleryThumb));
     else this.go((this.index + (target.hasAttribute('data-gallery-next') ? 1 : -1) + count) % count);

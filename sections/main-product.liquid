@@ -265,7 +265,7 @@
           {%- when 'prints' -%}
             {%- if print_option and print_option.values.size > 1 -%}
               <div class="product__block product__prints" {{ block.shopify_attributes }}>
-                {% render 'print-swatches', product: product, selected: active_print, as: 'variant', loading: 'eager' %}
+                {% render 'print-swatches', product: product, selected: active_print, as: 'variant', loading: 'lazy' %}
               </div>
             {%- endif -%}
 

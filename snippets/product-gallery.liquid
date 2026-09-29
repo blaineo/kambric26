@@ -69,17 +69,32 @@
             aria-roledescription="{{ 'products.product.slide_roledescription' | t }}"
             aria-label="{{ 'products.product.slide_label' | t: number: n, count: count }}"
             data-gallery-slide
+            {%- if forloop.index0 >= 2 %} data-gallery-deferred{% endif %}
           >
-            {%- render 'picture',
-              image: image,
-              alt: alt,
-              sizes: main_sizes,
-              widths: '360, 540, 720, 900, 1080, 1296',
-              aspect_ratio: 0.75,
-              loading: img_loading,
-              class: 'product-gallery__picture',
-              img_class: 'product-gallery__image'
-            -%}
+            {%- capture slide_picture -%}
+              {%- render 'picture',
+                image: image,
+                alt: alt,
+                sizes: main_sizes,
+                widths: '360, 540, 720, 900, 1080, 1296',
+                aspect_ratio: 0.75,
+                loading: img_loading,
+                class: 'product-gallery__picture',
+                img_class: 'product-gallery__image'
+              -%}
+            {%- endcapture -%}
+            {%- if forloop.index0 >= 2 -%}
+              {%- comment -%}
+                Slides 3+ wait for the shopper: their sources are parked in data-defer-* and
+                <kg-gallery> restores them on the first swipe, arrow, thumbnail or hover, or once the
+                page is idle. Slide 2 stays ready so the first swipe is instant. <noscript> keeps them
+                for browsers without JavaScript.
+              {%- endcomment -%}
+              {{- slide_picture | replace: ' srcset="', ' data-defer-srcset="' | replace: ' src="', ' data-defer-src="' -}}
+              <noscript>{{ slide_picture }}</noscript>
+            {%- else -%}
+              {{- slide_picture -}}
+            {%- endif -%}
           </div>
         {%- endfor -%}
       </div>
