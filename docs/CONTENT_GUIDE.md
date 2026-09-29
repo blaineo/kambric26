@@ -391,7 +391,7 @@ Every listing page uses the **Product listing** section. What it shows depends o
 
 **Both ways**
 - Every print is its own card (see §3b).
-- **Show these first**: pick products to lead the list, e.g. Arielle on the Dresses page or the Folklore page. The current site always put Arielle first on Dresses and Folklore; this setting replaces that rule. It's empty by default. In a grouped listing a pinned product leads every group it appears in.
+- **Show these first**: pick products to lead the list, e.g. Arielle on the Dresses page or the Folklore page. The current site always put Arielle first on Dresses and Folklore; this setting replaces that rule. It's set to **Arielle Slip Dress** on the collection and category templates (so Arielle leads Folklore and Dresses, as today); clear it to drop the rule. In a grouped listing a pinned product leads every group it appears in. Unpinned products on Shop and category pages are listed oldest first, like the current site.
 - Otherwise cards follow the collection's **sort order** (set it on each collection in the admin). `/collections/all` has no sort setting in the admin; Shopify lists it alphabetically.
 
 **Pages of results**

@@ -70,9 +70,14 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 - **Store changes:** only 🟢/🟡 OWNER_TASKS items, one approved batch at a time, via `docs/store-changes/README.md` (store + live snapshots, reviewed apply, generated rollback, live diff; any live change → stop, roll back, report).
 - **Every change an editor would notice** goes into CONTENT_GUIDE, and every owner step into OWNER_TASKS, in the same commit.
 
+## Parity
+See `docs/PARITY.md` (2026-09-29 pass: fixed list, small remaining fixes, cutover-blocked items, owner decisions P-1…P-6).
+
 ## 7. Gotchas learned the hard way
 - `image_tag`'s `preload: true` emits a malformed HTTP Link header (unquoted `imagesrcset`/`imagesizes`), so the browser preloads the wrong file. `picture.liquid` writes its own `<link rel="preload">` instead (LCP on product/collection pages went from 5–6 s to 3–4 s in Lighthouse mobile).
 - Inside `{% for w in … %}`, `assign w = …` does **not** change `w` (the loop variable wins). Use a different name.
+- Snippet CSS that sections restyle via a passed `class` must use `:where()` base rules; equal specificity loses to Shopify's bundle order. Don't `:where()` heading size rules (the global h1–h6 line-height would win).
+- Check every `var(--space-N)` exists: an undefined token silently drops the declaration.
 - A literal `}` inside `{{ … }}` breaks the upload (Theme Check misses it); build such strings in `{% liquid %}`.
 - `render` named arguments can't take filters (assign first); inside `{% liquid %}` keep each `render` on one line.
 - Sections use `{% comment %}`, not `{% doc %}`; schema `name` ≤ 25 characters.
