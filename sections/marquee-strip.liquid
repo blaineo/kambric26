@@ -3,7 +3,7 @@
   pattern as the announcement bar: one track holding two identical halves,
   animated with the shared `@keyframes marquee` (assets/critical.css) to -50%
   for a seamless loop. Screen readers get the items once as a list; the moving
-  track is aria-hidden. Pauses on hover; static and wrapped under reduced motion.
+  track is aria-hidden. Pauses on hover; a still, clipped row under reduced motion (as live).
 {% endcomment %}
 {%- liquid
   assign s = section.settings
@@ -125,13 +125,8 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    /* As on the live site: one still, clipped row (the full text stays in the visually-hidden copy) */
     .marquee-strip__track {
-      flex-wrap: wrap;
-      flex-shrink: 1;
-      justify-content: center;
-      width: 100%;
-      row-gap: var(--space-2);
-      white-space: normal;
       animation: none;
     }
 

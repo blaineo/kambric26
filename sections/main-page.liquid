@@ -46,6 +46,7 @@
 </div>
 
 {% stylesheet %}
+  /* Source: Info.tsx, max-w-3xl mx-auto py-24 md:py-32 px-6 */
   .main-page {
     max-width: var(--container-3xl);
     margin-inline: auto;
@@ -54,7 +55,7 @@
   }
 
   .main-page__eyebrow {
-    margin-block: var(--space-6) var(--space-3);
+    margin-block: var(--space-6) var(--space-4);
   }
 
   .main-page__heading {
@@ -65,34 +66,52 @@
     max-width: 40rem;
   }
 
-  /* Source: the intro paragraph reads larger than the section body text. */
+  /* Section body text: text-sm md:text-base, 75% foreground, gap-3 */
+  .main-page .rte p {
+    margin-block: 0 var(--space-3);
+    font-size: var(--text-14);
+    color: color-mix(in srgb, var(--color-foreground) 75%, transparent);
+  }
+
+  /* Intro: text-lg, 80% foreground, mb-14 */
   .main-page__body .rte > p:first-of-type {
+    margin-block-end: var(--space-14);
     font-size: var(--text-18);
     color: color-mix(in srgb, var(--color-foreground) 80%, transparent);
   }
 
-  /* Per-section divider (source: each `InfoSection` sits under its own
-     top border). Overrides rte's own h2 spacing, scoped to this section. */
+  /* Per-section divider (source: each InfoSection: border-t pt-8, gap-12; h2 text-2xl mb-5) */
   .main-page .rte h2 {
+    margin-block: var(--space-12) var(--space-5);
     padding-block-start: var(--space-8);
     border-block-start: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent);
+    font-size: var(--text-24);
   }
 
   .main-page .rte h2:first-child {
     margin-block-start: 0;
   }
 
+  /* CTAs: text-xs buttons, mt-14 */
   .main-page__ctas {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-4);
-    margin-block-start: var(--space-10);
+    gap: var(--space-14);
+    margin-block-start: var(--space-14);
+  }
+
+  .main-page__ctas .btn {
+    font-size: var(--text-12);
   }
 
   @media (min-width: 48rem) {
+    .main-page .rte p {
+      font-size: var(--text-16);
+    }
+
     .main-page__body .rte > p:first-of-type {
-      font-size: var(--text-20);
+      font-size: var(--text-18);
     }
   }
 {% endstylesheet %}
