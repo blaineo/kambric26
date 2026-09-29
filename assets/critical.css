@@ -219,8 +219,6 @@ body {
   line-height: 1.5;
   background-color: var(--color-background);
   color: var(--color-foreground);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,

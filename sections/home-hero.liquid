@@ -109,7 +109,8 @@
   */
   .home-hero {
     --hero-accent: color-mix(in srgb, var(--color-primary) 45%, var(--color-hero-foreground));
-    --hero-dark: var(--color-hero-background);
+    /* Source overlays use hsl(24 18% 8%), a deeper shade of the hero background */
+    --hero-dark: color-mix(in srgb, var(--color-hero-background) 60%, black);
 
     position: relative;
     display: flex;
@@ -155,12 +156,12 @@
   .home-hero__gradient {
     background: linear-gradient(
       180deg,
-      color-mix(in srgb, var(--hero-dark) 32%, transparent) 0%,
+      color-mix(in srgb, var(--hero-dark) 28%, transparent) 0%,
       color-mix(in srgb, var(--hero-dark) 6%, transparent) 18%,
       transparent 42%,
       transparent 58%,
-      color-mix(in srgb, var(--hero-dark) 26%, transparent) 86%,
-      color-mix(in srgb, var(--hero-dark) 58%, transparent) 100%
+      color-mix(in srgb, var(--hero-dark) 24%, transparent) 86%,
+      color-mix(in srgb, var(--hero-dark) 50%, transparent) 100%
     );
   }
 
@@ -169,8 +170,8 @@
     --vignette-x: 74%;
     background: radial-gradient(
       ellipse 60% 70% at var(--vignette-x) 50%,
-      color-mix(in srgb, var(--hero-dark) 50%, transparent) 0%,
-      color-mix(in srgb, var(--hero-dark) 20%, transparent) 45%,
+      color-mix(in srgb, var(--hero-dark) 44%, transparent) 0%,
+      color-mix(in srgb, var(--hero-dark) 18%, transparent) 45%,
       transparent 78%
     );
   }
@@ -267,12 +268,12 @@
     text-align: center;
   }
 
-  .btn--text-arrow.home-hero__cta--secondary {
+  .home-hero .btn--text-arrow.home-hero__cta--secondary {
     color: color-mix(in srgb, var(--hero-accent) 60%, var(--color-hero-foreground));
   }
 
-  .btn--text-arrow.home-hero__cta--secondary:hover,
-  .btn--text-arrow.home-hero__cta--secondary:focus-visible {
+  .home-hero .btn--text-arrow.home-hero__cta--secondary:hover,
+  .home-hero .btn--text-arrow.home-hero__cta--secondary:focus-visible {
     color: var(--color-primary);
   }
 

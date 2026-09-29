@@ -17,10 +17,11 @@
 
   Image grouping (SHOPIFY_DATA_MAP, D-8), first match wins:
     1. images whose alt text equals the print value (the live Replit rule)
-    2. the featured image of the print's first variant that has one
+    2. images whose file name contains the print value (lowercase, with or
+       without spaces), e.g. ArielleDress_Olive_Teasels.png for "Olive"; the
+       live site does the same for Arielle, so its lifestyle shot leads
+    3. the featured image of the print's first variant that has one
        (native variant media, the D-8 target)
-    3. images whose file name contains the print value (lowercase, with or
-       without spaces), e.g. ArielleDress_Olive_1.jpg for "Olive"
     4. all product images (the Replit fallback)
 
   @param {product} product - The product
@@ -92,19 +93,7 @@
     endfor
 
     comment
-      2. Native variant media.
-    endcomment
-    if image_index < 0 and variant_image
-      for image in product.images
-        if image.id == variant_image.id
-          assign image_index = forloop.index0
-          break
-        endif
-      endfor
-    endif
-
-    comment
-      3. File name contains the print value.
+      2. File name contains the print value.
     endcomment
     if image_index < 0
       assign needle = print | downcase
@@ -121,6 +110,18 @@
         endif
       endfor
     endif
+    comment
+      3. Native variant media (only when neither alt text nor file names identify the print).
+    endcomment
+    if image_index < 0 and variant_image
+      for image in product.images
+        if image.id == variant_image.id
+          assign image_index = forloop.index0
+          break
+        endif
+      endfor
+    endif
+
   endif
 
   comment
