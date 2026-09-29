@@ -1,0 +1,28 @@
+{
+ "created": [
+  {
+   "handle": "dresses",
+   "id": "gid://shopify/Collection/454103105770"
+  },
+  {
+   "handle": "kaftans",
+   "id": "gid://shopify/Collection/454103138538"
+  },
+  {
+   "handle": "coats",
+   "id": "gid://shopify/Collection/454103171306"
+  },
+  {
+   "handle": "swimwear",
+   "id": "gid://shopify/Collection/454103204074"
+  },
+  {
+   "handle": "accessories",
+   "id": "gid://shopify/Collection/454103236842"
+  },
+  {
+   "handle": "sale",
+   "id": "gid://shopify/Collection/454103269610"
+  }
+ ]
+}

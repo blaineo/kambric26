@@ -9,7 +9,8 @@
     "nav": {
       "type": "category-nav",
       "settings": {
-        "show_on": "always"
+        "show_on": "always",
+        "menu": "shop-categories"
       }
     },
     "groups": {

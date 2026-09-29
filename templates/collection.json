@@ -9,7 +9,8 @@
     "nav": {
       "type": "category-nav",
       "settings": {
-        "show_on": "all_only"
+        "show_on": "all_only",
+        "menu": "shop-categories"
       }
     },
     "hero": {

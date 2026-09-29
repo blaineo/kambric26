@@ -1,0 +1,175 @@
+{
+ "main-menu": {
+  "handle": "main-menu",
+  "items": [
+   {
+    "title": "Shop",
+    "url": "/collections/all",
+    "items": [
+     {
+      "title": "Dresses",
+      "url": "/collections/dresses"
+     },
+     {
+      "title": "Kaftans",
+      "url": "/collections/kaftans"
+     },
+     {
+      "title": "Coats",
+      "url": "/collections/coats"
+     },
+     {
+      "title": "Swimwear",
+      "url": "/collections/swimwear"
+     },
+     {
+      "title": "Accessories",
+      "url": "/collections/accessories"
+     },
+     {
+      "title": "Sale",
+      "url": "/collections/sale"
+     }
+    ]
+   },
+   {
+    "title": "Collections",
+    "url": "/collections",
+    "items": [
+     {
+      "title": "Psychedelics",
+      "url": "/collections/psychedelics"
+     },
+     {
+      "title": "Folklore",
+      "url": "/collections/folklore"
+     },
+     {
+      "title": "Whimsy",
+      "url": "/collections/whimsy"
+     }
+    ]
+   },
+   {
+    "title": "Story",
+    "url": "/pages/about",
+    "items": []
+   },
+   {
+    "title": "Events",
+    "url": "/pages/events",
+    "items": []
+   },
+   {
+    "title": "Journal",
+    "url": "/blogs/journal",
+    "items": []
+   }
+  ]
+ },
+ "shop-categories": {
+  "handle": "shop-categories",
+  "items": [
+   {
+    "title": "All",
+    "url": "/collections/all",
+    "items": []
+   },
+   {
+    "title": "Dresses",
+    "url": "/collections/dresses",
+    "items": []
+   },
+   {
+    "title": "Kaftans",
+    "url": "/collections/kaftans",
+    "items": []
+   },
+   {
+    "title": "Coats",
+    "url": "/collections/coats",
+    "items": []
+   },
+   {
+    "title": "Swimwear",
+    "url": "/collections/swimwear",
+    "items": []
+   },
+   {
+    "title": "Accessories",
+    "url": "/collections/accessories",
+    "items": []
+   }
+  ]
+ },
+ "footer": {
+  "handle": "footer",
+  "items": [
+   {
+    "title": "Dresses",
+    "url": "/collections/dresses",
+    "items": []
+   },
+   {
+    "title": "Kaftans",
+    "url": "/collections/kaftans",
+    "items": []
+   },
+   {
+    "title": "Coats",
+    "url": "/collections/coats",
+    "items": []
+   },
+   {
+    "title": "Swimwear",
+    "url": "/collections/swimwear",
+    "items": []
+   },
+   {
+    "title": "Accessories",
+    "url": "/collections/accessories",
+    "items": []
+   },
+   {
+    "title": "Sale",
+    "url": "/collections/sale",
+    "items": []
+   }
+  ]
+ },
+ "footer-info": {
+  "handle": "footer-info",
+  "items": [
+   {
+    "title": "Contact Us",
+    "url": "/pages/contact",
+    "items": []
+   },
+   {
+    "title": "Wholesale",
+    "url": "/pages/wholesale",
+    "items": []
+   },
+   {
+    "title": "Size Guide",
+    "url": "/pages/size-guide",
+    "items": []
+   },
+   {
+    "title": "Shipping",
+    "url": "/pages/shipping",
+    "items": []
+   },
+   {
+    "title": "Returns & Exchanges",
+    "url": "/pages/returns",
+    "items": []
+   },
+   {
+    "title": "Your Privacy Choices",
+    "url": "/pages/data-sharing-opt-out",
+    "items": []
+   }
+  ]
+ }
+}

@@ -15,8 +15,8 @@ Status: ☐ to do · ◐ partly done (rest at a later step) · ☑ done · ⏳ w
 ## A. Safe now 🟢
 
 ### A1. Menus (Content → Menus): guide §3a
-- ◐ **Main menu** (`main-menu`): Shop → All products, Collections (+ Folklore, Psychedelics, Whimsy nested, as *collection* links). The category links (Dresses … Sale) wait for the collections to be published at cutover (C2). *(Done, batch 04, 2026-09-28; category links at cutover.)*
-- ☐ **Footer menu** (`footer`): the five categories + Sale, at cutover once they're published (C2). Until then leave the default or use All products.
+- ☑ **Main menu** (`main-menu`): Shop → All products, Collections (+ Folklore, Psychedelics, Whimsy nested, as *collection* links). The category links (Dresses … Sale) wait for the collections to be published at cutover (C2). *(Done, batch 04, 2026-09-28; category links added batch 03b, 2026-09-29.)*
+- ☑ *(batch 03b, 2026-09-29; Your Privacy Choices moved to Information)* **Footer menu** (`footer`): the five categories + Sale, at cutover once they're published (C2). Until then leave the default or use All products.
 - ☑ **Footer info** (`footer-info`): Contact Us, Wholesale, Size Guide, Shipping, Returns & Exchanges. *(Created batch 04; links added batch 08, 2026-09-29.)*
 - ◐ **Shop categories** (`shop-categories`): create now with **All**; add the five categories at cutover (C2). *(Created with All, batch 04.)*
 - ☑ Main menu Part B (Story, Events, Journal). *(Batch 08, 2026-09-29.)*
@@ -68,7 +68,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 - ☐ Stop editing in the Replit `/admin`; take the final export (content, newsletter subscribers, back-in-stock requests).
 
 ### C2. Catalog and collection data (shared)
-- ☐ **Category and sale collections:** Claude runs batch 03 (`apply.py --dry-run`, then `apply.py`): creates Dresses, Kaftans, Coats, Swimwear, Accessories and Sale with their templates, copy and rules, and publishes them to Online Store. Then add their links to the menus (A1) and write the Sale copy (A4).
+- ☑ *(batch 03 run by owner + 03b menus, 2026-09-29)* **Category and sale collections:** Claude runs batch 03 (`apply.py --dry-run`, then `apply.py`): creates Dresses, Kaftans, Coats, Swimwear, Accessories and Sale with their templates, copy and rules, and publishes them to Online Store. Then add their links to the menus (A1) and write the Sale copy (A4).
 - ☐ **Per-print collections** (MIGRATION_PLAN §3 item 3): delete the `collection` key from Zadie's, Esther's and Vera's `kambric.prints` entries; change Margit's one `"botanicals"` to `"whimsy"`. Fixes the empty Whimsy page. *(It would fix the live site's Whimsy too, so it's the one 🔴 item you might choose to do early.)*
 - ☐ **Collection descriptions** for Folklore, Psychedelics, Whimsy: paste `description_to_set` from `docs/store-data/collection-copy.csv`.
 - ☐ **Product Category** (taxonomy) and category metafields, if deferred from B2.
