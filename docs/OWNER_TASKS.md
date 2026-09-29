@@ -69,7 +69,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 
 ### C2. Catalog and collection data (shared)
 - ☑ *(batch 03 run by owner + 03b menus, 2026-09-29)* **Category and sale collections:** Claude runs batch 03 (`apply.py --dry-run`, then `apply.py`): creates Dresses, Kaftans, Coats, Swimwear, Accessories and Sale with their templates, copy and rules, and publishes them to Online Store. Then add their links to the menus (A1) and write the Sale copy (A4).
-- ☐ **Per-print collections** (MIGRATION_PLAN §3 item 3): delete the `collection` key from Zadie's, Esther's and Vera's `kambric.prints` entries; change Margit's one `"botanicals"` to `"whimsy"`. Fixes the empty Whimsy page. *(It would fix the live site's Whimsy too, so it's the one 🔴 item you might choose to do early.)*
+- ☑ *(batch 12, 2026-09-29: `botanicals` → `whimsy` only; keys kept explicit, see its log)* **Per-print collections** (MIGRATION_PLAN §3 item 3): delete the `collection` key from Zadie's, Esther's and Vera's `kambric.prints` entries; change Margit's one `"botanicals"` to `"whimsy"`. Fixes the empty Whimsy page. *(It would fix the live site's Whimsy too, so it's the one 🔴 item you might choose to do early.)*
 - ☐ **Collection descriptions** for Folklore, Psychedelics, Whimsy: paste `description_to_set` from `docs/store-data/collection-copy.csv`.
 - ☐ **Product Category** (taxonomy) and category metafields, if deferred from B2.
 - ☐ Normalise journal/product tags if needed (MIGRATION_PLAN §3).
@@ -83,7 +83,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 
 ### C4. Go live (MIGRATION_PLAN §4.3)
 - ☐ Remove the Online Store password.
-- ☐ DNS: point `kambricgoods.com` and `www` to Shopify; set the primary domain (www → apex); wait for SSL.
+- ☑ *(owner, 2026-09-29: kambricgoods.com resolves to Shopify and serves Kambric26)* DNS: point `kambricgoods.com` and `www` to Shopify; set the primary domain (www → apex); wait for SSL.
 - ☐ Claude restores the publish/live-push safety rules in the repo (step 9a).
 - ☐ Google Search Console: verify with the **HTML tag** method (the tag is already on the home page, theme setting *Google Search Console verification code*), then submit the sitemap (`/sitemap.xml`); same for Bing; watch 404s for 2 weeks.
 

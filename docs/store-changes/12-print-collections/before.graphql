@@ -1,0 +1,4 @@
+# Batch 12 snapshot (read-only): kambric.prints on every product that still says "botanicals"
+{ shop { id }
+  products(first: 20, query: "handle:margit-one-piece OR handle:zadie-linen-dress OR handle:linen-napkins OR handle:linen-tea-towel OR handle:linen-tablecloth") {
+    nodes { id handle status prints: metafield(namespace: "kambric", key: "prints") { id type value } } } }

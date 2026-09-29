@@ -1,0 +1,59 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186"
+  },
+  "products": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Product/8690544312554",
+        "handle": "margit-one-piece",
+        "status": "ACTIVE",
+        "prints": {
+          "id": "gid://shopify/Metafield/35683381313770",
+          "type": "json",
+          "value": "[{\"value\":\"Dahlia Seed\",\"story\":\"Floral in nature, but geometric and popping with color.\",\"collection\":\"psychedelics\",\"legacyId\":\"8681284370666\",\"featured\":true,\"newArrival\":false},{\"value\":\"Moon Illusion\",\"story\":\"A nod to the vibrating patterns found in Op Art of the 1960's.\",\"collection\":\"psychedelics\",\"legacyId\":\"8681284403434\",\"featured\":false,\"newArrival\":false},{\"value\":\"Good Vibrations\",\"story\":\"One of Kati's most joyful prints. The radiating forms feel less like a pattern and more like a mood.\",\"collection\":\"psychedelics\",\"legacyId\":\"8681284436202\",\"featured\":false,\"newArrival\":false},{\"value\":\"Pastel Asterisk\",\"story\":\"A sunburst repeat as seen through a kaleidescope. Kati originally painted the asterisk form in the vibrant orange, rust and yellow colorway. I added this lavender colorway for a more modern and refreshed offering.\",\"collection\":\"psychedelics\",\"legacyId\":\"8681284468970\",\"featured\":false,\"newArrival\":false},{\"value\":\"Orange Asterisk\",\"story\":\"The same asterisk form, in its original color 1970s palette.\",\"collection\":\"psychedelics\",\"legacyId\":\"8681284501738\",\"featured\":false,\"newArrival\":false},{\"value\":\"Magnolia\",\"story\":\"Not a straight forward floral. Look closely and you'll find hidden hearts in the pattern.\",\"collection\":\"psychedelics\",\"legacyId\":\"8681284534506\",\"featured\":false,\"newArrival\":false},{\"value\":\"Matyó Floral\",\"story\":\"Drawn in homage to the Matyó embroidery of Kati's birthplace. The stitchwork tradition spans generations; she translated needle to brush with the same care — dense, symmetrical, alive with color.\",\"collection\":\"folklore\",\"legacyId\":\"8681285058794\",\"featured\":false,\"newArrival\":true},{\"value\":\"Wildflowers\",\"story\":\"Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.\",\"collection\":\"botanicals\",\"legacyId\":\"8681285091562\",\"featured\":false,\"newArrival\":true}]"
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544345322",
+        "handle": "zadie-linen-dress",
+        "status": "ACTIVE",
+        "prints": {
+          "id": "gid://shopify/Metafield/35683384230122",
+          "type": "json",
+          "value": "[{\"value\":\"Wildflowers\",\"story\":\"Delicate bunches of flowers, with an intertwining lattice of vines. Intimate, old-world and romantic.\",\"collection\":\"botanicals\",\"legacyId\":\"8681284141290\",\"featured\":true,\"newArrival\":false},{\"value\":\"Candied Plaid\",\"story\":\"One of the few structured prints in the archive. A grid is the antithesis of her usual organic line — but this tartan print still reads as very Kambric.\",\"collection\":\"botanicals\",\"legacyId\":\"8681284206826\",\"featured\":false,\"newArrival\":false},{\"value\":\"Cherry Coupe\",\"story\":\"Overlapping, tumbling cherries. Mid-century European sensibility, the graphic simplicity of someone trained to look closely at ordinary, beautiful things. I recolored her original green stems to charcoal for a less literal palette.\",\"collection\":\"botanicals\",\"legacyId\":\"8681284239594\",\"featured\":false,\"newArrival\":false}]"
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544443626",
+        "handle": "linen-napkins",
+        "status": "DRAFT",
+        "prints": {
+          "id": "gid://shopify/Metafield/35683387605226",
+          "type": "json",
+          "value": "[{\"value\":\"Retro Stripe\",\"story\":\"One of the few purely geometric prints in the archive. Kati made this in a single afternoon — she said she needed a rest from painting forms. The stripes are hand-drawn; no two are exactly parallel.\",\"collection\":\"folklore\",\"legacyId\":\"8681284731114\",\"featured\":false,\"newArrival\":false},{\"value\":\"Sunset Plumes\",\"story\":\"Gold, coral, and a dusty lavender that shouldn't work together. Painted in a single afternoon in the late summer of 1972. They do.\",\"collection\":\"botanicals\",\"legacyId\":\"8681284763882\",\"featured\":false,\"newArrival\":false},{\"value\":\"Saffron Damask\",\"story\":\"A damask pattern redrawn freehand, deliberately imperfect. The symmetry breaks in small ways throughout — Kati said that was the point. The saffron came from a pigment she ground herself.\",\"collection\":\"psychedelics\",\"legacyId\":\"8681284796650\",\"featured\":true,\"newArrival\":true},{\"value\":\"Amber Orchard\",\"story\":\"Fallen fruit painted from Kati's garden in early autumn. The perspective shifts — some pieces from above, some from the side, as if she moved around them while she worked.\",\"collection\":\"botanicals\",\"legacyId\":\"8681284829418\",\"featured\":false,\"newArrival\":true}]"
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544476394",
+        "handle": "linen-tea-towel",
+        "status": "DRAFT",
+        "prints": {
+          "id": "gid://shopify/Metafield/35683388129514",
+          "type": "json",
+          "value": "[{\"value\":\"Amber Orchard\",\"story\":\"Fallen fruit painted from Kati's garden in early autumn. The perspective shifts — some pieces from above, some from the side, as if she moved around them while she worked.\",\"collection\":\"botanicals\",\"legacyId\":\"8681284862186\",\"featured\":false,\"newArrival\":false},{\"value\":\"Saffron Damask\",\"story\":\"A damask pattern redrawn freehand, deliberately imperfect. The symmetry breaks in small ways throughout — Kati said that was the point. The saffron came from a pigment she ground herself.\",\"collection\":\"psychedelics\",\"legacyId\":\"8681284894954\",\"featured\":false,\"newArrival\":false},{\"value\":\"Sunrise Plumes\",\"story\":\"The plumes in their warmest light. A companion to Midnight Plumes, painted the morning after on the same sheet of paper. Where the first is heavy, this one opens.\",\"collection\":\"botanicals\",\"legacyId\":\"8681284927722\",\"featured\":false,\"newArrival\":false}]"
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544509162",
+        "handle": "linen-tablecloth",
+        "status": "DRAFT",
+        "prints": {
+          "id": "gid://shopify/Metafield/35683388162282",
+          "type": "json",
+          "value": "[{\"value\":\"Saffron Damask\",\"story\":\"A damask pattern redrawn freehand, deliberately imperfect. The symmetry breaks in small ways throughout — Kati said that was the point. The saffron came from a pigment she ground herself.\",\"collection\":\"psychedelics\",\"legacyId\":\"8681284960490\",\"featured\":true,\"newArrival\":false},{\"value\":\"Amber Orchard\",\"story\":\"Fallen fruit painted from Kati's garden in early autumn. The perspective shifts — some pieces from above, some from the side, as if she moved around them while she worked.\",\"collection\":\"folklore\",\"legacyId\":\"8681284993258\",\"featured\":false,\"newArrival\":false},{\"value\":\"Sunrise Plumes\",\"story\":\"The plumes in their warmest light. A companion to Midnight Plumes, painted the morning after on the same sheet of paper. Where the first is heavy, this one opens.\",\"collection\":\"botanicals\",\"legacyId\":\"8681285026026\",\"featured\":false,\"newArrival\":false}]"
+        }
+      }
+    ]
+  }
+}

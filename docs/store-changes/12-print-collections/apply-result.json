@@ -1,0 +1,37 @@
+{
+ "metafieldsSet": {
+  "metafields": [
+   {
+    "owner": {
+     "handle": "margit-one-piece"
+    },
+    "key": "prints"
+   },
+   {
+    "owner": {
+     "handle": "zadie-linen-dress"
+    },
+    "key": "prints"
+   },
+   {
+    "owner": {
+     "handle": "linen-napkins"
+    },
+    "key": "prints"
+   },
+   {
+    "owner": {
+     "handle": "linen-tea-towel"
+    },
+    "key": "prints"
+   },
+   {
+    "owner": {
+     "handle": "linen-tablecloth"
+    },
+    "key": "prints"
+   }
+  ],
+  "userErrors": []
+ }
+}

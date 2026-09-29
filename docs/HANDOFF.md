@@ -70,6 +70,9 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 - **Store changes:** only 🟢/🟡 OWNER_TASKS items, one approved batch at a time, via `docs/store-changes/README.md` (store + live snapshots, reviewed apply, generated rollback, live diff; any live change → stop, roll back, report).
 - **Every change an editor would notice** goes into CONTENT_GUIDE, and every owner step into OWNER_TASKS, in the same commit.
 
+## ⚠️ Cutover happened (2026-09-29)
+kambricgoods.com now serves the Shopify store (Kambric26). The "live Replit site" guardrails no longer describe reality: **the Shopify store IS the live site**, every store or live-theme change reaches customers. `tools/live_site_snapshot.py` no longer applies (the Replit API is gone from the domain). Outstanding: restore the publish/live-push deny rules (MIGRATION_PLAN §4.3 step 9a, owner edits `.claude/settings.json`); see OWNER_TASKS C3–C5.
+
 ## Themes (from 2026-09-29)
 - **Live on the Shopify-hosted store: Kambric26 #145439097066.** Dev theme #145427988714 stays the working copy (`shopify theme dev -e development`).
 - Editors may now customise the live theme: **pull its JSON and commit before any push to it** (guardrail 9; command in `store-changes/09-publish/log.md`). Push to live only when the owner asks.
