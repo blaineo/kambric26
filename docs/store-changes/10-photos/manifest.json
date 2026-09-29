@@ -1,0 +1,167 @@
+{
+ "store": "7u2dfq-xf.myshopify.com",
+ "shop_id": "gid://shopify/Shop/71406846186",
+ "source_dir": "/Users/blaine/Code/kambric/replit site/assets/",
+ "images": [
+  {
+   "source": "uploads/9de4a6ef-2675-4b91-bc5f-78060918fc41.png",
+   "filename": "home-hero-background.png",
+   "mime": "image/png",
+   "alt": "",
+   "template": "index",
+   "section": "hero",
+   "setting": "image",
+   "block": null
+  },
+  {
+   "source": "uploads/cd6532ac-843e-4e91-adc6-fa25642756f1.jpg",
+   "filename": "home-founder-quote-background.jpg",
+   "mime": "image/jpeg",
+   "alt": "",
+   "template": "index",
+   "section": "quote",
+   "setting": "image",
+   "block": null
+  },
+  {
+   "source": "originals/IMG_8800_1780590151823.png",
+   "filename": "home-story-kati-portrait.png",
+   "mime": "image/png",
+   "alt": "Kati Hartmann with family — archive photograph",
+   "template": "index",
+   "section": "story",
+   "setting": "image",
+   "block": "photo_portrait"
+  },
+  {
+   "source": "built/assets/kati_hands_painting-BmQNK_aL.png",
+   "filename": "home-story-kati-painting.png",
+   "mime": "image/png",
+   "alt": "Kati's hands painting a floral print by brush",
+   "template": "index",
+   "section": "story",
+   "setting": "image",
+   "block": "photo_painting"
+  },
+  {
+   "source": "originals/IMG_6961_1780589947013.png",
+   "filename": "home-story-kati-laughing.png",
+   "mime": "image/png",
+   "alt": "Kati Hartmann laughing — family archive photograph",
+   "template": "index",
+   "section": "story",
+   "setting": "image",
+   "block": "photo_laughing"
+  },
+  {
+   "source": "originals/DSCF1744_Original_1779921553541.jpg",
+   "filename": "lookbook-01.jpg",
+   "mime": "image/jpeg",
+   "alt": "Look 01 — poppy coat in the teasel field",
+   "template": "index",
+   "section": "lookbook",
+   "setting": "image",
+   "block": "look_1"
+  },
+  {
+   "source": "originals/DSCF1600_Original_1779921553540.jpg",
+   "filename": "lookbook-02.jpg",
+   "mime": "image/jpeg",
+   "alt": "Look 02 — quiet moment in profile",
+   "template": "index",
+   "section": "lookbook",
+   "setting": "image",
+   "block": "look_2"
+  },
+  {
+   "source": "originals/DSCF1931_Original_1779921553547.jpg",
+   "filename": "lookbook-03.jpg",
+   "mime": "image/jpeg",
+   "alt": "Look 03 — bench in the meadow",
+   "template": "index",
+   "section": "lookbook",
+   "setting": "image",
+   "block": "look_3"
+  },
+  {
+   "source": "originals/DSCF1688_Original_1779921260400.jpg",
+   "filename": "lookbook-04.jpg",
+   "mime": "image/jpeg",
+   "alt": "Look 04 — coat with hat, three-quarter turn",
+   "template": "index",
+   "section": "lookbook",
+   "setting": "image",
+   "block": "look_4"
+  },
+  {
+   "source": "originals/DSCF1680_Original_1779921307492.jpg",
+   "filename": "lookbook-05.jpg",
+   "mime": "image/jpeg",
+   "alt": "Look 05 — coat with hat, full front",
+   "template": "index",
+   "section": "lookbook",
+   "setting": "image",
+   "block": "look_5"
+  },
+  {
+   "source": "originals/DSCF2023_Original_1779921246731.jpg",
+   "filename": "lookbook-06.jpg",
+   "mime": "image/jpeg",
+   "alt": "Look 06 — blue print on the bench",
+   "template": "index",
+   "section": "lookbook",
+   "setting": "image",
+   "block": "look_6"
+  },
+  {
+   "source": "uploads/f0f9ec76-6f34-4b8e-a0b2-191598aa6c1f.png",
+   "filename": "about-hero-background.png",
+   "mime": "image/png",
+   "alt": "Kambric Goods archival textile prints",
+   "template": "page.about",
+   "section": "hero",
+   "setting": "image",
+   "block": null
+  },
+  {
+   "source": "uploads/8e398c1e-121c-4dd4-8fda-ad93ab09deb6.png",
+   "filename": "about-kati-portrait.png",
+   "mime": "image/png",
+   "alt": "Katarina 'Kati' Hartmann",
+   "template": "page.about",
+   "section": "story-kati",
+   "setting": "image",
+   "block": null
+  },
+  {
+   "source": "uploads/6a111639-c498-4c46-b9fe-be9fda9234b4.jpg",
+   "filename": "about-daisy-portrait.jpg",
+   "mime": "image/jpeg",
+   "alt": "Daisy Hartmann",
+   "template": "page.about",
+   "section": "story-daisy",
+   "setting": "image",
+   "block": null
+  },
+  {
+   "source": "uploads/6918a3aa-ee1b-4f88-8017-4221ec6801ce.jpg",
+   "filename": "about-closing-banner.jpg",
+   "mime": "image/jpeg",
+   "alt": "",
+   "template": "page.about",
+   "section": "cta",
+   "setting": "image",
+   "block": null
+  },
+  {
+   "source": "uploads/90918ee5-4c80-4575-be36-979fce68dd93.jpg",
+   "filename": "events-hero-background.jpg",
+   "mime": "image/jpeg",
+   "alt": "",
+   "template": "page.events",
+   "section": "hero",
+   "setting": "image",
+   "block": null
+  }
+ ]
+}

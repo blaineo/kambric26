@@ -1,0 +1,4 @@
+# Batch 10 snapshot (read-only): any existing Files with the names this batch will use.
+{ shop { id }
+  files(first: 50, query: "filename:home-* OR filename:lookbook-* OR filename:about-* OR filename:events-*") {
+    nodes { id alt fileStatus ... on MediaImage { image { url } } } } }
