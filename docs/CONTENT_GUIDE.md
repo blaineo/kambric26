@@ -719,7 +719,7 @@ this one.
 - **Editable:** eyebrow ("Your Selection"), heading ("Cart"), and the empty-cart heading, text, link label and link (leave the link empty to point at all products).
 - **Not editable here (fixed copy, in the theme's language file):** Order Summary, Subtotal (n items), Shipping "Calculated at checkout", Estimated Total, Checkout and the notes under it, "Sold out — please remove", "Qty 1 · Personalized", "Chainstitch Monogram" and "+$25.00 personalization".
 - **Chainstitch monogram in the cart:** the $25 fee is never shown as its own item. It appears under the garment it belongs to (monogram text, thread colour, fee) and is included in that garment's price. Monogrammed pieces are always quantity 1; removing one removes its fee too. The item count leaves the fee out; the subtotal includes it. (The header bag icon still counts every Shopify line, fee included, as on the current site.)
-- If a monogram fee somehow ends up in a cart without its garment, the cart removes it automatically. If a monogrammed garment is missing its fee, the cart shows a "Personalization fee missing" note.
+- If a monogram fee somehow ends up in a cart without its garment, the cart removes it automatically. If a monogrammed garment is missing its fee, the cart shows a "Personalization fee missing" note and **checkout stays disabled** until that piece is removed (and added again from its product page), so a monogram is never free.
 - A piece that sells out while in someone's cart is marked "Sold out — please remove" and checkout stays disabled until it's removed.
 - Checkout itself (Shopify's hosted checkout) is shared with the live site and is **not** part of the theme.
 
@@ -885,6 +885,7 @@ These are tracked as decisions in `docs/MIGRATION_PLAN.md`. They're listed here 
 
 | Date | Phase | What changed for editors |
 | --- | --- | --- |
+| 2026-09-28 | 5 (update) | Cart: a personalized piece whose $25 fee line is missing now blocks checkout until it's removed and added again; the cart icon's count now matches the cart page (garments only, the fee isn't counted separately). |
 | 2026-09-28 | 5: Cart, search, pop-up | Cart page (monogram lines grouped under their garment), search overlay and results page, newsletter pop-up with optional code (§3i). |
 | 2026-09-28 | 4: Home, About, Events, Journal, info pages | Home page sections and rails ("show first" blocks replace the old hard-coded picks), About sections and value cards, Events from the **Event** metaobject (upcoming/past automatic), Journal index and posts, info pages and the Size Guide table (§3e–§3h). |
 | 2026-09-28 | 3: Listings (update) | New **§2b How the shop is organized**: products, prints, collections, categories and sale, where each appears, and step-by-step recipes to add, edit, reorder, retire and hide. Listings now use one **Product listing** section with a **Collection block** per group (drag to reorder); the *Group order* setting is gone (§3d). Per-print collections are only needed for products spanning collections (Margit). |

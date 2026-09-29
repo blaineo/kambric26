@@ -38,7 +38,8 @@
     "sold_out_instruction": "Remove the sold-out item(s) above to continue to checkout.",
     "status_updated": "Cart updated",
     "status_removed": "Item removed from your cart",
-    "error": "Something went wrong updating your cart. Please try again."
+    "error": "Something went wrong updating your cart. Please try again.",
+    "fee_missing_instruction": "Remove the personalized piece missing its fee above (then add it again from its product page) to continue to checkout."
   },
   "customers": {
     "login": {

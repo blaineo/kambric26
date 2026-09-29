@@ -1,4 +1,13 @@
 {%- liquid
+  # Garments only: monogram fee lines (_fee = '1') aren't counted, so the header
+  # matches the cart page's item count (owner decision 2026-09-28).
+  assign garment_count = 0
+  for item in cart.items
+    unless item.properties['_fee'] == '1'
+      assign garment_count = garment_count | plus: item.quantity
+    endunless
+  endfor
+
   assign menu = section.settings.menu
   assign has_menu = false
   if menu != blank and menu.links.size > 0
@@ -73,7 +82,7 @@
               <li class="mobile-menu__item" style="--i: {{ i }}">
                 <a class="mobile-menu__link" href="{{ routes.cart_url }}">
                   {{- 'header.cart' | t -}}
-                  {%- if cart.item_count > 0 %} ({{ cart.item_count }}){% endif -%}
+                  {%- if garment_count > 0 %} ({{ garment_count }}){% endif -%}
                 </a>
               </li>
             </ul>
@@ -160,10 +169,10 @@
         {%- render 'icon', name: 'bag' -%}
         <span class="visually-hidden">
           {{- 'header.cart' | t -}}
-          {%- if cart.item_count > 0 %} ({{ 'header.cart_count' | t: count: cart.item_count }}){% endif -%}
+          {%- if garment_count > 0 %} ({{ 'header.cart_count' | t: count: garment_count }}){% endif -%}
         </span>
-        {%- if cart.item_count > 0 -%}
-          <span class="site-header__count" aria-hidden="true">{{ cart.item_count }}</span>
+        {%- if garment_count > 0 -%}
+          <span class="site-header__count" aria-hidden="true">{{ garment_count }}</span>
         {%- endif -%}
       </a>
     </div>

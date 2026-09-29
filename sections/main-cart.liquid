@@ -19,8 +19,9 @@
   - Removing a grouped garment removes its fee in the same request: a small
     POST form to /cart/update (`updates[garment]=0&updates[fee]=0`), or
     /cart/update.js with both keys from JS. Atomic either way.
-  - A personalized garment whose fee line is missing stays marked personalized
-    (source parity) and shows a "fee missing" note.
+  - A personalized garment whose fee line is missing stays marked personalized,
+    shows a "fee missing" note, and blocks Checkout until it's removed (owner
+    decision 2026-09-28: the monogram must never be free).
   - An orphan fee line (no garment in its group) is not listed. It gets a
     hidden `updates[<key>]=0` in the main form (any Update/Checkout post drops
     it) and `<kg-cart>` removes it as soon as the page loads.
@@ -44,6 +45,7 @@
 
   assign garment_count = 0
   assign has_sold_out = false
+  assign has_fee_missing = false
   assign has_inputs = false
   assign image_index = 0
   assign form_id = 'CartForm-' | append: section.id
@@ -140,6 +142,9 @@
                 endif
                 if sold_out
                   assign has_sold_out = true
+                endif
+                if personalized and fee == nil
+                  assign has_fee_missing = true
                 endif
 
                 assign line_total = item.final_line_price
@@ -304,15 +309,17 @@
             name="checkout"
             class="cart__checkout"
             aria-describedby="{{ note_id }}"
-            {% if has_sold_out %}
+            {% if has_sold_out or has_fee_missing %}
               disabled
             {% endif %}
           >
             {{ 'cart.checkout' | t }}
           </button>
-          <p class="cart__note{% if has_sold_out %} cart__note--warning{% endif %}" id="{{ note_id }}">
+          <p class="cart__note{% if has_sold_out or has_fee_missing %} cart__note--warning{% endif %}" id="{{ note_id }}">
             {%- if has_sold_out -%}
               {{ 'cart.sold_out_instruction' | t }}
+            {%- elsif has_fee_missing -%}
+              {{ 'cart.fee_missing_instruction' | t }}
             {%- else -%}
               {{ 'cart.checkout_instruction' | t }}
             {%- endif -%}

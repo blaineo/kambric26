@@ -51,7 +51,7 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 | 08 | Publish kambric26 on the Shopify-hosted store (D-21) | not started (publish deny rules are lifted until DNS cutover; publish only on explicit request) |
 
 ## 4. Decisions still needed (owner)
-- **Cart** (Phase 5): show all options on cart lines vs size only *(rec: all)*; block checkout when a monogrammed garment's fee line is missing *(rec: block)*; fee product out of stock → garment sold out *(rec: OK)*; header count excludes fee lines *(rec: yes, small header change)*.
+- ~~Cart (Phase 5)~~ **decided 2026-09-28 and built:** all options on cart lines; missing monogram fee blocks checkout; fee sold out → garment sold out; header counts garments only.
 - **D-11** newsletter: show WELCOME15 on screen vs Shopify Email sends it (both supported by the pop-up's `discount_code` setting; the discount itself is 🔴 cutover).
 - **Copy/data:** Whimsy's description (the sheet's text was the old Botanicals copy; flagged); lookbook look 3 caption names the renamed product; one collection description serves both the collection hero and shop-group text (keep, or add a group-text field?); shop page emits CollectionPage JSON-LD (source didn't).
 - **Later:** D-6/D-14 Prints metaobject (shared story/swatch/collection per print); D-8 variant media + descriptive alt text (after cutover, because the live site groups photos by alt text); larger hero original (current is 1448 px).
@@ -59,7 +59,6 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 ## 5. Next steps (suggested order)
 1. **Push** the local commits.
 2. **Verification pass** (last "definition of done" gate): Lighthouse mobile (SEO 100, a11y ≥ 95, CLS < 0.05, LCP < 2.5 s) on the preview URL, and a true 390 px check (Chrome here won't narrow below ~606 px and Shopify blocks iframes, so use DevTools device mode or Lighthouse's mobile emulation).
-3. **Cart decisions** → small follow-up commits.
 4. **Content batches (🟢):** photos into templates (home 11, About/Events 5, pop-up 1; set as `shopify://shop_images/<file>` in template JSON after uploading to Files); then, with the extra scopes, the `kambric_event` definition + entries, pages, and the journal import (`docs/store-data/phase4/`).
 5. **Batch 07** (home SEO title/description) and **batch 08** (publish on the Shopify-hosted store) when the owner says.
 6. **Pre-launch cleanup:** delete the dev-only preview templates (`templates/*phase*.json`: 9 files) and their preview sections (`sections/phase*-preview.liquid`); re-run page_check and Theme Check.
