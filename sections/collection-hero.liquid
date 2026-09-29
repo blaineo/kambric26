@@ -76,7 +76,11 @@
     assign year = collection.metafields.kambric.year.value
     assign season_eyebrow = blank
     if section.settings.show_season
-      if season != blank and year != blank
+      assign season_text = season | append: ''
+      assign year_text = year | append: ''
+      if season != blank and year != blank and season_text contains year_text
+        assign season_eyebrow = season
+      elsif season != blank and year != blank
         assign season_eyebrow = season | append: ' ' | append: year
       elsif season != blank
         assign season_eyebrow = season
@@ -91,11 +95,12 @@
     if section.settings.show_count
       for count_product in collection.products
         capture count_values
-          render 'product-prints', product: count_product, output: 'values'
+          render 'product-prints', product: count_product, collection_handle: collection.handle, output: 'values'
         endcapture
         assign count_values = count_values | strip
         unless count_values == blank
-          assign piece_count = piece_count | plus: count_values | split: '|' | size
+          assign value_count = count_values | split: '|' | size
+          assign piece_count = piece_count | plus: value_count
         endunless
       endfor
     endif

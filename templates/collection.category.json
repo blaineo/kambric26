@@ -42,7 +42,10 @@
       "settings": {
         "show_on": "always",
         "empty_heading": "Nothing in this category yet.",
-        "empty_body": ""
+        "empty_body": "",
+        "pinned_products": [
+          "arielle-dress"
+        ]
       }
     },
     "cta": {

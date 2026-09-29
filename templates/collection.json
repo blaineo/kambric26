@@ -60,7 +60,10 @@
         "card_layout": "standard",
         "container": "page",
         "empty_heading": "No pieces yet.",
-        "empty_body": "<p>New pieces from this collection will be added soon.</p>"
+        "empty_body": "<p>New pieces from this collection will be added soon.</p>",
+        "pinned_products": [
+          "arielle-dress"
+        ]
       }
     },
     "cta_shop": {

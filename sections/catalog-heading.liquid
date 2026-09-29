@@ -88,7 +88,8 @@
         endcapture
         assign count_values = count_values | strip
         unless count_values == blank
-          assign piece_count = piece_count | plus: count_values | split: '|' | size
+          assign value_count = count_values | split: '|' | size
+          assign piece_count = piece_count | plus: value_count
         endunless
       endfor
     endif
