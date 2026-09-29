@@ -1,0 +1,271 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186"
+  },
+  "pages": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Page/113644699882",
+        "handle": "contact",
+        "title": "Contact Us",
+        "templateSuffix": "contact",
+        "isPublished": true
+      },
+      {
+        "id": "gid://shopify/Page/113644732650",
+        "handle": "data-sharing-opt-out",
+        "title": "Your Privacy Choices",
+        "templateSuffix": null,
+        "isPublished": true
+      },
+      {
+        "id": "gid://shopify/Page/114867831018",
+        "handle": "about",
+        "title": "About",
+        "templateSuffix": "about",
+        "isPublished": true
+      },
+      {
+        "id": "gid://shopify/Page/114867863786",
+        "handle": "events",
+        "title": "Events",
+        "templateSuffix": "events",
+        "isPublished": true
+      },
+      {
+        "id": "gid://shopify/Page/114867896554",
+        "handle": "wholesale",
+        "title": "Wholesale",
+        "templateSuffix": "wholesale",
+        "isPublished": true
+      },
+      {
+        "id": "gid://shopify/Page/114867929322",
+        "handle": "size-guide",
+        "title": "Size Guide",
+        "templateSuffix": "size-guide",
+        "isPublished": true
+      },
+      {
+        "id": "gid://shopify/Page/114867962090",
+        "handle": "shipping",
+        "title": "Shipping",
+        "templateSuffix": "shipping",
+        "isPublished": true
+      },
+      {
+        "id": "gid://shopify/Page/114867994858",
+        "handle": "returns",
+        "title": "Returns & Exchanges",
+        "templateSuffix": "returns",
+        "isPublished": true
+      }
+    ]
+  },
+  "blogs": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Blog/93989667050",
+        "handle": "news",
+        "title": "News",
+        "articlesCount": {
+          "count": 0
+        }
+      },
+      {
+        "id": "gid://shopify/Blog/94613962986",
+        "handle": "journal",
+        "title": "Journal",
+        "articlesCount": {
+          "count": 5
+        }
+      }
+    ]
+  },
+  "metaobjectDefinitionByType": {
+    "id": "gid://shopify/MetaobjectDefinition/7286161642",
+    "type": "kambric_event",
+    "metaobjectsCount": 1
+  },
+  "menus": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Menu/224754598122",
+        "handle": "main-menu",
+        "title": "Main menu",
+        "items": [
+          {
+            "id": "gid://shopify/MenuItem/537406406890",
+            "title": "Shop",
+            "type": "CATALOG",
+            "url": "/collections/all",
+            "resourceId": null,
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/537406439658",
+            "title": "Collections",
+            "type": "COLLECTIONS",
+            "url": "/collections",
+            "resourceId": null,
+            "items": [
+              {
+                "id": "gid://shopify/MenuItem/537406472426",
+                "title": "Psychedelics",
+                "type": "COLLECTION",
+                "url": "/collections/psychedelics",
+                "resourceId": "gid://shopify/Collection/451384148202"
+              },
+              {
+                "id": "gid://shopify/MenuItem/537406505194",
+                "title": "Folklore",
+                "type": "COLLECTION",
+                "url": "/collections/folklore",
+                "resourceId": "gid://shopify/Collection/451384180970"
+              },
+              {
+                "id": "gid://shopify/MenuItem/537406537962",
+                "title": "Whimsy",
+                "type": "COLLECTION",
+                "url": "/collections/whimsy",
+                "resourceId": "gid://shopify/Collection/451384213738"
+              }
+            ]
+          },
+          {
+            "id": "gid://shopify/MenuItem/537420103914",
+            "title": "Story",
+            "type": "PAGE",
+            "url": "/pages/about",
+            "resourceId": "gid://shopify/Page/114867831018",
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/537420169450",
+            "title": "Events",
+            "type": "PAGE",
+            "url": "/pages/events",
+            "resourceId": "gid://shopify/Page/114867863786",
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/537420202218",
+            "title": "Journal",
+            "type": "BLOG",
+            "url": "/blogs/journal",
+            "resourceId": "gid://shopify/Blog/94613962986",
+            "items": []
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Menu/224754630890",
+        "handle": "footer",
+        "title": "Footer menu",
+        "items": [
+          {
+            "id": "gid://shopify/MenuItem/532237091050",
+            "title": "Search",
+            "type": "SEARCH",
+            "url": "/search",
+            "resourceId": null,
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/532237189354",
+            "title": "Your Privacy Choices",
+            "type": "PAGE",
+            "url": "/pages/data-sharing-opt-out",
+            "resourceId": "gid://shopify/Page/113644732650",
+            "items": []
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Menu/224754663658",
+        "handle": "customer-account-main-menu",
+        "title": "Customer account main menu",
+        "items": [
+          {
+            "id": "gid://shopify/MenuItem/532237123818",
+            "title": "Orders",
+            "type": "CUSTOMER_ACCOUNT_PAGE",
+            "url": "https://shopify.com/71406846186/account/orders",
+            "resourceId": "gid://shopify/CustomerAccountPage/39161856234",
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/532237156586",
+            "title": "Profile",
+            "type": "CUSTOMER_ACCOUNT_PAGE",
+            "url": "https://shopify.com/71406846186/account/profile",
+            "resourceId": "gid://shopify/CustomerAccountPage/39161889002",
+            "items": []
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Menu/226777202922",
+        "handle": "footer-info",
+        "title": "Footer info",
+        "items": [
+          {
+            "id": "gid://shopify/MenuItem/537420366058",
+            "title": "Contact Us",
+            "type": "PAGE",
+            "url": "/pages/contact",
+            "resourceId": "gid://shopify/Page/113644699882",
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/537420398826",
+            "title": "Wholesale",
+            "type": "PAGE",
+            "url": "/pages/wholesale",
+            "resourceId": "gid://shopify/Page/114867896554",
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/537420431594",
+            "title": "Size Guide",
+            "type": "PAGE",
+            "url": "/pages/size-guide",
+            "resourceId": "gid://shopify/Page/114867929322",
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/537420464362",
+            "title": "Shipping",
+            "type": "PAGE",
+            "url": "/pages/shipping",
+            "resourceId": "gid://shopify/Page/114867962090",
+            "items": []
+          },
+          {
+            "id": "gid://shopify/MenuItem/537420497130",
+            "title": "Returns & Exchanges",
+            "type": "PAGE",
+            "url": "/pages/returns",
+            "resourceId": "gid://shopify/Page/114867994858",
+            "items": []
+          }
+        ]
+      },
+      {
+        "id": "gid://shopify/Menu/226777235690",
+        "handle": "shop-categories",
+        "title": "Shop categories",
+        "items": [
+          {
+            "id": "gid://shopify/MenuItem/537406570730",
+            "title": "All",
+            "type": "CATALOG",
+            "url": "/collections/all",
+            "resourceId": null,
+            "items": []
+          }
+        ]
+      }
+    ]
+  }
+}

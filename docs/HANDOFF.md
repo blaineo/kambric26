@@ -48,7 +48,7 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 | 05 | Collection search listings | ✅ done |
 | 06 | 67 URL redirects (all firing, incl. draft-product handles; `/shop` handled in the theme) | ✅ done |
 | 07 | Home page title/description (Online Store → Preferences) | ⏸ **paused**: Chrome typing went to admin keyboard shortcuts (nothing saved). Owner types the two values, or retry with a focus check per field. Values in `docs/store-changes/07-admin-settings/plan.md`. |
-| 08 | Content import: pages, journal, events, menu Part B (`08-content-import/`) | prepared + dry-run tested; awaiting owner approval |
+| 08 | Content import: pages, journal, events, menu Part B (`08-content-import/`) | ✅ done 2026-09-29 (see `log.md`) |
 | 09 | Publish kambric26 on the Shopify-hosted store (D-21) | not started (publish deny rules are lifted until DNS cutover; publish only on explicit request) |
 
 ## 4. Decisions still needed (owner)

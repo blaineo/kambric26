@@ -17,9 +17,9 @@ Status: ☐ to do · ◐ partly done (rest at a later step) · ☑ done · ⏳ w
 ### A1. Menus (Content → Menus): guide §3a
 - ◐ **Main menu** (`main-menu`): Shop → All products, Collections (+ Folklore, Psychedelics, Whimsy nested, as *collection* links). The category links (Dresses … Sale) wait for the collections to be published at cutover (C2). *(Done, batch 04, 2026-09-28; category links at cutover.)*
 - ☐ **Footer menu** (`footer`): the five categories + Sale, at cutover once they're published (C2). Until then leave the default or use All products.
-- ◐ **Footer info** (`footer-info`): create now, empty. ⏳ Add Contact, Wholesale, Size Guide, Shipping, Returns once the pages exist (Phase 4). *(Created empty, batch 04.)*
+- ☑ **Footer info** (`footer-info`): Contact Us, Wholesale, Size Guide, Shipping, Returns & Exchanges. *(Created batch 04; links added batch 08, 2026-09-29.)*
 - ◐ **Shop categories** (`shop-categories`): create now with **All**; add the five categories at cutover (C2). *(Created with All, batch 04.)*
-- ⏳ Main menu Part B (Story, Events, Journal) once Phase 4 pages exist.
+- ☑ Main menu Part B (Story, Events, Journal). *(Batch 08, 2026-09-29.)*
 
 ### A2. New custom fields (Settings → Custom data)
 New definitions the live site doesn't read.
@@ -97,10 +97,10 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 ### A7. Phase 4 content (all 🟢: new Shopify-hosted data the live site never reads)
 Full detail and exact values: `docs/store-data/phase4/owner-notes/{home,about-events,journal-info}.md`; import files in `docs/store-data/phase4/`. Claude can run these as batches.
 - ☐ **Photos:** upload the 11 home + 5 About/Events photos to Files; Claude sets them in the templates (`shopify://shop_images/…`), so nothing to pick by hand.
-- ☐ **Events:** create the `kambric_event` metaobject definition (exact shape in `about-events.md`), then the 3 exported events (all in the past; add real upcoming ones when known).
-- ☐ **Pages:** About (`about`, template `page.about`) and Events (`events`, `page.events`) with empty bodies; Contact, Wholesale, Size Guide (`page.size-guide`), Shipping, Returns with bodies from `pages/*.html`.
-- ☐ **Journal:** create blog `journal`, import the 5 posts from `journal/posts.json` (cover images, normalised category tags).
-- ☐ **Menus Part B:** Story, Events, Journal in `main-menu`; the five info pages in `footer-info` (A1).
+- ☑ **Events:** `kambric_event` definition + the 3 exported events *(batch 08)*. ☐ Add real upcoming events when known (Content → Metaobjects → Event).
+- ☑ *(batch 08; info pages each have their own template: `page.contact`, `page.wholesale`, `page.shipping`, `page.returns`)* **Pages:** About (`about`, template `page.about`) and Events (`events`, `page.events`) with empty bodies; Contact, Wholesale, Size Guide (`page.size-guide`), Shipping, Returns with bodies from `pages/*.html`.
+- ☑ *(batch 08)* **Journal:** create blog `journal`, import the 5 posts from `journal/posts.json` (cover images, normalised category tags).
+- ☑ *(batch 08)* **Menus Part B:** Story, Events, Journal in `main-menu`; the five info pages in `footer-info` (A1).
 - **Scopes:** metaobjects, pages and blogs need extra Admin API scopes (`write_metaobject_definitions`, `write_metaobjects`, `write_content`); you'd re-run `shopify store auth` with them added.
 
 ### A8. Phase 5 (cart, search, pop-up)

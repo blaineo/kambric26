@@ -1,0 +1,8 @@
+# Batch 08 snapshot (read-only): everything the batch could collide with or changes.
+{
+  shop { id }
+  pages(first: 50) { nodes { id handle title templateSuffix isPublished } }
+  blogs(first: 10) { nodes { id handle title articlesCount { count } } }
+  metaobjectDefinitionByType(type: "kambric_event") { id type metaobjectsCount }
+  menus(first: 20) { nodes { id handle title items { id title type url resourceId items { id title type url resourceId } } } }
+}

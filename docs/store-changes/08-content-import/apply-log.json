@@ -1,0 +1,71 @@
+{
+ "pages_created": [
+  {
+   "handle": "about",
+   "id": "gid://shopify/Page/114867831018"
+  },
+  {
+   "handle": "events",
+   "id": "gid://shopify/Page/114867863786"
+  },
+  {
+   "handle": "wholesale",
+   "id": "gid://shopify/Page/114867896554"
+  },
+  {
+   "handle": "size-guide",
+   "id": "gid://shopify/Page/114867929322"
+  },
+  {
+   "handle": "shipping",
+   "id": "gid://shopify/Page/114867962090"
+  },
+  {
+   "handle": "returns",
+   "id": "gid://shopify/Page/114867994858"
+  }
+ ],
+ "contact_updated": true,
+ "blog": "gid://shopify/Blog/94613962986",
+ "articles": [
+  {
+   "handle": "where-kambric-began",
+   "id": "gid://shopify/Article/590518747370"
+  },
+  {
+   "handle": "first-look-ss27",
+   "id": "gid://shopify/Article/590518780138"
+  },
+  {
+   "handle": "arielle-dress",
+   "id": "gid://shopify/Article/590518812906"
+  },
+  {
+   "handle": "chainstitch",
+   "id": "gid://shopify/Article/590518845674"
+  },
+  {
+   "handle": "gearing-up-for-dallas",
+   "id": "gid://shopify/Article/590518878442"
+  }
+ ],
+ "definition": "gid://shopify/MetaobjectDefinition/7286161642",
+ "events": [
+  {
+   "handle": "embroidery-pop-up-june-20-2026",
+   "id": "gid://shopify/Metaobject/188747317482"
+  },
+  {
+   "handle": "pop-up-shop-june-27-2026",
+   "id": "gid://shopify/Metaobject/188747350250"
+  },
+  {
+   "handle": "summer-soiree-july-11-2026",
+   "id": "gid://shopify/Metaobject/188747383018"
+  }
+ ],
+ "menus_updated": [
+  "main-menu",
+  "footer-info"
+ ]
+}
