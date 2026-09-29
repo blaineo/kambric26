@@ -876,7 +876,11 @@
       "name": "About this collection",
       "eyebrow": "Eyebrow",
       "heading": "Heading",
-      "heading_info": "Leave blank for \"About our [collection name]\". Shows the collection's description; hidden when it has none."
+      "heading_info": "Leave blank for \"About our [collection name]\". Shows the collection's description; hidden when it has none.",
+      "link_1_label": "Link 1 label",
+      "link_1_url": "Link 1",
+      "link_2_label": "Link 2 label",
+      "link_2_url": "Link 2"
     }
   }
 }

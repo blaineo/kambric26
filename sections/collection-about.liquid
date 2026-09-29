@@ -9,6 +9,7 @@
 
   @setting {text} heading - Heading; blank = "About our {collection title, lowercase}"
   @setting {text} eyebrow - Small label above the heading (optional)
+  @setting {text|url} link_1_label/url, link_2_label/url - Fit or styling links under the text (e.g. Size Guide, a Journal post)
 {% endcomment %}
 {%- if collection.description != blank -%}
   {%- liquid
@@ -28,6 +29,16 @@
       </div>
       <div class="collection-about__body">
         {%- render 'rte', content: collection.description -%}
+        {%- if section.settings.link_1_label != blank or section.settings.link_2_label != blank -%}
+          <ul class="collection-about__links" role="list">
+            {%- if section.settings.link_1_label != blank and section.settings.link_1_url != blank -%}
+              <li><a href="{{ section.settings.link_1_url }}">{{ section.settings.link_1_label | escape }}</a></li>
+            {%- endif -%}
+            {%- if section.settings.link_2_label != blank and section.settings.link_2_url != blank -%}
+              <li><a href="{{ section.settings.link_2_url }}">{{ section.settings.link_2_label | escape }}</a></li>
+            {%- endif -%}
+          </ul>
+        {%- endif -%}
       </div>
     </div>
   </section>
@@ -65,6 +76,33 @@
     color: color-mix(in srgb, var(--color-foreground) 75%, transparent);
   }
 
+  /* Fit / styling links under the description */
+  .collection-about__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3) var(--space-8);
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .collection-about__links a {
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-foreground);
+    text-decoration: none;
+    border-block-end: 1px solid color-mix(in srgb, var(--color-foreground) 30%, transparent);
+    padding-block-end: 2px;
+  }
+
+  .collection-about__links a:hover,
+  .collection-about__links a:focus-visible {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
   @media (min-width: 48rem) {
     .collection-about__inner {
       grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
@@ -86,6 +124,28 @@
       "type": "text",
       "id": "eyebrow",
       "label": "t:sections.collection_about.eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "link_1_label",
+      "label": "t:sections.collection_about.link_1_label",
+      "default": "Find your fit"
+    },
+    {
+      "type": "url",
+      "id": "link_1_url",
+      "label": "t:sections.collection_about.link_1_url"
+    },
+    {
+      "type": "text",
+      "id": "link_2_label",
+      "label": "t:sections.collection_about.link_2_label",
+      "default": "From the Journal"
+    },
+    {
+      "type": "url",
+      "id": "link_2_url",
+      "label": "t:sections.collection_about.link_2_url"
     },
     {
       "type": "text",

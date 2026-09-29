@@ -64,7 +64,11 @@
       "type": "collection-about",
       "settings": {
         "eyebrow": "",
-        "heading": ""
+        "heading": "",
+        "link_1_label": "Find your fit",
+        "link_1_url": "shopify://pages/size-guide",
+        "link_2_label": "From the Journal",
+        "link_2_url": "shopify://blogs/journal"
       }
     }
   },
