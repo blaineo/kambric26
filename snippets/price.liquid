@@ -39,14 +39,15 @@
 </div>
 
 {% stylesheet %}
-  .price {
+  /* Base rules use :where() (zero specificity) so a section's own class on this snippet always wins. */
+  :where(.price) {
     display: flex;
     flex-wrap: wrap;
     align-items: baseline;
     column-gap: var(--space-3);
   }
 
-  .price__item--compare {
+  :where(.price__item--compare) {
     color: var(--color-muted-foreground);
     text-decoration-line: line-through;
   }

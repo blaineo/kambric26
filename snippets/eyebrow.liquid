@@ -39,7 +39,8 @@
 {%- endcase -%}
 
 {% stylesheet %}
-  .eyebrow {
+  /* Base rules use :where() (zero specificity) so a section's own class on this snippet always wins. */
+  :where(.eyebrow) {
     display: block;
     margin: 0;
     font-family: var(--font-sans);
@@ -50,7 +51,7 @@
     color: var(--color-muted-foreground);
   }
 
-  .eyebrow--on-dark {
+  :where(.eyebrow--on-dark) {
     color: color-mix(in srgb, var(--color-hero-foreground) 80%, transparent);
   }
 

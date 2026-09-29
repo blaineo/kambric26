@@ -54,6 +54,16 @@
 </section>
 
 {% stylesheet %}
+  /* Source: Events.tsx h1, clamp(3.5rem, 10vw, 7.5rem), leading 0.92; italic line hsl(34 44% 62%) */
+  .events-hero .section-heading {
+    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    line-height: 0.92;
+  }
+
+  .events-hero .section-heading em {
+    color: var(--color-hero-accent);
+  }
+
   /* Source: Events.tsx hero, py-24 px-6, bg hsl(24 18% 13%) (= hero background) */
   .events-hero {
     position: relative;
@@ -94,12 +104,12 @@
   }
 
   .events-hero__eyebrow {
-    margin-block-end: var(--space-8);
+    margin-block-end: var(--space-10);
     opacity: 0.85;
   }
 
   .events-hero__title {
-    margin-block-end: var(--space-8);
+    margin-block-end: var(--space-10);
     color: var(--color-hero-foreground);
   }
 

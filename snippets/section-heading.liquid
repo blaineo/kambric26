@@ -8,7 +8,7 @@
   @param {string} heading - The heading text
   @param {string} [heading_em] - Optional second line, rendered on its own line in italic serif + primary colour
   @param {string} [tag] - 'h1' | 'h2' (default) | 'h3'
-  @param {string} [size] - 'hero' | 'xl' | 'lg' (default) | 'md' | 'sm'
+  @param {string} [size] - 'hero' | 'page' | 'index' | 'xl' | 'lg' (default) | 'md' | 'sm'
   @param {string} [align] - 'left' (default) | 'center'
   @param {boolean} [on_dark] - Use the hero foreground tone (for dark backgrounds)
   @param {boolean} [italic] - Set the whole heading in italic (source: 404 "This page seems to have wandered off.")
@@ -59,7 +59,9 @@
 {%- endcase -%}
 
 {% stylesheet %}
-  .section-heading {
+  /* Base and colour rules use :where() (zero specificity) so a section's own class on this snippet
+     always wins. Size modifiers keep class specificity: they must beat the global h1–h6 line-height. */
+  :where(.section-heading) {
     margin: 0;
     font-family: var(--font-serif);
     font-weight: var(--weight-regular);
@@ -69,23 +71,23 @@
     text-wrap: balance;
   }
 
-  .section-heading--center {
+  :where(.section-heading--center) {
     text-align: center;
   }
 
-  .section-heading--on-dark {
+  :where(.section-heading--on-dark) {
     color: var(--color-hero-foreground);
   }
 
-  .section-heading--italic {
+  :where(.section-heading--italic) {
     font-style: italic;
   }
 
-  .section-heading--muted {
+  :where(.section-heading--muted) {
     color: var(--color-muted-foreground);
   }
 
-  .section-heading__em {
+  :where(.section-heading__em) {
     display: block;
     font-style: italic;
     color: var(--color-primary);
@@ -95,6 +97,19 @@
   .section-heading--hero {
     font-size: var(--text-hero);
     line-height: var(--leading-display);
+  }
+
+  /* Page: 48px → 56px, leading 0.93 (source: Shop / category / Sale / Journal h1) */
+  .section-heading--page {
+    font-size: var(--text-48);
+    line-height: 0.93;
+  }
+
+  /* Index: 48px at every width, leading 1 (source: /collections h1, text-5xl) */
+  .section-heading--index {
+    font-size: var(--text-48);
+    line-height: 1;
+    letter-spacing: normal;
   }
 
   /* XL: 36px → 60px, leading 1.05 (source: home editorial-story h2) */
@@ -119,6 +134,10 @@
   }
 
   @media (min-width: 48rem) {
+    .section-heading--page {
+      font-size: var(--text-56);
+    }
+
     .section-heading--xl {
       font-size: var(--text-60);
     }

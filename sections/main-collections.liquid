@@ -8,7 +8,7 @@
   1. `collection_list` setting set (non-empty) → exactly those collections,
      in the order chosen there (still skipping `frontpage` defensively).
   2. Otherwise (the default) → every collection with `kambric.season` set,
-     in the store's own collection order. This is the simplest rule that's
+     in the order they were created (as the live site lists them). This is the simplest rule that's
      also automatically correct: the category and Sale collections are
      product-type/price rules, not seasonal chapters, so they've never had
      `kambric.season` set, and `frontpage` is documented as never having a
@@ -54,7 +54,7 @@
     {%- if eyebrow != blank -%}
       {%- render 'eyebrow', text: eyebrow, class: 'main-collections__eyebrow' -%}
     {%- endif -%}
-    {%- render 'section-heading', heading: heading, tag: 'h1', size: 'hero', class: 'main-collections__heading' -%}
+    {%- render 'section-heading', heading: heading, tag: 'h1', size: 'index', class: 'main-collections__heading' -%}
     {%- if intro != blank -%}
       <div class="main-collections__body">
         {%- render 'rte', content: intro -%}
@@ -79,7 +79,8 @@
           endunless
         endfor
       else
-        for col in collections
+        assign store_order = collections | sort: 'id'
+        for col in store_order
           if col.handle != 'frontpage' and col.metafields.kambric.season.value != blank
             assign card_loading = 'lazy'
             if position < 2
@@ -130,7 +131,8 @@
       endunless
     endfor
   else
-    for col in collections
+    assign store_order = collections | sort: 'id'
+    for col in store_order
       if col.handle != 'frontpage' and col.metafields.kambric.season.value != blank
         if position > 0
           assign json_items = json_items | append: ','
