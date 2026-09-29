@@ -1,0 +1,79 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186"
+  },
+  "products": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Product/8681284272362",
+        "handle": "kati-slip-dress-in-matyo-floral",
+        "tags": [
+          "featured"
+        ]
+      },
+      {
+        "id": "gid://shopify/Product/8681284305130",
+        "handle": "jessie-slip-dress-in-twilight-plumes",
+        "tags": []
+      },
+      {
+        "id": "gid://shopify/Product/8681284665578",
+        "handle": "bodie-scarf-in-twilight-plumes",
+        "tags": [
+          "monogrammable"
+        ]
+      },
+      {
+        "id": "gid://shopify/Product/8681284698346",
+        "handle": "goldie-bandana-in-matyo-floral",
+        "tags": [
+          "monogrammable",
+          "new-arrival"
+        ]
+      },
+      {
+        "id": "gid://shopify/Product/8690060460266",
+        "handle": "chainstitch-monogram",
+        "tags": [
+          "hidden",
+          "monogram-fee"
+        ]
+      },
+      {
+        "id": "gid://shopify/Product/8690544312554",
+        "handle": "margit-one-piece",
+        "tags": [
+          "featured",
+          "new-arrival"
+        ]
+      },
+      {
+        "id": "gid://shopify/Product/8690544345322",
+        "handle": "zadie-linen-dress",
+        "tags": [
+          "featured",
+          "monogrammable"
+        ]
+      },
+      {
+        "id": "gid://shopify/Product/8690544378090",
+        "handle": "esther-kaftan",
+        "tags": [
+          "featured"
+        ]
+      },
+      {
+        "id": "gid://shopify/Product/8690544410858",
+        "handle": "vera-car-coat",
+        "tags": [
+          "featured"
+        ]
+      },
+      {
+        "id": "gid://shopify/Product/8721345642730",
+        "handle": "arielle-dress",
+        "tags": []
+      }
+    ]
+  }
+}

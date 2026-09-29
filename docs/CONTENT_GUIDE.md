@@ -773,8 +773,9 @@ Kambric26 uses Shopify's own search, in two places:
 Shopify indexes product **titles**, **types**, **tags**, and **variant** data, plus
 page/article titles and content. It does **not** know about the print-level fields
 (`kambric.print_name`, `kambric.prints`) the way the rest of the theme does — a search
-match is always a whole product, never a specific print. If a shopper searches a print
-name that's only recorded in metafields (not in the title), it may not match. Practical
+match is always a whole product, never a specific print. A print name that's only in
+those fields won't match, which is why products carry it as a **tag** too (below).
+Accents don't matter for whole words: "matyo" finds "Matyó". Practical
 ways to make a piece easier to find:
 
 - **Product title**: if a print name matters for search (e.g. "Dahlia Seed"), put it in
@@ -784,8 +785,21 @@ ways to make a piece easier to find:
   Shopify also indexes).
 - **Type**: keep the product's **Type** field set (Dresses, Kaftans, Coats, Swimwear,
   Accessories) — searches for a category word match against it.
-- **Tags**: tags are searched too. Adding a tag for a print name, fabric, or occasion
-  ("floral", "linen", "wedding guest") gives shoppers another way in.
+- **Tags**: tags are searched too, and the theme never displays them. **The house rule
+  (2026-09-29):** tag every product with
+  - its **print name(s)** when they aren't in the title or a Print/Colorway option
+    (single-print products), e.g. `Twilight Plumes`;
+  - an **unaccented copy** of any accented print name, e.g. `Matyo Floral` next to
+    `Matyó Floral` (full words match either way, but part-typed words like "maty" only
+    match the unaccented tag);
+  - its **collection name(s)**: `Psychedelics`, `Folklore`, `Whimsy`;
+  - any archive label shown on the product (e.g. `Parlor Rose` on Arielle).
+  Fabric or occasion tags ("linen", "wedding guest") are fine too. Avoid the reserved
+  tags the theme uses as switches: `hidden`, `featured`, `new-arrival`, `monogrammable`.
+- **Collections in search**: typing in the search overlay also suggests matching
+  collections ("psych" → Psychedelics) above the products.
+- **Synonyms and search reports**: Shopify's free *Search & Discovery* app (optional) adds
+  synonym groups (e.g. "kaftan, caftan") and shows what people search for.
 - **SEO title/description**: doesn't affect on-site search ranking, but does affect how
   the piece appears in Google — worth filling in regardless (see the SEO checklist
   elsewhere in this guide).

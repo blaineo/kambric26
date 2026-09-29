@@ -1,0 +1,2 @@
+# Batch 13 snapshot (read-only): current tags on the active catalog
+{ shop { id } products(first: 50, query: "status:active") { nodes { id handle tags } } }
