@@ -43,7 +43,7 @@
   endif
 -%}
 {%- if should_render and has_content -%}
-  <div class="text-cta text-cta--{{ style }}">
+  <div class="text-cta text-cta--{{ style }} full-width">
     <div class="text-cta__inner">
       {%- if message != blank -%}
         <p class="text-cta__message">{{ message }}</p>
@@ -56,8 +56,9 @@
 {%- endif -%}
 
 {% stylesheet %}
+  /* Full-bleed band (source: border-t border-border/50, edge to edge) */
   .text-cta {
-    border-block-start: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+    border-block-start: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
   }
 
   .text-cta--centered {
@@ -66,6 +67,9 @@
   }
 
   .text-cta--centered .text-cta__inner {
+    max-width: var(--page-width);
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,9 +85,11 @@
     color: color-mix(in srgb, var(--color-foreground) 78%, transparent);
   }
 
+  /* Source: px-8 md:px-12 py-6 bg-muted/25 */
   .text-cta--split {
-    padding-block: var(--space-5);
-    background: color-mix(in srgb, var(--color-muted) 22%, transparent);
+    padding-block: var(--space-6);
+    padding-inline: var(--space-8);
+    background: color-mix(in srgb, var(--color-muted) 25%, transparent);
   }
 
   .text-cta--split .text-cta__inner {
@@ -98,12 +104,18 @@
     margin: 0;
     font-family: var(--font-serif);
     font-style: italic;
-    font-size: var(--text-15);
-    color: color-mix(in srgb, var(--color-foreground) 78%, transparent);
+    font-size: var(--text-14);
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
   }
 
   .text-cta--split .text-cta__link {
     flex-shrink: 0;
+  }
+
+  @media (min-width: 48rem) {
+    .text-cta--split {
+      padding-inline: var(--space-12);
+    }
   }
 {% endstylesheet %}
 
