@@ -30,6 +30,16 @@
   if request.page_type == 'list-collections'
     assign page_title = 'collections.index_title' | t
   endif
+  # Single-print products: add the print to the default title ("Kati Slip Dress in Matyó Floral"),
+  # people search print names. A title set in the product's Search engine listing wins.
+  if request.page_type == 'product' and product.metafields.global.title_tag == blank
+    assign title_print = product.metafields.kambric.print_name.value
+    if title_print != blank
+      unless product.title contains title_print
+        assign page_title = product.title | append: ' in ' | append: title_print
+      endunless
+    endif
+  endif
   assign og_title = page_title | default: shop.name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
@@ -45,6 +55,25 @@
       when 'collection'
         if collection.handle == 'all'
           assign meta_description = 'collections.shop_all_description' | t
+        else
+          assign meta_description = 'collections.fallback_description' | t: title: collection.title
+        endif
+      when 'product'
+        comment
+          No product description: say what it is and which prints, instead of the store blurb.
+        endcomment
+        assign desc_prints = product.metafields.kambric.print_name.value
+        if desc_prints == blank
+          for option in product.options_with_values
+            if option.name == 'Print' or option.name == 'Colorway'
+              assign desc_prints = option.values | join: ', '
+            endif
+          endfor
+        endif
+        if desc_prints != blank
+          assign meta_description = 'products.product.fallback_description_prints' | t: title: product.title, prints: desc_prints
+        else
+          assign meta_description = 'products.product.fallback_description' | t: title: product.title
         endif
     endcase
   endif
@@ -134,7 +163,7 @@
 </title>
 
 {%- if meta_description != blank %}
-  <meta name="description" content="{{ meta_description | strip_html | escape }}">
+  <meta name="description" content="{{ meta_description | strip_html | escape_once }}">
 {%- endif %}
 
 {%- comment -%}
@@ -157,9 +186,9 @@
 
 <meta property="og:site_name" content="{{ shop.name | escape }}">
 <meta property="og:url" content="{{ og_url }}">
-<meta property="og:title" content="{{ og_title | escape }}">
+<meta property="og:title" content="{{ og_title | escape_once }}">
 <meta property="og:type" content="{{ og_type }}">
-<meta property="og:description" content="{{ og_description | escape }}">
+<meta property="og:description" content="{{ og_description | strip_html | escape_once }}">
 <meta property="og:locale" content="{{ request.locale.iso_code | replace: '-', '_' }}">
 
 {%- if share_url != blank %}
@@ -192,8 +221,8 @@
 {%- endif %}
 
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ og_title | escape }}">
-<meta name="twitter:description" content="{{ og_description | escape }}">
+<meta name="twitter:title" content="{{ og_title | escape_once }}">
+<meta name="twitter:description" content="{{ og_description | strip_html | escape_once }}">
 {%- if share_url != blank %}
   <meta name="twitter:image" content="{{ share_url }}">
 {%- else %}

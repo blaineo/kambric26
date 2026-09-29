@@ -85,7 +85,8 @@
     "index_title": "Heritage Print Collections",
     "index_description": "Explore Kambric Goods collections of contemporary womenswear inspired by original hand-painted prints from the Hartmann Studio archive.",
     "shop_all_description": "Browse every Kambric Goods piece — modern womenswear and home goods, each carrying an original mid-century hand-painted print from the Hartmann archive.",
-    "about_heading": "About our {{ title }}"
+    "about_heading": "About our {{ title }}",
+    "fallback_description": "Shop {{ title }} at Kambric Goods: original mid-century hand-painted prints from the Hartmann Studio archive, made into womenswear in limited quantities."
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
@@ -205,7 +206,9 @@
       "add_error": "Something went wrong adding this to your cart. Please try again.",
       "category": "Category",
       "collection": "Collection",
-      "view_collection": "View Collection →"
+      "view_collection": "View Collection →",
+      "fallback_description_prints": "{{ title }} in {{ prints }}: original hand-painted prints from the Hartmann Studio archive, made by Kambric Goods in limited quantities.",
+      "fallback_description": "{{ title }} by Kambric Goods: an original hand-painted print from the Hartmann Studio archive, made in limited quantities."
     },
     "monogram": {
       "legend": "Chainstitch monogram",

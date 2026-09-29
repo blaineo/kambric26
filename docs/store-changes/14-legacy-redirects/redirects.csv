@@ -1,0 +1,42 @@
+path,target,basis,note
+/home/p/maty-car-coat,/products/vera-car-coat?variant=46124608356586,indexed,Matyó Floral Car Coat
+/home/p/wildflowers-linen-slip-dress,/products/zadie-linen-dress?variant=46124607340778,indexed,Wildflowers Linen Dress
+/home/p/presale-linen-slip-dress-in-grapefruit-tartan,/products/zadie-linen-dress?variant=46124607537386,indexed,Candied Plaid Linen Dress
+/home/p/maty-slip-dress-nwg8z,/products/jessie-slip-dress-in-twilight-plumes,indexed,Ginkgo Leaf Slip Dress (the plumes print)
+/home/p/maty-slip-dress,/products/kati-slip-dress-in-matyo-floral,inferred,Matyó slip dress (base of the -nwg8z copy)
+/home/p/pastel-asterisk-one-piece,/products/margit-one-piece?variant=46124606488810,indexed,Pastel Asterisk One-Piece
+/home/p/orange-asterisk-one-piece,/products/margit-one-piece?variant=46124606685418,indexed,Orange Asterisk One-Piece
+/home/p/moonillusion-onepiece,/products/margit-one-piece?variant=46124606095594,indexed,Moon Illusion One-Piece
+/home/p/dahlia-seed-one-piece,/products/margit-one-piece?variant=46124605898986,inferred,Dahlia Seed One-Piece (listed in results; slug follows the pattern)
+/home/p/magnolia-one-piece,/products/margit-one-piece?variant=46124606882026,inferred,Magnolia One-Piece
+/home/p/good-vibrations-one-piece,/products/margit-one-piece?variant=46124606292202,inferred,Good Vibrations One-Piece
+/home/p/magnolia-kaftan-dress,/products/esther-kaftan?variant=46124608127210,indexed,Magnolia Kaftan Dress
+/home/p/dahlia-seed-kaftan-dress,/products/esther-kaftan?variant=46124608028906,indexed,Dahlia Seed Kaftan Dress
+/home/p/good-vibrations-kaftan-dress,/products/esther-kaftan?variant=46124607930602,inferred,Good Vibrations Kaftan Dress
+/home/p/rattlesnake-scarf-k2afd,/products/goldie-bandana-in-matyo-floral,indexed,Matyó Cotton Scarf -> Matyó bandana
+/home/p/rattlesnake-scarf-3l62x,/products/bodie-scarf-in-twilight-plumes,indexed,Gingko Leaf Oversized Bandana -> plumes scarf
+/home/p/rattlesnake-scarf,/collections/accessories,indexed,Rattlesnake Scarf (discontinued) -> scarves & bandanas
+/home/p/rattlesnake-scarf-k2afd-8wz8j,/collections/accessories,indexed,Wildflowers Cotton Scarf (discontinued)
+/home/p/dahlia-seed-scarf,/collections/accessories,indexed,Dahlia Seed Western Bandana (discontinued)
+/home,/collections/all,indexed,old shop root
+/home/accessories,/collections/accessories,indexed,
+/home/scarves,/collections/accessories,indexed,
+/home/kaftans,/collections/kaftans,indexed,
+/home/womenswear,/collections/all,inferred,
+/home/womenswear/dresses,/collections/dresses,indexed,
+/home/womenswear/kaftans,/collections/kaftans,inferred,
+/home/womenswear/coats,/collections/coats,inferred,
+/home/womenswear/swimwear,/collections/swimwear,inferred,
+/home/swimwear,/collections/swimwear,inferred,
+/home/dresses,/collections/dresses,inferred,
+/home/coats,/collections/coats,inferred,
+/return-policy,/pages/returns,indexed,
+/story,/pages/about,indexed,
+/happenings,/pages/events,indexed,
+/philosophy,/pages/about,archived,
+/shipping-returns,/pages/shipping,archived,
+/terms-conditions,/policies/terms-of-service,archived,
+/shop/kati-dress,/products/kati-slip-dress-in-matyo-floral,archived,
+/services/chainstitch-embroidery,/blogs/journal/chainstitch,archived,
+/services,/pages/contact,archived,services enquiries
+/book-an-appointment,/pages/contact,archived,
