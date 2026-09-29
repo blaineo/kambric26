@@ -28,12 +28,12 @@ New to the shop's structure? Start with **§2b How the shop is organized**. The 
 | (Couldn't edit) the **footer blurb, "Stay close" heading, location line** | **Customize** → *Footer* | ✅ Now |
 | Upload a **footer logo** | **Customize → Theme settings → Logo and brand** (one logo for header and footer) | ✅ Now |
 | (Couldn't edit) **colours, social links, favicon, sharing image** | **Customize → Theme settings** | ✅ Now |
-| Edit the **homepage hero, story, quote image** | **Customize** → Home page sections | Phase 4 |
-| Edit the **About page** text, photos, value cards | **Customize** → About page sections | Phase 4 |
-| Add, edit and reorder **events** | **Content → Metaobjects → Events** | Phase 4 |
-| Write **journal posts** (Markdown) | **Content → Blog posts → Journal** (visual editor, no Markdown) | Phase 4 |
+| Edit the **homepage hero, story, quote image** | **Customize** → Home page sections (§3e) | ✅ Phase 4 |
+| Edit the **About page** text, photos, value cards | **Customize** → About page sections (§3f) | ✅ Phase 4 |
+| Add, edit and reorder **events** | **Content → Metaobjects → Event** (§3g) | ✅ Phase 4 |
+| Write **journal posts** (Markdown) | **Content → Blog posts → Journal** (visual editor, no Markdown; §3h) | ✅ Phase 4 |
 | Set **collection cover and header images** | **Products → Collections → (collection) → Metafields**: *Card image* and *Header image* | ✅ Phase 3 |
-| Edit **info pages** (contact, shipping, returns, size guide, wholesale) | **Online Store → Pages** (these were locked in code before; now you can edit them) | Phase 4 |
+| Edit **info pages** (contact, shipping, returns, size guide, wholesale) | **Online Store → Pages** (these were locked in code before; now you can edit them; §3h) | ✅ Phase 4 |
 | Edit **privacy policy and terms** | **Settings → Policies** | Phase 4 |
 | Change the **newsletter pop-up** image | **Customize** → Pop-up section | Phase 5 |
 | Download **newsletter subscribers** | **Customers** → filter *Email subscribed* (or the tag `newsletter`) → Export | ✅ Footer form now; pop-up Phase 5 |
@@ -478,6 +478,238 @@ Set the Sale heading's title and intro in the theme editor (Customize → a sale
 
 ---
 
+## 3e. Home page (Phase 4)
+
+Edit it in **Online Store → Themes → Customize** (the home page opens first). Top to bottom, the sections are:
+
+| # | Section | What you can change |
+| --- | --- | --- |
+| 1 | **Home hero** | Photo, phone photo, alt text, crop position, shading, text position, small label, headline + italic second line, headline size, subtitle, two buttons (label + link), "Scroll" cue on/off |
+| 2 | **Scrolling strip** (filled) | The items (one per line), style, direction, speed |
+| 3 | **Product rail**: "New Arrivals / Just Arrived" (dark band) | Label, heading, link, which pieces (see below) |
+| 4 | **Home story** | Label, heading + italic line, text, button, up to 3 **Photo** blocks (collage) |
+| 5 | **Product rail**: "Featured Pieces / From the Collections" | Same as 3 |
+| 6 | **Lookbook** | Label, heading + italic word, intro line, **Look** blocks |
+| 7 | **Quote** | Quote, attribution, ornaments, optional background photo (strength and cream wash) |
+| 8 | **Scrolling strip** (plain, reversed) | Same as 2 |
+
+Sections can be hidden, reordered or added again from **Add section** (all six are available anywhere).
+
+### Home hero
+- **Photo**: the biggest image on the page and the first one to load. Use a wide photo at least 2400 px wide. **Phone photo** (optional) replaces it on screens under 768 px: use a portrait crop.
+- **Crop position** (e.g. `65% 20%`) decides what stays in view when the photo is cropped. A **focal point** set on the image in *Content → Files* takes priority.
+- **Headline** is the page's main heading for Google (the only H1 on the page). Leave both headline lines empty only if the photo says it all; the shop name is then used for screen readers.
+- **Headline size**: *Medium* suits a product name like "Arielle Slip Dress" (the current site shrinks the headline automatically when it contains "Arielle"; this setting replaces that rule). *Large* suits a short phrase.
+- **Alt text**: leave empty (decorative photo, like today) or describe it.
+- Without a photo, the dark band shows on its own and the text still reads well.
+- The text fades in when the page opens and the photo drifts slightly as you scroll. Both are switched off for visitors who ask their device for reduced motion.
+
+### Scrolling strips
+One item per line. They loop continuously, pause on mouse-over, and stand still (wrapped onto lines) for visitors who prefer reduced motion. The two strips on the home page share the same six items; edit both if you change them.
+
+### Product rails (New Arrivals and Featured Pieces)
+Each card is one **print**, as everywhere else (§3b). A rail is filled in two steps:
+
+1. **Show first** blocks: pick a **product**, and optionally a **print** (exact name, e.g. `Matyó Floral`). With no print, every print of the product is shown. These slots are always kept.
+2. **Fill with**: flagged prints fill the slots left up to **Maximum cards**: *Prints flagged featured*, *Prints flagged new arrival*, *Any print*, or *Nothing*. Flags are set per print in the product's *Prints* data (`featured` / `newArrival`), or with the tags `featured` / `new-arrival` on single-print products. ⚠️ Shared with the live site: leave the flags alone until launch.
+   - **From collection** (optional) limits the pool; empty = every product, alphabetical.
+   - **Exclude product types** (comma-separated, e.g. `Swimwear`) leaves those types out of the flagged prints. It never removes a Show first block.
+   - **Show first pieces go**: before or after the flagged pieces.
+
+A print never appears twice. If the rail ends up empty it's hidden on the site.
+
+**These settings replace rules that were hard-coded on the current site:**
+
+| Rail | Old hard-coded rule | Now set up as |
+| --- | --- | --- |
+| New Arrivals | Up to 1 flagged new arrival that isn't Swimwear and isn't Arielle, then every Arielle print, max 3 | Fill with *new arrival*, Exclude product types `Swimwear`, one Show first block **Arielle Slip Dress** (no print), *after*, Maximum 3, 3 columns |
+| Featured Pieces | First 4 featured prints, but Esther Kaftan / Good Vibrations is swapped for Margit One-Piece / Wildflowers and Margit / Dahlia Seed for Margit / Matyó Floral | Four Show first blocks, in order: **Kati Slip Dress**, **Margit One-Piece / Matyó Floral**, **Zadie Linen Dress / Wildflowers**, **Margit One-Piece / Wildflowers**; Fill with *featured*, Maximum 4, 4 columns. Delete a block and the next featured print takes its place. |
+
+### Home story
+Text on the left (label, heading with its italic line, two short paragraphs, button to the story page), collage on the right. **Photo** blocks: the first is the tall photo, the next two stack beside it (max 3). Each has alt text and a crop position. On phones the collage sits under the text. Without any photos the collage is left out and the text spans the band.
+
+### Lookbook
+Each **Look** block is one photo: image, alt text, crop position, number label ("No. 01"), caption, link and a link description for screen readers ("Shop the Vera Car Coat"). The whole photo is the link. On desktop, look 1 is the large photo, looks 2 and 3 stack beside it, and looks 4 onward sit three to a row. On phones they stack. Drag blocks to reorder. A look without a photo only shows in the editor (as a placeholder); until at least one look has a photo, the whole Lookbook is hidden on the site.
+
+### Quote
+The quote, attribution and ✦ ornaments are editable now (they were fixed in code). The background photo is optional: without it the band is plain.
+
+### Photos: where the current ones go
+The home photos can't be pre-filled by the theme; they're uploaded once (owner task list, "Home page photos"), then picked in each setting:
+
+| Setting | File (from the export) |
+| --- | --- |
+| Home hero → Photo | `home-hero-background.png` (`assets/uploads/9de4a6ef-…fc41.png`) |
+| Quote → Background photo | `home-founder-quote-background.jpg` (`assets/uploads/cd6532ac-…56f1.jpg`) |
+| Home story → Photo 1 | `IMG_8800_1780590151823.png` |
+| Home story → Photo 2 | `kati_hands_painting.png` |
+| Home story → Photo 3 | `IMG_6961_1780589947013.png` |
+| Lookbook → Look 1 … 6 | `DSCF1744…`, `DSCF1600…`, `DSCF1931…`, `DSCF1688…`, `DSCF1680…`, `DSCF2023…` (`_Original_*.jpg`) |
+
+Alt texts and crop positions from the current site are already filled in on each block.
+
+**Where did it move?** *Homepage Hero*, *Homepage Story* and *Homepage Quote background* in the old `/admin` are now the **Home hero**, **Home story** and **Quote** sections. The strip items, rail headings and links, lookbook and quote text used to be fixed in code and are now editable.
+
+## 3f. About page (Phase 4)
+
+*Customize → choose the page **About** (template `page.about`) from the page picker at the top.*
+
+The page is six sections, each editable independently — nothing is hard-coded copy anymore:
+
+| Section | What it is | Notes |
+| --- | --- | --- |
+| **About hero** | Dark band, eyebrow, three-line headline (the middle line is the gold accent), subtitle, optional background photo | This is the page's only heading (H1). With no photo the band shows as a plain dark text band — still fully readable. |
+| **About: On the Name** | Centered eyebrow + rich text | Use the toolbar's *italic* button for emphasis — you don't need to type `*asterisks*` like the old site did. |
+| **About: story block** (×2, "Kati" and "Daisy") | Eyebrow, one-line italic heading, biography, photo, optional caption, optional button | Add this section twice — once per person. **Image side (desktop)** controls which side the photo sits on; on phones the photo always shows above the text either way. |
+| **About: values** | "What We Stand For" eyebrow + value cards | Value cards are **blocks**: click **Add block → Value card** to add one, or use the block menu to remove/reorder. Unlike the old CMS, you can have any number of cards, not just three. |
+| **CTA banner** | Closing full-bleed photo band with a heading and one button | Use Shift+Enter (or the line-break option in the heading field) for a two-line heading like the default "It began with / the archive." |
+
+### Adding a value card
+1. Open the **About: values** section.
+2. **Add block → Value card.**
+3. Fill in **Number** (e.g. "04"), **Title**, **Body**.
+4. Drag to reorder; use the block's menu to remove one.
+
+### Images
+None of the photos (hero, Kati, Daisy, CTA banner) can be pre-loaded — upload them once to **Content → Files** and set each on its section. The exact files and where they go are in the owner task list (`owner-tasks-about-events.md` §4, to be merged into `docs/OWNER_TASKS.md`). Until then every image-backed section renders gracefully as a text-only band.
+
+---
+
+## 3g. Events page (Phase 4)
+
+*Customize → choose the page **Events** (template `page.events`) from the page picker at the top.*
+
+Two sections:
+
+| Section | What it is |
+| --- | --- |
+| **Events hero** | Dark band, eyebrow, two-line heading, italic subtitle, optional background photo (this page's only H1) |
+| **Events list** | Upcoming list, past list, empty state, and the "Hosting · Press · Collaborations" contact block — all in one section |
+
+### Events themselves aren't page content — they're a separate list you manage once, for every page
+Events live in **Content → Metaobjects → Event**, not in the page editor. Add, edit, reorder-by-date or remove events there; the Events page always reflects the current list automatically. The metaobject definition and how to add entries are in `owner-tasks-about-events.md` §1–2 (owner sets this up once; after that it's an ordinary content type like Pages or Blog posts).
+
+**Fields on each event:**
+- **Title** (required)
+- **Start date** — a real date. This is what decides upcoming vs. past (see below). Leave blank for a "TBA" event.
+- **Date label override** — type something here (e.g. "TBA", "Summer 2026") to show that instead of the formatted Start date. Most events don't need this.
+- **Time** — e.g. "6–8pm". Only shown on upcoming events.
+- **Venue**, **City**
+- **Description** — rich text
+- **Image** — optional. Not shown visually on the page (the design doesn't show event photos), but it's included in the event's structured data for search engines if you add one.
+- **URL** — optional link (RSVP page, Instagram post, etc.); makes the event's title clickable.
+- **Status override** — leave blank almost always. Only set this to force an event into the other list — e.g. an undated ("TBA") event that should actually show as past, or a dated event you want to keep under Upcoming past its date.
+
+### Upcoming vs. past, and sorting
+- An event is **past** once its Start date is before today. **Status override always wins** when set.
+- An event with **no Start date and no override** counts as **upcoming** (that's the "TBA" case — you don't know the date yet, but you know it's coming).
+- **Upcoming** events are listed soonest-first; undated ("TBA") ones sort to the end of that list.
+- **Past** events are listed most-recent-first, and only the most recent few show (**Events list** section → **Past events to show**, default 4 — the old site also kept 4). Older ones simply stop appearing; nothing needs to be deleted.
+- No events yet? The page shows an empty-state message instead of a blank space — its heading/body text are both editable in the **Events list** section settings.
+
+### Checking the layout before any events exist
+The **Events list** section has a setting, **Show sample events in the editor**, off by default. Turn it on to preview both the upcoming and past card layouts with sample content **while you're in Customize** — shoppers on the live site never see this either way; it only appears inside the theme editor. While it's on, the editor shows the samples instead of your real events, so turn it back off once you've added real entries you want to check.
+
+## 3h. Journal and info pages (Phase 4)
+
+### Writing a journal post
+
+**Content → Blog posts → Journal** (create the post under the `journal`
+blog — see OWNER_TASKS for one-time blog setup).
+
+| Field | What it does | Notes |
+| --- | --- | --- |
+| Title | The post's H1 and its browser-tab title | Title appears as "*Title* \| Kambric Goods Journal" |
+| Tags | The category shown on the card and the post itself (e.g. "Craft", "The Archive") | **Use exactly one tag per post.** Shopify sorts tags alphabetically, and the theme shows the *first* one as the category — a second tag could jump ahead of the one you meant. |
+| Excerpt | The teaser text on the Journal index card, and the fallback meta description | Keep it to 1–2 sentences |
+| Featured image | The post's cover photo | Shows on the index card and at the top of the post; also used as the social-share image |
+| Content | The body of the post | Use the rich text editor's headings/links/images as normal — no Markdown |
+| Published date | Controls sort order and the date shown | |
+
+**Products in this story:** open the post's page in the theme editor
+(**Customize**) and, under the article section, add products to **Products
+in this story**. This shows a small "Products in this story" grid under the
+post body. It's optional — leave it empty and nothing shows, there's no
+automatic guess at which products a post is "about".
+
+**Search engine listing:** fill in the title/description box at the bottom
+of the post's admin page so the post has a distinct summary for search
+results (the theme composes the browser title for you; this affects the
+description search engines show and the two are independent).
+
+### Editing info pages (Contact, Wholesale, Shipping, Returns, Size Guide)
+
+These live under **Online Store → Pages**. Five pages: `contact`,
+`wholesale`, `shipping`, `returns`, `size-guide`. (Privacy Policy and Terms
+of Service move to **Settings → Policies** instead — see OWNER_TASKS, 🔴.)
+
+Every one of these pages uses the same building blocks:
+
+- **Eyebrow:** open the page in **Customize** and set the small label above
+  the title (e.g. "Say Hello", "For Stockists") in the section's settings.
+- **Title:** the page's own **Title** field (Online Store → Pages) — this is
+  the page's H1.
+- **Body:** the page's **Content** field. Write the intro paragraph, then
+  any additional sections as ordinary headings (Heading 2) and paragraphs —
+  e.g. a "Customer Care" or "Become a Stockist" heading followed by its
+  paragraphs. A thin rule appears above each heading automatically; you
+  don't need to add one.
+- **Buttons ("Email Us", "Ask About Fit", "Shop Wholesale on JOOR", …):**
+  in **Customize**, add a **Button** block under the page content. Set:
+  - **Label**: the button text
+  - **Link**: `mailto:howdy@kambricgoods.com` for an email button, or a full
+    web address for an external link (e.g. the JOOR page)
+  - **Style**: choose **Solid** to match the site's dark CTA buttons
+  - **Open in new tab**: on, for external links like JOOR
+
+  Add more than one button if a page needs two (Wholesale has "Shop
+  Wholesale on JOOR" and "Request Our Line Sheet").
+
+Which template each page uses (set under **Template** in the page's admin
+sidebar):
+
+| Page | Template |
+| --- | --- |
+| Contact, Wholesale, Shipping, Returns | `page` (the default) |
+| Size Guide | `page.size-guide` |
+
+### Editing the Size Guide table
+
+The Size Guide page uses a second section, **Size table**, below the usual
+page content. Open the page in **Customize** to edit it:
+
+- **Table caption** — the heading above the table (default "Womenswear
+  (inches)").
+- **Size row blocks** — one block per row (XS–XL are pre-filled). Each has
+  four fields: **Size**, **Bust**, **Waist**, **Hip**. Add, remove, or
+  drag-reorder rows the same way you would any other block.
+- **Fit note heading / body** — the "Need a Hand?" text under the table.
+- **Ask About Fit button** — label + link fields in the same section
+  (defaults to a `mailto:` link); leave the link blank to hide the button.
+
+This renders as a real, accessible HTML table (not a picture of one), which
+is what lets search engines and AI assistants answer "what size should I
+get" questions directly from the page.
+
+If a future page ever needs a one-off table that isn't worth a whole
+section, you can also paste a table directly into a normal page/article's
+Content field — `rte.liquid`'s styling covers any real `<table>`, not just
+this one.
+
+### Behind the scenes (for the record, not something you need to do)
+
+- The Journal blog and its posts, and the info pages, all render through
+  theme sections (`main-blog`, `main-article`, `main-page`, `size-table`) —
+  the same JSON-template pattern as every other page type in this theme.
+- Journal web addresses are `/blogs/journal/...` (Shopify requires the
+  `/blogs/` prefix). The old `/journal/...` links redirect automatically —
+  see the migration plan's redirect list.
+
+> **Photos on the home, About and Events pages:** the developer uploads them to Files and sets them in the templates (a store batch), so you don't have to pick them one by one. To change one later, select the section in Customize and choose a different image.
+
+
+---
+
 ## 4. Photos: getting the best quality and speed
 
 The new theme automatically resizes every photo for each screen size and serves modern formats (WebP/AVIF) to browsers that support them. **You don't need to resize or compress photos yourself.**
@@ -525,6 +757,7 @@ These are tracked as decisions in `docs/MIGRATION_PLAN.md`. They're listed here 
 
 | Date | Phase | What changed for editors |
 | --- | --- | --- |
+| 2026-09-28 | 4: Home, About, Events, Journal, info pages | Home page sections and rails ("show first" blocks replace the old hard-coded picks), About sections and value cards, Events from the **Event** metaobject (upcoming/past automatic), Journal index and posts, info pages and the Size Guide table (§3e–§3h). |
 | 2026-09-28 | 3: Listings (update) | New **§2b How the shop is organized**: products, prints, collections, categories and sale, where each appears, and step-by-step recipes to add, edit, reorder, retire and hide. Listings now use one **Product listing** section with a **Collection block** per group (drag to reorder); the *Group order* setting is gone (§3d). Per-print collections are only needed for products spanning collections (Margit). |
 | 2026-09-28 | 3: Listings | Shop, category, collection and sale pages; template assignment; group order and "Show these first"; collection header image, season, piece count; `/collections` index; category strip menu `shop-categories`; collection copy sheet (§3d). |
 | 2026-09-28 | 2: Product page | Product page blocks and settings, archive label, print photos and links, chainstitch monogram, notify-me form, product details (§3c). |

@@ -36,7 +36,7 @@ New definitions the live site doesn't read.
 ### A4. Theme editor (Online Store → Themes → Kambric Goods → Customize)
 - ☐ **Sale heading:** write current promotion copy (the old "20% off … end of August" is stale). Guide §3d.
 - ☐ Review the 404 page, footer text, announcement bar (off by default). Guide §3, §3b.
-- ⏳ Home, About, Events, Journal content (Phase 4).
+- ☐ Home, About, Events, Journal content: see A7.
 
 ### A5. Store settings that only affect the Shopify-hosted site
 - ☑ **Contact form recipients:** nothing to set. Shopify sends contact-form messages (incl. the "Notify me" requests) to the store contact email, already **kambricgoods@gmail.com** (checked 2026-09-28). Changing that email is 🔴 (it's also used for order emails shared with the live site).
@@ -94,8 +94,16 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 
 ---
 
+### A7. Phase 4 content (all 🟢: new Shopify-hosted data the live site never reads)
+Full detail and exact values: `docs/store-data/phase4/owner-notes/{home,about-events,journal-info}.md`; import files in `docs/store-data/phase4/`. Claude can run these as batches.
+- ☐ **Photos:** upload the 11 home + 5 About/Events photos to Files; Claude sets them in the templates (`shopify://shop_images/…`), so nothing to pick by hand.
+- ☐ **Events:** create the `kambric_event` metaobject definition (exact shape in `about-events.md`), then the 3 exported events (all in the past; add real upcoming ones when known).
+- ☐ **Pages:** About (`about`, template `page.about`) and Events (`events`, `page.events`) with empty bodies; Contact, Wholesale, Size Guide (`page.size-guide`), Shipping, Returns with bodies from `pages/*.html`.
+- ☐ **Journal:** create blog `journal`, import the 5 posts from `journal/posts.json` (cover images, normalised category tags).
+- ☐ **Menus Part B:** Story, Events, Journal in `main-menu`; the five info pages in `footer-info` (A1).
+- **Scopes:** metaobjects, pages and blogs need extra Admin API scopes (`write_metaobject_definitions`, `write_metaobjects`, `write_content`); you'd re-run `shopify store auth` with them added.
+
 ## Coming later (added as phases land)
-- ⏳ Phase 4: create Pages (About, Events, Contact, Wholesale, Size guide, Shipping, Returns) 🟢, the Journal blog and its 5 posts 🟢, Events metaobjects 🟢.
 - ⏳ Phase 5: pop-up and search settings 🟢, cart copy 🟢.
 
 *Maintained by Claude alongside the build: any phase that creates owner work adds it here in the same commit.*

@@ -68,6 +68,11 @@ Parity: `home-*`, `about-*`, `events-*`, `journal-index-*`, `journal-post-*`, `w
 - **Info pages**: `page.json` rich text for contact/shipping/returns/wholesale (JOOR link + mailto); `page.size-guide.json` with table blocks (AEO: real `<table>` with `<caption>`, `scope`). Optional FAQ block → `FAQPage` JSON-LD only where visible.
 - Policies: privacy/terms move to Shopify policies (`/policies/*`).
 
+**Phase 4 status (2026-09-28): built.** Home (`home-hero`, `marquee-strip`, `product-rail`, `home-story`, `quote-band`, `lookbook-grid`; rails match the source 3/4), About (`about-hero`, `about-name`, `about-story`, `about-values`, `cta-banner`), Events (`events-hero`, `events-list` on metaobject `kambric_event`, Event JSON-LD), Journal (`main-blog`, `main-article`), info pages (`main-page`, `size-table` + `page.size-guide`). Theme Check 100 files / 0 offenses; every template renders with one h1. Import content in `docs/store-data/phase4/`; owner steps in OWNER_TASKS A7.
+- **Not verified yet:** true 390px layout (browser won't narrow; iframes blocked), and real photos in place (pending the image batch).
+- **Open:** lookbook look 3 caption says "Kati Slip Dress, Sunset Plumes" but links to Jessie in Twilight Plumes (renamed product), so update the caption? Hero source photo is only 1448px wide (soft on retina); a larger original would help. Reveals use CSS scroll-driven animations (scrub with scroll; none in Firefox) rather than one-shot Framer Motion.
+- **Remove before launch:** the Events section's editor-only sample events are gated by `request.design_mode` (safe to keep).
+
 ### Phase 5: Search, cart, newsletter pop-up
 Parity: `cart-page-*`, `email-popup-*`, search overlay (rendered HTML).
 - **Search overlay** `<kg-search>` using the native Predictive Search API (`/search/suggest.json`), with a full `/search` results page fallback (noindex). **⚠️ D-15**
