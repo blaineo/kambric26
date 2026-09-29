@@ -45,7 +45,7 @@ Proposed guardrail 3 wording:
 | 04 ✅ | Menus | 🟢 | `main-menu`, `footer` (replace items), `footer-info`, `shop-categories` (new) | Restore `main-menu`/`footer` items from `before.json`; `menuDelete` the two new menus |
 | 05 ✅ | Search listings | 🟢 | SEO title/description on the 3 existing collections (not their Description field) | Restore previous SEO values from `before.json` |
 | 06 ✅ | URL redirects | 🟢 | 67 redirects from `redirects-draft.csv` | `urlRedirectDelete` by the IDs recorded in `log.md` |
-| 07 | Admin UI settings | 🟢 | Homepage title/description; contact-form recipients (Chrome, owner logged in) | Previous values recorded in `log.md` before editing; re-enter them |
+| 07 ⏸ owner types | Admin UI settings | 🟢 | Homepage title/description; contact-form recipients (Chrome, owner logged in) | Previous values recorded in `log.md` before editing; re-enter them |
 | 08 ✅ | Content import | 🟢 | Pages (About, Events, 5 info pages; `contact` updated), `journal` blog + 5 posts, `kambric_event` definition + 3 events, Story/Events/Journal in `main-menu`, `footer-info` links; see `08-content-import/plan.md` | `rollback.py` (IDs from `apply-log.json`; menus + contact page restored from `before*.json`) |
 | 09 | Publish Kambric26 on the Shopify-hosted store | 🟢 | Theme publish (CLI) | Re-publish the previously published theme (ID recorded in `log.md`) |
 | 10 ✅ | Photos | 🟢 | Upload 16 home/About/Events photos to Files; the theme templates reference them (`10-photos/plan.md`) | `git revert` the template change; `rollback.py` (fileDelete) |

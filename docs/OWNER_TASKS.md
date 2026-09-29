@@ -29,7 +29,7 @@ New definitions the live site doesn't read.
 - ☑ **Monogram fee product** (`chainstitch-monogram`): Settings → Custom data → Products → **Add definition**, namespace and key **`seo.hidden`**, type **Integer**; then on the monogram product set it to **1**. This keeps it out of the Shopify-hosted sitemap and search (the theme already hides it from listings). The live site doesn't read this field. *(Done, batch 01.)*
 
 ### A3. Search listings (not read by the live site)
-- ☐ **Online Store → Preferences:** homepage title `Kambric Goods | Heritage Prints, Modern Womenswear` and the description from `../liquid/SEO.md`.
+- ☐ **Online Store → Preferences** (🟢, **you type these**: automation can't reach this form; see `store-changes/07-admin-settings/log.md`): *Home page title* `Kambric Goods | Heritage Prints, Modern Womenswear`; *Meta description* `Kambric Goods pairs original mid-century hand-painted prints from the Hartmann Studio archive with modern womenswear and home goods. Designed in the Bay Area, made in limited quantities.` → Save.
 - ◐ **Collection search listings** (each collection → *Search engine listing*): titles and descriptions from `docs/store-data/collection-copy.csv` (`seo_title`, `seo_description`). **Don't touch the collection *Description* field yet** (that's 🔴 C2). *(Folklore, Psychedelics, Whimsy done in batch 05, 2026-09-28; the category/sale collections get theirs when batch 03 runs at cutover.)*
 - ☐ Product search listings: unique title and description per product (optional before launch).
 
