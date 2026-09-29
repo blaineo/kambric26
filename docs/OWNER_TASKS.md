@@ -76,7 +76,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 
 ### C3. Checkout, marketing and policies (shared)
 - ☐ **Privacy policy and Terms** (Settings → Policies): shown at checkout.
-- ☐ **Newsletter and WELCOME15** (D-11): discount code, welcome email, import subscribers with their consent state.
+- ☐ **Newsletter and WELCOME15** (D-11): create the WELCOME15 discount (the pop-up shows it after sign-up; blank its *Discount code* setting instead if Shopify Email will send it), welcome email, import subscribers with their consent state.
 - ☐ **Back-in-stock** (D-12): stays manual (contact-form emails) at launch; an app is optional later. Import the old requests list and handle it by hand.
 - ☐ **Meta Pixel** (D-13): install the Facebook & Instagram channel. It affects checkout events, so do it at cutover.
 - ☐ **Cookie banner** (Settings → Customer privacy): decide to keep it or restyle it.
@@ -103,7 +103,12 @@ Full detail and exact values: `docs/store-data/phase4/owner-notes/{home,about-ev
 - ☐ **Menus Part B:** Story, Events, Journal in `main-menu`; the five info pages in `footer-info` (A1).
 - **Scopes:** metaobjects, pages and blogs need extra Admin API scopes (`write_metaobject_definitions`, `write_metaobjects`, `write_content`); you'd re-run `shopify store auth` with them added.
 
+### A8. Phase 5 (cart, search, pop-up)
+Full notes: `docs/store-data/phase5/owner-tasks-{cart,search,popup}.md`.
+- ☐ 🟢 **Pop-up:** upload its image (`replit site/assets/uploads/57e0fcb8-…jpg`; Claude can set it in the template), review the copy, turn **Newsletter pop-up** on when ready (Customize → Footer).
+- ☐ 🟢 Optional: Shopify's **Search & Discovery** app for synonyms and search analytics.
+- Cart: nothing to do (checkout settings are shared 🔴 and untouched).
+
 ## Coming later (added as phases land)
-- ⏳ Phase 5: pop-up and search settings 🟢, cart copy 🟢.
 
 *Maintained by Claude alongside the build: any phase that creates owner work adds it here in the same commit.*

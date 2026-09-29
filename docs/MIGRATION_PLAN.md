@@ -80,6 +80,11 @@ Parity: `cart-page-*`, `email-popup-*`, search overlay (rendered HTML).
 - **Newsletter pop-up** `<kg-promo-popup>`: native `<dialog>`, 6s delay, dismissal in localStorage (`kambric_promo_dismissed`), native customer form, and no CLS (overlay only). **⚠️ D-11**
 - Meta Pixel via the Meta sales channel app (no theme code). **⚠️ D-13**
 
+
+**Phase 5 status (2026-09-28): built.** Cart (`main-cart` + `component-cart.js`: works without JS; D-9 grouping with atomic garment+fee removal, orphan clean-up, garment-only count), search (`search-overlay` in the header group + `predictive-search` + `main-search`, WAI-ARIA combobox, hidden products excluded), newsletter pop-up (`newsletter-popup` in the footer group, off by default, `discount_code` setting covers both D-11 options). QA tool `tools/page_check.py`: 19/19 key pages pass; Theme Check 106 files / 0 offenses.
+- **Remove before launch:** `templates/page.phase5-search.json`, `templates/page.phase5-popup.json`.
+- **Open (owner):** cart shows every option ("Print · Size"; source: size only); garment with a missing fee can still check out (source parity; monogram would be free), so block it? Fee product sold out → garment marked sold out and checkout blocked (OK?); header count includes fee lines (2) while the cart shows 1 item: switch the header to garments only?
+
 ---
 
 ## 2. Content model

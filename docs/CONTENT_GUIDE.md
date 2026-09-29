@@ -35,7 +35,7 @@ New to the shop's structure? Start with **§2b How the shop is organized**. The 
 | Set **collection cover and header images** | **Products → Collections → (collection) → Metafields**: *Card image* and *Header image* | ✅ Phase 3 |
 | Edit **info pages** (contact, shipping, returns, size guide, wholesale) | **Online Store → Pages** (these were locked in code before; now you can edit them; §3h) | ✅ Phase 4 |
 | Edit **privacy policy and terms** | **Settings → Policies** | Phase 4 |
-| Change the **newsletter pop-up** image | **Customize** → Pop-up section | Phase 5 |
+| Change the **newsletter pop-up** image and copy | **Customize** → Footer → **Newsletter pop-up** (§3i) | ✅ Phase 5 |
 | Download **newsletter subscribers** | **Customers** → filter *Email subscribed* (or the tag `newsletter`) → Export | ✅ Footer form now; pop-up Phase 5 |
 | Manage **back-in-stock requests** | Requests arrive as contact-form emails; you notify customers by hand (an app can automate this later) | ✅ Phase 2 |
 | Edit **products, prices, inventory, print names/stories** | Same as today: **Products** | No change |
@@ -710,6 +710,134 @@ this one.
 
 ---
 
+## 3i. Cart, search and newsletter pop-up (Phase 5)
+
+### Cart page
+
+*Customize → Cart.* One section, **Cart**.
+
+- **Editable:** eyebrow ("Your Selection"), heading ("Cart"), and the empty-cart heading, text, link label and link (leave the link empty to point at all products).
+- **Not editable here (fixed copy, in the theme's language file):** Order Summary, Subtotal (n items), Shipping "Calculated at checkout", Estimated Total, Checkout and the notes under it, "Sold out — please remove", "Qty 1 · Personalized", "Chainstitch Monogram" and "+$25.00 personalization".
+- **Chainstitch monogram in the cart:** the $25 fee is never shown as its own item. It appears under the garment it belongs to (monogram text, thread colour, fee) and is included in that garment's price. Monogrammed pieces are always quantity 1; removing one removes its fee too. The item count leaves the fee out; the subtotal includes it. (The header bag icon still counts every Shopify line, fee included, as on the current site.)
+- If a monogram fee somehow ends up in a cart without its garment, the cart removes it automatically. If a monogrammed garment is missing its fee, the cart shows a "Personalization fee missing" note.
+- A piece that sells out while in someone's cart is marked "Sold out — please remove" and checkout stays disabled until it's removed.
+- Checkout itself (Shopify's hosted checkout) is shared with the live site and is **not** part of the theme.
+
+### Search
+
+Kambric26 uses Shopify's own search, in two places:
+
+- **The search icon in the header** opens an overlay right under the header, the same
+  as the old site: type a few letters and up to 8 matching pieces appear instantly
+  (thumbnail, print, category, price). Enter, or "See all results", goes to a full
+  results page.
+- **`/search`** is the full results page: the same search, as a normal page with
+  pagination. It's set to `noindex` (search-engine results pages don't belong in
+  Google), so you'll never see it show up in search itself.
+
+### What search looks at
+
+Shopify indexes product **titles**, **types**, **tags**, and **variant** data, plus
+page/article titles and content. It does **not** know about the print-level fields
+(`kambric.print_name`, `kambric.prints`) the way the rest of the theme does — a search
+match is always a whole product, never a specific print. If a shopper searches a print
+name that's only recorded in metafields (not in the title), it may not match. Practical
+ways to make a piece easier to find:
+
+- **Product title**: if a print name matters for search (e.g. "Dahlia Seed"), put it in
+  the product title alongside the piece name, as most already do ("Margit One-Piece in
+  Dahlia Seed" (or a version of it) — it's already there for single-print products via
+  the title; for merged products the print lives in the `Print`/`Colorway` option, which
+  Shopify also indexes).
+- **Type**: keep the product's **Type** field set (Dresses, Kaftans, Coats, Swimwear,
+  Accessories) — searches for a category word match against it.
+- **Tags**: tags are searched too. Adding a tag for a print name, fabric, or occasion
+  ("floral", "linen", "wedding guest") gives shoppers another way in.
+- **SEO title/description**: doesn't affect on-site search ranking, but does affect how
+  the piece appears in Google — worth filling in regardless (see the SEO checklist
+  elsewhere in this guide).
+
+### Hidden products never appear in search
+
+The **`hidden` tag** (used today only by the $25 monogram add-on,
+`chainstitch-monogram`) is filtered out of both the overlay and the `/search` page, the
+same as it's filtered from every listing. A **draft** product never appears either —
+Shopify doesn't index drafts at all.
+
+### Improving match quality (optional, no theme change needed)
+
+Shopify's **Search & Discovery** app (free, from the Shopify App Store, likely already
+installed) lets you, without any developer work:
+- Add **synonyms** (e.g. "jumpsuit" → "one-piece", a colorway nickname → its official
+  print name) so more of what shoppers actually type finds the right piece.
+- **Pin or boost** specific products for specific search terms.
+- See a **search analytics** report of what's been searched with zero results — the
+  best source of new synonyms and new tags.
+
+None of this requires a theme change; it improves results automatically. See
+`docs/OWNER_TASKS.md` for the specific optional step.
+
+### Newsletter pop-up
+
+*Customize → Newsletter pop-up* (it lives in the footer group, so it's on
+every page; open it from any page in the theme editor).
+
+**Turning it on**
+1. Tick **Enable pop-up**. It's off by default — the same pattern as the
+   announcement bar.
+2. Set **Delay before showing (seconds)** (default 6 — matches the current
+   site).
+3. Set **Show on** to *All pages* or *Home page only*.
+4. Click **Save**.
+
+**What it does:** after the delay, a small card appears (bottom-left on
+desktop, a bottom sheet on phones) asking for an email address, unless the
+visitor already closed it or signed up before (their browser remembers
+this — it won't nag repeat visitors). Signing up adds them to
+**Customers** with the tag `newsletter, popup` and email marketing
+consent, the same as the footer sign-up form, so subscribers from both
+places land in the same place: **Customers → filter *Email subscribed*
+or tag `newsletter`**.
+
+**Copy fields:** Heading, Body text, Button label, Success heading,
+Success body text — all editable, defaulting to the current site's "Take
+15% off" copy.
+
+**Image:** optional. Leave it blank for a text-only card (matches the
+1440px screenshot, which has no image). If set, it's cropped to a fixed
+strip above the text; set a **focal point** on the image (Content → Files)
+if it needs recropping. The image is never downloaded until a visitor
+actually sees the pop-up, so it never slows down the page for anyone who
+doesn't.
+
+**Discount code:** the code shown after a successful sign-up (default
+`WELCOME15`).
+- **Before it goes live, the code must exist as an active discount in
+  Shopify** (Discounts → Create discount, code `WELCOME15` or whatever you
+  put here). This is a 🔴 cutover-only task — see OWNER_TASKS — because
+  discounts are shared with the live kambricgoods.com.
+- **Leave this field blank to hide the code line entirely.** Use this if
+  the plan is for a Shopify Email welcome automation to send the code by
+  email instead of showing it on screen (decision D-11 — see below).
+
+**"Show on" and page targeting:** *All pages* shows it everywhere except
+the theme editor's own preview quirks; *Home page only* restricts it to
+the homepage. There's no per-page exclusion list beyond that.
+
+---
+
+### Open decision this pop-up depends on (D-11)
+
+The migration plan tracks this as **D-11**: whether the discount code is
+shown on-screen (built now, described above) or sent by a **Shopify Email
+welcome automation** triggered by the `newsletter`/`popup` tag, with the
+on-screen code line turned off (blank the **Discount code** setting).
+Both options use the exact same sign-up form and settings — switching
+between them is just a Shopify Email flow (owner/marketing sets up
+later) plus blanking one field, no theme change needed.
+
+---
+
 ## 4. Photos: getting the best quality and speed
 
 The new theme automatically resizes every photo for each screen size and serves modern formats (WebP/AVIF) to browsers that support them. **You don't need to resize or compress photos yourself.**
@@ -757,6 +885,7 @@ These are tracked as decisions in `docs/MIGRATION_PLAN.md`. They're listed here 
 
 | Date | Phase | What changed for editors |
 | --- | --- | --- |
+| 2026-09-28 | 5: Cart, search, pop-up | Cart page (monogram lines grouped under their garment), search overlay and results page, newsletter pop-up with optional code (§3i). |
 | 2026-09-28 | 4: Home, About, Events, Journal, info pages | Home page sections and rails ("show first" blocks replace the old hard-coded picks), About sections and value cards, Events from the **Event** metaobject (upcoming/past automatic), Journal index and posts, info pages and the Size Guide table (§3e–§3h). |
 | 2026-09-28 | 3: Listings (update) | New **§2b How the shop is organized**: products, prints, collections, categories and sale, where each appears, and step-by-step recipes to add, edit, reorder, retire and hide. Listings now use one **Product listing** section with a **Collection block** per group (drag to reorder); the *Group order* setting is gone (§3d). Per-print collections are only needed for products spanning collections (Margit). |
 | 2026-09-28 | 3: Listings | Shop, category, collection and sale pages; template assignment; group order and "Show these first"; collection header image, season, piece count; `/collections` index; category strip menu `shop-categories`; collection copy sheet (§3d). |
