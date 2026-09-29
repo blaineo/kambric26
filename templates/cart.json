@@ -10,8 +10,15 @@
 {
   "sections": {
     "main": {
-      "type": "cart",
-      "settings": {}
+      "type": "main-cart",
+      "settings": {
+        "eyebrow": "Your Selection",
+        "heading": "Cart",
+        "empty_heading": "Your cart is empty.",
+        "empty_body": "Every piece is unique. Discover yours.",
+        "empty_link_label": "Browse the Collection",
+        "empty_link": ""
+      }
     }
   },
   "order": [

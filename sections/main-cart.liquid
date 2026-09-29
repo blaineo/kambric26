@@ -1,0 +1,766 @@
+{%- comment -%}
+  Cart page (Phase 5). The site has no cart drawer.
+
+  Parity source: Cart.tsx (React), design/screenshots/cart-page-{1440,390}.png
+  (empty state), BEHAVIOR.md §Cart and checkout.
+
+  Works without JS: one native <form action="/cart" method="post">. Quantity
+  inputs are keyed (`updates[<line key>]`, not positional `updates[]`, because
+  fee lines have no input), "Update" posts them, "Checkout" posts
+  `name="checkout"` (Shopify applies the updates, then opens its checkout).
+  `<kg-cart>` (assets/component-cart.js) enhances it: AJAX quantity/remove +
+  Section Rendering API for this section and the header count.
+
+  Monogram lines (D-9): a garment and its $25 fee line share
+  `_monogramGroup`; the fee line carries `_fee: '1'`.
+  - Fee lines are never listed. Each garment finds its fee by group, shows the
+    monogram, thread colour and fee under it, adds the fee to its line total
+    and shows "Qty 1 · Personalized" instead of quantity controls.
+  - Removing a grouped garment removes its fee in the same request: a small
+    POST form to /cart/update (`updates[garment]=0&updates[fee]=0`), or
+    /cart/update.js with both keys from JS. Atomic either way.
+  - A personalized garment whose fee line is missing stays marked personalized
+    (source parity) and shows a "fee missing" note.
+  - An orphan fee line (no garment in its group) is not listed. It gets a
+    hidden `updates[<key>]=0` in the main form (any Update/Checkout post drops
+    it) and `<kg-cart>` removes it as soon as the page loads.
+  - A line whose variant is unavailable (garment, or a garment's fee) is
+    marked "Sold out — please remove" and Checkout is disabled until removed.
+  Item count = garment quantities only; totals are Shopify's (they include
+  fee lines).
+{%- endcomment -%}
+{%- liquid
+  assign fee_key = '_fee'
+  assign group_key = '_monogramGroup'
+  assign thread_names = 'black|ivory|gray|brown|red|light pink|sage green|navy blue|gold|lavender' | split: '|'
+  assign thread_hexes = '#1a1a1a|#f3ecdd|#8a8a8a|#6b4a32|#a51f24|#f3c4cd|#9aa886|#1f2a4a|#c2962c|#b79fd0' | split: '|'
+
+  assign line_count = 0
+  for item in cart.items
+    if item.properties[fee_key] != '1'
+      assign line_count = line_count | plus: 1
+    endif
+  endfor
+
+  assign garment_count = 0
+  assign has_sold_out = false
+  assign has_inputs = false
+  assign image_index = 0
+  assign form_id = 'CartForm-' | append: section.id
+  assign note_id = 'CartNote-' | append: section.id
+  assign heading_id = 'CartHeading-' | append: section.id
+  assign empty_link = section.settings.empty_link | default: routes.all_products_collection_url
+-%}
+
+<kg-cart
+  class="cart"
+  data-section-id="{{ section.id }}"
+  data-change-url="{{ routes.cart_change_url }}"
+  data-update-url="{{ routes.cart_update_url }}"
+  data-cart-url="{{ routes.cart_url }}"
+  data-msg-updated="{{ 'cart.status_updated' | t | escape }}"
+  data-msg-removed="{{ 'cart.status_removed' | t | escape }}"
+  data-msg-error="{{ 'cart.error' | t | escape }}"
+>
+  <div class="cart__header">
+    {%- if section.settings.eyebrow != blank -%}
+      <p class="cart__eyebrow">{{ section.settings.eyebrow | escape }}</p>
+    {%- endif -%}
+    <h1 class="cart__heading" id="{{ heading_id }}" tabindex="-1">{{ section.settings.heading | escape }}</h1>
+  </div>
+
+  <p class="visually-hidden" role="status" data-cart-status></p>
+  <p class="cart__error" role="alert" data-cart-error hidden></p>
+
+  <div class="cart__body" data-cart-body>
+    {%- if line_count == 0 -%}
+      <div class="cart__empty">
+        <p class="cart__empty-heading">{{ section.settings.empty_heading | escape }}</p>
+        {%- if section.settings.empty_body != blank -%}
+          <p class="cart__empty-body">{{ section.settings.empty_body | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.empty_link_label != blank -%}
+          <a class="cart__empty-link" href="{{ empty_link }}">{{ section.settings.empty_link_label | escape }}</a>
+        {%- endif -%}
+      </div>
+      {%- comment -%} Only orphan fee lines left: <kg-cart> removes them on load. {%- endcomment -%}
+      {%- for item in cart.items -%}
+        <span hidden data-orphan-fee="{{ item.key }}"></span>
+      {%- endfor -%}
+    {%- else -%}
+      {%- assign remove_forms = '' -%}
+      <form action="{{ routes.cart_url }}" method="post" id="{{ form_id }}" class="cart__grid" novalidate>
+        <div class="cart__items">
+          <h2 class="visually-hidden">{{ 'cart.items_heading' | t }}</h2>
+          <ul class="cart__list" role="list">
+            {%- for item in cart.items -%}
+              {%- liquid
+                if item.properties[fee_key] == '1'
+                  assign parent_found = false
+                  assign fee_group = item.properties[group_key]
+                  if fee_group != blank
+                    for other in cart.items
+                      if other.properties[fee_key] != '1' and other.properties[group_key] == fee_group
+                        assign parent_found = true
+                        break
+                      endif
+                    endfor
+                  endif
+                  unless parent_found
+                    assign has_inputs = true
+                    echo '<input type="hidden" name="updates[' | append: item.key | append: ']" value="0" data-orphan-fee="' | append: item.key | append: '">'
+                  endunless
+                  continue
+                endif
+
+                assign garment_count = garment_count | plus: item.quantity
+                assign group = item.properties[group_key]
+                assign monogram_text = item.properties['Monogram']
+                assign thread = item.properties['Thread color']
+                assign personalized = false
+                if monogram_text != blank or group != blank
+                  assign personalized = true
+                endif
+
+                assign fee = nil
+                if group != blank
+                  for other in cart.items
+                    if other.properties[fee_key] == '1' and other.properties[group_key] == group
+                      assign fee = other
+                      break
+                    endif
+                  endfor
+                endif
+
+                assign sold_out = false
+                if item.variant.available == false
+                  assign sold_out = true
+                elsif fee and fee.variant.available == false
+                  assign sold_out = true
+                endif
+                if sold_out
+                  assign has_sold_out = true
+                endif
+
+                assign line_total = item.final_line_price
+                if fee
+                  assign line_total = line_total | plus: fee.final_line_price
+                endif
+
+                assign thread_hex = nil
+                if thread != blank
+                  assign thread_down = thread | downcase
+                  for name in thread_names
+                    if name == thread_down
+                      assign thread_hex = thread_hexes[forloop.index0]
+                      break
+                    endif
+                  endfor
+                endif
+
+                assign image_index = image_index | plus: 1
+                assign loading = 'lazy'
+                if image_index <= 2
+                  assign loading = 'eager'
+                endif
+                assign title = item.product.title | escape
+                assign qty_id = 'CartQty-' | append: section.id | append: '-' | append: forloop.index
+                assign remove_form_id = 'CartRemove-' | append: section.id | append: '-' | append: forloop.index
+              -%}
+              <li class="cart-line" data-line-key="{{ item.key }}">
+                <a class="cart-line__media" href="{{ item.url }}" tabindex="-1" aria-hidden="true">
+                  {%- if item.image -%}
+                    {% render 'picture', image: item.image, alt: '', sizes: '96px', widths: '96, 192, 288', aspect_ratio: 0.75, loading: loading, img_class: 'cart-line__img' %}
+                  {%- endif -%}
+                </a>
+
+                <div class="cart-line__info">
+                  <a class="cart-line__title" href="{{ item.url }}">{{ title }}</a>
+                  {%- unless item.product.has_only_default_variant -%}
+                    <p class="cart-line__options">
+                      {%- for option in item.options_with_values -%}
+                        {%- unless forloop.first %} · {% endunless -%}
+                        {{- option.name | escape }}: {{ option.value | escape -}}
+                      {%- endfor -%}
+                    </p>
+                  {%- endunless -%}
+                  <p class="cart-line__price">
+                    <span class="visually-hidden">{{ 'cart.price' | t }}</span>
+                    {{ item.final_price | money }}
+                  </p>
+
+                  {%- if personalized -%}
+                    <div class="cart-line__monogram">
+                      <p class="cart-line__monogram-label">{{ 'cart.monogram_heading' | t }}</p>
+                      {%- if monogram_text != blank -%}
+                        <p class="cart-line__monogram-text">{{ 'cart.monogram_text' | t: text: monogram_text }}</p>
+                      {%- endif -%}
+                      {%- if thread != blank -%}
+                        <p class="cart-line__monogram-meta">
+                          {%- if thread_hex -%}
+                            <span class="cart-line__thread" style="--thread: {{ thread_hex }}" aria-hidden="true"></span>
+                          {%- endif -%}
+                          {{ 'cart.thread' | t: colour: thread }}
+                        </p>
+                      {%- endif -%}
+                      {%- if fee -%}
+                        <p class="cart-line__monogram-meta">
+                          {%- assign fee_price = fee.final_line_price | money -%}
+                          {{ 'cart.personalization_fee' | t: price: fee_price }}
+                        </p>
+                      {%- else -%}
+                        <p class="cart-line__warning">{{ 'cart.fee_missing' | t }}</p>
+                      {%- endif -%}
+                    </div>
+                  {%- endif -%}
+
+                  {%- if sold_out -%}
+                    <p class="cart-line__sold-out">{{ 'cart.sold_out' | t }}</p>
+                  {%- endif -%}
+
+                  <div class="cart-line__actions">
+                    {%- if personalized -%}
+                      <span class="cart-line__personalized">{{ 'cart.personalized' | t }}</span>
+                    {%- else -%}
+                      {%- assign has_inputs = true -%}
+                      <div class="cart-qty">
+                        <button type="button" class="cart-qty__step" data-step="-1" data-key="{{ item.key }}" aria-label="{{ 'cart.decrease' | t: title: title }}">−</button>
+                        <label class="visually-hidden" for="{{ qty_id }}">{{ 'cart.quantity_for' | t: title: title }}</label>
+                        <input
+                          class="cart-qty__input"
+                          id="{{ qty_id }}"
+                          type="number"
+                          name="updates[{{ item.key }}]"
+                          value="{{ item.quantity }}"
+                          min="0"
+                          inputmode="numeric"
+                          data-quantity
+                          data-key="{{ item.key }}"
+                        >
+                        <button type="button" class="cart-qty__step" data-step="1" data-key="{{ item.key }}" aria-label="{{ 'cart.increase' | t: title: title }}">+</button>
+                      </div>
+                    {%- endif -%}
+
+                    {%- if fee -%}
+                      <button type="submit" class="cart-line__remove" form="{{ remove_form_id }}" data-remove="{{ item.key }},{{ fee.key }}">
+                        {{- 'cart.remove' | t -}}
+                        <span class="visually-hidden"> {{ title }}</span>
+                      </button>
+                      {%- capture remove_forms -%}
+                        {{ remove_forms }}
+                        <form action="{{ routes.cart_update_url }}" method="post" id="{{ remove_form_id }}" hidden>
+                          <input type="hidden" name="updates[{{ item.key }}]" value="0">
+                          <input type="hidden" name="updates[{{ fee.key }}]" value="0">
+                        </form>
+                      {%- endcapture -%}
+                    {%- else -%}
+                      <a class="cart-line__remove" href="{{ item.url_to_remove }}" data-remove="{{ item.key }}">
+                        {{- 'cart.remove' | t -}}
+                        <span class="visually-hidden"> {{ title }}</span>
+                      </a>
+                    {%- endif -%}
+                  </div>
+                </div>
+
+                <p class="cart-line__total">
+                  <span class="visually-hidden">{{ 'cart.line_total' | t }}</span>
+                  {{ line_total | money }}
+                </p>
+              </li>
+            {%- endfor -%}
+          </ul>
+          <div class="cart__update"{% if has_inputs == false %} hidden{% endif %}>
+            <button type="submit" name="update" class="cart__update-button">{{ 'cart.update' | t }}</button>
+          </div>
+        </div>
+
+        <div class="cart__aside">
+          <div class="cart__summary">
+            <h2 class="cart__summary-heading">{{ 'cart.summary_heading' | t }}</h2>
+            <dl class="cart__totals">
+              <div class="cart__row">
+                <dt>{{ 'cart.subtotal' | t: count: garment_count }}</dt>
+                <dd>{{ cart.items_subtotal_price | money }}</dd>
+              </div>
+              {%- for discount in cart.cart_level_discount_applications -%}
+                <div class="cart__row">
+                  <dt>{{ discount.title | escape }}</dt>
+                  <dd>-{{ discount.total_allocated_amount | money }}</dd>
+                </div>
+              {%- endfor -%}
+              <div class="cart__row cart__row--muted">
+                <dt>{{ 'cart.shipping' | t }}</dt>
+                <dd>{{ 'cart.shipping_timing' | t }}</dd>
+              </div>
+              <div class="cart__row cart__row--total">
+                <dt>{{ 'cart.estimated_total' | t }}</dt>
+                <dd>{{ cart.total_price | money }}</dd>
+              </div>
+            </dl>
+          </div>
+
+          <button
+            type="submit"
+            name="checkout"
+            class="cart__checkout"
+            aria-describedby="{{ note_id }}"
+            {% if has_sold_out %}
+              disabled
+            {% endif %}
+          >
+            {{ 'cart.checkout' | t }}
+          </button>
+          <p class="cart__note{% if has_sold_out %} cart__note--warning{% endif %}" id="{{ note_id }}">
+            {%- if has_sold_out -%}
+              {{ 'cart.sold_out_instruction' | t }}
+            {%- else -%}
+              {{ 'cart.checkout_instruction' | t }}
+            {%- endif -%}
+          </p>
+        </div>
+      </form>
+      {{ remove_forms }}
+    {%- endif -%}
+  </div>
+</kg-cart>
+
+<script src="{{ 'component-cart.js' | asset_url }}" type="module" defer="defer"></script>
+
+{% stylesheet %}
+  /* Source: Cart.tsx — max-w-4xl mx-auto px-6 py-16 */
+  .cart {
+    display: block;
+    width: 100%;
+    max-width: calc(56rem - var(--space-6) * 2);
+    margin-inline: auto;
+    padding-block: var(--space-16);
+  }
+
+  .cart__header {
+    margin-block-end: var(--space-12);
+  }
+
+  .cart__eyebrow {
+    margin: 0 0 var(--space-3);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-footer);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .cart__heading {
+    margin: 0;
+    font-size: var(--text-48);
+  }
+
+  .cart__error {
+    margin: 0 0 var(--space-6);
+    font-size: var(--text-12);
+    color: var(--color-destructive);
+  }
+
+  .cart__body[aria-busy='true'] {
+    opacity: 0.6;
+    transition: opacity var(--duration-quick) var(--ease-standard);
+  }
+
+  /* Empty: py-24 text-center border border-border/30 */
+  .cart__empty {
+    padding: var(--space-24) var(--space-6);
+    border: 1px solid color-mix(in srgb, var(--color-border) 30%, transparent);
+    text-align: center;
+  }
+
+  .cart__empty-heading {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-serif);
+    font-size: var(--text-30);
+    font-style: italic;
+    line-height: var(--leading-snug);
+    color: var(--color-muted-foreground);
+  }
+
+  .cart__empty-body {
+    margin: 0 0 var(--space-8);
+    font-size: var(--text-14);
+    color: var(--color-muted-foreground);
+  }
+
+  .cart__empty-link {
+    display: inline-block;
+    padding-block-end: var(--space-1);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-foreground) 40%, transparent);
+    font-size: var(--text-12);
+    letter-spacing: var(--tracking-label-xs);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard), border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .cart__empty-link:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  /* Populated: grid-cols-1 md:grid-cols-3 gap-12 */
+  .cart__grid {
+    display: grid;
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 48rem) {
+    .cart__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .cart__items {
+      grid-column: span 2;
+    }
+  }
+
+  .cart__list {
+    display: grid;
+    gap: var(--space-8);
+    margin: 0;
+  }
+
+  .cart-line {
+    display: flex;
+    gap: var(--space-6);
+    padding-block-end: var(--space-8);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-border) 30%, transparent);
+  }
+
+  .cart-line__media {
+    flex-shrink: 0;
+    align-self: flex-start;
+    width: 6rem;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--color-muted) 20%, transparent);
+  }
+
+  .cart-line__media picture,
+  .cart-line__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .cart-line__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .cart-line__title {
+    font-family: var(--font-serif);
+    font-size: var(--text-18);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .cart-line__title:hover {
+    color: var(--color-primary);
+  }
+
+  .cart-line__options {
+    margin: var(--space-1) 0 0;
+    font-size: var(--text-12);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .cart-line__price {
+    margin: var(--space-2) 0 0;
+    font-size: var(--text-14);
+  }
+
+  /* mt-3 pl-3 border-l border-border/50 space-y-1.5 */
+  .cart-line__monogram {
+    display: grid;
+    gap: var(--space-1-5);
+    margin-block-start: var(--space-3);
+    padding-inline-start: var(--space-3);
+    border-left: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+
+  .cart-line__monogram p {
+    margin: 0;
+  }
+
+  .cart-line__monogram-label {
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-nav);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .cart-line__monogram-text {
+    font-family: var(--font-serif);
+    font-size: var(--text-14);
+    letter-spacing: 0.025em;
+  }
+
+  .cart-line__monogram-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-12);
+    color: var(--color-muted-foreground);
+  }
+
+  .cart-line__thread {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background: var(--thread);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  .cart-line__warning,
+  .cart-line__sold-out {
+    font-size: var(--text-12);
+    color: var(--color-destructive);
+  }
+
+  .cart-line__sold-out {
+    margin: var(--space-2) 0 0;
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-label-xs);
+    text-transform: uppercase;
+  }
+
+  .cart-line__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4);
+    margin-block-start: var(--space-4);
+  }
+
+  .cart-line__personalized {
+    display: flex;
+    align-items: center;
+    height: var(--space-8);
+    padding-inline: var(--space-3);
+    border: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-label-xs);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .cart-qty {
+    display: flex;
+    align-items: center;
+    border: 1px solid color-mix(in srgb, var(--color-border) 40%, transparent);
+  }
+
+  .cart-qty__step,
+  .cart-qty__input {
+    width: var(--space-8);
+    height: var(--space-8);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    font-size: var(--text-14);
+    text-align: center;
+    color: inherit;
+  }
+
+  .cart-qty__step {
+    cursor: pointer;
+    transition: background-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .cart-qty__step:hover {
+    background: color-mix(in srgb, var(--color-muted) 40%, transparent);
+  }
+
+  .cart-qty__input {
+    width: var(--space-10);
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+
+  .cart-qty__input::-webkit-inner-spin-button,
+  .cart-qty__input::-webkit-outer-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+  }
+
+  /* No JS: a typed quantity + "Update". With JS: −/+ steppers, instant updates. */
+  kg-cart:not(:defined) .cart-qty__step,
+  kg-cart:defined .cart__update {
+    display: none;
+  }
+
+  .cart__update {
+    margin-block-start: var(--space-6);
+  }
+
+  .cart__update-button,
+  .cart-line__remove {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: var(--text-12);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-muted-foreground);
+    cursor: pointer;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .cart-line__remove:hover {
+    color: var(--color-destructive);
+  }
+
+  .cart__update-button {
+    padding-block-end: var(--space-0-5);
+    border-bottom: 1px solid currentColor;
+    color: var(--color-foreground);
+  }
+
+  .cart-line__total {
+    flex-shrink: 0;
+    margin: 0;
+    font-weight: var(--weight-medium);
+    text-align: right;
+  }
+
+  /* Summary: bg-muted/20 p-6 mb-6 */
+  .cart__summary {
+    margin-block-end: var(--space-6);
+    padding: var(--space-6);
+    background: color-mix(in srgb, var(--color-muted) 20%, transparent);
+  }
+
+  .cart__summary-heading {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-label-xs);
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .cart__totals {
+    margin: 0;
+  }
+
+  .cart__row {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-block-end: var(--space-2);
+    font-size: var(--text-14);
+  }
+
+  .cart__row dd {
+    margin: 0;
+    text-align: right;
+  }
+
+  .cart__row--muted {
+    margin-block-end: var(--space-6);
+    font-size: var(--text-12);
+    color: var(--color-muted-foreground);
+  }
+
+  .cart__row--total {
+    margin: 0;
+    padding-block-start: var(--space-4);
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 30%, transparent);
+    font-size: var(--text-16);
+    font-weight: var(--weight-medium);
+  }
+
+  .cart__checkout {
+    width: 100%;
+    padding-block: var(--space-4);
+    border: 0;
+    background: var(--color-foreground);
+    font: inherit;
+    font-size: var(--text-12);
+    letter-spacing: var(--tracking-label-xs);
+    text-transform: uppercase;
+    color: var(--color-background);
+    cursor: pointer;
+    transition: background-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .cart__checkout:hover:not(:disabled) {
+    background: var(--color-primary);
+  }
+
+  .cart__checkout:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .cart__note {
+    margin: var(--space-3) 0 0;
+    font-size: var(--text-10);
+    line-height: var(--leading-relaxed);
+    text-align: center;
+    color: var(--color-muted-foreground);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.cart",
+  "tag": "section",
+  "class": "section-main-cart",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.main_cart.eyebrow",
+      "default": "Your Selection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.main_cart.heading",
+      "default": "Cart"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main_cart.empty_header"
+    },
+    {
+      "type": "text",
+      "id": "empty_heading",
+      "label": "t:sections.main_cart.empty_heading",
+      "default": "Your cart is empty."
+    },
+    {
+      "type": "text",
+      "id": "empty_body",
+      "label": "t:sections.main_cart.empty_body",
+      "default": "Every piece is unique. Discover yours."
+    },
+    {
+      "type": "text",
+      "id": "empty_link_label",
+      "label": "t:sections.main_cart.empty_link_label",
+      "default": "Browse the Collection"
+    },
+    {
+      "type": "url",
+      "id": "empty_link",
+      "label": "t:sections.main_cart.empty_link",
+      "info": "t:sections.main_cart.empty_link_info"
+    }
+  ]
+}
+{% endschema %}

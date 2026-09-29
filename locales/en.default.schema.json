@@ -834,6 +834,16 @@
           }
         }
       }
+    },
+    "main_cart": {
+      "eyebrow": "Eyebrow text",
+      "heading": "Heading",
+      "empty_header": "Empty cart",
+      "empty_heading": "Empty cart heading",
+      "empty_body": "Empty cart text",
+      "empty_link_label": "Link label",
+      "empty_link": "Link",
+      "empty_link_info": "Leave empty to link to all products."
     }
   },
   "_note": "No new schema (editor-facing) keys needed. Both new snippets are render-only partials with no section settings of their own, and the two dev-only preview files (sections/phase2-components-preview.liquid, templates/product.phase2-components.json) hardcode their section name/labels in English the same way sections/phase1-ui-preview.liquid and sections/phase1-breadcrumbs-preview.liquid already do (dev-only, not translated). Leaving this object here, empty, only so the file matches the requested {storefront, schema} shape."

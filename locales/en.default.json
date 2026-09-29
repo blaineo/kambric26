@@ -12,7 +12,33 @@
     "checkout": "Checkout",
     "title": "Cart",
     "update": "Update",
-    "remove": "Remove"
+    "remove": "Remove",
+    "items_heading": "Items in your cart",
+    "price": "Price",
+    "line_total": "Total",
+    "monogram_heading": "Chainstitch Monogram",
+    "monogram_text": "“{{ text }}”",
+    "thread": "{{ colour }} thread",
+    "personalization_fee": "+{{ price }} personalization",
+    "fee_missing": "Personalization fee missing. Please remove this piece and add it again, or contact us.",
+    "personalized": "Qty 1 · Personalized",
+    "sold_out": "Sold out — please remove",
+    "quantity_for": "Quantity for {{ title }}",
+    "decrease": "Decrease quantity for {{ title }}",
+    "increase": "Increase quantity for {{ title }}",
+    "summary_heading": "Order Summary",
+    "subtotal": {
+      "one": "Subtotal ({{ count }} item)",
+      "other": "Subtotal ({{ count }} items)"
+    },
+    "shipping": "Shipping",
+    "shipping_timing": "Calculated at checkout",
+    "estimated_total": "Estimated Total",
+    "checkout_instruction": "You'll be taken to our secure checkout to complete your order.",
+    "sold_out_instruction": "Remove the sold-out item(s) above to continue to checkout.",
+    "status_updated": "Cart updated",
+    "status_removed": "Item removed from your cart",
+    "error": "Something went wrong updating your cart. Please try again."
   },
   "customers": {
     "login": {
