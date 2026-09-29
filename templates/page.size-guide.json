@@ -1,0 +1,44 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "eyebrow": "Find Your Fit"
+      }
+    },
+    "size_table": {
+      "type": "size-table",
+      "blocks": {
+        "row-xs": {
+          "type": "row",
+          "settings": { "size": "XS", "bust": "32–33", "waist": "24–25", "hip": "34–35" }
+        },
+        "row-s": {
+          "type": "row",
+          "settings": { "size": "S", "bust": "34–35", "waist": "26–27", "hip": "36–37" }
+        },
+        "row-m": {
+          "type": "row",
+          "settings": { "size": "M", "bust": "36–37", "waist": "28–29", "hip": "38–39" }
+        },
+        "row-l": {
+          "type": "row",
+          "settings": { "size": "L", "bust": "38–40", "waist": "30–32", "hip": "40–42" }
+        },
+        "row-xl": {
+          "type": "row",
+          "settings": { "size": "XL", "bust": "41–43", "waist": "33–35", "hip": "43–45" }
+        }
+      },
+      "block_order": ["row-xs", "row-s", "row-m", "row-l", "row-xl"],
+      "settings": {
+        "heading": "Womenswear (inches)",
+        "fit_note_heading": "Need a Hand?",
+        "fit_note_body": "<p>Between sizes, or shopping for a specific print? Reach out and we'll help you choose the right fit.</p>",
+        "fit_note_cta_label": "Ask About Fit",
+        "fit_note_cta_url": "mailto:howdy@kambricgoods.com"
+      }
+    }
+  },
+  "order": ["main", "size_table"]
+}

@@ -1,0 +1,222 @@
+{% comment %}
+  Size-guide measurement table + the closing "Need a Hand?" fit-note CTA
+  (Phase 4), added as a second section on `templates/page.size-guide.json`
+  below `main-page`.
+
+  Why a block-based table instead of a table typed into the page body:
+  `rte.liquid` already styles real `<table>`s (for whenever an editor pastes
+  one into a page/article body), but asking a non-technical editor to build
+  or edit an HTML table by hand is fragile. A block per size row (Size /
+  Bust / Waist / Hip, matching `liquid/content/hardcoded.json`
+  `infoPages.size-guide.sections[0].measurements`) is the simpler, safer
+  editing experience for the one table this site actually needs, so that's
+  what this section uses. If a future page needs an ad hoc table, editors
+  still have the rte path.
+
+  Accessibility: real `<table>` with a visible `<caption>` (doubles as the
+  section's own heading, so it isn't repeated) and `scope="col"`/`scope="row"`
+  headers — AEO answer-first content per CLAUDE.md, not a screenshot of a
+  chart.
+
+  @setting {text} heading - Table caption (default "Womenswear (inches)")
+  @setting {text} fit_note_heading - Heading for the CTA below the table (default "Need a Hand?")
+  @setting {richtext} fit_note_body - Body copy for the CTA
+  @setting {text} fit_note_cta_label - Button label (default "Ask About Fit")
+  @setting {url} fit_note_cta_url - Button destination (default a `mailto:` link)
+  @setting {blocks} row - One block per size row: size / bust / waist / hip
+
+  Note: the CTA button is a setting, not a block. `content_for 'block'`
+  (Shopify's tag for placing one specific block) only accepts literal
+  `type`/`id` strings, not the variable `block.id` a for-loop needs — so it
+  can't render an arbitrary block mixed in among `row` blocks, which have no
+  block file of their own. A plain button setting sidesteps that limit and
+  is simpler for editors than adding-a-block for a section that always has
+  exactly one CTA.
+{% endcomment %}
+{%- liquid
+  assign rows = section.blocks | where: 'type', 'row'
+-%}
+<div class="size-table">
+  {%- if rows.size > 0 -%}
+    <table class="size-table__table">
+      <caption class="size-table__caption">{{ section.settings.heading | default: 'Womenswear (inches)' }}</caption>
+      <thead>
+        <tr>
+          <th scope="col">{{ 'size_table.column_size' | t }}</th>
+          <th scope="col">{{ 'size_table.column_bust' | t }}</th>
+          <th scope="col">{{ 'size_table.column_waist' | t }}</th>
+          <th scope="col">{{ 'size_table.column_hip' | t }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {%- for block in rows -%}
+          <tr {{ block.shopify_attributes }}>
+            <th scope="row">{{ block.settings.size }}</th>
+            <td>{{ block.settings.bust }}</td>
+            <td>{{ block.settings.waist }}</td>
+            <td>{{ block.settings.hip }}</td>
+          </tr>
+        {%- endfor -%}
+      </tbody>
+    </table>
+  {%- endif -%}
+
+  {%- liquid
+    assign has_cta = false
+    if section.settings.fit_note_cta_label != blank and section.settings.fit_note_cta_url != blank
+      assign has_cta = true
+    endif
+  -%}
+  {%- if section.settings.fit_note_heading != blank or section.settings.fit_note_body != blank or has_cta -%}
+    <div class="size-table__fit-note">
+      {%- if section.settings.fit_note_heading != blank -%}
+        {%- render 'section-heading', heading: section.settings.fit_note_heading, tag: 'h2', size: 'md' -%}
+      {%- endif -%}
+      {%- if section.settings.fit_note_body != blank -%}
+        {%- render 'rte', content: section.settings.fit_note_body -%}
+      {%- endif -%}
+      {%- if has_cta -%}
+        {%- render 'button',
+          label: section.settings.fit_note_cta_label,
+          url: section.settings.fit_note_cta_url,
+          variant: 'solid'
+        -%}
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .size-table {
+    max-width: var(--container-3xl);
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
+  .size-table__table {
+    width: 100%;
+    margin: 0 0 var(--space-12);
+    border-collapse: collapse;
+    font-size: var(--text-14);
+  }
+
+  .size-table__caption {
+    margin-block-end: var(--space-5);
+    padding-block-start: var(--space-8);
+    border-block-start: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent);
+    font-family: var(--font-serif);
+    font-size: var(--text-24);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-heading);
+    color: var(--color-foreground);
+    text-align: left;
+  }
+
+  .size-table__table th,
+  .size-table__table td {
+    padding: var(--space-3) var(--space-4) var(--space-3) 0;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+    font-weight: var(--weight-light);
+  }
+
+  .size-table__table thead th {
+    padding-block-end: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-label-xs);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .size-table__table tbody th {
+    font-family: var(--font-serif);
+    font-weight: var(--weight-regular);
+    color: var(--color-foreground);
+  }
+
+  .size-table__table tbody tr:last-child th,
+  .size-table__table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .size-table__fit-note {
+    padding-block-start: var(--space-8);
+    border-block-start: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  }
+
+  .size-table__fit-note .section-heading {
+    margin-block-end: var(--space-5);
+  }
+
+  .size-table__fit-note .rte {
+    max-width: 40rem;
+  }
+
+  .size-table__fit-note > *:last-child {
+    margin-block-start: var(--space-10);
+  }
+
+  @media (min-width: 48rem) {
+    .size-table__table {
+      font-size: var(--text-15);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.size_table.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:general.heading",
+      "default": "Womenswear (inches)"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.size_table.fit_note_header"
+    },
+    {
+      "type": "text",
+      "id": "fit_note_heading",
+      "label": "t:general.heading",
+      "default": "Need a Hand?"
+    },
+    {
+      "type": "richtext",
+      "id": "fit_note_body",
+      "label": "t:labels.text",
+      "default": "<p>Between sizes, or shopping for a specific print? Reach out and we'll help you choose the right fit.</p>"
+    },
+    {
+      "type": "text",
+      "id": "fit_note_cta_label",
+      "label": "t:labels.button_label",
+      "default": "Ask About Fit"
+    },
+    {
+      "type": "url",
+      "id": "fit_note_cta_url",
+      "label": "t:labels.link",
+      "info": "t:sections.size_table.fit_note_cta_url_info"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "t:sections.size_table.blocks.row.name",
+      "settings": [
+        { "type": "text", "id": "size", "label": "t:sections.size_table.column_size", "default": "XS" },
+        { "type": "text", "id": "bust", "label": "t:sections.size_table.column_bust", "default": "32–33" },
+        { "type": "text", "id": "waist", "label": "t:sections.size_table.column_waist", "default": "24–25" },
+        { "type": "text", "id": "hip", "label": "t:sections.size_table.column_hip", "default": "34–35" }
+      ]
+    }
+  ]
+}
+{% endschema %}

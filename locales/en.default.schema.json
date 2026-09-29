@@ -417,6 +417,32 @@
           }
         }
       }
+    },
+    "main_page": {
+      "eyebrow_info": "Shown above the page title, e.g. \"Say Hello\", \"For Stockists\"."
+    },
+    "main_blog": {
+      "heading_em": "Heading (italic second line)",
+      "articles_per_page": "Articles per page",
+      "empty_header": "Empty state"
+    },
+    "main_article": {
+      "product_list": "Products in this story",
+      "product_list_info": "Optional. Shown under the post body. Leave empty to show nothing — there's no automatic fallback (the source's Markdown-link parser wasn't ported; none of the 5 migrated posts have product links anyway)."
+    },
+    "size_table": {
+      "name": "Size table",
+      "fit_note_header": "Fit note",
+      "fit_note_cta_url_info": "e.g. mailto:howdy@kambricgoods.com, or a page/collection link.",
+      "column_size": "Size",
+      "column_bust": "Bust",
+      "column_waist": "Waist",
+      "column_hip": "Hip",
+      "blocks": {
+        "row": {
+          "name": "Size row"
+        }
+      }
     }
   },
   "_note": "No new schema (editor-facing) keys needed. Both new snippets are render-only partials with no section settings of their own, and the two dev-only preview files (sections/phase2-components-preview.liquid, templates/product.phase2-components.json) hardcode their section name/labels in English the same way sections/phase1-ui-preview.liquid and sections/phase1-breadcrumbs-preview.liquid already do (dev-only, not translated). Leaving this object here, empty, only so the file matches the requested {storefront, schema} shape."

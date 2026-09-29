@@ -1,0 +1,214 @@
+{% comment %}
+  Journal post (Phase 4): cover image, category/date, title, body and an
+  optional "Products in this story" list. Used on `templates/article.json`.
+
+  Cover: the page's one `priority` image (this template's only section, so
+  there's no competing LCP candidate elsewhere on the page).
+
+  Body: `article.content` (Shopify's own rendered HTML of the post) through
+  `rte.liquid`, not a hand-rolled Markdown parser — posts are authored in
+  Shopify's rich text editor, so `article.content` already contains real
+  headings/links/images. `BlogPosting`/`Article` JSON-LD is already emitted
+  by `snippets/structured-data.liquid` (`article | structured_data`); this
+  section doesn't duplicate it.
+
+  Related products: the source parses product links out of the Markdown
+  body at render time. There's no such data in the migrated posts (every
+  entry in `data/journal-posts.json` has an empty `product_links`), so
+  instead of porting that parser this section gets an explicit
+  `product_list` setting — "Products in this story" — with no automatic
+  fallback: leave it empty and nothing renders.
+
+  @setting {product_list} product_list - Products to feature under the body (optional; no automatic fallback)
+{% endcomment %}
+<article class="main-article">
+  <div class="main-article__header">
+    {%- render 'breadcrumbs' -%}
+    <div class="main-article__nav">
+      <a class="main-article__back" href="{{ blog.url }}">
+        <span aria-hidden="true">&larr;</span> {{ 'journal.back_to_journal' | t }}
+      </a>
+      {%- assign category = article.tags.first -%}
+      {%- if category != blank -%}
+        <p class="main-article__category">{{ category }}</p>
+      {%- endif -%}
+    </div>
+
+    {%- render 'section-heading', heading: article.title, tag: 'h1', size: 'lg', class: 'main-article__heading' -%}
+    <p class="main-article__date">{{ article.published_at | time_tag: format: 'date' }}</p>
+  </div>
+
+  {%- if article.image -%}
+    {%- assign cover_alt = article.image.alt | default: article.title -%}
+    <div class="main-article__cover">
+      {%- render 'picture',
+        image: article.image,
+        sizes: '(min-width: 48rem) 48rem, 100vw',
+        widths: '400, 600, 800, 1000, 1200, 1440',
+        loading: 'priority',
+        alt: cover_alt
+      -%}
+    </div>
+  {%- endif -%}
+
+  {%- if article.content != blank -%}
+    <div class="main-article__body">
+      {%- render 'rte', content: article.content -%}
+    </div>
+  {%- endif -%}
+
+  {%- assign featured_products = section.settings.product_list -%}
+  {%- if featured_products.size > 0 -%}
+    <div class="main-article__products">
+      <h2 class="main-article__products-heading">{{ 'journal.products_in_story' | t }}</h2>
+      <ul class="main-article__products-grid" role="list">
+        {%- for featured_product in featured_products -%}
+          <li>
+            {%- render 'product-card', product: featured_product, layout: 'standard', loading: 'lazy' -%}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  {%- endif -%}
+
+  <div class="main-article__footer">
+    <a class="main-article__footer-link" href="{{ blog.url }}">
+      <span aria-hidden="true">&larr;</span> {{ 'journal.all_stories' | t }}
+    </a>
+    {%- assign shop_cta_label = 'journal.shop_the_collection' | t -%}
+    {%- render 'button', label: shop_cta_label, url: routes.all_products_collection_url, variant: 'underline' -%}
+  </div>
+</article>
+
+{% stylesheet %}
+  .main-article {
+    max-width: var(--container-3xl);
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+    padding-block: var(--space-10) var(--space-20);
+  }
+
+  .main-article__nav {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-4);
+    margin-block: var(--space-5) var(--space-5);
+  }
+
+  .main-article__back {
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-nav);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .main-article__back:hover,
+  .main-article__back:focus-visible {
+    color: var(--color-primary);
+  }
+
+  .main-article__category {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-button);
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+
+  .main-article__heading {
+    margin-block-end: var(--space-4);
+  }
+
+  .main-article__date {
+    margin: 0 0 var(--space-10);
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-nav);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .main-article__cover {
+    margin-block-end: var(--space-12);
+  }
+
+  .main-article__body .rte {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  .main-article__products {
+    max-width: 40rem;
+    margin: var(--space-16) auto 0;
+    padding-block-start: var(--space-10);
+    border-block-start: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  }
+
+  .main-article__products-heading {
+    margin: 0 0 var(--space-6);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .main-article__products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .main-article__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    max-width: 40rem;
+    margin: var(--space-16) auto 0;
+    padding-block-start: var(--space-10);
+    border-block-start: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  }
+
+  .main-article__footer-link {
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-nav);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .main-article__footer-link:hover,
+  .main-article__footer-link:focus-visible {
+    color: var(--color-primary);
+  }
+
+  @media (min-width: 30rem) {
+    .main-article__products-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.article",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "product_list",
+      "label": "t:sections.main_article.product_list",
+      "info": "t:sections.main_article.product_list_info"
+    }
+  ]
+}
+{% endschema %}

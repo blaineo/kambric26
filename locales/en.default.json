@@ -194,5 +194,18 @@
     "home": "Home",
     "collections": "Collections",
     "search": "Search"
+  },
+  "journal": {
+    "read_story": "Read the story",
+    "back_to_journal": "Journal",
+    "all_stories": "All stories",
+    "shop_the_collection": "Shop the Collection",
+    "products_in_story": "Products in this story"
+  },
+  "size_table": {
+    "column_size": "Size",
+    "column_bust": "Bust",
+    "column_waist": "Waist",
+    "column_hip": "Hip"
   }
 }

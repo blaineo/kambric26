@@ -9,6 +9,10 @@
   if request.page_type == '404'
     assign page_title = 'general.page_not_found' | t
   endif
+  # Source parity (liquid/SEO.md): journal posts are "{title} | Kambric Goods Journal".
+  if request.page_type == 'article'
+    assign page_title = article.title | append: ' | ' | append: shop.name | append: ' Journal'
+  endif
   # Source parity: /collections/all is the shop page, titled "Shop All | Kambric Goods".
   if request.page_type == 'collection' and collection.handle == 'all' and current_tags == blank
     assign page_title = 'collections.shop_all_title' | t
@@ -41,6 +45,11 @@
       assign noindex = true
   endcase
   if request.page_type contains 'customers/'
+    assign noindex = true
+  endif
+
+  # Source parity: the Journal index is noindex until it has at least one post.
+  if request.page_type == 'blog' and blog.articles_count == 0
     assign noindex = true
   endif
 

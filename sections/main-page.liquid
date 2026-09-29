@@ -1,0 +1,113 @@
+{% comment %}
+  Generic info-page renderer (Phase 4): contact, wholesale, shipping,
+  returns, privacy-policy and terms-of-service all use this one section via
+  the default `templates/page.json`. Size guide adds a second section
+  (`size-table`) on `templates/page.size-guide.json`; see that section's
+  doc for why the table isn't built here.
+
+  Editor model (source: Info.tsx `InfoContent`): eyebrow + H1 (page title,
+  set in Online Store → Pages) + one rich-text body that holds BOTH the
+  intro paragraph and every "Customer Care" / "Become a Stockist" / etc.
+  sub-section, written as ordinary H2s and paragraphs in the page's content
+  editor — there's no repeater field for "sections", because Shopify's own
+  page body already is one. A thin rule renders above every H2 in the body
+  (`.main-page .rte h2`), reproducing the source's per-section divider
+  without any extra settings.
+
+  CTA buttons ("Email Us", "Shop Wholesale on JOOR", "Request Our Line
+  Sheet", "Ask About Fit", …) are theme blocks (`@theme`, mainly
+  `blocks/button.liquid` with `variant: solid`) added per page in the
+  editor — a real button needs real button styling, which the rich text
+  editor can't give a plain link.
+
+  @setting {text} eyebrow - Small label above the H1 (e.g. "Say Hello", "For Stockists")
+  @setting {blocks} - Any theme block, typically one or two solid-variant button blocks for CTAs
+{% endcomment %}
+<div class="main-page">
+  <div class="main-page__intro">
+    {%- render 'breadcrumbs' -%}
+    {%- if section.settings.eyebrow != blank -%}
+      {%- render 'eyebrow', text: section.settings.eyebrow, class: 'main-page__eyebrow' -%}
+    {%- endif -%}
+    {%- render 'section-heading', heading: page.title, tag: 'h1', size: 'lg', class: 'main-page__heading' -%}
+  </div>
+
+  {%- if page.content != blank -%}
+    <div class="main-page__body">
+      {%- render 'rte', content: page.content -%}
+    </div>
+  {%- endif -%}
+
+  {%- if section.blocks.size > 0 -%}
+    <div class="main-page__ctas">
+      {%- content_for 'blocks' -%}
+    </div>
+  {%- endif -%}
+</div>
+
+{% stylesheet %}
+  .main-page {
+    max-width: var(--container-3xl);
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+    padding-block: var(--space-16) var(--space-24);
+  }
+
+  .main-page__eyebrow {
+    margin-block: var(--space-6) var(--space-3);
+  }
+
+  .main-page__heading {
+    margin-block-end: var(--space-8);
+  }
+
+  .main-page__body .rte {
+    max-width: 40rem;
+  }
+
+  /* Source: the intro paragraph reads larger than the section body text. */
+  .main-page__body .rte > p:first-of-type {
+    font-size: var(--text-18);
+    color: color-mix(in srgb, var(--color-foreground) 80%, transparent);
+  }
+
+  /* Per-section divider (source: each `InfoSection` sits under its own
+     top border). Overrides rte's own h2 spacing, scoped to this section. */
+  .main-page .rte h2 {
+    padding-block-start: var(--space-8);
+    border-block-start: 1px solid color-mix(in srgb, var(--color-foreground) 10%, transparent);
+  }
+
+  .main-page .rte h2:first-child {
+    margin-block-start: 0;
+  }
+
+  .main-page__ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    margin-block-start: var(--space-10);
+  }
+
+  @media (min-width: 48rem) {
+    .main-page__body .rte > p:first-of-type {
+      font-size: var(--text-20);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:general.eyebrow",
+      "info": "t:sections.main_page.eyebrow_info"
+    }
+  ],
+  "blocks": [{ "type": "@theme" }, { "type": "@app" }]
+}
+{% endschema %}
