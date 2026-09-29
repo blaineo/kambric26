@@ -1,0 +1,99 @@
+{% comment %}
+  "About our dresses": the collection's full description, below the products.
+
+  Category pages open with just the description's first sentence (catalog-heading
+  "Intro length: first sentence"); the full copy lives here, still visible text under a
+  real <h2>, so shoppers can find it and search/answer engines read it as before.
+
+  Renders nothing when the collection has no description.
+
+  @setting {text} heading - Heading; blank = "About our {collection title, lowercase}"
+  @setting {text} eyebrow - Small label above the heading (optional)
+{% endcomment %}
+{%- if collection.description != blank -%}
+  {%- liquid
+    assign heading = section.settings.heading
+    if heading == blank
+      assign title_lower = collection.title | downcase
+      assign heading = 'collections.about_heading' | t: title: title_lower
+    endif
+  -%}
+  <section class="collection-about full-width" aria-labelledby="CollectionAbout-{{ section.id }}">
+    <div class="collection-about__inner">
+      <div class="collection-about__head">
+        {%- if section.settings.eyebrow != blank -%}
+          {%- render 'eyebrow', text: section.settings.eyebrow, class: 'collection-about__eyebrow' -%}
+        {%- endif -%}
+        <h2 class="collection-about__heading" id="CollectionAbout-{{ section.id }}">{{ heading | escape }}</h2>
+      </div>
+      <div class="collection-about__body">
+        {%- render 'rte', content: collection.description -%}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% stylesheet %}
+  .collection-about {
+    border-block-start: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+
+  .collection-about__inner {
+    display: grid;
+    gap: var(--space-5);
+    max-width: var(--page-width);
+    margin-inline: auto;
+    padding: var(--space-16) var(--space-8);
+  }
+
+  .collection-about__eyebrow {
+    margin-block-end: var(--space-3);
+  }
+
+  .collection-about__heading {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-24);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-tight);
+  }
+
+  .collection-about__body .rte {
+    max-width: 40rem;
+    font-size: var(--text-14);
+    line-height: var(--leading-relaxed);
+    color: color-mix(in srgb, var(--color-foreground) 75%, transparent);
+  }
+
+  @media (min-width: 48rem) {
+    .collection-about__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      gap: var(--space-12);
+      padding-inline: var(--space-12);
+    }
+
+    .collection-about__body .rte {
+      font-size: var(--text-15);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.collection_about.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.collection_about.eyebrow"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:sections.collection_about.heading",
+      "info": "t:sections.collection_about.heading_info"
+    }
+  ],
+  "presets": [{ "name": "t:sections.collection_about.name" }]
+}
+{% endschema %}

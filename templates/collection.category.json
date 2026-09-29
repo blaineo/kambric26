@@ -3,7 +3,8 @@
     "heading": {
       "type": "catalog-heading",
       "settings": {
-        "show_on": "always"
+        "show_on": "always",
+        "intro_length": "first_sentence"
       }
     },
     "nav": {
@@ -58,12 +59,20 @@
         "link_label": "The Archive →",
         "link_url": "/pages/about"
       }
+    },
+    "about": {
+      "type": "collection-about",
+      "settings": {
+        "eyebrow": "",
+        "heading": ""
+      }
     }
   },
   "order": [
     "heading",
     "nav",
     "groups",
+    "about",
     "cta"
   ]
 }

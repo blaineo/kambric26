@@ -437,6 +437,13 @@ The "All Pieces" / "Dresses" / etc. heading block above the product grid:
   title and **description** automatically — so a category's intro paragraph
   is edited the same way as any collection's description, in the Shopify
   admin, not in the theme editor.
+  - **Where it shows (2026-09-29):** only the description's **first sentence**
+    appears under the title (section setting *Intro length*: Full / First
+    sentence / Hidden). The **full description** appears below the products in
+    the **About this collection** section, under the heading "About our
+    dresses" (editable; blank = "About our [collection name]"). It's still
+    visible text with its own heading, so search engines and AI assistants read
+    it as before. Write the description so its first sentence works on its own.
 - **Shop (/collections/all)**: defaults to "All" / *"Pieces"* with no intro,
   matching the current site. Override the Title/Second line fields if that
   ever needs to change.

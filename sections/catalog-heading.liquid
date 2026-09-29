@@ -36,6 +36,7 @@
   @setting {text} title - Title first line; blank uses the fallback above
   @setting {text} title_em - Optional italic second line; blank uses the fallback above
   @setting {richtext} intro - Intro paragraph; blank uses the fallback above
+  @setting {select} intro_length - 'full' (default) | 'first_sentence' | 'none'
   @setting {checkbox} show_count - Show the "N pieces" count (default true)
   @setting {text} product_type_filter - Optional: only count products of this exact `product.type`
 {% endcomment %}
@@ -70,6 +71,25 @@
     if intro == blank and collection.handle != 'all'
       assign intro = collection.description
     endif
+
+    comment
+      Intro length: 'first_sentence' keeps only the opening sentence at the top (category pages
+      put the full description below the products, in the "About" section).
+    endcomment
+    case section.settings.intro_length
+      when 'none'
+        assign intro = blank
+      when 'first_sentence'
+        if intro != blank
+          assign intro_text = intro | strip_html | strip | replace: '&nbsp;', ' '
+          assign first = intro_text | split: '. ' | first | strip
+          assign last_char = first | slice: -1
+          unless last_char == '.' or last_char == '!' or last_char == '?'
+            assign first = first | append: '.'
+          endunless
+          assign intro = '<p>' | append: first | append: '</p>'
+        endif
+    endcase
 
     assign count_filter = blank
     if collection.template_suffix == 'sale'
@@ -214,6 +234,18 @@
       "id": "intro",
       "label": "t:sections.catalog_heading.intro",
       "info": "t:sections.catalog_heading.intro_info"
+    },
+    {
+      "type": "select",
+      "id": "intro_length",
+      "label": "t:sections.catalog_heading.intro_length",
+      "info": "t:sections.catalog_heading.intro_length_info",
+      "options": [
+        { "value": "full", "label": "t:sections.catalog_heading.intro_length_full" },
+        { "value": "first_sentence", "label": "t:sections.catalog_heading.intro_length_first" },
+        { "value": "none", "label": "t:sections.catalog_heading.intro_length_none" }
+      ],
+      "default": "full"
     },
     {
       "type": "checkbox",

@@ -278,7 +278,12 @@
       "intro_info": "Leave blank to use this collection's description (not shown on /collections/all when blank).",
       "show_count": "Show piece count",
       "product_type_filter": "Only count this product type",
-      "product_type_filter_info": "Advanced: leave blank unless the product grid below applies an extra product-type filter this count needs to match."
+      "product_type_filter_info": "Advanced: leave blank unless the product grid below applies an extra product-type filter this count needs to match.",
+      "intro_length": "Intro length",
+      "intro_length_info": "\"First sentence\" keeps the top of the page short; add the \"About this collection\" section below the products to show the full description there.",
+      "intro_length_full": "Full",
+      "intro_length_first": "First sentence",
+      "intro_length_none": "Hidden"
     },
     "category_nav": {
       "name": "Category strip",
@@ -866,6 +871,12 @@
       "show_on": "Show on",
       "show_on_all": "All pages",
       "show_on_home": "Home page only"
+    },
+    "collection_about": {
+      "name": "About this collection",
+      "eyebrow": "Eyebrow",
+      "heading": "Heading",
+      "heading_info": "Leave blank for \"About our [collection name]\". Shows the collection's description; hidden when it has none."
     }
   }
 }
