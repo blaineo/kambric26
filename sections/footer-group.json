@@ -55,7 +55,7 @@
     "newsletter_popup": {
       "type": "newsletter-popup",
       "settings": {
-        "enabled": false,
+        "enabled": true,
         "show_on": "all",
         "delay_seconds": 6
       }

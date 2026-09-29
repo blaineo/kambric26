@@ -328,13 +328,13 @@
   }
 
   /* Motion: transform/opacity only, never layout. Nothing moves under reduced motion. */
+  /* Copy is visible from the first frame and only rises into place: fading it in from
+     opacity 0 held back the page's largest paint (LCP) by about a second (owner, P-6). */
   @keyframes home-hero-rise {
     from {
-      opacity: 0;
       transform: translateY(var(--rise, 0));
     }
     to {
-      opacity: 1;
       transform: none;
     }
   }
@@ -372,21 +372,22 @@
   @media (prefers-reduced-motion: no-preference) {
     .home-hero__eyebrow {
       --rise: 16px;
-      animation: home-hero-rise 1s var(--ease-out-expo) 0.3s both;
+      animation: home-hero-rise 1s var(--ease-out-expo) 0.1s both;
     }
 
     .home-hero__title {
       --rise: 32px;
-      animation: home-hero-rise 1.2s var(--ease-out-expo) 0.4s both;
+      animation: home-hero-rise 1.2s var(--ease-out-expo) 0.15s both;
     }
 
     .home-hero__subtitle {
-      animation: home-hero-rise 1s var(--ease-standard) 0.75s both;
+      --rise: 12px;
+      animation: home-hero-rise 1s var(--ease-out-expo) 0.25s both;
     }
 
     .home-hero__ctas {
       --rise: 10px;
-      animation: home-hero-rise 0.8s var(--ease-standard) 1s both;
+      animation: home-hero-rise 0.8s var(--ease-out-expo) 0.35s both;
     }
 
     .home-hero__cue {

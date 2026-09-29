@@ -31,7 +31,9 @@
   @setting {select} show_on - 'always' (default) | 'all_only' | 'except_all'
   @setting {checkbox} show_image - Show the header image when one resolves (default true)
   @setting {range} overlay_opacity - Strength of the dark gradient over the image, 0-100 (default 88, matches the source's bottom-stop opacity)
-  @setting {checkbox} show_season - Show the season/year eyebrow from kambric.season/kambric.year (default true)
+  @setting {text} eyebrow - Small label above the title (default "Collections", as the current site)
+  @setting {checkbox} show_breadcrumbs - Show the visible breadcrumb trail (default off; the BreadcrumbList JSON-LD is always output)
+  @setting {checkbox} show_season - Show the season/year eyebrow from kambric.season/kambric.year (default off)
   @setting {checkbox} show_description - Show the collection description (default true)
   @setting {checkbox} show_count - Show the "N pieces" count (default true; not in the original spec list, added for visual parity with collection-*.png — see section report)
 {% endcomment %}
@@ -124,8 +126,12 @@
 
     <div class="collection-hero__content">
       <div class="collection-hero__inner">
-        {%- render 'breadcrumbs' -%}
+        {%- comment -%} BreadcrumbList JSON-LD always; the visible trail only when switched on {%- endcomment -%}
+        {%- render 'breadcrumbs', visible: section.settings.show_breadcrumbs -%}
 
+        {%- if section.settings.eyebrow != blank -%}
+          {%- render 'eyebrow', text: section.settings.eyebrow, on_dark: true, class: 'collection-hero__eyebrow' -%}
+        {%- endif -%}
         {%- if season_eyebrow != blank -%}
           {%- render 'eyebrow', text: season_eyebrow, on_dark: true, class: 'collection-hero__eyebrow' -%}
         {%- endif -%}
@@ -298,10 +304,23 @@
       "content": "t:sections.collection_hero.content_header"
     },
     {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.collection_hero.eyebrow",
+      "default": "Collections"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumbs",
+      "label": "t:sections.collection_hero.show_breadcrumbs",
+      "info": "t:sections.collection_hero.show_breadcrumbs_info",
+      "default": false
+    },
+    {
       "type": "checkbox",
       "id": "show_season",
       "label": "t:sections.collection_hero.show_season",
-      "default": true,
+      "default": false,
       "info": "t:sections.collection_hero.show_season_info"
     },
     {

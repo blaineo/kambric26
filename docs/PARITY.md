@@ -39,7 +39,18 @@ Verified after the fixes: About hero 682 px (= live), Events within 16 px, Whole
 - **"Terms of Service" in the footer bar:** Settings → Policies is shared with checkout (🔴).
 - **Whimsy is empty on both sites:** its prints still say `botanicals` in `kambric.prints` (data fix at cutover).
 
-## ❓ Owner decisions (intentional differences from live)
+## ✅ Owner decisions (2026-09-29)
+
+- **P-1 breadcrumbs:** keep the new visible breadcrumbs (products, pages, journal).
+- **P-2 collection pages:** "Collections" eyebrow as live; no visible breadcrumb or season (settings kept, off; BreadcrumbList JSON-LD still output). Done.
+- **P-3 specs list:** explained; awaiting decision.
+- **P-4 size table:** keep.
+- **P-5 pop-up:** on (Customize → Footer → Newsletter pop-up → Enable pop-up). Its photo needs batch 11. Lab cost: Lighthouse home 78–82 → 61–72, because the sign-up form loads Shopify's hCaptcha when the card appears at 6 s; real visitors have finished loading by then. The contrast flag on the "Scroll" cue is a false positive (the card covers it on phones).
+- **P-6 hero copy:** keeps its rise but is visible from the first frame (transform only, shorter delays); LCP is now the hero photo, not the delayed subtitle.
+
+## Original decision list
+
+### Owner decisions (intentional differences from live)
 
 | # | Difference | Why it's different | Options |
 | --- | --- | --- | --- |

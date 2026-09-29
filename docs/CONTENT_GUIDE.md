@@ -415,13 +415,16 @@ Each collection's page (`/collections/folklore` etc.) opens with:
   (`kambric.header_image`), then its **Card image** field
   (`kambric.card_image`), then its Shopify collection image, then no image at
   all (a plain dark header with just text — still fully usable).
-- **Season eyebrow**, e.g. "Fall 2024" — from that collection's **Season**
-  and **Year** fields. Shown only when at least one is set.
+- **Eyebrow** "Collections" (editable in the section's **Eyebrow** setting),
+  as on the current site. A **Season** eyebrow ("Fall 2024", from the
+  collection's Season and Year fields) and a visible **breadcrumb** trail are
+  available but switched off (owner decision 2026-09-29); tick **Show
+  season/year** or **Show breadcrumbs** to bring them back.
 - **Title and description** — the collection's own title/description.
 - **Piece count** ("N pieces") — this is new: it counts print cards the same
   way the product grid does, so it always matches what's below it.
 
-All four (image, season, description, count) can be turned off per-section
+Image, description and count can be turned off per-section
 in the theme editor if a particular collection page shouldn't show one.
 
 ### Shop / category / Sale heading
@@ -789,8 +792,8 @@ None of this requires a theme change; it improves results automatically. See
 every page; open it from any page in the theme editor).
 
 **Turning it on**
-1. Tick **Enable pop-up**. It's off by default — the same pattern as the
-   announcement bar.
+1. Tick **Enable pop-up** (untick it to switch the pop-up off). It's **on**
+   (owner decision 2026-09-29), matching the current site.
 2. Set **Delay before showing (seconds)** (default 6 — matches the current
    site).
 3. Set **Show on** to *All pages* or *Home page only*.
@@ -809,8 +812,8 @@ or tag `newsletter`**.
 Success body text — all editable, defaulting to the current site's "Take
 15% off" copy.
 
-**Image:** optional. Leave it blank for a text-only card (matches the
-1440px screenshot, which has no image). If set, it's cropped to a fixed
+**Image:** optional (the current site shows the bandana photo,
+`newsletter-signup-popup.jpg`). Leave it blank for a text-only card. If set, it's cropped to a fixed
 strip above the text; set a **focal point** on the image (Content → Files)
 if it needs recropping. The image is never downloaded until a visitor
 actually sees the pop-up, so it never slows down the page for anyone who

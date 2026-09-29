@@ -15,7 +15,10 @@
     "hero": {
       "type": "collection-hero",
       "settings": {
-        "show_on": "except_all"
+        "show_on": "except_all",
+        "show_season": false,
+        "show_breadcrumbs": false,
+        "eyebrow": "Collections"
       }
     },
     "groups": {
