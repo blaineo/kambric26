@@ -1,0 +1,233 @@
+{
+ "metaobjects": [
+  "gid://shopify/Metaobject/188813770986",
+  "gid://shopify/Metaobject/188813803754",
+  "gid://shopify/Metaobject/188813836522"
+ ],
+ "categories": {
+  "jessie-slip-dress-in-twilight-plumes": {
+   "id": "gid://shopify/Product/8681284305130",
+   "before": "gid://shopify/TaxonomyCategory/na"
+  },
+  "bodie-scarf-in-twilight-plumes": {
+   "id": "gid://shopify/Product/8681284665578",
+   "before": null
+  },
+  "goldie-bandana-in-matyo-floral": {
+   "id": "gid://shopify/Product/8681284698346",
+   "before": null
+  },
+  "esther-kaftan": {
+   "id": "gid://shopify/Product/8690544378090",
+   "before": null
+  }
+ },
+ "metafields": [
+  {
+   "ownerId": "gid://shopify/Product/8681284272362",
+   "key": "fabric"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8681284272362",
+   "key": "color-pattern"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8681284305130",
+   "key": "fabric"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8681284305130",
+   "key": "color-pattern"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8681284665578",
+   "key": "fabric"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8681284665578",
+   "key": "color-pattern"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8681284698346",
+   "key": "fabric"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8681284698346",
+   "key": "color-pattern"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8690544312554",
+   "key": "fabric"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8690544312554",
+   "key": "color-pattern"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8690544378090",
+   "key": "fabric"
+  },
+  {
+   "ownerId": "gid://shopify/Product/8690544378090",
+   "key": "color-pattern"
+  }
+ ],
+ "skus": {
+  "kati-slip-dress-in-matyo-floral": {
+   "productId": "gid://shopify/Product/8681284272362",
+   "variants": [
+    "gid://shopify/ProductVariant/46061327450346",
+    "gid://shopify/ProductVariant/46061327483114",
+    "gid://shopify/ProductVariant/46061327515882",
+    "gid://shopify/ProductVariant/46061327548650",
+    "gid://shopify/ProductVariant/46212197056746"
+   ]
+  },
+  "jessie-slip-dress-in-twilight-plumes": {
+   "productId": "gid://shopify/Product/8681284305130",
+   "variants": [
+    "gid://shopify/ProductVariant/46061327581418",
+    "gid://shopify/ProductVariant/46061327614186",
+    "gid://shopify/ProductVariant/46061327646954",
+    "gid://shopify/ProductVariant/46061327679722"
+   ]
+  },
+  "bodie-scarf-in-twilight-plumes": {
+   "productId": "gid://shopify/Product/8681284665578",
+   "variants": [
+    "gid://shopify/ProductVariant/46061329252586"
+   ]
+  },
+  "goldie-bandana-in-matyo-floral": {
+   "productId": "gid://shopify/Product/8681284698346",
+   "variants": [
+    "gid://shopify/ProductVariant/46061329285354"
+   ]
+  },
+  "chainstitch-monogram": {
+   "productId": "gid://shopify/Product/8690060460266",
+   "variants": [
+    "gid://shopify/ProductVariant/46122785636586"
+   ]
+  },
+  "margit-one-piece": {
+   "productId": "gid://shopify/Product/8690544312554",
+   "variants": [
+    "gid://shopify/ProductVariant/46124605898986",
+    "gid://shopify/ProductVariant/46124605931754",
+    "gid://shopify/ProductVariant/46124605964522",
+    "gid://shopify/ProductVariant/46124605997290",
+    "gid://shopify/ProductVariant/46124606030058",
+    "gid://shopify/ProductVariant/46124606062826",
+    "gid://shopify/ProductVariant/46124606095594",
+    "gid://shopify/ProductVariant/46124606128362",
+    "gid://shopify/ProductVariant/46124606161130",
+    "gid://shopify/ProductVariant/46124606193898",
+    "gid://shopify/ProductVariant/46124606226666",
+    "gid://shopify/ProductVariant/46124606259434",
+    "gid://shopify/ProductVariant/46124606292202",
+    "gid://shopify/ProductVariant/46124606324970",
+    "gid://shopify/ProductVariant/46124606357738",
+    "gid://shopify/ProductVariant/46124606390506",
+    "gid://shopify/ProductVariant/46124606423274",
+    "gid://shopify/ProductVariant/46124606456042",
+    "gid://shopify/ProductVariant/46124606488810",
+    "gid://shopify/ProductVariant/46124606521578",
+    "gid://shopify/ProductVariant/46124606554346",
+    "gid://shopify/ProductVariant/46124606587114",
+    "gid://shopify/ProductVariant/46124606619882",
+    "gid://shopify/ProductVariant/46124606652650",
+    "gid://shopify/ProductVariant/46124606685418",
+    "gid://shopify/ProductVariant/46124606718186",
+    "gid://shopify/ProductVariant/46124606750954",
+    "gid://shopify/ProductVariant/46124606783722",
+    "gid://shopify/ProductVariant/46124606816490",
+    "gid://shopify/ProductVariant/46124606849258",
+    "gid://shopify/ProductVariant/46124606882026",
+    "gid://shopify/ProductVariant/46124606914794",
+    "gid://shopify/ProductVariant/46124606947562",
+    "gid://shopify/ProductVariant/46124606980330",
+    "gid://shopify/ProductVariant/46124607013098",
+    "gid://shopify/ProductVariant/46124607045866",
+    "gid://shopify/ProductVariant/46124607078634",
+    "gid://shopify/ProductVariant/46124607111402",
+    "gid://shopify/ProductVariant/46124607144170",
+    "gid://shopify/ProductVariant/46124607176938",
+    "gid://shopify/ProductVariant/46124607209706",
+    "gid://shopify/ProductVariant/46124607242474",
+    "gid://shopify/ProductVariant/46124607275242",
+    "gid://shopify/ProductVariant/46124607308010"
+   ]
+  },
+  "zadie-linen-dress": {
+   "productId": "gid://shopify/Product/8690544345322",
+   "variants": [
+    "gid://shopify/ProductVariant/46124607340778",
+    "gid://shopify/ProductVariant/46124607373546",
+    "gid://shopify/ProductVariant/46124607406314",
+    "gid://shopify/ProductVariant/46124607439082",
+    "gid://shopify/ProductVariant/46124607471850",
+    "gid://shopify/ProductVariant/46124607504618",
+    "gid://shopify/ProductVariant/46124607537386",
+    "gid://shopify/ProductVariant/46124607570154",
+    "gid://shopify/ProductVariant/46124607602922",
+    "gid://shopify/ProductVariant/46124607635690",
+    "gid://shopify/ProductVariant/46124607668458",
+    "gid://shopify/ProductVariant/46124607701226",
+    "gid://shopify/ProductVariant/46124607733994",
+    "gid://shopify/ProductVariant/46124607766762",
+    "gid://shopify/ProductVariant/46124607799530",
+    "gid://shopify/ProductVariant/46124607832298",
+    "gid://shopify/ProductVariant/46124607865066",
+    "gid://shopify/ProductVariant/46124607897834"
+   ]
+  },
+  "esther-kaftan": {
+   "productId": "gid://shopify/Product/8690544378090",
+   "variants": [
+    "gid://shopify/ProductVariant/46124607930602",
+    "gid://shopify/ProductVariant/46124607963370",
+    "gid://shopify/ProductVariant/46124607996138",
+    "gid://shopify/ProductVariant/46124608028906",
+    "gid://shopify/ProductVariant/46124608061674",
+    "gid://shopify/ProductVariant/46124608094442",
+    "gid://shopify/ProductVariant/46124608127210",
+    "gid://shopify/ProductVariant/46124608159978",
+    "gid://shopify/ProductVariant/46124608192746"
+   ]
+  },
+  "vera-car-coat": {
+   "productId": "gid://shopify/Product/8690544410858",
+   "variants": [
+    "gid://shopify/ProductVariant/46124608225514",
+    "gid://shopify/ProductVariant/46124608258282",
+    "gid://shopify/ProductVariant/46124608291050",
+    "gid://shopify/ProductVariant/46124608323818",
+    "gid://shopify/ProductVariant/46124608356586",
+    "gid://shopify/ProductVariant/46124608389354",
+    "gid://shopify/ProductVariant/46124608422122",
+    "gid://shopify/ProductVariant/46124608454890",
+    "gid://shopify/ProductVariant/46124608487658"
+   ]
+  },
+  "arielle-dress": {
+   "productId": "gid://shopify/Product/8721345642730",
+   "variants": [
+    "gid://shopify/ProductVariant/46221445628138",
+    "gid://shopify/ProductVariant/46221533315306",
+    "gid://shopify/ProductVariant/46221533348074",
+    "gid://shopify/ProductVariant/46221533380842",
+    "gid://shopify/ProductVariant/46221533413610",
+    "gid://shopify/ProductVariant/46221533446378",
+    "gid://shopify/ProductVariant/46221533479146",
+    "gid://shopify/ProductVariant/46221445660906",
+    "gid://shopify/ProductVariant/46221533511914",
+    "gid://shopify/ProductVariant/46221533544682",
+    "gid://shopify/ProductVariant/46221533577450",
+    "gid://shopify/ProductVariant/46221533610218",
+    "gid://shopify/ProductVariant/46221533642986",
+    "gid://shopify/ProductVariant/46221533675754"
+   ]
+  }
+ }
+}

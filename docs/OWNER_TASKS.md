@@ -90,9 +90,9 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 ### C6. Google free listings (Merchant Center), 2026-09-29
 - ☐ Install Shopify's **Google & YouTube** sales channel (free), sign in with the Google account that owns Search Console, create/link **Merchant Center**, turn on **free listings**. Don't make `chainstitch-monogram` (the fee product) available to the Google channel.
 - ☐ In Merchant Center: **shipping** (match Shopify's rates) and **returns** (14 days from delivery, by mail; say who pays return shipping). The site's structured data already declares the 14-day, by-mail policy; keep the two in agreement.
-- ☐ **Identifiers:** the pieces have no barcodes (normal for small-batch). In the Google channel, mark them as custom products / "no GTIN"; optionally add SKUs (Claude can generate a scheme, e.g. `KG-MARGIT-DAHLIA-M`).
-- ☐ **Product category** on Jessie, Bodie, Goldie, Esther (Google uses it to classify listings). Note it can change tax calculation in some states; confirm with whoever handles tax.
-- ☐ **Fabric and Color/pattern** fields (Category metafields) on the 6 products missing them: Kati, Jessie, Bodie, Goldie, Margit, Esther. They feed both Google and the product-details list.
+- ◐ *(batch 15: SKUs `KG-…` on every variant)* **Identifiers:** the pieces have no barcodes (normal for small-batch). In the Google channel, mark them as custom products / "no GTIN"; optionally add SKUs (Claude can generate a scheme, e.g. `KG-MARGIT-DAHLIA-M`).
+- ☑ *(batch 15; owner to confirm tax impact)* **Product category** on Jessie, Bodie, Goldie, Esther (Google uses it to classify listings). Note it can change tax calculation in some states; confirm with whoever handles tax.
+- ◐ *(batch 15 drafted from descriptions; shop owner to review)* **Fabric and Color/pattern** fields (Category metafields) on the 6 products missing them: Kati, Jessie, Bodie, Goldie, Margit, Esther. They feed both Google and the product-details list.
 - ☐ After products sync, fix anything Merchant Center flags under *Products → Needs attention*.
 
 ### C5. After the rollback window (about 14 days)

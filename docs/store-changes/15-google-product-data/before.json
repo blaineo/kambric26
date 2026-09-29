@@ -1,0 +1,1743 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186"
+  },
+  "products": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Product/8681284272362",
+        "handle": "kati-slip-dress-in-matyo-floral",
+        "title": "Kati Slip Dress",
+        "category": {
+          "id": "gid://shopify/TaxonomyCategory/aa-1-4"
+        },
+        "fabric": null,
+        "color": null,
+        "options": [
+          {
+            "name": "Size",
+            "position": 1
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46061327450346",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46061327483114",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46061327515882",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46061327548650",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46212197056746",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8681284305130",
+        "handle": "jessie-slip-dress-in-twilight-plumes",
+        "title": "Jessie Slip Dress",
+        "category": {
+          "id": "gid://shopify/TaxonomyCategory/na"
+        },
+        "fabric": null,
+        "color": null,
+        "options": [
+          {
+            "name": "Size",
+            "position": 1
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46061327581418",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46061327614186",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46061327646954",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46061327679722",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8681284665578",
+        "handle": "bodie-scarf-in-twilight-plumes",
+        "title": "Bodie Scarf",
+        "category": null,
+        "fabric": null,
+        "color": null,
+        "options": [
+          {
+            "name": "Size",
+            "position": 1
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46061329252586",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "One Size"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8681284698346",
+        "handle": "goldie-bandana-in-matyo-floral",
+        "title": "Goldie Bandana",
+        "category": null,
+        "fabric": null,
+        "color": null,
+        "options": [
+          {
+            "name": "Size",
+            "position": 1
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46061329285354",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Size",
+                  "value": "One Size"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690060460266",
+        "handle": "chainstitch-monogram",
+        "title": "Chainstitch Monogram",
+        "category": null,
+        "fabric": null,
+        "color": null,
+        "options": [
+          {
+            "name": "Title",
+            "position": 1
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46122785636586",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Title",
+                  "value": "Default Title"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544312554",
+        "handle": "margit-one-piece",
+        "title": "Margit One-Piece",
+        "category": {
+          "id": "gid://shopify/TaxonomyCategory/aa-1-20-22"
+        },
+        "fabric": null,
+        "color": null,
+        "options": [
+          {
+            "name": "Print",
+            "position": 1
+          },
+          {
+            "name": "Size",
+            "position": 2
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46124605898986",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Dahlia Seed"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124605931754",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Dahlia Seed"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124605964522",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Dahlia Seed"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124605997290",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Dahlia Seed"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606030058",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Dahlia Seed"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606062826",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Dahlia Seed"
+                },
+                {
+                  "name": "Size",
+                  "value": "XXL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606095594",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Moon Illusion"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606128362",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Moon Illusion"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606161130",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Moon Illusion"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606193898",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Moon Illusion"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606226666",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Moon Illusion"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606259434",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Moon Illusion"
+                },
+                {
+                  "name": "Size",
+                  "value": "XXL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606292202",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Good Vibrations"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606324970",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Good Vibrations"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606357738",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Good Vibrations"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606390506",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Good Vibrations"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606423274",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Good Vibrations"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606456042",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Good Vibrations"
+                },
+                {
+                  "name": "Size",
+                  "value": "XXL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606488810",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Pastel Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606521578",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Pastel Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606554346",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Pastel Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606587114",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Pastel Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606619882",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Pastel Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606652650",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Pastel Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "XXL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606685418",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Orange Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606718186",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Orange Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606750954",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Orange Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606783722",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Orange Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606816490",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Orange Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606849258",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Orange Asterisk"
+                },
+                {
+                  "name": "Size",
+                  "value": "XXL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606882026",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Magnolia"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606914794",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Magnolia"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606947562",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Magnolia"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124606980330",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Magnolia"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607013098",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Magnolia"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607045866",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Magnolia"
+                },
+                {
+                  "name": "Size",
+                  "value": "XXL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607078634",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Matyó Floral"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607111402",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Matyó Floral"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607144170",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Matyó Floral"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607176938",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Matyó Floral"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607209706",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607242474",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607275242",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607308010",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544345322",
+        "handle": "zadie-linen-dress",
+        "title": "Zadie Linen Dress",
+        "category": {
+          "id": "gid://shopify/TaxonomyCategory/aa-1-4"
+        },
+        "fabric": {
+          "type": "list.metaobject_reference",
+          "value": "[\"gid://shopify/Metaobject/169810657514\"]"
+        },
+        "color": {
+          "type": "list.metaobject_reference",
+          "value": "[\"gid://shopify/Metaobject/169810231530\",\"gid://shopify/Metaobject/169810362602\",\"gid://shopify/Metaobject/169810526442\",\"gid://shopify/Metaobject/169810624746\",\"gid://shopify/Metaobject/169810690282\"]"
+        },
+        "options": [
+          {
+            "name": "Print",
+            "position": 1
+          },
+          {
+            "name": "Size",
+            "position": 2
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46124607340778",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607373546",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607406314",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607439082",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607471850",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607504618",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Wildflowers"
+                },
+                {
+                  "name": "Size",
+                  "value": "XXL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607537386",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Candied Plaid"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607570154",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Candied Plaid"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607602922",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Candied Plaid"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607635690",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Candied Plaid"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607668458",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Candied Plaid"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607701226",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Candied Plaid"
+                },
+                {
+                  "name": "Size",
+                  "value": "XXL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607733994",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Cherry Coupe"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607766762",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Cherry Coupe"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607799530",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Cherry Coupe"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607832298",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Cherry Coupe"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607865066",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Cherry Coupe"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607897834",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Cherry Coupe"
+                },
+                {
+                  "name": "Size",
+                  "value": "XXL"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544378090",
+        "handle": "esther-kaftan",
+        "title": "Esther Kaftan",
+        "category": null,
+        "fabric": null,
+        "color": null,
+        "options": [
+          {
+            "name": "Print",
+            "position": 1
+          },
+          {
+            "name": "Size",
+            "position": 2
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46124607930602",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Good Vibrations"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS/S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607963370",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Good Vibrations"
+                },
+                {
+                  "name": "Size",
+                  "value": "M/L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124607996138",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Good Vibrations"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608028906",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Dahlia Seed"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS/S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608061674",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Dahlia Seed"
+                },
+                {
+                  "name": "Size",
+                  "value": "M/L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608094442",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Dahlia Seed"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608127210",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Magnolia"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS/S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608159978",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Magnolia"
+                },
+                {
+                  "name": "Size",
+                  "value": "M/L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608192746",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Magnolia"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544410858",
+        "handle": "vera-car-coat",
+        "title": "Vera Car Coat",
+        "category": {
+          "id": "gid://shopify/TaxonomyCategory/aa-1-10-2-5"
+        },
+        "fabric": {
+          "type": "list.metaobject_reference",
+          "value": "[\"gid://shopify/Metaobject/169810067690\",\"gid://shopify/Metaobject/169810198762\"]"
+        },
+        "color": {
+          "type": "list.metaobject_reference",
+          "value": "[\"gid://shopify/Metaobject/169810231530\",\"gid://shopify/Metaobject/169810264298\",\"gid://shopify/Metaobject/169810297066\",\"gid://shopify/Metaobject/169810329834\",\"gid://shopify/Metaobject/169810362602\"]"
+        },
+        "options": [
+          {
+            "name": "Print",
+            "position": 1
+          },
+          {
+            "name": "Size",
+            "position": 2
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46124608225514",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Midnight Plumes"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608258282",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Midnight Plumes"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608291050",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Midnight Plumes"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608323818",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Midnight Plumes"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608356586",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Matyó Floral"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608389354",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Matyó Floral"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608422122",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Matyó Floral"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608454890",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Matyó Floral"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46124608487658",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Print",
+                  "value": "Matyó Floral"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8721345642730",
+        "handle": "arielle-dress",
+        "title": "Arielle Slip Dress",
+        "category": {
+          "id": "gid://shopify/TaxonomyCategory/aa-1-4"
+        },
+        "fabric": {
+          "type": "list.metaobject_reference",
+          "value": "[\"gid://shopify/Metaobject/176656908522\"]"
+        },
+        "color": {
+          "type": "list.metaobject_reference",
+          "value": "[\"gid://shopify/Metaobject/177225662698\",\"gid://shopify/Metaobject/177225826538\"]"
+        },
+        "options": [
+          {
+            "name": "Colorway",
+            "position": 1
+          },
+          {
+            "name": "Size",
+            "position": 2
+          }
+        ],
+        "variants": {
+          "nodes": [
+            {
+              "id": "gid://shopify/ProductVariant/46221445628138",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Terracotta"
+                },
+                {
+                  "name": "Size",
+                  "value": "2XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533315306",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Terracotta"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533348074",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Terracotta"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533380842",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Terracotta"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533413610",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Terracotta"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533446378",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Terracotta"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533479146",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Terracotta"
+                },
+                {
+                  "name": "Size",
+                  "value": "2XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221445660906",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Olive"
+                },
+                {
+                  "name": "Size",
+                  "value": "2XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533511914",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Olive"
+                },
+                {
+                  "name": "Size",
+                  "value": "XS"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533544682",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Olive"
+                },
+                {
+                  "name": "Size",
+                  "value": "S"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533577450",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Olive"
+                },
+                {
+                  "name": "Size",
+                  "value": "M"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533610218",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Olive"
+                },
+                {
+                  "name": "Size",
+                  "value": "L"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533642986",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Olive"
+                },
+                {
+                  "name": "Size",
+                  "value": "XL"
+                }
+              ]
+            },
+            {
+              "id": "gid://shopify/ProductVariant/46221533675754",
+              "sku": null,
+              "selectedOptions": [
+                {
+                  "name": "Colorway",
+                  "value": "Olive"
+                },
+                {
+                  "name": "Size",
+                  "value": "2XL"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "fab": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/169810067690",
+        "displayName": "Cotton"
+      },
+      {
+        "id": "gid://shopify/Metaobject/169810198762",
+        "displayName": "Viscose"
+      },
+      {
+        "id": "gid://shopify/Metaobject/169810657514",
+        "displayName": "Linen"
+      },
+      {
+        "id": "gid://shopify/Metaobject/176656908522",
+        "displayName": "Silk"
+      }
+    ]
+  },
+  "col": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Metaobject/169810231530",
+        "displayName": "Geometric"
+      },
+      {
+        "id": "gid://shopify/Metaobject/169810264298",
+        "displayName": "Gray"
+      },
+      {
+        "id": "gid://shopify/Metaobject/169810297066",
+        "displayName": "Floral"
+      },
+      {
+        "id": "gid://shopify/Metaobject/169810329834",
+        "displayName": "Red"
+      },
+      {
+        "id": "gid://shopify/Metaobject/169810362602",
+        "displayName": "White"
+      },
+      {
+        "id": "gid://shopify/Metaobject/169810526442",
+        "displayName": "Checkered"
+      },
+      {
+        "id": "gid://shopify/Metaobject/169810624746",
+        "displayName": "Orange"
+      },
+      {
+        "id": "gid://shopify/Metaobject/169810690282",
+        "displayName": "Beige"
+      },
+      {
+        "id": "gid://shopify/Metaobject/176656941290",
+        "displayName": "Green"
+      },
+      {
+        "id": "gid://shopify/Metaobject/177225662698",
+        "displayName": "Terracotta"
+      },
+      {
+        "id": "gid://shopify/Metaobject/177225826538",
+        "displayName": "Olive"
+      }
+    ]
+  }
+}

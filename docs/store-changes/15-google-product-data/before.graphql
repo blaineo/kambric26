@@ -1,0 +1,9 @@
+# Batch 15 snapshot (read-only): categories, category metafields and variant SKUs of the active catalog
+{ shop { id }
+  products(first: 20, query: "status:active") { nodes { id handle title category { id }
+    fabric: metafield(namespace: "shopify", key: "fabric") { type value }
+    color: metafield(namespace: "shopify", key: "color-pattern") { type value }
+    options { name position }
+    variants(first: 100) { nodes { id sku selectedOptions { name value } } } } }
+  fab: metaobjects(type: "shopify--fabric", first: 50) { nodes { id displayName } }
+  col: metaobjects(type: "shopify--color-pattern", first: 50) { nodes { id displayName } } }
