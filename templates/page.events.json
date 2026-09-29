@@ -15,7 +15,8 @@
         "eyebrow": "Events & Pop-Ups",
         "heading": "Where to find us",
         "heading_em": "in person.",
-        "subtitle": "Kambric pieces are best met in person — at a small trunk show, a seasonal pop-up, or an open studio afternoon. A short list of what's coming next and where we've been."
+        "subtitle": "Kambric pieces are best met in person — at a small trunk show, a seasonal pop-up, or an open studio afternoon. A short list of what's coming next and where we've been.",
+        "image": "shopify://shop_images/events-hero-background.jpg"
       }
     },
     "list": {
@@ -35,6 +36,8 @@
       }
     }
   },
-  "order": ["hero", "list"]
+  "order": [
+    "hero",
+    "list"
+  ]
 }
-

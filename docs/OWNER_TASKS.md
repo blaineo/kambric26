@@ -96,7 +96,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 
 ### A7. Phase 4 content (all 🟢: new Shopify-hosted data the live site never reads)
 Full detail and exact values: `docs/store-data/phase4/owner-notes/{home,about-events,journal-info}.md`; import files in `docs/store-data/phase4/`. Claude can run these as batches.
-- ☐ **Photos:** upload the 11 home + 5 About/Events photos to Files; Claude sets them in the templates (`shopify://shop_images/…`), so nothing to pick by hand.
+- ☑ *(batch 10, 2026-09-29)* **Photos:** upload the 11 home + 5 About/Events photos to Files; Claude sets them in the templates (`shopify://shop_images/…`), so nothing to pick by hand.
 - ☑ **Events:** `kambric_event` definition + the 3 exported events *(batch 08)*. ☐ Add real upcoming events when known (Content → Metaobjects → Event).
 - ☑ *(batch 08; info pages each have their own template: `page.contact`, `page.wholesale`, `page.shipping`, `page.returns`)* **Pages:** About (`about`, template `page.about`) and Events (`events`, `page.events`) with empty bodies; Contact, Wholesale, Size Guide (`page.size-guide`), Shipping, Returns with bodies from `pages/*.html`.
 - ☑ *(batch 08)* **Journal:** create blog `journal`, import the 5 posts from `journal/posts.json` (cover images, normalised category tags).

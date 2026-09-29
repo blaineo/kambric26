@@ -25,7 +25,8 @@
         "cta1_link": "/products/arielle-dress?print=Terracotta",
         "cta2_label": "Shop the Collection",
         "cta2_link": "/collections/folklore",
-        "show_scroll_cue": true
+        "show_scroll_cue": true,
+        "image": "shopify://shop_images/home-hero-background.png"
       }
     },
     "marquee": {
@@ -81,21 +82,24 @@
           "type": "photo",
           "settings": {
             "alt": "Kati Hartmann with family — archive photograph",
-            "position": "center 25%"
+            "position": "center 25%",
+            "image": "shopify://shop_images/home-story-kati-portrait.png"
           }
         },
         "photo_painting": {
           "type": "photo",
           "settings": {
             "alt": "Kati's hands painting a floral print by brush",
-            "position": "center"
+            "position": "center",
+            "image": "shopify://shop_images/home-story-kati-painting.png"
           }
         },
         "photo_laughing": {
           "type": "photo",
           "settings": {
             "alt": "Kati Hartmann laughing — family archive photograph",
-            "position": "center 30%"
+            "position": "center 30%",
+            "image": "shopify://shop_images/home-story-kati-laughing.png"
           }
         }
       },
@@ -175,7 +179,8 @@
             "number": "No. 01",
             "caption": "Vera Car Coat, Matyó",
             "link": "/products/vera-car-coat",
-            "link_label": "Shop the Vera Car Coat"
+            "link_label": "Shop the Vera Car Coat",
+            "image": "shopify://shop_images/lookbook-01.jpg"
           }
         },
         "look_2": {
@@ -186,7 +191,8 @@
             "number": "No. 02",
             "caption": "Vera Car Coat",
             "link": "/products/vera-car-coat",
-            "link_label": "Shop the Vera Car Coat"
+            "link_label": "Shop the Vera Car Coat",
+            "image": "shopify://shop_images/lookbook-02.jpg"
           }
         },
         "look_3": {
@@ -197,7 +203,8 @@
             "number": "No. 03",
             "caption": "Kati Slip Dress, Sunset Plumes",
             "link": "/products/jessie-slip-dress-in-twilight-plumes",
-            "link_label": "Shop the Jessie Slip Dress in Twilight Plumes"
+            "link_label": "Shop the Jessie Slip Dress in Twilight Plumes",
+            "image": "shopify://shop_images/lookbook-03.jpg"
           }
         },
         "look_4": {
@@ -208,7 +215,8 @@
             "number": "No. 04",
             "caption": "Vera Car Coat, Matyó",
             "link": "/products/vera-car-coat",
-            "link_label": "Shop the Vera Car Coat"
+            "link_label": "Shop the Vera Car Coat",
+            "image": "shopify://shop_images/lookbook-04.jpg"
           }
         },
         "look_5": {
@@ -219,7 +227,8 @@
             "number": "No. 05",
             "caption": "Kati Slip Dress, Matyó",
             "link": "/products/kati-slip-dress-in-matyo-floral",
-            "link_label": "Shop the Kati Slip Dress"
+            "link_label": "Shop the Kati Slip Dress",
+            "image": "shopify://shop_images/lookbook-05.jpg"
           }
         },
         "look_6": {
@@ -230,7 +239,8 @@
             "number": "No. 06",
             "caption": "Bodie Scarf",
             "link": "/products/bodie-scarf-in-twilight-plumes",
-            "link_label": "Shop the Bodie Scarf"
+            "link_label": "Shop the Bodie Scarf",
+            "image": "shopify://shop_images/lookbook-06.jpg"
           }
         }
       },
@@ -250,7 +260,8 @@
         "attribution": "— Daisy Hartmann, founder of Kambric Goods",
         "show_ornament": true,
         "image_opacity": 60,
-        "wash_strength": 60
+        "wash_strength": 60,
+        "image": "shopify://shop_images/home-founder-quote-background.jpg"
       }
     },
     "marquee_bottom": {

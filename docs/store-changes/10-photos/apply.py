@@ -67,6 +67,6 @@ else:
 done = gql("query($ids: [ID!]!) { nodes(ids: $ids) { ... on MediaImage { id image { url } } } }",
            {"ids": [f["id"] for f in files]}, mutation=False)
 for entry, node in zip(LOG["files"], done["nodes"]):
-    entry["cdn_filename"] = node["image"]["url"].split("/files/")[1].split("?")[0]
+    entry["cdn_filename"] = node["image"]["url"].rsplit("/files/", 1)[1].split("?")[0]
 save()
 print("batch 10 applied:", [(f["filename"], f["cdn_filename"]) for f in LOG["files"]])

@@ -68,8 +68,13 @@
     honour it wherever CSS crops the image (object-fit: cover).
   endcomment
   assign focal_style = nil
-  if image.presentation.focal_point != blank
-    assign focal_style = 'object-position: ' | append: image.presentation.focal_point
+  assign focal_point = image.presentation.focal_point | append: ''
+  comment
+    Every uploaded file reports a centre focal point ("50.0% 50.0%") until an editor sets one.
+    Skip that default: as an inline style it would override the section's own position setting.
+  endcomment
+  if focal_point != blank and focal_point != '50.0% 50.0%'
+    assign focal_style = 'object-position: ' | append: focal_point
   endif
 
   assign img_loading = 'lazy'

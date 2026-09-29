@@ -17,7 +17,8 @@
         "heading_line_2": "Designed in California.",
         "heading_line_3": "Worn everywhere.",
         "subtitle": "A Bay Area brand by Daisy Hartmann, built on 300+ hand-painted textile designs by her late Hungarian-born grandmother — colorful, groovy, and history-rich prints from a Montreal studio in the '60s and '70s.",
-        "overlay_opacity": 65
+        "overlay_opacity": 65,
+        "image": "shopify://shop_images/about-hero-background.png"
       }
     },
     "name": {
@@ -37,7 +38,8 @@
         "heading": "Art brought her solace.",
         "bio": "<p>Katarina — Kati to her family and friends — who was Transylvanian by birth, was nothing if not resilient. She was forced to uproot and reinvent herself time and again out of necessity. Later in life, when she found herself alongside her two sons and husband moving to Montreal, she set up and ran a small but successful textile studio in the Côte-des-Neiges borough. She was a fashion designer and seamstress (and, for a chapter of her life, a baker and cafe owner), and she sold some of her textile designs commercially — mostly to companies that printed linens and towels. But the most personal work she kept for herself.</p><p>Her paintings drew on the Modern and Surrealist movements and the decorative line of Art Nouveau — artists like Koloman Moser in particular — filtered through the color and groove of the '60s and '70s. Botanicals, folk geometrics, light through a Montreal window.</p><p>For her granddaughters, she sewed their clothes, made paper fashion dolls and painted them their own little wardrobes. When she passed, she left behind over 300 original hand-painted textile designs — tucked inside her black portfolio case, where it sat for years in her son's basement. Hundreds of worlds, just waiting.</p>",
         "button_label": "",
-        "button_url": ""
+        "button_url": "",
+        "image": "shopify://shop_images/about-kati-portrait.png"
       }
     },
     "story-daisy": {
@@ -50,7 +52,8 @@
         "heading": "The youngest sister.",
         "bio": "<p>As a graduate of the Fashion Institute of Technology, Daisy Hartmann attributes her affinity for art and fashion to her grandmother Kati. Growing up on the East Coast and cutting her teeth in New York's fashion industry through her 20s, she was always following most closely in Kati's artistic footsteps.</p><p>The youngest of three sisters, Daisy was chosen to inherit Kati's archive. Now living in the Bay Area with her husband and daughter, she has built Kambric Goods around those 300+ designs — pairing her grandmother's colorful, groovy, history-rich prints with modern ready-to-wear silhouettes and home goods.</p><p>Every piece is a nod to Kati. Every print, a world carried forward.</p>",
         "button_label": "Explore the Collections",
-        "button_url": "/collections/all"
+        "button_url": "/collections/all",
+        "image": "shopify://shop_images/about-daisy-portrait.jpg"
       }
     },
     "values": {
@@ -84,7 +87,11 @@
           }
         }
       },
-      "block_order": ["value-1", "value-2", "value-3"]
+      "block_order": [
+        "value-1",
+        "value-2",
+        "value-3"
+      ]
     },
     "cta": {
       "type": "cta-banner",
@@ -92,10 +99,17 @@
         "overlay_opacity": 45,
         "heading": "It began with\nthe archive.",
         "button_label": "Browse All Collections",
-        "button_url": "/collections"
+        "button_url": "/collections",
+        "image": "shopify://shop_images/about-closing-banner.jpg"
       }
     }
   },
-  "order": ["hero", "name", "story-kati", "story-daisy", "values", "cta"]
+  "order": [
+    "hero",
+    "name",
+    "story-kati",
+    "story-daisy",
+    "values",
+    "cta"
+  ]
 }
-

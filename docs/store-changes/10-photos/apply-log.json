@@ -1,0 +1,109 @@
+{
+ "steps": [
+  {
+   "staged": [
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/d96fca41-bb7d-4ad4-8caa-9cd7e54fc9d6/home-hero-background.png",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/175173e0-94f8-4937-82d5-1d2959757604/home-founder-quote-background.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/a7c879e7-6ddd-4e90-bcf2-e72cffd8989b/home-story-kati-portrait.png",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/f93b0525-a779-466b-88be-895a84295e44/home-story-kati-painting.png",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/4318eaba-1e12-495d-af1d-330a8dea2955/home-story-kati-laughing.png",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/ca1666cb-c91a-4a8c-82ec-0e25fdd0e766/lookbook-01.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/45e80df2-abf8-4cf0-9b4d-57f0255db4fb/lookbook-02.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/8cb7f04e-7204-4deb-baf7-a57ff51ce545/lookbook-03.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/b3d3d7df-f3e7-4692-b164-c09bc90b25d8/lookbook-04.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/3eef0c13-680f-4f64-9bbb-e3bdfeefc3a9/lookbook-05.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/96fa71eb-8526-45d2-a5f6-9bb4f17599c9/lookbook-06.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/6b7c72fc-a2b8-4b0f-b66b-c6cbb6ae0551/about-hero-background.png",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/560db19b-2c5c-4db7-9eeb-d5fe3e4ddcbd/about-kati-portrait.png",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/d0f09d5f-b577-477c-a862-4f556a901de5/about-daisy-portrait.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/8450fd0e-20fd-413c-9250-092ab2ef4b80/about-closing-banner.jpg",
+    "https://shopify-staged-uploads.storage.googleapis.com/tmp/71406846186/files/60d7672a-20f0-49da-8000-8c031b8408fc/events-hero-background.jpg"
+   ]
+  },
+  {
+   "uploaded": 16
+  }
+ ],
+ "files": [
+  {
+   "id": "gid://shopify/MediaImage/34839559176426",
+   "filename": "home-hero-background.png",
+   "cdn_filename": "home-hero-background.png"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559209194",
+   "filename": "home-founder-quote-background.jpg",
+   "cdn_filename": "home-founder-quote-background.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559241962",
+   "filename": "home-story-kati-portrait.png",
+   "cdn_filename": "home-story-kati-portrait.png"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559274730",
+   "filename": "home-story-kati-painting.png",
+   "cdn_filename": "home-story-kati-painting.png"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559307498",
+   "filename": "home-story-kati-laughing.png",
+   "cdn_filename": "home-story-kati-laughing.png"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559340266",
+   "filename": "lookbook-01.jpg",
+   "cdn_filename": "lookbook-01.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559373034",
+   "filename": "lookbook-02.jpg",
+   "cdn_filename": "lookbook-02.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559405802",
+   "filename": "lookbook-03.jpg",
+   "cdn_filename": "lookbook-03.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559438570",
+   "filename": "lookbook-04.jpg",
+   "cdn_filename": "lookbook-04.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559471338",
+   "filename": "lookbook-05.jpg",
+   "cdn_filename": "lookbook-05.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559504106",
+   "filename": "lookbook-06.jpg",
+   "cdn_filename": "lookbook-06.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559536874",
+   "filename": "about-hero-background.png",
+   "cdn_filename": "about-hero-background.png"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559569642",
+   "filename": "about-kati-portrait.png",
+   "cdn_filename": "about-kati-portrait.png"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559602410",
+   "filename": "about-daisy-portrait.jpg",
+   "cdn_filename": "about-daisy-portrait.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559635178",
+   "filename": "about-closing-banner.jpg",
+   "cdn_filename": "about-closing-banner.jpg"
+  },
+  {
+   "id": "gid://shopify/MediaImage/34839559667946",
+   "filename": "events-hero-background.jpg",
+   "cdn_filename": "events-hero-background.jpg"
+  }
+ ]
+}
