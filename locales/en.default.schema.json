@@ -144,7 +144,9 @@
       "favicon": "Favicon",
       "favicon_info": "Square image, at least 96 × 96px. Leave empty to use the built-in Kambric icon.",
       "share_image": "Default social sharing image",
-      "share_image_info": "Used when a page has no image of its own (e.g. links shared to Instagram, iMessage or Pinterest). 1200 × 630px recommended."
+      "share_image_info": "Used when a page has no image of its own (e.g. links shared to Instagram, iMessage or Pinterest). 1200 × 630px recommended.",
+      "google_site_verification": "Google Search Console verification code",
+      "google_site_verification_info": "Only the content value from Google's HTML-tag method (not the whole <meta> tag). Added to the home page only."
     },
     "colors": {
       "name": "Colors",

@@ -177,6 +177,7 @@ Tips:
 | Group | Settings | Notes |
 | --- | --- | --- |
 | Logo and brand | Logo, logo height (desktop/mobile), favicon, default social sharing image | Leave the logo empty to use the built-in bronze wordmark. The default sharing image is the **home hero photo**; it's used for pages without a hero of their own (see *Social sharing images* below). |
+| Google Search Console | **Theme settings → Logo and brand → Google Search Console verification code** | Holds the code from Google's *HTML tag* verification method (just the `content` value); it's output on the home page only. Already set for kambricgoods.com. |
 | Colors | Ivory background, cocoa text, ochre, terracotta, olive, linen, dark band | Pre-set to today's palette. **Change with care:** text must stay readable against its background. |
 | Social media | Instagram URL, Pinterest URL | Also tells Google these profiles belong to Kambric Goods. |
 

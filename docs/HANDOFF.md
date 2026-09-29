@@ -70,6 +70,13 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 - **Store changes:** only 🟢/🟡 OWNER_TASKS items, one approved batch at a time, via `docs/store-changes/README.md` (store + live snapshots, reviewed apply, generated rollback, live diff; any live change → stop, roll back, report).
 - **Every change an editor would notice** goes into CONTENT_GUIDE, and every owner step into OWNER_TASKS, in the same commit.
 
+## Final check (2026-09-29)
+- Theme Check: 0 offenses (99 files). `page_check.py`: 31/31 pages PASS (one H1, one priority image, JSON-LD, titles).
+- Console: no theme errors at 1440/390 on 12 key pages (only dev-proxy artefacts: `/api/collect`, `shop.app` framing on 127.0.0.1).
+- Lighthouse mobile (pop-up on): SEO 100 (cart 69: intentionally noindex), accessibility 100 after the pop-up eyebrow contrast fix, CLS ≤ 0.014 everywhere, performance 66–80.
+- Measured unthrottled LCP (Playwright, 412 px): 0.5–1.2 s on About, Events, Journal, home. Lighthouse's simulated LCP is inflated by the pop-up's hCaptcha scripts at 6 s and Shopify's own scripts (perf-kit, wpm, Facebook pixel); best practices 61 is the same hCaptcha deprecation plus third-party cookies.
+- Remaining performance headroom is mostly platform/pop-up; theme-side images are right-sized.
+
 ## Parity
 See `docs/PARITY.md` (2026-09-29 pass: fixed list, small remaining fixes, cutover-blocked items, owner decisions P-1…P-6).
 

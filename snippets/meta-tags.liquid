@@ -169,6 +169,10 @@
   <meta property="article:modified_time" content="{{ article.updated_at | date: '%Y-%m-%dT%H:%M:%S%z' }}">
 {%- endif %}
 
+{%- if request.page_type == 'index' and settings.google_site_verification != blank %}
+  <meta name="google-site-verification" content="{{ settings.google_site_verification | strip | escape }}">
+{%- endif %}
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ og_title | escape }}">
 <meta name="twitter:description" content="{{ og_description | escape }}">

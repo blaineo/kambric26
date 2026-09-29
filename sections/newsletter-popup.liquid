@@ -236,7 +236,8 @@
 
   .promo-popup__eyebrow {
     margin-bottom: var(--space-3);
-    color: var(--color-primary);
+    /* Primary alone is 4.38:1 on the card; a touch darker reaches AA (4.5:1) */
+    color: color-mix(in srgb, var(--color-primary) 88%, var(--color-foreground));
   }
 
   .promo-popup__heading {

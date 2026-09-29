@@ -47,6 +47,12 @@
         "id": "share_image",
         "label": "t:theme_settings.brand.share_image",
         "info": "t:theme_settings.brand.share_image_info"
+      },
+      {
+        "type": "text",
+        "id": "google_site_verification",
+        "label": "t:theme_settings.brand.google_site_verification",
+        "info": "t:theme_settings.brand.google_site_verification_info"
       }
     ]
   },

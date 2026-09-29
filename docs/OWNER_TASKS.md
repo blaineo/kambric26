@@ -85,7 +85,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 - ☐ Remove the Online Store password.
 - ☐ DNS: point `kambricgoods.com` and `www` to Shopify; set the primary domain (www → apex); wait for SSL.
 - ☐ Claude restores the publish/live-push safety rules in the repo (step 9a).
-- ☐ Submit the sitemap to Google Search Console and Bing; watch 404s for 2 weeks.
+- ☐ Google Search Console: verify with the **HTML tag** method (the tag is already on the home page, theme setting *Google Search Console verification code*), then submit the sitemap (`/sitemap.xml`); same for Bing; watch 404s for 2 weeks.
 
 ### C5. After the rollback window (about 14 days)
 - ☐ Decommission the Replit tokens and webhooks.
