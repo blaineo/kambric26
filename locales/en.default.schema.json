@@ -846,6 +846,21 @@
       "empty_link_label": "Link label",
       "empty_link": "Link",
       "empty_link_info": "Leave empty to link to all products."
+    },
+    "newsletter_popup": {
+      "name": "Newsletter pop-up",
+      "enabled": "Enable pop-up",
+      "heading": "Heading",
+      "body": "Body text",
+      "button_label": "Button label",
+      "success_heading": "Success heading",
+      "success_body": "Success body text",
+      "discount_code": "Discount code",
+      "discount_code_info": "Shown only after a successful sign-up. The code must exist as an active discount in Shopify before launch (owner task, see OWNER_TASKS 🔴). Leave this blank to hide the code line entirely — e.g. if a Shopify Email automation sends the code by email instead (decision D-11).",
+      "delay_seconds": "Delay before showing (seconds)",
+      "show_on": "Show on",
+      "show_on_all": "All pages",
+      "show_on_home": "Home page only"
     }
   },
   "_note": "No new schema (editor-facing) keys needed. Both new snippets are render-only partials with no section settings of their own, and the two dev-only preview files (sections/phase2-components-preview.liquid, templates/product.phase2-components.json) hardcode their section name/labels in English the same way sections/phase1-ui-preview.liquid and sections/phase1-breadcrumbs-preview.liquid already do (dev-only, not translated). Leaving this object here, empty, only so the file matches the requested {storefront, schema} shape."

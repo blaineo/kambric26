@@ -256,5 +256,13 @@
     "column_bust": "Bust",
     "column_waist": "Waist",
     "column_hip": "Hip"
+  },
+  "newsletter_popup": {
+    "eyebrow": "Join the list",
+    "email_label": "Your email address",
+    "email_placeholder": "Your email address",
+    "close": "Close",
+    "error": "Something went wrong. Please try again.",
+    "code_label": "Your code"
   }
 }

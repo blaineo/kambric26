@@ -51,9 +51,18 @@
       "settings": {
         "location": "Northern California"
       }
+    },
+    "newsletter_popup": {
+      "type": "newsletter-popup",
+      "settings": {
+        "enabled": false,
+        "show_on": "all",
+        "delay_seconds": 6
+      }
     }
   },
   "order": [
-    "footer"
+    "footer",
+    "newsletter_popup"
   ]
 }
