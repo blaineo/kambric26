@@ -26,10 +26,15 @@
       "settings": {
         "menu": "main-menu"
       }
+    },
+    "search_overlay": {
+      "type": "search-overlay",
+      "settings": {}
     }
   },
   "order": [
     "announcement_bar",
-    "header"
+    "header",
+    "search_overlay"
   ]
 }

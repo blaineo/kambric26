@@ -35,7 +35,9 @@
     "button": "Button",
     "eyebrow": "Eyebrow",
     "heading": "Heading",
-    "image": "Image"
+    "image": "Image",
+    "predictive_search": "Predictive search",
+    "search_overlay": "Search overlay"
   },
   "labels": {
     "alignment": "Alignment",

@@ -1,0 +1,213 @@
+{% comment %}
+  Predictive search results (D-15). Standalone — never added to a template
+  or section group. Fetched by assets/component-search.js via the Section
+  Rendering API:
+
+    /search/suggest?q=…&resources[type]=product&resources[limit]=8&section_id=predictive-search
+
+  `predictive_search.resources.products` are full product objects (same
+  drop as everywhere else), so the usual visibility guard applies: products
+  tagged `hidden` or with the handle `chainstitch-monogram` (the monogram
+  fee) are skipped even if Shopify's index still returns them. Capped at 8
+  matches after that guard (Shopify's `resources[limit]=8` already asked
+  for 8, so this only trims when the guard removed one).
+
+  Print name: `kambric.print_name` for a single-print product, else the
+  first value of a `Print`/`Colorway` option — matches product-card.liquid's
+  fallback but never encodes a specific print choice (BEHAVIOR.md: results
+  link to the product, product-level price, no print selected).
+
+  Markup carries its own combobox semantics (`role="option"` per result) so
+  assets/component-search.js only has to move focus/aria-activedescendant,
+  not rewrite the DOM. The empty state renders generic copy; the overlay
+  swaps in the exact-query wording client-side (it already knows what was
+  typed), via `data-predictive-search-empty` + the `no-results-template`
+  data attribute set on <kg-search> (search-overlay.liquid).
+{% endcomment %}
+{%- liquid
+  assign results = predictive_search.resources.products
+  assign shown = 0
+-%}
+<div class="predictive-search" data-predictive-search-results>
+  {%- if results.size > 0 -%}
+    <ul class="predictive-search__list" role="presentation">
+      {%- for product in results -%}
+        {%- if shown >= 8 -%}
+          {%- break -%}
+        {%- endif -%}
+        {%- if product.tags contains 'hidden' or product.handle == 'chainstitch-monogram' -%}
+          {%- continue -%}
+        {%- endif -%}
+        {%- liquid
+          assign print_label = product.metafields.kambric.print_name.value
+          if print_label == blank
+            for option in product.options_with_values
+              if option.name == 'Print' or option.name == 'Colorway'
+                assign print_label = option.values.first
+                break
+              endif
+            endfor
+          endif
+          if print_label == product.title
+            assign print_label = blank
+          endif
+          assign shown = shown | plus: 1
+        -%}
+        <li class="predictive-search__item" role="presentation">
+          <a
+            class="predictive-search__link"
+            id="PredictiveSearchResult-{{ forloop.index }}"
+            role="option"
+            aria-selected="false"
+            href="{{ product.url }}"
+          >
+            <span class="predictive-search__media">
+              {%- if product.featured_image -%}
+                {%- render 'picture',
+                  image: product.featured_image,
+                  sizes: '56px',
+                  widths: '56, 112, 168',
+                  aspect_ratio: 0.778,
+                  loading: 'lazy',
+                  alt: '',
+                  class: 'predictive-search__picture picture--cover'
+                -%}
+              {%- endif -%}
+            </span>
+            <span class="predictive-search__info">
+              <span class="predictive-search__title">{{ product.title }}</span>
+              <span class="predictive-search__meta">
+                {%- if print_label != blank -%}{{ print_label }} &middot; {%- endif -%}
+                {{- product.type -}}
+              </span>
+            </span>
+            {%- render 'price', price: product.price, compare_at_price: product.compare_at_price, class: 'predictive-search__price' -%}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+    {%- if shown == 0 -%}
+      <p class="predictive-search__empty" data-predictive-search-empty>{{ 'search.predictive.empty' | t }}</p>
+    {%- endif -%}
+  {%- else -%}
+    <p class="predictive-search__empty" data-predictive-search-empty>{{ 'search.predictive.empty' | t }}</p>
+  {%- endif -%}
+  <a class="predictive-search__see-all" href="{{ routes.search_url }}?type=product" data-search-see-all>
+    {{- 'search.overlay.see_all' | t -}}
+  </a>
+</div>
+
+{% stylesheet %}
+  .predictive-search__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .predictive-search__item + .predictive-search__item {
+    border-top: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+  }
+
+  .predictive-search__link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding-block: var(--space-3);
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .predictive-search__media {
+    flex-shrink: 0;
+    width: 56px;
+    height: 72px;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--color-muted) 40%, transparent);
+  }
+
+  .predictive-search__media .picture,
+  .predictive-search__media img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .predictive-search__info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 0;
+    flex: 1;
+  }
+
+  .predictive-search__title {
+    font-family: var(--font-serif);
+    font-size: var(--text-18);
+    line-height: 1.25;
+    color: var(--color-foreground);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .predictive-search__meta {
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .predictive-search__price {
+    flex-shrink: 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .predictive-search__link:hover .predictive-search__title,
+  .predictive-search__link[aria-selected='true'] .predictive-search__title {
+    color: var(--color-primary);
+  }
+
+  .predictive-search__link[aria-selected='true'] {
+    background: color-mix(in srgb, var(--color-foreground) 4%, transparent);
+  }
+
+  .predictive-search__empty {
+    padding-block: var(--space-8);
+    font-family: var(--font-serif);
+    font-style: italic;
+    text-align: center;
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+  }
+
+  .predictive-search__see-all {
+    display: block;
+    margin-block-start: var(--space-4);
+    padding-block-start: var(--space-4);
+    border-block-start: 1px solid color-mix(in srgb, var(--color-border) 50%, transparent);
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .predictive-search__see-all:hover,
+  .predictive-search__see-all:focus-visible {
+    color: var(--color-foreground);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:general.predictive_search",
+  "settings": []
+}
+{% endschema %}

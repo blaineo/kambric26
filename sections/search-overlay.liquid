@@ -1,0 +1,23 @@
+{% comment %}
+  Site-wide predictive search overlay (D-15). Renders snippets/search-overlay.liquid
+  (the <kg-search> markup + assets/component-search.js).
+
+  This section has to run on every page, but sections/header.liquid and
+  layout/theme.liquid are out of scope for this phase. Instead: add it to
+  the header group (sections/header-group.json), which layout/theme.liquid
+  already includes on every page. See this phase's handoff notes for the
+  exact JSON entry to add there — that file is owned by another workflow,
+  so it isn't edited here.
+
+  For local testing before that entry lands, templates/page.phase5-search.json
+  (an alternate page template, `?view=phase5-search`) includes this section
+  directly.
+{% endcomment %}
+{%- render 'search-overlay' -%}
+
+{% schema %}
+{
+  "name": "t:general.search_overlay",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,178 @@
+{% doc %}
+  Site-wide predictive search overlay (D-15): <kg-search> wraps a native
+  <dialog> panel that drops in just below the sticky header, matching the
+  source Layout.tsx search overlay (top strip, dimmed backdrop, serif
+  24–30px input, "Esc" to close, a divided results list).
+
+  Rendered from sections/search-overlay.liquid, which the header group can
+  include so it appears on every page without editing layout/theme.liquid
+  or sections/header.liquid. Pure progressive enhancement: without JS the
+  header's search icon is a plain link to routes.search_url (unchanged).
+
+  Behaviour lives in assets/component-search.js:
+  - opens on any [data-search-open] click, or a click on the header's
+    `a[href="/search"]` inside .site-header__icons (so the header needs no
+    edit)
+  - debounces input (~200ms), fetches sections/predictive-search.liquid via
+    the Section Rendering API, aborts a stale in-flight request
+  - combobox pattern: input role="combobox" + aria-expanded/aria-controls/
+    aria-activedescendant; results are role="listbox"/"option" (options are
+    baked into the fetched markup); arrow keys move the active option,
+    Enter opens it (or, with none active, submits the form to
+    /search?q=…&type=product — also the native no-JS fallback); Escape
+    closes the dialog and returns focus to whatever opened it
+  - the dialog's own `close` event (Escape, or a click that lands on the
+    dialog element itself i.e. the ::backdrop) does the same focus return,
+    for free, via the platform
+
+  @example
+  {% render 'search-overlay' %}
+{% enddoc %}
+{%- liquid
+  assign no_results_template = 'search.overlay.no_results_html' | t: terms: '%%QUERY%%'
+-%}
+<kg-search
+  data-predictive-search-url="{{ routes.predictive_search_url }}"
+  data-no-results-template="{{ no_results_template | escape }}"
+>
+  <dialog id="SearchOverlay" class="search-overlay" aria-label="{{ 'search.overlay.label' | t }}" scroll-lock>
+    <div class="search-overlay__inner">
+      <form class="search-overlay__form" action="{{ routes.search_url }}" method="get" role="search" data-search-form>
+        {%- render 'icon', name: 'search', class: 'search-overlay__icon' -%}
+        <label class="visually-hidden" for="SearchOverlayInput">{{ 'search.overlay.label' | t }}</label>
+        <input
+          type="search"
+          id="SearchOverlayInput"
+          name="q"
+          class="search-overlay__input"
+          placeholder="{{ 'search.placeholder' | t }}"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="off"
+          spellcheck="false"
+          role="combobox"
+          aria-expanded="false"
+          aria-controls="SearchOverlayResults"
+          aria-autocomplete="list"
+          data-search-input
+        >
+        <input type="hidden" name="type" value="product">
+        <button type="button" class="search-overlay__close" data-search-close>
+          {{- 'search.overlay.close' | t -}}
+        </button>
+      </form>
+
+      <div
+        id="SearchOverlayResults"
+        class="search-overlay__results"
+        role="listbox"
+        aria-label="{{ 'search.overlay.results_label' | t }}"
+        aria-live="polite"
+        data-search-results
+      ></div>
+    </div>
+  </dialog>
+</kg-search>
+
+<script src="{{ 'component-search.js' | asset_url }}" type="module" defer="defer"></script>
+
+{% stylesheet %}
+  /*
+    Source: Layout.tsx search overlay. Panel fixed at top:[58px] (header
+    height) regardless of the announcement bar, matching the source exactly.
+    Backdrop uses the native <dialog>::backdrop (shown only with
+    showModal()); a click that lands on it is a click on the dialog element
+    itself, handled the same way as component-back-in-stock.js.
+  */
+  .search-overlay {
+    position: fixed;
+    inset-block-start: var(--header-height);
+    inset-inline: 0;
+    z-index: 60;
+    width: 100%;
+    max-width: none;
+    max-height: calc(100vh - var(--header-height));
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    box-shadow: var(--shadow-lg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .search-overlay::backdrop {
+    background: color-mix(in srgb, var(--color-foreground) 15%, transparent);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+
+  .search-overlay__inner {
+    max-width: 48rem;
+    margin-inline: auto;
+    padding: var(--space-7) var(--space-8);
+  }
+
+  .search-overlay__form {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding-block-end: var(--space-3);
+    border-block-end: 1px solid var(--color-border);
+  }
+
+  .search-overlay__icon {
+    flex-shrink: 0;
+    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+
+  .search-overlay__input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: 0;
+    outline: none;
+    font-family: var(--font-serif);
+    font-size: var(--text-24);
+    color: var(--color-foreground);
+  }
+
+  .search-overlay__input::placeholder {
+    color: color-mix(in srgb, var(--color-foreground) 30%, transparent);
+  }
+
+  .search-overlay__input::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  .search-overlay__close {
+    flex-shrink: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 45%, transparent);
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .search-overlay__close:hover,
+  .search-overlay__close:focus-visible {
+    color: var(--color-foreground);
+  }
+
+  .search-overlay__results {
+    max-height: 60vh;
+    margin-block-start: var(--space-5);
+    overflow-y: auto;
+  }
+
+  .search-overlay__results:empty {
+    margin-block-start: 0;
+  }
+
+  @media (min-width: 48rem) {
+    .search-overlay__input {
+      font-size: var(--text-30);
+    }
+  }
+{% endstylesheet %}

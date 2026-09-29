@@ -97,10 +97,20 @@
   },
   "search": {
     "title": "Search",
-    "placeholder": "Search articles, pages, or products",
+    "placeholder": "Search pieces, prints, categories…",
     "submit": "Search",
     "no_results_html": "No results found for {{ terms }}",
-    "results_for_html": "{{ count }} results found for {{ terms }}"
+    "results_for_html": "{{ count }} results found for {{ terms }}",
+    "overlay": {
+      "label": "Search the shop",
+      "close": "Esc",
+      "results_label": "Search results",
+      "no_results_html": "No pieces match “{{ terms }}”.",
+      "see_all": "See all results"
+    },
+    "predictive": {
+      "empty": "No pieces match your search."
+    }
   },
   "accessibility": {
     "skip_to_content": "Skip to content"

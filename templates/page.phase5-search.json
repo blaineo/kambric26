@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {}
+    },
+    "phase5_search_overlay": {
+      "type": "search-overlay",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "phase5_search_overlay"
+  ]
+}
