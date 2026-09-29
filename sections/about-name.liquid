@@ -1,0 +1,82 @@
+{% comment %}
+  "On the Name" (source: About.tsx "THE NAME"): a centered eyebrow and a
+  short serif statement. The source parsed a `*italic*` convention out of
+  this copy in code; this section uses a native rich-text setting instead
+  (CONTENT_GUIDE 3b), so editors add italics with the toolbar.
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+-%}
+<section class="about-name">
+  <div class="about-name__inner">
+    {%- if s.eyebrow != blank -%}
+      {%- render 'eyebrow', text: s.eyebrow, class: 'about-name__eyebrow' -%}
+    {%- endif -%}
+    {%- if s.body != blank -%}
+      <div class="about-name__body">{{ s.body }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  /* Source: About.tsx "THE NAME", py-16 px-6 max-w-4xl mx-auto text-center */
+  .about-name {
+    padding-block: var(--space-16);
+  }
+
+  .about-name__inner {
+    max-width: 48rem;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .about-name__eyebrow {
+    margin-block-end: var(--space-6);
+    text-align: center;
+  }
+
+  .about-name__body {
+    font-family: var(--font-serif);
+    font-size: var(--text-24);
+    line-height: var(--leading-relaxed);
+    color: color-mix(in srgb, var(--color-foreground) 75%, transparent);
+  }
+
+  .about-name__body p {
+    margin: 0;
+  }
+
+  .about-name__body em,
+  .about-name__body i {
+    font-style: italic;
+  }
+
+  @media (min-width: 48rem) {
+    .about-name__body {
+      font-size: var(--text-30);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.about_name.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.text",
+      "default": "On the Name"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "t:sections.about_name.settings.body.label",
+      "default": "<p>Cambric is a plain white fabric. Kambric is anything but. The deliberate respelling honors Daisy's grandmother Kati — and signals exactly what this brand does: take something plain and make it extraordinary.</p>"
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.about_name.name" }
+  ]
+}
+{% endschema %}

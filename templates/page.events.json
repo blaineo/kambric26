@@ -1,0 +1,40 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero": {
+      "type": "events-hero",
+      "settings": {
+        "eyebrow": "Events & Pop-Ups",
+        "heading": "Where to find us",
+        "heading_em": "in person.",
+        "subtitle": "Kambric pieces are best met in person — at a small trunk show, a seasonal pop-up, or an open studio afternoon. A short list of what's coming next and where we've been."
+      }
+    },
+    "list": {
+      "type": "events-list",
+      "settings": {
+        "upcoming_heading": "Upcoming",
+        "past_heading": "Past Events",
+        "past_limit": 4,
+        "empty_heading": "Nothing on the calendar right now.",
+        "empty_body": "Check back soon, or follow along on Instagram for the next pop-up announcement.",
+        "show_contact_cta": true,
+        "contact_eyebrow": "Hosting · Press · Collaborations",
+        "contact_question": "Interested in hosting a Kambric pop-up, trunk show, or salon in your space?",
+        "contact_label": "Get in Touch",
+        "contact_email": "howdy@kambricgoods.com",
+        "show_design_mode_sample": false
+      }
+    }
+  },
+  "order": ["hero", "list"]
+}
+

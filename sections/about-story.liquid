@@ -1,0 +1,214 @@
+{% comment %}
+  Reusable image + text story block (source: About.tsx "STORY 1 — KATI" and
+  "STORY 2 — DAISY"; proposed as `founder-story` in SECTIONS.md/COMPONENTS.md).
+  Add this section twice on the About template — once per person — and set
+  `image_position` to alternate sides on desktop. On mobile the image always
+  stacks above the text, matching both source instances.
+
+  The heading is a single italic, primary-coloured line (source:
+  `<em className="italic text-primary">`), which `section-heading.liquid`'s
+  two-line heading/heading_em pair can't express alone, so this section
+  renders it with `italic: true` and overrides the colour scoped under
+  `.about-story` (CLAUDE.md: prefix overrides of a shared snippet's class
+  with the owning component's class; the snippet itself isn't edited).
+
+  Image picker note: nothing can be pre-filled with the export's local
+  files, so with no image this section falls back to a plain tinted panel
+  (no img tag, no CLS) rather than the source's decorative placeholder.
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+  assign position = s.image_position | default: 'right'
+-%}
+<section class="about-story about-story--image-{{ position }}">
+  <div class="about-story__grid">
+    <div class="about-story__media">
+      {%- if s.image != blank -%}
+        {%- render 'picture',
+          image: s.image,
+          sizes: '(min-width: 48rem) 50vw, 100vw',
+          aspect_ratio: 0.8,
+          alt: s.image_alt,
+          class: 'about-story__picture picture--cover'
+        -%}
+      {%- elsif request.design_mode -%}
+        {%- render 'picture', image: blank, sizes: '(min-width: 48rem) 50vw, 100vw' -%}
+      {%- endif -%}
+      {%- if s.caption != blank -%}
+        <p class="about-story__caption">{{ s.caption | escape }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="about-story__content">
+      {%- if s.eyebrow != blank -%}
+        {%- render 'eyebrow', text: s.eyebrow, class: 'about-story__eyebrow' -%}
+      {%- endif -%}
+
+      {%- if s.heading != blank -%}
+        {%- render 'section-heading', heading: s.heading, tag: 'h2', size: 'xl', italic: true, class: 'about-story__heading' -%}
+      {%- endif -%}
+
+      {%- if s.bio != blank -%}
+        <div class="about-story__bio">{{ s.bio }}</div>
+      {%- endif -%}
+
+      {%- if s.button_label != blank and s.button_url != blank -%}
+        {%- render 'button', label: s.button_label, url: s.button_url, variant: 'outline', class: 'about-story__button' -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% stylesheet %}
+  /* Source: About.tsx story sections, py-24 px-6 max-w-7xl grid-cols-2 gap-16 */
+  .about-story {
+    padding-block: var(--space-24);
+  }
+
+  .about-story__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  .about-story__media {
+    order: -1;
+  }
+
+  .about-story__picture,
+  .about-story__media .picture {
+    display: block;
+    width: 100%;
+    background: var(--color-muted);
+  }
+
+  .about-story__caption {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .about-story__eyebrow {
+    margin-block-end: var(--space-7);
+  }
+
+  .about-story__heading {
+    margin-block-end: var(--space-8);
+  }
+
+  /* Scoped override of the shared section-heading snippet: this block's
+     heading is a single italic, primary-coloured line (source `text-primary`). */
+  .about-story .section-heading--italic.about-story__heading {
+    color: var(--color-primary);
+  }
+
+  .about-story__bio {
+    max-width: 34rem;
+  }
+
+  .about-story__bio p {
+    margin: 0 0 var(--space-5);
+    font-size: var(--text-16);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-loose);
+    color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+  }
+
+  .about-story__bio p:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-story__button {
+    margin-block-start: var(--space-10);
+  }
+
+  @media (min-width: 48rem) {
+    .about-story__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+
+    .about-story__media {
+      order: 0;
+    }
+
+    .about-story--image-right .about-story__media {
+      order: 1;
+    }
+
+    .about-story--image-right .about-story__content {
+      order: 0;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.about_story.name",
+  "settings": [
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "t:sections.about_story.settings.image_position.label",
+      "info": "t:sections.about_story.settings.image_position.info",
+      "options": [
+        { "value": "left", "label": "t:options.alignment.left" },
+        { "value": "right", "label": "t:options.alignment.right" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:labels.alt_text",
+      "info": "t:labels.alt_text_info"
+    },
+    {
+      "type": "text",
+      "id": "caption",
+      "label": "t:sections.about_story.settings.caption.label"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.text"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading"
+    },
+    {
+      "type": "richtext",
+      "id": "bio",
+      "label": "t:sections.about_story.settings.bio.label"
+    },
+    {
+      "type": "header",
+      "content": "t:general.button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "t:labels.link"
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.about_story.name" }
+  ]
+}
+{% endschema %}

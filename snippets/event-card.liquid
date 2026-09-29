@@ -1,0 +1,206 @@
+{% doc %}
+  One event row (source: Events.tsx UPCOMING/PAST article). Used by
+  `sections/events-list.liquid` for both real `kambric_event` metaobject
+  entries and the design-mode sample fallback, so both paths share one
+  markup/style definition.
+
+  Renders its own `Event` JSON-LD when `start_date_iso` is given (schema.org
+  requires a real date; undated/TBA events emit none, per MIGRATION_PLAN §2).
+  No photo is shown in the card — the source doesn't display one here — but
+  `image` still feeds the JSON-LD `image` property when set.
+
+  @param {string} title
+  @param {string} display_date - What to show as the big date ("June 20, 2026", "TBA", etc.)
+  @param {string} [time_label] - e.g. "6–8pm"
+  @param {string} [venue]
+  @param {string} [city]
+  @param {string} [description] - Plain text or simple HTML blurb
+  @param {string} [url] - Optional link for the event
+  @param {string} [style] - 'upcoming' (default, larger) | 'past' (smaller, dimmer)
+  @param {string} [start_date_iso] - ISO date (YYYY-MM-DD); when present, emits Event JSON-LD
+  @param {image} [image] - Optional image, used only in the JSON-LD, not shown visually
+
+  @example
+  {% render 'event-card', title: 'Pop-Up Shop', display_date: 'June 27, 2026', time_label: '11–4pm', venue: 'River Electric', city: 'Guerneville, CA', description: 'Join us by the pool.', style: 'upcoming', start_date_iso: '2026-06-27' %}
+{% enddoc %}
+{%- liquid
+  assign style = style | default: 'upcoming'
+  assign venue_city = ''
+  if venue != blank and city != blank
+    assign venue_city = venue | append: ' · ' | append: city
+  elsif venue != blank
+    assign venue_city = venue
+  elsif city != blank
+    assign venue_city = city
+  endif
+-%}
+<article class="event-card event-card--{{ style }}">
+  <div class="event-card__date-col">
+    <p class="event-card__date">{{ display_date }}</p>
+    {%- if style == 'upcoming' and time_label != blank -%}
+      <p class="event-card__time">{{ time_label | escape }}</p>
+    {%- endif -%}
+  </div>
+  <div class="event-card__body">
+    {%- if url != blank -%}
+      <h3 class="event-card__title"><a href="{{ url }}" class="event-card__link">{{ title | escape }}</a></h3>
+    {%- else -%}
+      <h3 class="event-card__title">{{ title | escape }}</h3>
+    {%- endif -%}
+    {%- if venue_city != blank -%}
+      <p class="event-card__venue">{{ venue_city | escape }}</p>
+    {%- endif -%}
+    {%- if description != blank -%}
+      <p class="event-card__blurb">{{ description }}</p>
+    {%- endif -%}
+  </div>
+</article>
+
+{%- if start_date_iso != blank -%}
+  {%- liquid
+    assign ld_image = nil
+    if image.preview_image
+      assign ld_image = image.preview_image
+    elsif image.width
+      assign ld_image = image
+    endif
+  -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": {{ title | json }},
+      "startDate": {{ start_date_iso | json }},
+      "location": {
+        "@type": "Place",
+        "name": {{ venue | default: title | json }},
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": {{ city | json }}
+        }
+      }
+      {%- if description != blank -%}
+        , "description": {{ description | strip_html | json }}
+      {%- endif -%}
+      , "eventStatus": "https://schema.org/EventScheduled"
+      {%- if url != blank -%}
+        , "url": {{ url | json }}
+      {%- endif -%}
+      {%- if ld_image != nil -%}
+        , "image": {{ ld_image | image_url: width: 1200 | prepend: 'https:' | json }}
+      {%- endif -%}
+    }
+  </script>
+{%- endif -%}
+
+{% stylesheet %}
+  .event-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    padding-block-end: var(--space-10);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  }
+
+  .event-card:last-child {
+    padding-block-end: 0;
+    border-bottom: 0;
+  }
+
+  .event-card--past {
+    opacity: 0.8;
+  }
+
+  .event-card__date {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    line-height: 1;
+    color: var(--color-primary);
+  }
+
+  .event-card--upcoming .event-card__date {
+    font-size: var(--text-30);
+  }
+
+  .event-card--past .event-card__date {
+    font-size: var(--text-24);
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+  }
+
+  .event-card__time {
+    margin: var(--space-2) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .event-card__title {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-serif);
+    letter-spacing: var(--tracking-editorial);
+    line-height: var(--leading-tight);
+    color: var(--color-foreground);
+  }
+
+  .event-card--upcoming .event-card__title {
+    font-size: var(--text-30);
+  }
+
+  .event-card--past .event-card__title {
+    font-size: var(--text-24);
+    color: color-mix(in srgb, var(--color-foreground) 85%, transparent);
+  }
+
+  .event-card__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .event-card__link:hover,
+  .event-card__link:focus-visible {
+    color: var(--color-primary);
+  }
+
+  .event-card__venue {
+    margin: 0 0 var(--space-5);
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .event-card__blurb {
+    max-width: 42rem;
+    margin: 0;
+    font-weight: var(--weight-light);
+    line-height: var(--leading-loose);
+    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+
+  .event-card--upcoming .event-card__blurb {
+    font-size: var(--text-16);
+  }
+
+  .event-card--past .event-card__blurb {
+    font-size: var(--text-14);
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+  }
+
+  @media (min-width: 48rem) {
+    .event-card {
+      grid-template-columns: 180px 1fr;
+    }
+
+    .event-card--upcoming {
+      gap: var(--space-12);
+    }
+
+    .event-card--past {
+      gap: var(--space-12);
+    }
+  }
+{% endstylesheet %}

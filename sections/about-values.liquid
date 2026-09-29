@@ -1,0 +1,184 @@
+{% comment %}
+  "What We Stand For" value cards (source: About.tsx "VALUES"). Unlike the
+  old CMS (which only let editors change the three existing cards),
+  `value_card` blocks can be added, removed and reordered freely
+  (CONTENT_GUIDE 3b / SECTIONS.md "values-grid").
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+-%}
+<section class="about-values">
+  <div class="about-values__inner">
+    {%- if s.eyebrow != blank -%}
+      <div class="about-values__header">
+        <span class="about-values__rule" aria-hidden="true"></span>
+        {%- render 'eyebrow', text: s.eyebrow, class: 'about-values__eyebrow' -%}
+        <span class="about-values__rule" aria-hidden="true"></span>
+      </div>
+    {%- endif -%}
+
+    {%- if section.blocks.size > 0 -%}
+      <div class="about-values__grid">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'value_card' -%}
+            <div class="about-values__card" {{ block.shopify_attributes }}>
+              {%- if block.settings.number != blank -%}
+                <p class="about-values__number">{{ block.settings.number | escape }}</p>
+              {%- endif -%}
+              {%- if block.settings.title != blank -%}
+                <h3 class="about-values__title">{{ block.settings.title | escape }}</h3>
+              {%- endif -%}
+              {%- if block.settings.body != blank -%}
+                <p class="about-values__body">{{ block.settings.body | escape }}</p>
+              {%- endif -%}
+            </div>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  /* Source: About.tsx "VALUES", py-20 px-6, bg hsl(36,22%,88%) (tan band) */
+  .about-values {
+    padding-block: var(--space-20);
+    background: var(--color-muted);
+  }
+
+  .about-values__inner {
+    max-width: var(--page-width);
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
+  .about-values__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    margin-block-end: var(--space-16);
+  }
+
+  .about-values__rule {
+    flex: 1;
+    height: 1px;
+    background: color-mix(in srgb, var(--color-foreground) 15%, transparent);
+  }
+
+  .about-values__eyebrow {
+    flex-shrink: 0;
+    color: color-mix(in srgb, var(--color-foreground) 65%, transparent);
+  }
+
+  .about-values__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .about-values__card {
+    padding-block-start: var(--space-8);
+    border-block-start: 2px solid color-mix(in srgb, var(--color-primary) 30%, transparent);
+  }
+
+  .about-values__number {
+    margin: 0 0 var(--space-6);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-36);
+    letter-spacing: -0.01em;
+    color: color-mix(in srgb, var(--color-primary) 25%, transparent);
+  }
+
+  .about-values__title {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-serif);
+    font-size: var(--text-24);
+    letter-spacing: -0.01em;
+    color: var(--color-foreground);
+  }
+
+  .about-values__body {
+    margin: 0;
+    font-size: var(--text-14);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-loose);
+    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+
+  @media (min-width: 48rem) {
+    .about-values__grid {
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.about_values.name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.text",
+      "default": "What We Stand For"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value_card",
+      "name": "t:sections.about_values.blocks.value_card.name",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "t:sections.about_values.blocks.value_card.settings.number.label",
+          "info": "t:sections.about_values.blocks.value_card.settings.number.info",
+          "default": "01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "t:labels.heading"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "t:labels.text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.about_values.name",
+      "blocks": [
+        {
+          "type": "value_card",
+          "settings": {
+            "number": "01",
+            "title": "Provenance",
+            "body": "Every print has a date, a season, a story. Every print has her signature and is stamped with \"Hartmann Studio\"."
+          }
+        },
+        {
+          "type": "value_card",
+          "settings": {
+            "number": "02",
+            "title": "Craft",
+            "body": "Garments and home goods are made in small runs with considered fabric choices — natural fibers, responsible manufacturers, California design."
+          }
+        },
+        {
+          "type": "value_card",
+          "settings": {
+            "number": "03",
+            "title": "Permanence",
+            "body": "These are not trend pieces. They are heirlooms with a traceable history, made to outlast the season they were born in — just like the prints themselves."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

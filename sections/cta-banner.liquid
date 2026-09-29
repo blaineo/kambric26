@@ -1,0 +1,180 @@
+{% comment %}
+  Closing image banner with an ornament, a heading (optional line break) and
+  one button (source: About.tsx "CTA" — "It began with\nthe archive." over
+  the archive photo, "Browse All Collections" → /collections). Generic
+  enough to reuse anywhere a full-bleed closing CTA is needed.
+
+  With no image, the source's faint grid-line pattern placeholder is
+  skipped (nothing to port without the export's local asset); the dark
+  hero band shows alone instead — still readable, no CLS.
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+  assign heading = s.heading | newline_to_br
+  assign overlay = s.overlay_opacity | default: 45 | divided_by: 100.0
+  assign has_image = false
+  if s.image != blank
+    assign has_image = true
+  endif
+-%}
+<section class="cta-banner full-width" data-has-image="{{ has_image }}" style="--cta-banner-overlay: {{ overlay }};">
+  {%- if s.image != blank -%}
+    <div class="cta-banner__media">
+      {%- render 'picture',
+        image: s.image,
+        sizes: '100vw',
+        alt: '',
+        class: 'cta-banner__picture picture--cover'
+      -%}
+      <div class="cta-banner__overlay" aria-hidden="true"></div>
+    </div>
+  {%- endif -%}
+
+  <div class="cta-banner__inner">
+    {%- if heading != blank -%}
+      <div class="cta-banner__ornament" aria-hidden="true">
+        <span class="cta-banner__line"></span>
+        <span class="cta-banner__star">&#10022;</span>
+        <span class="cta-banner__line"></span>
+      </div>
+      <p class="cta-banner__heading">{{ heading }}</p>
+      <div class="cta-banner__ornament" aria-hidden="true">
+        <span class="cta-banner__line"></span>
+        <span class="cta-banner__star">&#10022;</span>
+        <span class="cta-banner__line"></span>
+      </div>
+    {%- endif -%}
+
+    {%- if s.button_label != blank and s.button_url != blank -%}
+      {%- render 'button', label: s.button_label, url: s.button_url, variant: 'outline', on_dark: true, class: 'cta-banner__button' -%}
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  /* Source: About.tsx CTA, py-28 px-6 text-center, bg hsl(24,18%,13%) */
+  .cta-banner {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--space-24);
+    text-align: center;
+    background: var(--color-hero-background);
+    color: var(--color-hero-foreground);
+  }
+
+  .cta-banner__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .cta-banner__media > .cta-banner__picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .cta-banner__overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: color-mix(in srgb, black calc(var(--cta-banner-overlay) * 100%), transparent);
+  }
+
+  .cta-banner__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 48rem;
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
+  .cta-banner__ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    margin-block: var(--space-2);
+    color: color-mix(in srgb, var(--color-primary) 55%, var(--color-hero-foreground));
+  }
+
+  .cta-banner__line {
+    display: inline-block;
+    width: var(--space-10);
+    height: 1px;
+    background: currentColor;
+    opacity: 0.3;
+  }
+
+  .cta-banner__star {
+    font-size: var(--text-16);
+    opacity: 0.4;
+  }
+
+  .cta-banner__heading {
+    margin: var(--space-8) 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-36);
+    line-height: var(--leading-tight);
+    color: var(--color-hero-foreground);
+  }
+
+  .cta-banner__button {
+    margin-block-start: var(--space-12);
+  }
+
+  @media (min-width: 48rem) {
+    .cta-banner__heading {
+      font-size: var(--text-60);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.cta_banner.name",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "t:sections.about_hero.settings.overlay_opacity.label",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 45
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "t:sections.cta_banner.settings.heading.label",
+      "info": "t:sections.cta_banner.settings.heading.info",
+      "default": "It began with\nthe archive."
+    },
+    {
+      "type": "header",
+      "content": "t:general.button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "t:labels.button_label",
+      "default": "Browse All Collections"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "t:labels.link",
+      "default": "/collections"
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.cta_banner.name" }
+  ]
+}
+{% endschema %}
+

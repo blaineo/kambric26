@@ -1,0 +1,201 @@
+{% comment %}
+  About page dark hero (source: About.tsx "DARK HERO"). Full-bleed photo over
+  the dark hero band, eyebrow, a three-line serif headline whose middle line
+  is the gold/primary accent (source: heroLineTop/heroLineMiddle/heroLineBottom
+  — a plain/em/plain composition `section-heading.liquid` can't express in two
+  lines, so this section writes its own <h1> markup), and an italic subtitle.
+
+  This is the page's only <h1> and its LCP image (`loading: 'priority'`, at
+  most one per page). The source shows no visible breadcrumb trail on
+  /about, so breadcrumbs render JSON-LD-only (`visible: false`) — still
+  giving search engines a Home › About trail.
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+  assign has_image = false
+  if s.image != blank
+    assign has_image = true
+  endif
+  assign line1 = s.heading_line_1 | strip
+  assign line2 = s.heading_line_2 | strip
+  assign line3 = s.heading_line_3 | strip
+  assign overlay = s.overlay_opacity | default: 66 | divided_by: 100.0
+-%}
+
+<section class="about-hero full-width" data-has-image="{{ has_image }}" style="--about-hero-overlay: {{ overlay }};">
+  {%- render 'breadcrumbs', visible: false -%}
+
+  <div class="about-hero__media">
+    {%- if has_image -%}
+      {%- render 'picture',
+        image: s.image,
+        sizes: '100vw',
+        loading: 'priority',
+        alt: s.image_alt,
+        class: 'about-hero__picture picture--cover'
+      -%}
+      <div class="about-hero__overlay" aria-hidden="true"></div>
+    {%- elsif request.design_mode -%}
+      {%- render 'picture', image: blank, sizes: '100vw' -%}
+    {%- endif -%}
+  </div>
+
+  <div class="about-hero__inner">
+    {%- if s.eyebrow != blank -%}
+      {%- render 'eyebrow', text: s.eyebrow, on_dark: true, class: 'about-hero__eyebrow' -%}
+    {%- endif -%}
+
+    {%- if line1 != blank or line2 != blank or line3 != blank -%}
+      <h1 class="about-hero__title">
+        {%- if line1 != blank -%}{{ line1 | escape }}<br>{%- endif -%}
+        {%- if line2 != blank -%}<em class="about-hero__title-em">{{ line2 | escape }}</em><br>{%- endif -%}
+        {%- if line3 != blank -%}{{ line3 | escape }}{%- endif -%}
+      </h1>
+    {%- else -%}
+      <h1 class="visually-hidden">{{ page_title | default: shop.name | escape }}</h1>
+    {%- endif -%}
+
+    {%- if s.subtitle != blank -%}
+      <p class="about-hero__subtitle">{{ s.subtitle | escape }}</p>
+    {%- endif -%}
+  </div>
+</section>
+
+{% stylesheet %}
+  /* Source: About.tsx hero, py-24 px-6, bg hsl(24 18% 13%) (= hero background) */
+  .about-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: var(--space-24);
+    background: var(--color-hero-background);
+    color: var(--color-hero-foreground);
+  }
+
+  .about-hero__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .about-hero__media > .about-hero__picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Source: hsla(24,18%,13%,0.66) flat scrim over the photo */
+  .about-hero__overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: color-mix(in srgb, var(--color-hero-background) calc(var(--about-hero-overlay) * 100%), transparent);
+  }
+
+  .about-hero__inner {
+    position: relative;
+    z-index: 1;
+    max-width: 56rem;
+    margin-inline: auto;
+    padding-inline: var(--page-margin);
+  }
+
+  .about-hero__eyebrow {
+    margin-block-end: var(--space-7);
+    opacity: 0.85;
+  }
+
+  .about-hero__title {
+    margin: 0 0 var(--space-8);
+    font-family: var(--font-serif);
+    font-weight: var(--weight-regular);
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 0.95;
+    letter-spacing: var(--tracking-heading);
+    color: var(--color-hero-foreground);
+  }
+
+  .about-hero__title-em {
+    font-style: italic;
+    color: var(--color-primary);
+  }
+
+  .about-hero__subtitle {
+    max-width: 32rem;
+    margin: 0;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-18);
+    line-height: var(--leading-relaxed);
+    color: color-mix(in srgb, var(--color-hero-foreground) 78%, transparent);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.about_hero.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.about_hero.settings.header_image.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:labels.image",
+      "info": "t:sections.about_hero.settings.image.info"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:labels.alt_text",
+      "info": "t:labels.alt_text_info"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "t:sections.about_hero.settings.overlay_opacity.label",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 65
+    },
+    {
+      "type": "header",
+      "content": "t:sections.about_hero.settings.header_text.content"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:labels.text",
+      "default": "The Archive"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "t:sections.about_hero.settings.heading_line_1.label",
+      "default": "Painted in Montreal."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "t:sections.about_hero.settings.heading_line_2.label",
+      "info": "t:sections.about_hero.settings.heading_line_2.info",
+      "default": "Designed in California."
+    },
+    {
+      "type": "text",
+      "id": "heading_line_3",
+      "label": "t:sections.about_hero.settings.heading_line_3.label",
+      "default": "Worn everywhere."
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "t:sections.about_hero.settings.subtitle.label",
+      "default": "A Bay Area brand by Daisy Hartmann, built on 300+ hand-painted textile designs by her late Hungarian-born grandmother — colorful, groovy, and history-rich prints from a Montreal studio in the '60s and '70s."
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.about_hero.name" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,496 @@
+{% comment %}
+  Upcoming/past event lists (source: Events.tsx "UPCOMING"/"PAST") plus the
+  closing "Hosting · Press · Collaborations" mailto CTA (source: Events.tsx
+  "CTA"), folded into this section rather than a separate `contact-cta`
+  section per the Phase 4 file list.
+
+  Data: the `kambric_event` metaobject (MIGRATION_PLAN §2 / D-6b — the owner
+  creates the definition; see docs/store-changes and this phase's
+  owner-tasks scratch note for the exact field list). No metaobject exists
+  yet, so `metaobjects.kambric_event.values` resolves empty and the section
+  renders its empty state — this is expected, not a bug.
+
+  Upcoming/past split: an event is "past" once its `start_date` is before
+  today (`'now' | date: '%Y-%m-%d'`, a lexicographic ISO-date string
+  compare — Shopify's full-page cache means "today" can lag a few minutes
+  after midnight on a cached response, which is an accepted trade-off, not a
+  bug). `status_override` always wins over the date when set. An event with
+  no `start_date` and no override counts as upcoming (it's presumed still to
+  come; TBA-style entries). Upcoming sorts ascending (soonest first, undated
+  entries last); past sorts descending (most recent first), capped to
+  `past_limit`. Liquid has no generic array-of-objects sort by a computed
+  key, so both lists are built with a small selection-sort loop over
+  `metaobjects.kambric_event.values` (≤ 50 entries, so this is cheap).
+
+  Event JSON-LD is emitted per event by `snippets/event-card.liquid`, only
+  for events with a real `start_date` (schema.org needs a real date).
+
+  Design-mode preview: with no metaobject entries yet, there's nothing to
+  look at while building the page layout. Turning on "Show sample events in
+  the editor" renders the 3 events exported from the old CMS
+  (`../liquid/content` events snapshot) — two as upcoming-style cards, one
+  as a past-style card, so both layouts can be checked — but only inside
+  `{% if request.design_mode %}`, so it never reaches the storefront.
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+  assign today = 'now' | date: '%Y-%m-%d'
+  assign past_limit = s.past_limit | default: 4
+  assign sample_mode = false
+  if s.show_design_mode_sample and request.design_mode
+    assign sample_mode = true
+  endif
+-%}
+
+<section class="events-list">
+  {%- if sample_mode -%}
+    <div class="events-list__editor-note">{{ 'sections.events_list.settings.show_design_mode_sample.badge' | t }}</div>
+
+    <div class="events-list__section">
+      <div class="events-list__heading-row">
+        <p class="events-list__heading">{{ s.upcoming_heading | default: 'Upcoming' | escape }}</p>
+        <span class="events-list__rule" aria-hidden="true"></span>
+      </div>
+      <div class="events-list__items">
+        {%- render 'event-card',
+          title: 'Embroidery Pop-up',
+          display_date: 'June 20, 2026',
+          time_label: '6–8pm',
+          venue: 'The Box Office',
+          city: 'San Anselmo, CA',
+          description: 'Celebrate the Grand opening of The Box Office and get something embroidered!',
+          style: 'upcoming'
+        -%}
+        {%- render 'event-card',
+          title: 'Pop-Up Shop',
+          display_date: 'June 27, 2026',
+          time_label: '11am–4pm',
+          venue: 'River Electric',
+          city: 'Guerneville, CA',
+          description: 'Join us by the pool at River Electric in Guerneville, Saturday June 27th for their Adults Only weekend. Grab a day pass, lounge by the pool and shop some of our newest swim styles and summer linens.',
+          style: 'upcoming'
+        -%}
+      </div>
+    </div>
+
+    <div class="events-list__section">
+      <div class="events-list__heading-row">
+        <p class="events-list__heading">{{ s.past_heading | default: 'Past Events' | escape }}</p>
+        <span class="events-list__rule" aria-hidden="true"></span>
+      </div>
+      <div class="events-list__items">
+        {%- render 'event-card',
+          title: 'Summer Soiree',
+          display_date: 'July 11, 2026',
+          venue: 'House of Still',
+          city: 'San Rafael, CA',
+          description: 'Come shop from local designers and makers, enjoy live music, food and drinks at the gorgeous new space curated by The Still Collective.',
+          style: 'past'
+        -%}
+      </div>
+    </div>
+  {%- else -%}
+    {%- liquid
+      assign all_events = metaobjects.kambric_event.values
+      assign upcoming_count = 0
+      assign past_count = 0
+    -%}
+
+    {%- capture upcoming_html -%}
+      {%- liquid
+        assign upcoming_rendered = ','
+        for slot in (1..50)
+          assign found = false
+          assign found_key = '9999-99-99'
+          assign found_event = nil
+          for event in all_events
+            assign eid = event.system.id | append: ''
+            assign marker = eid | prepend: ',' | append: ','
+            unless upcoming_rendered contains marker
+              assign start = event.start_date.value
+              assign override = event.status_override.value
+              assign is_past = false
+              if override == 'past'
+                assign is_past = true
+              elsif override == 'upcoming'
+                assign is_past = false
+              elsif start != blank and start < today
+                assign is_past = true
+              endif
+              unless is_past
+                assign sort_key = start | default: '9999-99-99'
+                if found == false
+                  assign found = true
+                  assign found_key = sort_key
+                  assign found_event = event
+                elsif sort_key < found_key
+                  assign found_key = sort_key
+                  assign found_event = event
+                endif
+              endunless
+            endunless
+          endfor
+          if found == false
+            break
+          endif
+          assign upcoming_rendered = upcoming_rendered | append: found_event.system.id | append: ','
+
+          assign display_date = found_event.date_label.value
+          if display_date == blank
+            if found_event.start_date.value != blank
+              assign display_date = found_event.start_date.value | date: '%B %-d, %Y'
+            else
+              assign display_date = 'TBA'
+            endif
+          endif
+
+          assign img_ref = found_event.image.value
+
+          render 'event-card', title: found_event.title.value, display_date: display_date, time_label: found_event.time_label.value, venue: found_event.venue.value, city: found_event.city.value, description: found_event.description.value, url: found_event.url.value, style: 'upcoming', start_date_iso: found_event.start_date.value, image: img_ref
+
+          assign upcoming_count = upcoming_count | plus: 1
+        endfor
+      -%}
+    {%- endcapture -%}
+
+    {%- capture past_html -%}
+      {%- liquid
+        assign past_rendered = ','
+        for slot in (1..50)
+          if past_count >= past_limit
+            break
+          endif
+          assign found = false
+          assign found_key = '0000-00-00'
+          assign found_event = nil
+          for event in all_events
+            assign eid = event.system.id | append: ''
+            assign marker = eid | prepend: ',' | append: ','
+            unless past_rendered contains marker
+              assign start = event.start_date.value
+              assign override = event.status_override.value
+              assign is_past = false
+              if override == 'past'
+                assign is_past = true
+              elsif override == 'upcoming'
+                assign is_past = false
+              elsif start != blank and start < today
+                assign is_past = true
+              endif
+              if is_past
+                assign sort_key = start | default: '0000-00-00'
+                if found == false
+                  assign found = true
+                  assign found_key = sort_key
+                  assign found_event = event
+                elsif sort_key > found_key
+                  assign found_key = sort_key
+                  assign found_event = event
+                endif
+              endif
+            endunless
+          endfor
+          if found == false
+            break
+          endif
+          assign past_rendered = past_rendered | append: found_event.system.id | append: ','
+
+          assign display_date = found_event.date_label.value
+          if display_date == blank
+            if found_event.start_date.value != blank
+              assign display_date = found_event.start_date.value | date: '%B %-d, %Y'
+            else
+              assign display_date = 'TBA'
+            endif
+          endif
+
+          assign img_ref = found_event.image.value
+
+          render 'event-card', title: found_event.title.value, display_date: display_date, venue: found_event.venue.value, city: found_event.city.value, description: found_event.description.value, url: found_event.url.value, style: 'past', start_date_iso: found_event.start_date.value, image: img_ref
+
+          assign past_count = past_count | plus: 1
+        endfor
+      -%}
+    {%- endcapture -%}
+
+    {%- if upcoming_count > 0 -%}
+      <div class="events-list__section">
+        <div class="events-list__heading-row">
+          <p class="events-list__heading">{{ s.upcoming_heading | default: 'Upcoming' | escape }}</p>
+          <span class="events-list__rule" aria-hidden="true"></span>
+        </div>
+        <div class="events-list__items">{{ upcoming_html }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if past_count > 0 -%}
+      <div class="events-list__section">
+        <div class="events-list__heading-row">
+          <p class="events-list__heading">{{ s.past_heading | default: 'Past Events' | escape }}</p>
+          <span class="events-list__rule" aria-hidden="true"></span>
+        </div>
+        <div class="events-list__items">{{ past_html }}</div>
+      </div>
+    {%- endif -%}
+
+    {%- if upcoming_count == 0 and past_count == 0 -%}
+      <div class="events-list__empty">
+        {%- if s.empty_heading != blank -%}
+          <p class="events-list__empty-heading">{{ s.empty_heading | escape }}</p>
+        {%- endif -%}
+        {%- if s.empty_body != blank -%}
+          <p class="events-list__empty-body">{{ s.empty_body | escape }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+
+  {%- if s.show_contact_cta -%}
+    <div class="events-list__contact">
+      {%- if s.contact_eyebrow != blank -%}
+        <p class="events-list__contact-eyebrow">{{ s.contact_eyebrow | escape }}</p>
+      {%- endif -%}
+      {%- if s.contact_question != blank -%}
+        <p class="events-list__contact-question">{{ s.contact_question | escape }}</p>
+      {%- endif -%}
+      {%- if s.contact_label != blank -%}
+        <p class="events-list__contact-label">{{ s.contact_label | escape }}</p>
+      {%- endif -%}
+      {%- if s.contact_email != blank -%}
+        <a class="events-list__contact-email" href="mailto:{{ s.contact_email }}?subject=Pop-up%20inquiry">{{ s.contact_email }}</a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  /* Source: Events.tsx UPCOMING/PAST, py-24 px-6 max-w-5xl mx-auto */
+  .events-list__editor-note {
+    max-width: 56rem;
+    margin: 0 auto var(--space-6);
+    padding: var(--space-3) var(--space-5);
+    background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+    color: var(--color-primary);
+    font-family: var(--font-sans);
+    font-size: var(--text-12);
+    letter-spacing: var(--tracking-body);
+  }
+
+  .events-list__section {
+    max-width: 56rem;
+    margin-inline: auto;
+    padding-block: var(--space-24);
+    padding-inline: var(--page-margin);
+  }
+
+  .events-list__section + .events-list__section {
+    padding-block-start: 0;
+  }
+
+  .events-list__heading-row {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    margin-block-end: var(--space-16);
+  }
+
+  .events-list__heading {
+    flex-shrink: 0;
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-11);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .events-list__rule {
+    flex: 1;
+    height: 1px;
+    background: color-mix(in srgb, var(--color-foreground) 15%, transparent);
+  }
+
+  .events-list__items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+  }
+
+  .events-list__empty {
+    max-width: 40rem;
+    margin: 0 auto;
+    padding-block: var(--space-20);
+    padding-inline: var(--page-margin);
+    text-align: center;
+  }
+
+  .events-list__empty-heading {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-24);
+    color: var(--color-foreground);
+  }
+
+  .events-list__empty-body {
+    margin: 0;
+    font-size: var(--text-15);
+    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+  }
+
+  /* Source: Events.tsx CTA, py-24 px-6 text-center, bg hsl(36,22%,88%) */
+  .events-list__contact {
+    padding-block: var(--space-24);
+    padding-inline: var(--page-margin);
+    text-align: center;
+    background: var(--color-muted);
+  }
+
+  .events-list__contact-eyebrow {
+    margin: 0 0 var(--space-6);
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .events-list__contact-question {
+    max-width: 40rem;
+    margin: 0 auto var(--space-10);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-30);
+    line-height: var(--leading-relaxed);
+    color: color-mix(in srgb, var(--color-foreground) 80%, transparent);
+  }
+
+  .events-list__contact-label {
+    margin: 0 0 var(--space-3);
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+  }
+
+  .events-list__contact-email {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-24);
+    color: color-mix(in srgb, var(--color-foreground) 85%, transparent);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .events-list__contact-email:hover,
+  .events-list__contact-email:focus-visible {
+    color: var(--color-foreground);
+  }
+
+  @media (min-width: 48rem) {
+    .events-list__contact-question {
+      font-size: var(--text-36);
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.events_list.name",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.events_list.settings.header_lists.content"
+    },
+    {
+      "type": "text",
+      "id": "upcoming_heading",
+      "label": "t:sections.events_list.settings.upcoming_heading.label",
+      "default": "Upcoming"
+    },
+    {
+      "type": "text",
+      "id": "past_heading",
+      "label": "t:sections.events_list.settings.past_heading.label",
+      "default": "Past Events"
+    },
+    {
+      "type": "range",
+      "id": "past_limit",
+      "label": "t:sections.events_list.settings.past_limit.label",
+      "info": "t:sections.events_list.settings.past_limit.info",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "t:sections.events_list.settings.header_empty.content"
+    },
+    {
+      "type": "text",
+      "id": "empty_heading",
+      "label": "t:labels.heading",
+      "default": "Nothing on the calendar right now."
+    },
+    {
+      "type": "textarea",
+      "id": "empty_body",
+      "label": "t:labels.text",
+      "default": "Check back soon, or follow along on Instagram for the next pop-up announcement."
+    },
+    {
+      "type": "header",
+      "content": "t:sections.events_list.settings.header_contact.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_contact_cta",
+      "label": "t:sections.events_list.settings.show_contact_cta.label",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "contact_eyebrow",
+      "label": "t:labels.text",
+      "default": "Hosting · Press · Collaborations"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_question",
+      "label": "t:sections.events_list.settings.contact_question.label",
+      "default": "Interested in hosting a Kambric pop-up, trunk show, or salon in your space?"
+    },
+    {
+      "type": "text",
+      "id": "contact_label",
+      "label": "t:sections.events_list.settings.contact_label.label",
+      "default": "Get in Touch"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "t:sections.events_list.settings.contact_email.label",
+      "default": "howdy@kambricgoods.com"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.events_list.settings.header_preview.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_design_mode_sample",
+      "label": "t:sections.events_list.settings.show_design_mode_sample.label",
+      "info": "t:sections.events_list.settings.show_design_mode_sample.info",
+      "default": false
+    }
+  ],
+  "presets": [
+    { "name": "t:sections.events_list.name" }
+  ]
+}
+{% endschema %}
+
