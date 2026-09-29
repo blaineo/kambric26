@@ -561,7 +561,8 @@
     font-size: var(--text-11);
     letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: var(--color-primary);
+    /* Ochre with 10% cocoa: 4.91:1 (pure ochre was 4.38:1 at this size). */
+    color: color-mix(in srgb, var(--color-primary) 90%, var(--color-foreground));
   }
 
   .product__block {
@@ -641,7 +642,8 @@
     border: 1px solid var(--color-border);
     font-family: var(--font-sans);
     font-size: var(--text-12);
-    color: color-mix(in srgb, var(--color-foreground) 55%, transparent);
+    /* 70%: 5.41:1 for available sizes (55% was 3.48:1). */
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
     cursor: pointer;
     transition:
       border-color var(--duration-medium) var(--ease-standard),

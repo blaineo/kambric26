@@ -51,7 +51,7 @@
               {%- when 'product' -%}
                 {%- unless result.tags contains 'hidden' or result.handle == 'chainstitch-monogram' -%}
                   <li class="main-search__item">
-                    {%- render 'product-card', product: result, layout: 'archive', loading: 'lazy' -%}
+                    {%- render 'product-card', product: result, layout: 'archive', loading: 'lazy', heading_level: 2 -%}
                   </li>
                   {%- assign rendered = rendered | plus: 1 -%}
                 {%- endunless -%}

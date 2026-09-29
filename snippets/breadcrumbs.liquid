@@ -187,6 +187,7 @@
   }
 
   .breadcrumbs__current {
-    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+    /* 70%: 5.41:1 on ivory (60% was 4.01:1). */
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
   }
 {% endstylesheet %}

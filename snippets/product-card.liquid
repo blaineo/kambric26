@@ -158,7 +158,8 @@
   */
   .product-card {
     --product-card-surface: color-mix(in srgb, var(--color-muted) 50%, var(--color-background));
-    --product-card-subtle: color-mix(in srgb, var(--color-muted-foreground) 75%, var(--color-background));
+    /* Full muted cocoa: 5.15:1 on ivory (the source's 75% mix was 3.13:1, below WCAG AA). */
+    --product-card-subtle: var(--color-muted-foreground);
     --product-card-zoom: 1.05;
     --product-card-zoom-duration: 1000ms;
 
@@ -174,7 +175,8 @@
 
   .product-card--dark {
     --product-card-surface: color-mix(in srgb, var(--color-hero-foreground) 12%, var(--color-hero-background));
-    --product-card-subtle: color-mix(in srgb, var(--color-hero-foreground) 50%, var(--color-hero-background));
+    /* 60% ivory on the dark band: 5.47:1 (the source's 50% was 4.26:1). */
+    --product-card-subtle: color-mix(in srgb, var(--color-hero-foreground) 60%, var(--color-hero-background));
   }
 
   /* Media ----------------------------------------------------------------- */

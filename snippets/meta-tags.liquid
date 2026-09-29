@@ -23,7 +23,23 @@
   assign og_title = page_title | default: shop.name
   assign og_url = canonical_url | default: request.origin
   assign og_type = 'website'
-  assign og_description = page_description | default: shop.description | default: shop.name
+  # Meta description: the page's own, else the current site's copy for pages Shopify
+  # gives none (liquid/SEO.md), else the store description.
+  assign meta_description = page_description
+  if meta_description == blank
+    case request.page_type
+      when 'index'
+        assign meta_description = shop.description | default: 'general.home_description' | t
+      when 'list-collections'
+        assign meta_description = 'collections.index_description' | t
+      when 'collection'
+        if collection.handle == 'all'
+          assign meta_description = 'collections.shop_all_description' | t
+        endif
+    endcase
+  endif
+  assign meta_description = meta_description | default: shop.description
+  assign og_description = meta_description | default: shop.name
 
   if request.page_type == 'product'
     assign og_type = 'product'
@@ -72,8 +88,8 @@
   {%- unless page_title contains shop.name %} | {{ shop.name }}{% endunless -%}
 </title>
 
-{%- if page_description %}
-  <meta name="description" content="{{ page_description | escape }}">
+{%- if meta_description != blank %}
+  <meta name="description" content="{{ meta_description | strip_html | escape }}">
 {%- endif %}
 
 {%- comment -%}

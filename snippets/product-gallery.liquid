@@ -211,7 +211,8 @@
     font-size: var(--text-11);
     letter-spacing: var(--tracking-button);
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--color-foreground) 60%, transparent);
+    /* 70%: passes 4.5:1 on the translucent ivory tag (60% was 3.99:1). */
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
     pointer-events: none;
   }
 

@@ -82,7 +82,9 @@
       "empty_hint": "Choose a menu in the section settings (default handle: shop-categories) to show the category strip."
     },
     "shop_all_title": "Shop All",
-    "index_title": "Heritage Print Collections"
+    "index_title": "Heritage Print Collections",
+    "index_description": "Explore Kambric Goods collections of contemporary womenswear inspired by original hand-painted prints from the Hartmann Studio archive.",
+    "shop_all_description": "Browse every Kambric Goods piece — modern womenswear and home goods, each carrying an original mid-century hand-painted print from the Hartmann archive."
   },
   "gift_card": {
     "add_to_apple_wallet": "Add to Apple Wallet",
@@ -118,7 +120,8 @@
   },
   "general": {
     "page": "Page {{ page }}",
-    "page_not_found": "Page Not Found"
+    "page_not_found": "Page Not Found",
+    "home_description": "Kambric Goods pairs original mid-century hand-painted prints from the Hartmann Studio archive with modern womenswear and home goods. Designed in the Bay Area, made in limited quantities."
   },
   "header": {
     "menu": "Menu",
