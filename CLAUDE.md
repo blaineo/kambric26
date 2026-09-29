@@ -10,6 +10,7 @@ We're rebuilding **kambricgoods.com** (currently a React/Vite/Tailwind v4 app on
   - **The Shopify-hosted Online Store (`kambric-goods-2.myshopify.com`) is our playground.** No customer traffic goes there, so theme work there has little or no consequence.
 - **Cutover = DNS.** We get the Shopify-hosted site production-ready, then point kambricgoods.com at Shopify.
 - The owner is a software engineer and reviews everything. Plan first, commit small, and surface decisions rather than guessing.
+- **Start here in a new session: `docs/HANDOFF.md`** (status, open decisions, next steps, gotchas).
 - Phase plan and open decisions: `docs/MIGRATION_PLAN.md`. What content editors need to know: `docs/CONTENT_GUIDE.md`. The owner's pre-launch checklist: `docs/OWNER_TASKS.md`.
 
 ## Guardrails (non-negotiable)
