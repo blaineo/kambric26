@@ -32,7 +32,8 @@
 -%}
 <div class="main-blog full-width">
   <div class="main-blog__intro">
-    {%- render 'breadcrumbs' -%}
+    {%- comment -%} No visible trail on the Journal index (as the current site); BreadcrumbList JSON-LD kept {%- endcomment -%}
+    {%- render 'breadcrumbs', visible: false -%}
     {%- if section.settings.eyebrow != blank -%}
       {%- render 'eyebrow', text: section.settings.eyebrow, class: 'main-blog__eyebrow' -%}
     {%- endif -%}

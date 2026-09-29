@@ -43,7 +43,7 @@ Note: with the pop-up on, Shopify shows its **hCaptcha badge** (bottom-right) wh
 
 ## ✅ Owner decisions (2026-09-29)
 
-- **P-1 breadcrumbs:** keep the new visible breadcrumbs (products, pages, journal).
+- **P-1 breadcrumbs:** keep the new visible breadcrumbs on products, pages and journal posts. Not on the Journal index (owner, 2026-09-29: matches the current site) or collection pages (P-2); the BreadcrumbList JSON-LD stays everywhere.
 - **P-2 collection pages:** "Collections" eyebrow as live; no visible breadcrumb or season (settings kept, off; BreadcrumbList JSON-LD still output). Done.
 - **P-3 specs list:** keep. Shown only on products whose Shopify category fields are filled in.
 - **P-4 size table:** keep.
