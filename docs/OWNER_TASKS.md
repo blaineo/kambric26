@@ -45,7 +45,7 @@ New definitions the live site doesn't read.
 - ☐ Testing the footer or pop-up signup creates real customers; use `+test` addresses and delete them after.
 
 ### A6. Theme
-- ☐ **Publish Kambric26 on the Shopify-hosted Online Store** once the Phase 1 shell is stable (D-21), so content entered there carries over. Tell Claude when; it can run it, or you can use Online Store → Themes → Publish. From then on, the theme editor on the published theme is where editors work.
+- ☑ *(batch 09, 2026-09-29: live theme Kambric26 #145439097066; Horizon kept unpublished)* **Publish Kambric26 on the Shopify-hosted Online Store** once the Phase 1 shell is stable (D-21), so content entered there carries over. Tell Claude when; it can run it, or you can use Online Store → Themes → Publish. From then on, the theme editor on the published theme is where editors work.
 
 ---
 

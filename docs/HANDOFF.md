@@ -49,7 +49,7 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 | 06 | 67 URL redirects (all firing, incl. draft-product handles; `/shop` handled in the theme) | ✅ done |
 | 07 | Home page title/description (Online Store → Preferences) | ⏸ **paused**: Chrome typing went to admin keyboard shortcuts (nothing saved). Owner types the two values, or retry with a focus check per field. Values in `docs/store-changes/07-admin-settings/plan.md`. |
 | 08 | Content import: pages, journal, events, menu Part B (`08-content-import/`) | ✅ done 2026-09-29 (see `log.md`) |
-| 09 | Publish kambric26 on the Shopify-hosted store (D-21) | not started (publish deny rules are lifted until DNS cutover; publish only on explicit request) |
+| 09 ✅ | Publish kambric26 on the Shopify-hosted store (D-21): live theme **Kambric26 #145439097066** (Horizon #144358441194 unpublished, for rollback) | not started (publish deny rules are lifted until DNS cutover; publish only on explicit request) |
 
 ## 4. Decisions still needed (owner)
 - ~~Cart (Phase 5)~~ **decided 2026-09-28 and built:** all options on cart lines; missing monogram fee blocks checkout; fee sold out → garment sold out; header counts garments only.
@@ -69,6 +69,10 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 - **Parallel agents, model by task:** Opus for risky logic (print model, product page, listings, cart), Sonnet for standard sections/templates, Haiku for mechanical work (assets, extraction, scripts). Each agent owns a disjoint file list, never commits, and writes locale keys/content-guide notes/owner tasks to scratch files that the main session merges (`tools/merge_locales.py`) and commits per workstream.
 - **Store changes:** only 🟢/🟡 OWNER_TASKS items, one approved batch at a time, via `docs/store-changes/README.md` (store + live snapshots, reviewed apply, generated rollback, live diff; any live change → stop, roll back, report).
 - **Every change an editor would notice** goes into CONTENT_GUIDE, and every owner step into OWNER_TASKS, in the same commit.
+
+## Themes (from 2026-09-29)
+- **Live on the Shopify-hosted store: Kambric26 #145439097066.** Dev theme #145427988714 stays the working copy (`shopify theme dev -e development`).
+- Editors may now customise the live theme: **pull its JSON and commit before any push to it** (guardrail 9; command in `store-changes/09-publish/log.md`). Push to live only when the owner asks.
 
 ## Final check (2026-09-29)
 - Theme Check: 0 offenses (99 files). `page_check.py`: 31/31 pages PASS (one H1, one priority image, JSON-LD, titles).
