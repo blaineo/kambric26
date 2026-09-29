@@ -1,0 +1,17 @@
+{
+ "store": "7u2dfq-xf.myshopify.com",
+ "shop_id": "gid://shopify/Shop/71406846186",
+ "source_dir": "/Users/blaine/Code/kambric/replit site/assets/",
+ "images": [
+  {
+   "source": "uploads/57e0fcb8-7716-4d64-b6cc-4e860f67b28b.jpg",
+   "filename": "newsletter-signup-popup.jpg",
+   "mime": "image/jpeg",
+   "alt": "",
+   "file": "sections/footer-group.json",
+   "section": "newsletter_popup",
+   "setting": "image",
+   "block": null
+  }
+ ]
+}
