@@ -1,0 +1,43 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "eyebrow": "For Stockists"
+      },
+      "blocks": {
+        "cta_1": {
+          "type": "button",
+          "settings": {
+            "label": "Shop wholesale on JOOR",
+            "url": "https://www.jooraccess.com/kambricgoods",
+            "new_tab": true,
+            "variant": "solid",
+            "size": "default",
+            "alignment": "flex-start",
+            "on_dark": false
+          }
+        },
+        "cta_2": {
+          "type": "button",
+          "settings": {
+            "label": "Request Our Line Sheet",
+            "url": "mailto:howdy@kambricgoods.com",
+            "new_tab": false,
+            "variant": "solid",
+            "size": "default",
+            "alignment": "flex-start",
+            "on_dark": false
+          }
+        }
+      },
+      "block_order": [
+        "cta_1",
+        "cta_2"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

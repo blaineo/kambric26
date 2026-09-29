@@ -1,0 +1,18 @@
+{
+  "pages": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Page/113644699882",
+        "handle": "contact",
+        "title": "Contact",
+        "body": "",
+        "bodySummary": "",
+        "templateSuffix": "contact",
+        "isPublished": true,
+        "publishedAt": "2026-05-29T17:23:14Z",
+        "seoTitle": null,
+        "seoDesc": null
+      }
+    ]
+  }
+}

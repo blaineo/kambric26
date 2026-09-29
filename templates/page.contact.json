@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "eyebrow": "Say Hello"
+      },
+      "blocks": {
+        "cta_1": {
+          "type": "button",
+          "settings": {
+            "label": "Email Us",
+            "url": "mailto:howdy@kambricgoods.com",
+            "new_tab": false,
+            "variant": "solid",
+            "size": "default",
+            "alignment": "flex-start",
+            "on_dark": false
+          }
+        }
+      },
+      "block_order": [
+        "cta_1"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

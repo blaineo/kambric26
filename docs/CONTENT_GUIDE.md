@@ -647,6 +647,8 @@ Every one of these pages uses the same building blocks:
 
 - **Eyebrow:** open the page in **Customize** and set the small label above
   the title (e.g. "Say Hello", "For Stockists") in the section's settings.
+  Each info page has **its own template** (`page.contact`, `page.wholesale`,
+  …), so changing one page's eyebrow or buttons doesn't touch the others.
 - **Title:** the page's own **Title** field (Online Store → Pages) — this is
   the page's H1.
 - **Body:** the page's **Content** field. Write the intro paragraph, then
@@ -670,8 +672,12 @@ sidebar):
 
 | Page | Template |
 | --- | --- |
-| Contact, Wholesale, Shipping, Returns | `page` (the default) |
+| Contact | `page.contact` |
+| Wholesale | `page.wholesale` |
+| Shipping | `page.shipping` |
+| Returns & Exchanges | `page.returns` |
 | Size Guide | `page.size-guide` |
+| Any new info page | `page` (the default: no eyebrow or buttons until you add them in Customize) |
 
 ### Editing the Size Guide table
 

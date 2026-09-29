@@ -1,0 +1,3 @@
+{ pages(first: 1, query: "handle:contact") { nodes { id handle title body bodySummary templateSuffix isPublished publishedAt
+  seoTitle: metafield(namespace: "global", key: "title_tag") { id value }
+  seoDesc: metafield(namespace: "global", key: "description_tag") { id value } } } }

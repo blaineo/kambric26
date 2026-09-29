@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "eyebrow": "Getting It To You"
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

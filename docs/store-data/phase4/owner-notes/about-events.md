@@ -55,7 +55,7 @@ Merge into `docs/OWNER_TASKS.md` §A (all 🟢 — everything below is new Shopi
     {
       "key": "description",
       "name": "Description",
-      "type": "rich_text_field",
+      "type": "multi_line_text_field",
       "required": false
     },
     {

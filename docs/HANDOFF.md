@@ -48,7 +48,8 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 | 05 | Collection search listings | ✅ done |
 | 06 | 67 URL redirects (all firing, incl. draft-product handles; `/shop` handled in the theme) | ✅ done |
 | 07 | Home page title/description (Online Store → Preferences) | ⏸ **paused**: Chrome typing went to admin keyboard shortcuts (nothing saved). Owner types the two values, or retry with a focus check per field. Values in `docs/store-changes/07-admin-settings/plan.md`. |
-| 08 | Publish kambric26 on the Shopify-hosted store (D-21) | not started (publish deny rules are lifted until DNS cutover; publish only on explicit request) |
+| 08 | Content import: pages, journal, events, menu Part B (`08-content-import/`) | prepared + dry-run tested; awaiting owner approval |
+| 09 | Publish kambric26 on the Shopify-hosted store (D-21) | not started (publish deny rules are lifted until DNS cutover; publish only on explicit request) |
 
 ## 4. Decisions still needed (owner)
 - ~~Cart (Phase 5)~~ **decided 2026-09-28 and built:** all options on cart lines; missing monogram fee blocks checkout; fee sold out → garment sold out; header counts garments only.
@@ -60,7 +61,7 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 1. **Push** the local commits.
 2. **Verification pass** (last "definition of done" gate): Lighthouse mobile (SEO 100, a11y ≥ 95, CLS < 0.05, LCP < 2.5 s) on the preview URL, and a true 390 px check (Chrome here won't narrow below ~606 px and Shopify blocks iframes, so use DevTools device mode or Lighthouse's mobile emulation).
 4. **Content batches (🟢):** photos into templates (home 11, About/Events 5, pop-up 1; set as `shopify://shop_images/<file>` in template JSON after uploading to Files); then, with the extra scopes, the `kambric_event` definition + entries, pages, and the journal import (`docs/store-data/phase4/`).
-5. **Batch 07** (home SEO title/description) and **batch 08** (publish on the Shopify-hosted store) when the owner says.
+5. **Batch 07** (home SEO title/description) and **batch 09** (publish on the Shopify-hosted store) when the owner says.
 6. **Pre-launch cleanup:** delete the dev-only preview templates (`templates/*phase*.json`: 9 files) and their preview sections (`sections/phase*-preview.liquid`); re-run page_check and Theme Check.
 7. **Cutover** (`docs/MIGRATION_PLAN.md` §4.3 + OWNER_TASKS C): batch 03, per-print collection clean-up (fixes Whimsy), policies, WELCOME15, Meta channel, remove password, DNS, restore publish deny rules (step 9a).
 
