@@ -48,7 +48,7 @@
 
     <div class="events-list__section">
       <div class="events-list__heading-row">
-        <p class="events-list__heading">{{ s.upcoming_heading | default: 'Upcoming' | escape }}</p>
+        <h2 class="events-list__heading">{{ s.upcoming_heading | default: 'Upcoming' | escape }}</h2>
         <span class="events-list__rule" aria-hidden="true"></span>
       </div>
       <div class="events-list__items">
@@ -75,7 +75,7 @@
 
     <div class="events-list__section">
       <div class="events-list__heading-row">
-        <p class="events-list__heading">{{ s.past_heading | default: 'Past Events' | escape }}</p>
+        <h2 class="events-list__heading">{{ s.past_heading | default: 'Past Events' | escape }}</h2>
         <span class="events-list__rule" aria-hidden="true"></span>
       </div>
       <div class="events-list__items">
@@ -216,7 +216,7 @@
     {%- if upcoming_count > 0 -%}
       <div class="events-list__section">
         <div class="events-list__heading-row">
-          <p class="events-list__heading">{{ s.upcoming_heading | default: 'Upcoming' | escape }}</p>
+          <h2 class="events-list__heading">{{ s.upcoming_heading | default: 'Upcoming' | escape }}</h2>
           <span class="events-list__rule" aria-hidden="true"></span>
         </div>
         <div class="events-list__items">{{ upcoming_html }}</div>
@@ -226,7 +226,7 @@
     {%- if past_count > 0 -%}
       <div class="events-list__section">
         <div class="events-list__heading-row">
-          <p class="events-list__heading">{{ s.past_heading | default: 'Past Events' | escape }}</p>
+          <h2 class="events-list__heading">{{ s.past_heading | default: 'Past Events' | escape }}</h2>
           <span class="events-list__rule" aria-hidden="true"></span>
         </div>
         <div class="events-list__items">{{ past_html }}</div>

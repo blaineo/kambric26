@@ -55,9 +55,13 @@
       <ul class="main-blog__grid" role="list">
         {%- for article in blog.articles -%}
           {%- liquid
+            comment
+              Only the first card is prioritised: three eager covers shared the phone's bandwidth
+              and delayed the one actually on screen (the other two load lazily, just after layout).
+            endcomment
             assign card_loading = 'lazy'
-            if forloop.index0 < 3
-              assign card_loading = 'eager'
+            if forloop.first
+              assign card_loading = 'priority'
             endif
             assign category = article.tags.first
           -%}

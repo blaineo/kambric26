@@ -26,7 +26,7 @@
       {%- if s.image != blank -%}
         {%- render 'picture',
           image: s.image,
-          sizes: '(min-width: 48rem) 50vw, 100vw',
+          sizes: '(min-width: 80rem) 36.5rem, (min-width: 48rem) calc(50vw - 3rem), calc(100vw - 3rem)',
           aspect_ratio: 0.8,
           alt: s.image_alt,
           class: 'about-story__picture picture--cover'

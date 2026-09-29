@@ -43,8 +43,8 @@
     <div class="main-article__cover">
       {%- render 'picture',
         image: article.image,
-        sizes: '(min-width: 48rem) 48rem, 100vw',
-        widths: '400, 600, 800, 1000, 1200, 1440',
+        sizes: '(min-width: 45rem) 41rem, calc(100vw - 4rem)',
+        widths: '360, 540, 720, 900',
         loading: 'priority',
         alt: cover_alt
       -%}
