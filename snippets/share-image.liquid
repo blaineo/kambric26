@@ -1,0 +1,26 @@
+{% doc %}
+  Marks a page's hero photo as its social sharing image. Outputs an HTML comment (no markup,
+  nothing visible) that `meta-tags.liquid` reads from `content_for_layout` to build og:image /
+  twitter:image, so each page shares a crop of its own hero.
+
+  The crop is 1200×630 (the Open Graph / X large-card ratio), made by the Shopify CDN; see
+  `share-crop-url.liquid` for how it's anchored.
+
+  The first marker on the page wins, so render it only from a page's hero section.
+
+  @param {image} image - The hero image
+  @param {string} [position] - The section's CSS object-position, e.g. '65% 20%' or 'center top'
+
+  @example
+  {% render 'share-image', image: section.settings.image, position: section.settings.image_position %}
+{% enddoc %}
+{%- if image != blank -%}
+  {%- liquid
+    capture share_url
+      render 'share-crop-url', image: image, position: position
+    endcapture
+    assign share_url = share_url | strip
+    assign share_alt = image.alt | escape | replace: '|', ' ' | replace: '--', '-'
+    echo '<!-- kg-share-image: https:' | append: share_url | append: '|' | append: share_alt | append: ' -->'
+  -%}
+{%- endif -%}

@@ -30,6 +30,7 @@
   style="--hero-position: {{ s.image_position | default: 'center' | escape }}; --hero-overlay: {{ overlay }};"
 >
   <div class="home-hero__media">
+    {%- if has_image -%}{%- render 'share-image', image: hero_image, position: s.image_position -%}{%- endif -%}
     {%- if has_image -%}
       {%- render 'picture',
         image: hero_image,

@@ -111,6 +111,7 @@
   -%}
 
   <div class="collection-hero full-width" data-has-image="{% if header_image %}true{% else %}false{% endif %}">
+    {%- if header_image -%}{%- render 'share-image', image: header_image -%}{%- endif -%}
     {%- if header_image -%}
       <div class="collection-hero__media" style="--overlay-strength: {{ overlay_strength }}%;">
         {%- render 'picture',

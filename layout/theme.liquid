@@ -6,7 +6,7 @@
     <meta name="theme-color" content="{{ settings.color_background }}">
 
     {% # SEO: title, description, canonical, robots, Open Graph, Twitter %}
-    {% render 'meta-tags' %}
+    {% render 'meta-tags', page_html: content_for_layout %}
 
     {% # Favicon: theme setting, else the bundled Kambric "K" %}
     {%- if settings.favicon != blank -%}

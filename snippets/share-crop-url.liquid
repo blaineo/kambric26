@@ -1,0 +1,53 @@
+{% doc %}
+  Outputs a 1200×630 (1.91:1) CDN crop URL of `image`, for social sharing. No markup.
+
+  The crop is a full-width band of the original. Its vertical anchor (0 = top, 100 = bottom):
+    1. the image's focal point, if an editor set one (Content → Files)
+    2. `position` (the section's CSS object-position, e.g. '65% 20%' or 'center top')
+    3. 25 for portrait and square photos (faces and subjects sit in the upper third), 50 otherwise
+  Images wider than 1.91:1 keep their full height and are cropped around the centre.
+
+  @param {image} image - The image
+  @param {string} [position] - CSS object-position to anchor the crop
+
+  @example
+  {%- capture url -%}{% render 'share-crop-url', image: product.featured_image %}{%- endcapture -%}
+{% enddoc %}
+{%- liquid
+  assign anchor = 50
+  if image.aspect_ratio <= 1
+    assign anchor = 25
+  endif
+
+  assign hint = position | default: '' | append: '' | downcase
+  assign focal = image.presentation.focal_point | append: ''
+  if focal != blank and focal != '50.0% 50.0%'
+    assign hint = focal
+  endif
+  if hint != blank
+    assign words = hint | split: ' '
+    if words contains 'top'
+      assign anchor = 0
+    elsif words contains 'bottom'
+      assign anchor = 100
+    elsif words contains 'center' and words.size == 1
+      assign anchor = 50
+    elsif words.size > 1 and words[1] contains '%'
+      assign anchor = words[1] | remove: '%' | plus: 0
+    endif
+  endif
+
+  assign crop_height = image.width | times: 630 | divided_by: 1200
+  if crop_height >= image.height
+    comment
+      Wider than 1.91:1: keep the full height and crop the sides around the centre.
+    endcomment
+    assign crop_width = image.height | times: 1200 | divided_by: 630
+    assign crop_left = image.width | minus: crop_width | divided_by: 2
+    echo image | image_url: width: 1200, height: 630, crop: 'region', crop_left: crop_left, crop_top: 0, crop_width: crop_width, crop_height: image.height
+  else
+    assign free = image.height | minus: crop_height
+    assign crop_top = free | times: anchor | divided_by: 100
+    echo image | image_url: width: 1200, height: 630, crop: 'region', crop_left: 0, crop_top: crop_top, crop_width: image.width, crop_height: crop_height
+  endif
+-%}

@@ -176,7 +176,7 @@ Tips:
 
 | Group | Settings | Notes |
 | --- | --- | --- |
-| Logo and brand | Logo, logo height (desktop/mobile), favicon, default social sharing image | Leave the logo empty to use the built-in bronze wordmark. The sharing image is used when a page has none (1200 × 630 px). |
+| Logo and brand | Logo, logo height (desktop/mobile), favicon, default social sharing image | Leave the logo empty to use the built-in bronze wordmark. The default sharing image is the **home hero photo**; it's used for pages without a hero of their own (see *Social sharing images* below). |
 | Colors | Ivory background, cocoa text, ochre, terracotta, olive, linen, dark band | Pre-set to today's palette. **Change with care:** text must stay readable against its background. |
 | Social media | Instagram URL, Pinterest URL | Also tells Google these profiles belong to Kambric Goods. |
 
@@ -718,6 +718,22 @@ this one.
 
 
 ---
+
+## Social sharing images (links in iMessage, Instagram, Pinterest, Facebook, X)
+
+Nothing to upload: each page shares a **1200 × 630 crop of its own hero photo**, made automatically.
+
+| Page | Photo used |
+| --- | --- |
+| Home, About, Events | That page's hero photo |
+| A collection | Its header image |
+| A product | Its first photo (the selected print's) |
+| A journal post | Its featured image |
+| Anything else (Shop, info pages, cart…) | The default in **Theme settings → Logo and brand → Default social sharing image** (the home hero) |
+
+**How the crop is chosen:** portrait and square photos keep their upper part (where faces usually are); landscape photos stay centred; the home hero follows its *Image position* setting. If a crop cuts off something important, open the photo in **Content → Files**, set a **focal point** on it, and every crop (on the page and when shared) follows it. The Shopify **Preferences → Social sharing image** field isn't needed.
+
+Shared previews are cached by each app; after changing a photo, use Facebook's Sharing Debugger or just wait a day to see the new one.
 
 ## 3i. Cart, search and newsletter pop-up (Phase 5)
 

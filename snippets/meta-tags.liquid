@@ -3,6 +3,16 @@
   Everything is derived from Shopify objects, so editors control it through
   each resource's "Search engine listing" fields in the admin.
   Structured data (JSON-LD) lives in snippets/structured-data.liquid.
+
+  Sharing image (og:image / twitter:image), 1200×630, first match wins:
+    1. the page's hero, marked by `snippets/share-image.liquid` inside `page_html`
+       (home, About, Events and collection heroes)
+    2. the product or journal-post image (Shopify's `page_image`), cropped to 1200×630
+       (see share-crop-url.liquid for the crop anchor)
+    3. theme setting "Social sharing image" (Theme settings → Brand), i.e. the home hero
+    4. the bundled `og-default.jpg`
+
+  @param {string} [page_html] - The rendered template (`content_for_layout`), scanned for the hero marker
 {% enddoc %}
 {%- liquid
   # Source parity (liquid/SEO.md): 404 title is "Page Not Found | Kambric Goods".
@@ -49,7 +59,24 @@
     assign og_url = request.origin
   endif
 
-  assign share_image = page_image | default: settings.share_image
+  assign share_url = blank
+  assign share_alt = blank
+  assign marker = page_html | split: '<!-- kg-share-image: '
+  if marker.size > 1
+    assign share_parts = marker[1] | split: ' -->' | first | split: '|'
+    assign share_url = share_parts[0] | strip
+    assign share_alt = share_parts[1] | strip
+  endif
+  if share_url == blank
+    assign share_image = page_image | default: settings.share_image
+    if share_image
+      capture share_url
+        render 'share-crop-url', image: share_image
+      endcapture
+      assign share_url = share_url | strip | prepend: 'https:'
+      assign share_alt = share_image.alt | escape
+    endif
+  endif
 
   comment
     Pages that shouldn't be indexed (source parity: cart, 404 and search were noindex).
@@ -117,13 +144,13 @@
 <meta property="og:description" content="{{ og_description | escape }}">
 <meta property="og:locale" content="{{ request.locale.iso_code | replace: '-', '_' }}">
 
-{%- if share_image %}
-  <meta property="og:image" content="https:{{ share_image | image_url: width: 1200 }}">
-  <meta property="og:image:secure_url" content="https:{{ share_image | image_url: width: 1200 }}">
+{%- if share_url != blank %}
+  <meta property="og:image" content="{{ share_url }}">
+  <meta property="og:image:secure_url" content="{{ share_url }}">
   <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="{{ 1200 | divided_by: share_image.aspect_ratio | round }}">
-  {%- if share_image.alt != blank %}
-    <meta property="og:image:alt" content="{{ share_image.alt | escape }}">
+  <meta property="og:image:height" content="630">
+  {%- if share_alt != blank %}
+    <meta property="og:image:alt" content="{{ share_alt }}">
   {%- endif %}
 {%- else %}
   <meta property="og:image" content="https:{{ 'og-default.jpg' | asset_url }}">
@@ -145,8 +172,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ og_title | escape }}">
 <meta name="twitter:description" content="{{ og_description | escape }}">
-{%- if share_image %}
-  <meta name="twitter:image" content="https:{{ share_image | image_url: width: 1200 }}">
+{%- if share_url != blank %}
+  <meta name="twitter:image" content="{{ share_url }}">
 {%- else %}
   <meta name="twitter:image" content="https:{{ 'og-default.jpg' | asset_url }}">
 {%- endif %}

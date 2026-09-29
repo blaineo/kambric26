@@ -20,6 +20,7 @@
 
   <div class="events-hero__media">
     {%- if has_image -%}
+      {%- render 'share-image', image: s.image -%}
       {%- comment -%} Wide screens get a 2:1 crop from the CDN (the band is short), phones the full photo {%- endcomment -%}
       {%- render 'picture',
         image: s.image,
