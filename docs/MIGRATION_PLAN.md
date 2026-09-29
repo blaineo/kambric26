@@ -26,7 +26,7 @@ Parity targets: every screenshot's header and footer; `404-*`, `contact-*` (simp
 
 **Phase 1 status (2026-09-28): built.** Snippets: `button`, `eyebrow`, `section-heading`, `rte`, `price`, `product-card` (standard/archive layouts), `product-prints` (print expansion + visibility guard; see its LiquidDoc for the calling pattern), `print-summary`, `print-swatches`, `collection-card`, `breadcrumbs`. Blocks: `heading`, `text`, `button`, `eyebrow`, `image`, `group`. `sections/404.liquid`, `templates/robots.txt.liquid`. Verified: Theme Check clean; card counts match the source (shop 22, psychedelics 9, sale 6). Still to do: Chrome check of the cards and 404 at 1440/390, and the Lighthouse baseline.
 - **Wire in later:** `{% render 'breadcrumbs' %}` in the product, collection, article, page, blog, list-collections and search sections as they're built.
-- **Remove before launch (dev-only previews):** `sections/phase1-{ui,cards,breadcrumbs}-preview.liquid`, `templates/index.phase1-ui.json`, `templates/collection.phase1-cards.json`, `templates/{product,collection}.phase1-breadcrumbs.json`.
+- **Removed 2026-09-29 (dev-only previews):** `sections/phase1-{ui,cards,breadcrumbs}-preview.liquid`, `templates/index.phase1-ui.json`, `templates/collection.phase1-cards.json`, `templates/{product,collection}.phase1-breadcrumbs.json`.
 - **Open from Phase 1:** keep the hover second image on cards (desktop only)? Card zoom uses the source values (1.05/1000ms standard, 1.04/700ms archive), not `--image-hover-scale`. Card image alt is empty (the link text names the product).
 
 ### Phase 2: Product page (highest risk)
@@ -40,7 +40,7 @@ Parity: `product-1440/390.png`; `../liquid/html/product-{multi-print,single-prin
 - LCP: first gallery image is `priority`; the rest lazy; thumbnails sized via `sizes`.
 
 **Phase 2 status (2026-09-28): built.** `sections/main-product.liquid` (+ `templates/product.json`), `assets/component-product.js` (`<kg-product>`, `<kg-gallery>`; ~13 KB unminified), snippets `product-gallery`, `product-print-media`, `product-monogram`, `product-price`, `back-in-stock` (+ `component-back-in-stock.js`), `product-specs`. Verified on the dev theme: all product types render, one h1 and one priority image per page, ProductGroup + BreadcrumbList JSON-LD, clean canonicals, atomic garment+fee add (sold-out garment → 422, cart unchanged). Chrome pass pending.
-- **Remove before launch:** `sections/phase2-components-preview.liquid`, `templates/product.phase2-components.json`.
+- **Removed 2026-09-29:** `sections/phase2-components-preview.liquid`, `templates/product.phase2-components.json`.
 - **Follow-ups:** align `print-summary` card image rule with the gallery (variant media + filename matches) so cards and galleries agree; optional `variesBy`/`url` in ProductGroup JSON-LD; visible breadcrumbs read "Home › Collection › Product" (source: "Shop · Collection · Product"), so confirm; after a print swap, `?variant=` preselects that print's first available size on reload.
 - **Store data (owner):** create product metafield definition `kambric.archive_label` (single-line text), set "Parlor Rose" on Arielle (D-22).
 
@@ -55,7 +55,7 @@ Parity: `shop-*`, `category-*`, `collection-index-*`, `collection-*`.
 - JSON-LD: `CollectionPage` + `ItemList`, BreadcrumbList. First row of cards `eager`, rest `lazy`.
 
 **Phase 3 status (2026-09-28): built.** Sections `product-listing` (grouped by collection blocks on shop/category pages; single grid on collection/sale pages), `collection-hero`, `catalog-heading`, `category-nav`, `main-collections`, `text-cta`; templates `collection.json`, `collection.category.json`, `collection.sale.json`, `list-collections.json`. Verified on the dev theme: card counts match the source (shop 22, dresses 7 simulated, psychedelics 9, sale 6 simulated); one h1 and one CollectionPage (+ nested ItemList) per page; titles match SEO.md ("Shop All", "Heritage Print Collections"). Home-collection lookup now skips `frontpage`, `all` and category/sale-template collections everywhere. Chrome pass and live category/sale tests are pending the store data.
-- **Remove before launch:** `templates/collection.phase3-category-test.json`, `templates/collection.phase3-sale-test.json`.
+- **Removed 2026-09-29:** `templates/collection.phase3-category-test.json`, `templates/collection.phase3-sale-test.json`.
 - **Store data (owner):** create the category/sale collections and assign templates `category`/`sale` (§3a-A1 + collection-copy.md); create menu `shop-categories`; simplify per-print collections (§3 item 3; fixes the empty Whimsy page); set collection Card/Header images.
 - **Open:** one collection description serves both the detail hero and the shop group text (the source used separate long copy for groups); keep one, or add a `kambric.group_description` metafield? Shop page emits CollectionPage JSON-LD (the source emitted none). Orphan group has no heading by default (source parity). Suggested helper to de-duplicate the "first available variant of a print" logic (print-swatches, both grids).
 
@@ -82,7 +82,7 @@ Parity: `cart-page-*`, `email-popup-*`, search overlay (rendered HTML).
 
 
 **Phase 5 status (2026-09-28): built.** Cart (`main-cart` + `component-cart.js`: works without JS; D-9 grouping with atomic garment+fee removal, orphan clean-up, garment-only count), search (`search-overlay` in the header group + `predictive-search` + `main-search`, WAI-ARIA combobox, hidden products excluded), newsletter pop-up (`newsletter-popup` in the footer group, off by default, `discount_code` setting covers both D-11 options). QA tool `tools/page_check.py`: 19/19 key pages pass; Theme Check 106 files / 0 offenses.
-- **Remove before launch:** `templates/page.phase5-search.json`, `templates/page.phase5-popup.json`.
+- **Removed 2026-09-29:** `templates/page.phase5-search.json`, `templates/page.phase5-popup.json`.
 - **Decided (2026-09-28):** cart lines show every option ("Print · Size"); a monogrammed garment missing its fee line **blocks checkout** until removed; fee product sold out → garment sold out, checkout blocked; the **header count excludes fee lines** (matches the cart page).
 
 ---

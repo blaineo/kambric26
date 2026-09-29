@@ -62,7 +62,7 @@ kambricgoods.com is a React/Vite site on Replit that uses Shopify only through t
 2. **Verification pass** (last "definition of done" gate): Lighthouse mobile (SEO 100, a11y ≥ 95, CLS < 0.05, LCP < 2.5 s) on the preview URL, and a true 390 px check (Chrome here won't narrow below ~606 px and Shopify blocks iframes, so use DevTools device mode or Lighthouse's mobile emulation).
 4. **Content batches (🟢):** photos into templates (home 11, About/Events 5, pop-up 1; set as `shopify://shop_images/<file>` in template JSON after uploading to Files); then, with the extra scopes, the `kambric_event` definition + entries, pages, and the journal import (`docs/store-data/phase4/`).
 5. **Batch 07** (home SEO title/description) and **batch 09** (publish on the Shopify-hosted store) when the owner says.
-6. **Pre-launch cleanup:** delete the dev-only preview templates (`templates/*phase*.json`: 9 files) and their preview sections (`sections/phase*-preview.liquid`); re-run page_check and Theme Check.
+6. ✅ **Pre-launch cleanup (done 2026-09-29):** deleted the dev-only preview templates (`templates/*phase*.json`: 9 files) and their preview sections (`sections/phase*-preview.liquid`); re-run page_check and Theme Check.
 7. **Cutover** (`docs/MIGRATION_PLAN.md` §4.3 + OWNER_TASKS C): batch 03, per-print collection clean-up (fixes Whimsy), policies, WELCOME15, Meta channel, remove password, DNS, restore publish deny rules (step 9a).
 
 ## 6. How the work was run (repeat this pattern)
