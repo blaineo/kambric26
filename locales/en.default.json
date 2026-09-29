@@ -113,7 +113,8 @@
       "see_all": "See all results"
     },
     "predictive": {
-      "empty": "No pieces match your search."
+      "empty": "No pieces match your search.",
+      "collection": "Collection"
     }
   },
   "accessibility": {

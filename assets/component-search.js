@@ -91,7 +91,8 @@ class KgSearch extends HTMLElement {
     this.controller = new AbortController();
     const url =
       `${this.predictiveUrl}?q=${encodeURIComponent(query)}` +
-      `&resources[type]=product&resources[limit]=${MAX_RESULTS}&section_id=predictive-search`;
+      `&resources[type]=product,collection&resources[limit]=${MAX_RESULTS}` +
+      `&resources[options][prefix]=last&section_id=predictive-search`;
 
     try {
       const response = await fetch(url, { signal: this.controller.signal });

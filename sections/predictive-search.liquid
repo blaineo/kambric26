@@ -3,7 +3,10 @@
   or section group. Fetched by assets/component-search.js via the Section
   Rendering API:
 
-    /search/suggest?q=…&resources[type]=product&resources[limit]=8&section_id=predictive-search
+    /search/suggest?q=…&resources[type]=product,collection&resources[limit]=8
+      &resources[options][prefix]=last&section_id=predictive-search
+
+  Collections that match lead as plain links; the last word matches as a prefix while typing.
 
   `predictive_search.resources.products` are full product objects (same
   drop as everywhere else), so the usual visibility guard applies: products
@@ -27,8 +30,38 @@
 {%- liquid
   assign results = predictive_search.resources.products
   assign shown = 0
+
+  comment
+    Matching collections (e.g. "psych" -> Psychedelics) lead the list as plain links; Shopify's
+    automatic "frontpage" collection is never offered.
+  endcomment
+  assign collection_hits = 0
+  for c in predictive_search.resources.collections
+    unless c.handle == 'frontpage'
+      assign collection_hits = collection_hits | plus: 1
+    endunless
+  endfor
 -%}
 <div class="predictive-search" data-predictive-search-results>
+  {%- if collection_hits > 0 -%}
+    <ul class="predictive-search__collections" role="presentation">
+      {%- for c in predictive_search.resources.collections limit: 4 -%}
+        {%- if c.handle == 'frontpage' -%}{%- continue -%}{%- endif -%}
+        <li role="presentation">
+          <a
+            class="predictive-search__collection"
+            id="PredictiveSearchCollection-{{ forloop.index }}"
+            role="option"
+            aria-selected="false"
+            href="{{ c.url }}"
+          >
+            <span class="predictive-search__collection-label">{{ 'search.predictive.collection' | t }}</span>
+            {{ c.title | escape }}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
   {%- if results.size > 0 -%}
     <ul class="predictive-search__list" role="presentation">
       {%- for product in results -%}
@@ -89,7 +122,7 @@
     {%- if shown == 0 -%}
       <p class="predictive-search__empty" data-predictive-search-empty>{{ 'search.predictive.empty' | t }}</p>
     {%- endif -%}
-  {%- else -%}
+  {%- elsif collection_hits == 0 -%}
     <p class="predictive-search__empty" data-predictive-search-empty>{{ 'search.predictive.empty' | t }}</p>
   {%- endif -%}
   <a class="predictive-search__see-all" href="{{ routes.search_url }}?type=product" data-search-see-all>
@@ -98,6 +131,41 @@
 </div>
 
 {% stylesheet %}
+  .predictive-search__collections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
+    margin: 0 0 var(--space-4);
+    padding: 0 0 var(--space-4);
+    list-style: none;
+    border-block-end: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  .predictive-search__collection {
+    display: inline-flex;
+    align-items: baseline;
+    gap: var(--space-2);
+    padding: var(--space-1) 0;
+    font-family: var(--font-serif);
+    font-size: var(--text-18);
+    color: var(--color-foreground);
+    text-decoration: none;
+  }
+
+  .predictive-search__collection:hover,
+  .predictive-search__collection:focus-visible,
+  .predictive-search__collection[aria-selected='true'] {
+    color: var(--color-primary);
+  }
+
+  .predictive-search__collection-label {
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
   .predictive-search__list {
     margin: 0;
     padding: 0;
