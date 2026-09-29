@@ -1,0 +1,191 @@
+{% comment %}
+  Scrolling brand strip (source: Home.tsx MARQUEE / BOTTOM MARQUEE). Same
+  pattern as the announcement bar: one track holding two identical halves,
+  animated with the shared `@keyframes marquee` (assets/critical.css) to -50%
+  for a seamless loop. Screen readers get the items once as a list; the moving
+  track is aria-hidden. Pauses on hover; static and wrapped under reduced motion.
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+  assign items = s.items | newline_to_br | split: '<br />'
+  assign clean = ''
+  for item in items
+    assign t = item | strip
+    if t != blank
+      assign clean = clean | append: t | append: '|||'
+    endif
+  endfor
+  assign items = clean | split: '|||'
+  assign count = items.size
+
+  comment
+    Each half must be wider than the viewport: repeat short lists so a half
+    holds at least 6 items (the source has exactly 6).
+  endcomment
+  assign repeats = 1
+  if count > 0 and count < 6
+    assign repeats = 6 | plus: count | minus: 1 | divided_by: count
+  endif
+-%}
+
+{%- if count > 0 -%}
+  <div
+    class="marquee-strip marquee-strip--{{ s.style }} full-width"
+    style="--marquee-strip-duration: {{ s.duration }}s;"
+  >
+    <ul class="visually-hidden" role="list">
+      {%- for item in items -%}
+        <li>{{ item | escape }}</li>
+      {%- endfor -%}
+    </ul>
+    <div class="marquee-strip__viewport" aria-hidden="true">
+      <div class="marquee-strip__track{% if s.reverse %} marquee-strip__track--reverse{% endif %}">
+        {%- for half in (1..2) -%}
+          {%- for r in (1..repeats) -%}
+            {%- for item in items -%}
+              <span class="marquee-strip__item{% if half == 2 or r > 1 %} marquee-strip__item--copy{% endif %}">
+                <span class="marquee-strip__text">{{ item | escape }}</span>
+                <span class="marquee-strip__separator">✦</span>
+              </span>
+            {%- endfor -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  /*
+    Source: overflow-hidden py-4; items inline-flex gap-6 px-6; text 11px,
+    tracking 0.45em, light; separator ✦.
+    Primary: bg-primary text-primary-foreground, separator /40, 28s.
+    Plain:   border-y border-border/60, text foreground/70, separator /20,
+             reverse, 32s.
+  */
+  .marquee-strip {
+    overflow: hidden;
+    padding-block: var(--space-4);
+    border-block: 1px solid color-mix(in srgb, var(--color-border) 60%, transparent);
+  }
+
+  .marquee-strip--primary {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  .marquee-strip--plain {
+    color: color-mix(in srgb, var(--color-foreground) 70%, transparent);
+  }
+
+  .marquee-strip__viewport {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .marquee-strip__track {
+    display: flex;
+    flex-shrink: 0;
+    white-space: nowrap;
+    animation: marquee var(--marquee-strip-duration, var(--marquee-duration)) linear infinite;
+  }
+
+  .marquee-strip__track--reverse {
+    animation-direction: reverse;
+  }
+
+  .marquee-strip:hover .marquee-strip__track {
+    animation-play-state: paused;
+  }
+
+  .marquee-strip__item {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-6);
+    padding-inline: var(--space-6);
+  }
+
+  .marquee-strip__text {
+    font-size: var(--text-11);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+  }
+
+  .marquee-strip__separator {
+    font-size: var(--text-16);
+    line-height: 1;
+    opacity: 0.4;
+  }
+
+  .marquee-strip--plain .marquee-strip__separator {
+    color: var(--color-foreground);
+    opacity: 0.2;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-strip__track {
+      flex-wrap: wrap;
+      flex-shrink: 1;
+      justify-content: center;
+      width: 100%;
+      row-gap: var(--space-2);
+      white-space: normal;
+      animation: none;
+    }
+
+    .marquee-strip__item--copy {
+      display: none;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.marquee_strip.name",
+  "tag": "div",
+  "class": "section-marquee-strip",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "items",
+      "label": "t:sections.marquee_strip.settings.items.label",
+      "info": "t:sections.marquee_strip.settings.items.info",
+      "default": "Hartmann Studio Archive\nHand-Painted Heritage Prints\nNorthern California\nContemporary Womenswear\nEst. 1960s Montreal\nKambric Goods"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": "t:sections.marquee_strip.settings.style.label",
+      "options": [
+        { "value": "primary", "label": "t:sections.marquee_strip.settings.style.options.primary" },
+        { "value": "plain", "label": "t:sections.marquee_strip.settings.style.options.plain" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse",
+      "label": "t:sections.marquee_strip.settings.reverse.label",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "duration",
+      "label": "t:sections.marquee_strip.settings.duration.label",
+      "info": "t:sections.marquee_strip.settings.duration.info",
+      "min": 12,
+      "max": 60,
+      "step": 2,
+      "unit": "s",
+      "default": 28
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.marquee_strip.name"
+    }
+  ]
+}
+{% endschema %}

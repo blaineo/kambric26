@@ -1,0 +1,552 @@
+{% comment %}
+  Home page hero (source: Home.tsx HERO). Full-bleed photo with an optional
+  art-directed mobile photo, warm tint + legibility gradients, eyebrow,
+  headline (+ italic second line), subtitle, two CTAs and a "Scroll" cue.
+
+  - The photo is the page's single LCP image (`loading: 'priority'`).
+  - With no photo, the dark hero band (--color-hero-background) shows alone;
+    the text stays readable and accessible.
+  - The page's only <h1>. With both headline lines empty, a visually hidden
+    <h1> with the shop name keeps the page outline valid.
+  - Motion (all transform/opacity, no layout change, off under reduced
+    motion): CSS entrance fades on load, a scroll-linked parallax/fade where
+    the browser supports scroll-driven animations, and the looping scroll cue.
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+  assign hero_image = s.image
+  assign has_image = false
+  if hero_image != blank
+    assign has_image = true
+  endif
+  assign title = s.title | strip
+  assign title_em = s.title_em | strip
+  assign overlay = s.overlay_strength | divided_by: 100.0
+-%}
+
+<section
+  class="home-hero home-hero--{{ s.alignment }} home-hero--title-{{ s.title_size }} full-width"
+  data-has-image="{{ has_image }}"
+  style="--hero-position: {{ s.image_position | default: 'center' | escape }}; --hero-overlay: {{ overlay }};"
+>
+  <div class="home-hero__media">
+    {%- if has_image -%}
+      {%- render 'picture',
+        image: hero_image,
+        mobile_image: s.mobile_image,
+        alt: s.image_alt,
+        sizes: '100vw',
+        widths: '640, 960, 1280, 1600, 1920, 2400, 2880',
+        loading: 'priority',
+        class: 'home-hero__picture picture--cover'
+      -%}
+      <div class="home-hero__tint" aria-hidden="true"></div>
+      <div class="home-hero__gradient" aria-hidden="true"></div>
+      <div class="home-hero__vignette" aria-hidden="true"></div>
+    {%- elsif request.design_mode -%}
+      {%- render 'picture', image: blank, sizes: '100vw' -%}
+    {%- endif -%}
+  </div>
+
+  <div class="home-hero__content">
+    {%- if s.eyebrow != blank -%}
+      <p class="home-hero__eyebrow">{{ s.eyebrow | escape }}</p>
+    {%- endif -%}
+
+    {%- if title != blank or title_em != blank -%}
+      <h1 class="home-hero__title">
+        {{- title | escape -}}
+        {%- if title != blank and title_em != blank -%}<br>{%- endif -%}
+        {%- if title_em != blank -%}
+          <em class="home-hero__title-em">{{ title_em | escape }}</em>
+        {%- endif -%}
+      </h1>
+    {%- else -%}
+      <h1 class="visually-hidden">{{ shop.name | escape }}</h1>
+    {%- endif -%}
+
+    {%- if s.subtitle != blank -%}
+      <p class="home-hero__subtitle">{{ s.subtitle | escape }}</p>
+    {%- endif -%}
+
+    {%- if s.cta1_label != blank or s.cta2_label != blank -%}
+      <div class="home-hero__ctas">
+        {%- if s.cta1_label != blank and s.cta1_link != blank -%}
+          {%- render 'button',
+            label: s.cta1_label,
+            url: s.cta1_link,
+            variant: 'outline',
+            on_dark: true,
+            class: 'home-hero__cta'
+          -%}
+        {%- endif -%}
+        {%- if s.cta2_label != blank and s.cta2_link != blank -%}
+          {%- render 'button',
+            label: s.cta2_label,
+            url: s.cta2_link,
+            variant: 'text-arrow',
+            on_dark: true,
+            class: 'home-hero__cta home-hero__cta--secondary'
+          -%}
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  {%- if s.show_scroll_cue -%}
+    <div class="home-hero__cue" aria-hidden="true">
+      <span class="home-hero__cue-label">{{ 'sections.home_hero.scroll' | t }}</span>
+      <span class="home-hero__cue-line"><span class="home-hero__cue-bar"></span></span>
+    </div>
+  {%- endif -%}
+</section>
+
+{% stylesheet %}
+  /*
+    Source: Home.tsx hero. h-[94vh], bg hsl(24 18% 14%) (= hero background),
+    copy anchored right, px-8 / md:px-16 / lg:px-24, max-w-[1600px].
+    Source hsl() tints are expressed as token mixes of hero foreground/primary.
+  */
+  .home-hero {
+    --hero-accent: color-mix(in srgb, var(--color-primary) 45%, var(--color-hero-foreground));
+    --hero-dark: var(--color-hero-background);
+
+    position: relative;
+    display: flex;
+    height: 94vh;
+    min-height: 32rem;
+    overflow: hidden;
+    background: var(--color-hero-background);
+    color: var(--color-hero-foreground);
+  }
+
+  .home-hero__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .home-hero__media > .home-hero__picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  .home-hero__picture > img {
+    object-position: var(--hero-position);
+    filter: brightness(1.1) saturate(1.05);
+  }
+
+  .home-hero__tint,
+  .home-hero__gradient,
+  .home-hero__vignette {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: var(--hero-overlay);
+  }
+
+  /* Warm tonal wash (source: hsl(28 32% 36%), multiply, 2%) */
+  .home-hero__tint {
+    background: var(--color-primary);
+    mix-blend-mode: multiply;
+    opacity: calc(var(--hero-overlay) * 0.02);
+  }
+
+  /* Vertical legibility gradient: darker top and bottom, open middle */
+  .home-hero__gradient {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--hero-dark) 32%, transparent) 0%,
+      color-mix(in srgb, var(--hero-dark) 6%, transparent) 18%,
+      transparent 42%,
+      transparent 58%,
+      color-mix(in srgb, var(--hero-dark) 26%, transparent) 86%,
+      color-mix(in srgb, var(--hero-dark) 58%, transparent) 100%
+    );
+  }
+
+  /* Vignette behind the copy (source: ellipse 60% 70% at 74% 50%) */
+  .home-hero__vignette {
+    --vignette-x: 74%;
+    background: radial-gradient(
+      ellipse 60% 70% at var(--vignette-x) 50%,
+      color-mix(in srgb, var(--hero-dark) 50%, transparent) 0%,
+      color-mix(in srgb, var(--hero-dark) 20%, transparent) 45%,
+      transparent 78%
+    );
+  }
+
+  .home-hero--left .home-hero__vignette {
+    --vignette-x: 26%;
+  }
+
+  .home-hero--center .home-hero__vignette {
+    --vignette-x: 50%;
+  }
+
+  /* Copy ------------------------------------------------------------------ */
+  .home-hero__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    max-width: var(--container-hero);
+    margin-inline: auto;
+    padding-inline: var(--space-8);
+    text-align: right;
+  }
+
+  .home-hero--left .home-hero__content {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .home-hero--center .home-hero__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-hero__eyebrow {
+    margin-block-end: var(--space-6);
+    font-size: var(--text-11);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-label-xl);
+    text-transform: uppercase;
+    color: var(--hero-accent);
+  }
+
+  .home-hero__title {
+    max-width: 16ch;
+    margin-block-end: var(--space-7);
+    font-size: var(--text-hero);
+    line-height: var(--leading-display);
+    letter-spacing: var(--tracking-heading);
+    color: var(--color-hero-foreground);
+  }
+
+  /* Source shrinks a product-name headline (the "Arielle" rule) to this size */
+  .home-hero--title-medium .home-hero__title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .home-hero__title-em {
+    font-style: italic;
+    color: var(--hero-accent);
+  }
+
+  .home-hero__subtitle {
+    max-width: 28rem;
+    margin-block-end: var(--space-12);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: var(--leading-relaxed);
+    color: color-mix(in srgb, var(--hero-accent) 55%, var(--color-hero-foreground));
+  }
+
+  .home-hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4) var(--space-8);
+  }
+
+  .home-hero--right .home-hero__ctas {
+    justify-content: flex-end;
+  }
+
+  .home-hero--center .home-hero__ctas {
+    justify-content: center;
+  }
+
+  /* The source lets the labels wrap at 390px (screenshot) */
+  .btn.home-hero__cta {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .btn--text-arrow.home-hero__cta--secondary {
+    color: color-mix(in srgb, var(--hero-accent) 60%, var(--color-hero-foreground));
+  }
+
+  .btn--text-arrow.home-hero__cta--secondary:hover,
+  .btn--text-arrow.home-hero__cta--secondary:focus-visible {
+    color: var(--color-primary);
+  }
+
+  /* Scroll cue ------------------------------------------------------------- */
+  .home-hero__cue {
+    position: absolute;
+    z-index: 1;
+    inset-block-end: var(--space-8);
+    inset-inline-start: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    opacity: 0.4;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  .home-hero__cue-label {
+    font-size: var(--text-11);
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--hero-accent) 60%, var(--color-hero-foreground));
+  }
+
+  .home-hero__cue-line {
+    position: relative;
+    display: block;
+    width: 1px;
+    height: var(--space-10);
+    overflow: hidden;
+  }
+
+  .home-hero__cue-bar {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--hero-accent) 70%, var(--color-hero-foreground));
+    transform: translateY(100%);
+  }
+
+  @media (min-width: 48rem) {
+    .home-hero__content {
+      padding-inline: var(--space-16);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .home-hero__content {
+      padding-inline: var(--space-24);
+    }
+  }
+
+  /* Motion: transform/opacity only, never layout. Nothing moves under reduced motion. */
+  @keyframes home-hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(var(--rise, 0));
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes home-hero-cue-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.4;
+    }
+  }
+
+  @keyframes home-hero-cue-run {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes home-hero-parallax {
+    to {
+      transform: translateY(18%);
+    }
+  }
+
+  @keyframes home-hero-fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .home-hero__eyebrow {
+      --rise: 16px;
+      animation: home-hero-rise 1s var(--ease-out-expo) 0.3s both;
+    }
+
+    .home-hero__title {
+      --rise: 32px;
+      animation: home-hero-rise 1.2s var(--ease-out-expo) 0.4s both;
+    }
+
+    .home-hero__subtitle {
+      animation: home-hero-rise 1s var(--ease-standard) 0.75s both;
+    }
+
+    .home-hero__ctas {
+      --rise: 10px;
+      animation: home-hero-rise 0.8s var(--ease-standard) 1s both;
+    }
+
+    .home-hero__cue {
+      animation: home-hero-cue-in 1.2s var(--ease-standard) 1.8s both;
+    }
+
+    .home-hero__cue-bar {
+      animation: home-hero-cue-run 1.6s linear infinite;
+    }
+
+    /* Source parallax (image y 0 → 18%) and copy fade (1 → 0 over the first
+       70% of the hero), linked to page scroll where supported. */
+    @supports (animation-timeline: scroll()) {
+      .home-hero__media {
+        animation: home-hero-parallax linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 94vh;
+      }
+
+      .home-hero__content {
+        animation: home-hero-fade-out linear both;
+        animation-timeline: scroll(root);
+        animation-range: 0 66vh;
+      }
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.home_hero.name",
+  "tag": "div",
+  "class": "section-home-hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "t:sections.home_hero.settings.header_image.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.home_hero.settings.image.label",
+      "info": "t:sections.home_hero.settings.image.info"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "t:sections.home_hero.settings.mobile_image.label",
+      "info": "t:sections.home_hero.settings.mobile_image.info"
+    },
+    {
+      "type": "text",
+      "id": "image_alt",
+      "label": "t:sections.home_hero.settings.image_alt.label",
+      "info": "t:sections.home_hero.settings.image_alt.info"
+    },
+    {
+      "type": "text",
+      "id": "image_position",
+      "label": "t:sections.home_hero.settings.image_position.label",
+      "info": "t:sections.home_hero.settings.image_position.info",
+      "default": "65% 20%"
+    },
+    {
+      "type": "range",
+      "id": "overlay_strength",
+      "label": "t:sections.home_hero.settings.overlay_strength.label",
+      "info": "t:sections.home_hero.settings.overlay_strength.info",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "t:sections.home_hero.settings.header_text.content"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "t:sections.home_hero.settings.alignment.label",
+      "options": [
+        { "value": "right", "label": "t:options.alignment.right" },
+        { "value": "center", "label": "t:options.alignment.center" },
+        { "value": "left", "label": "t:options.alignment.left" }
+      ],
+      "default": "right"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.home_hero.settings.eyebrow.label"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.home_hero.settings.title.label",
+      "info": "t:sections.home_hero.settings.title.info",
+      "default": "Arielle Slip Dress"
+    },
+    {
+      "type": "text",
+      "id": "title_em",
+      "label": "t:labels.heading_em",
+      "info": "t:labels.heading_em_info"
+    },
+    {
+      "type": "select",
+      "id": "title_size",
+      "label": "t:sections.home_hero.settings.title_size.label",
+      "info": "t:sections.home_hero.settings.title_size.info",
+      "options": [
+        { "value": "large", "label": "t:sections.home_hero.settings.title_size.options.large" },
+        { "value": "medium", "label": "t:sections.home_hero.settings.title_size.options.medium" }
+      ],
+      "default": "medium"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "t:sections.home_hero.settings.subtitle.label",
+      "default": "Presale now open"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.home_hero.settings.header_buttons.content"
+    },
+    {
+      "type": "text",
+      "id": "cta1_label",
+      "label": "t:sections.home_hero.settings.cta1_label.label",
+      "default": "Shop the Arielle"
+    },
+    {
+      "type": "url",
+      "id": "cta1_link",
+      "label": "t:sections.home_hero.settings.cta1_link.label"
+    },
+    {
+      "type": "text",
+      "id": "cta2_label",
+      "label": "t:sections.home_hero.settings.cta2_label.label",
+      "info": "t:sections.home_hero.settings.cta2_label.info",
+      "default": "Shop the Collection"
+    },
+    {
+      "type": "url",
+      "id": "cta2_link",
+      "label": "t:sections.home_hero.settings.cta2_link.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_scroll_cue",
+      "label": "t:sections.home_hero.settings.show_scroll_cue.label",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.home_hero.name"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,552 @@
+{% comment %}
+  Home product rail: "New Arrivals / Just Arrived" (dark band) and
+  "Featured Pieces / From the Collections" (source: Home.tsx NEW ARRIVALS and
+  FEATURED PRODUCTS). One card per print (snippets/product-prints.liquid).
+
+  Cards, in order:
+  1. Flagged pieces: prints flagged new arrival / featured (or every print)
+     from the chosen collection (default: all products, which Shopify sorts
+     alphabetically), skipping the "Exclude product types".
+  2. Pinned pieces ("Show first" blocks): a product, optionally narrowed to
+     one print. They appear before or after the flagged pieces (setting) and
+     their slots are always kept: flagged pieces fill what's left of the
+     maximum. A print is never shown twice.
+
+  These settings replace the source's hard-coded rules (no handles in code):
+  - New arrivals: "≤1 flagged non-swimwear arrival, then every Arielle print,
+    max 3" = source New arrivals, exclude "Swimwear", pin Arielle (all prints)
+    after, max 3.
+  - Featured: "first 4 flagged, with Esther/Good Vibrations → Margit/
+    Wildflowers and Margit/Dahlia Seed → Margit/Matyó Floral" = pin the four
+    resulting prints before, max 4.
+
+  The section renders nothing when there are no cards (like the source).
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+  assign max = s.max_count
+  assign columns = s.columns | plus: 0
+  assign dark = false
+  if s.color_scheme == 'dark'
+    assign dark = true
+  endif
+
+  if columns == 4
+    assign sizes = '(min-width: 80rem) 300px, (min-width: 48rem) calc((100vw - 7.5rem) / 4), calc((100vw - 4.25rem) / 2)'
+  else
+    assign sizes = '(min-width: 80rem) 400px, (min-width: 48rem) calc((100vw - 6rem) / 3), calc((100vw - 4.5rem) / 2)'
+  endif
+
+  assign excluded_types = '|'
+  assign type_list = s.exclude_types | split: ','
+  for type_item in type_list
+    assign type_name = type_item | strip | downcase
+    if type_name != blank
+      assign excluded_types = excluded_types | append: type_name | append: '|'
+    endif
+  endfor
+
+  assign shown_keys = '|'
+  assign pinned_count = 0
+-%}
+
+{%- comment -%} 1. Pinned pieces ("Show first" blocks) {%- endcomment -%}
+{%- capture pinned_html -%}
+  {%- for block in section.blocks -%}
+    {%- liquid
+      assign p = block.settings.product
+      assign value_list = ''
+      assign has_print_option = false
+      assign usable = false
+      if p != blank and pinned_count < max
+        assign usable = true
+        if p.tags contains 'hidden' or p.handle == 'chainstitch-monogram'
+          assign usable = false
+        endif
+      endif
+      if usable
+        for option in p.options_with_values
+          if option.name == 'Print' or option.name == 'Colorway'
+            assign has_print_option = true
+            assign print_option = option
+            break
+          endif
+        endfor
+
+        assign wanted = block.settings.print | strip
+        if has_print_option
+          if wanted != blank
+            assign wanted_down = wanted | downcase
+            assign match = ''
+            for v in print_option.values
+              assign v_down = v.name | downcase
+              if v_down == wanted_down
+                assign match = v.name
+                break
+              endif
+            endfor
+            assign value_list = match
+          else
+            capture value_list
+              render 'product-prints', product: p, output: 'values'
+            endcapture
+          endif
+        else
+          capture listable
+            render 'product-prints', product: p, output: 'values'
+          endcapture
+          if listable != blank
+            assign value_list = '-'
+          endif
+        endif
+      endif
+      assign value_list = value_list | strip | split: '|'
+    -%}
+    {%- for value in value_list -%}
+      {%- liquid
+        if has_print_option
+          assign print_value = value
+        else
+          assign print_value = ''
+        endif
+        assign key = '|' | append: p.handle | append: '::' | append: print_value | append: '|'
+        assign skip = false
+        if shown_keys contains key or pinned_count >= max
+          assign skip = true
+        endif
+      -%}
+      {%- unless skip -%}
+        <li class="product-rail__item" {{ block.shopify_attributes }}>
+          {%- render 'product-card', product: p, print: print_value, dark: dark, sizes: sizes -%}
+        </li>
+        {%- liquid
+          assign shown_keys = shown_keys | append: key
+          assign pinned_count = pinned_count | plus: 1
+        -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- comment -%} 2. Flagged pieces fill the remaining slots {%- endcomment -%}
+{%- liquid
+  assign source_limit = max | minus: pinned_count
+  assign source_count = 0
+  assign filter = ''
+  if s.source == 'featured' or s.source == 'new_arrival'
+    assign filter = s.source
+  endif
+  assign match_handle = ''
+  if s.collection != blank
+    assign pool = s.collection.products
+    if s.match_collection
+      assign match_handle = s.collection.handle
+    endif
+  else
+    assign pool = collections.all.products
+  endif
+-%}
+{%- capture source_html -%}
+  {%- if source_limit > 0 and s.source != 'none' -%}
+    {%- for p in pool -%}
+      {%- if source_count >= source_limit -%}{%- break -%}{%- endif -%}
+      {%- liquid
+        assign type_key = '|' | append: p.type | downcase | append: '|'
+        assign values = ''
+        unless excluded_types contains type_key
+          capture values
+            render 'product-prints', product: p, filter: filter, collection_handle: match_handle, output: 'values'
+          endcapture
+        endunless
+        assign value_list = values | strip | split: '|'
+
+        assign has_print_option = false
+        for option in p.options_with_values
+          if option.name == 'Print' or option.name == 'Colorway'
+            assign has_print_option = true
+            break
+          endif
+        endfor
+      -%}
+      {%- for value in value_list -%}
+        {%- liquid
+          if has_print_option
+            assign print_value = value
+          else
+            assign print_value = ''
+          endif
+          assign key = '|' | append: p.handle | append: '::' | append: print_value | append: '|'
+          assign skip = false
+          if shown_keys contains key or source_count >= source_limit
+            assign skip = true
+          endif
+        -%}
+        {%- unless skip -%}
+          <li class="product-rail__item">
+            {%- render 'product-card', product: p, print: print_value, dark: dark, sizes: sizes -%}
+          </li>
+          {%- liquid
+            assign shown_keys = shown_keys | append: key
+            assign source_count = source_count | plus: 1
+          -%}
+        {%- endunless -%}
+      {%- endfor -%}
+    {%- endfor -%}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- assign total = pinned_count | plus: source_count -%}
+
+{%- if total > 0 -%}
+  <section
+    class="product-rail product-rail--{{ s.color_scheme }} product-rail--cols-{{ columns }} full-width"
+    {% if s.heading != blank %}
+      aria-labelledby="ProductRailHeading-{{ section.id }}"
+    {% endif %}
+  >
+    <div class="product-rail__inner">
+      {%- if s.eyebrow != blank -%}
+        <div class="product-rail__divider">
+          <span class="product-rail__rule" aria-hidden="true"></span>
+          {%- render 'eyebrow', text: s.eyebrow, on_dark: dark, class: 'product-rail__eyebrow' -%}
+          <span class="product-rail__rule" aria-hidden="true"></span>
+        </div>
+      {%- endif -%}
+
+      {%- if s.heading != blank or s.heading_em != blank or s.link_label != blank -%}
+        <div class="product-rail__header">
+          {%- if s.heading != blank or s.heading_em != blank -%}
+            <h2 class="product-rail__heading" id="ProductRailHeading-{{ section.id }}">
+              {{- s.heading | escape -}}
+              {%- if s.heading_em != blank %} <em>{{ s.heading_em | escape }}</em>{%- endif -%}
+            </h2>
+          {%- endif -%}
+          {%- if s.link_label != blank and s.link != blank -%}
+            {%- render 'button',
+              label: s.link_label,
+              url: s.link,
+              variant: 'underline',
+              on_dark: dark,
+              class: 'product-rail__link'
+            -%}
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+      <ul class="product-rail__grid" role="list">
+        {%- if s.pinned_position == 'after' -%}
+          {{- source_html -}}
+          {{- pinned_html -}}
+        {%- else -%}
+          {{- pinned_html -}}
+          {{- source_html -}}
+        {%- endif -%}
+      </ul>
+    </div>
+  </section>
+{%- elsif request.design_mode -%}
+  <p class="product-rail__editor-hint">{{ 'sections.product_rail.empty_hint' | t }}</p>
+{%- endif -%}
+
+{% stylesheet %}
+  /*
+    Source: Home.tsx. Dark: py-20 px-6, bg hsl(24 18% 13%) (= hero background),
+    3 columns gap-6. Light: py-16 px-6, 4 columns gap-5 / md:gap-6.
+    Container max-w-7xl. Divider: flex gap-5 with 1px rules; header row
+    flex baseline justify-between mt-10 mb-12; h2 serif 36 → 48px, tight.
+  */
+  .product-rail {
+    --rail-rule: var(--color-border);
+    --rail-link: var(--color-muted-foreground);
+
+    padding-block: var(--space-16);
+    color: var(--color-foreground);
+  }
+
+  .product-rail--dark {
+    --rail-rule: color-mix(in srgb, var(--color-hero-foreground) 22%, var(--color-hero-background));
+    --rail-link: color-mix(in srgb, var(--color-hero-foreground) 78%, var(--color-hero-background));
+
+    padding-block: var(--space-20);
+    background: var(--color-hero-background);
+    color: var(--color-hero-foreground);
+  }
+
+  .product-rail__inner {
+    max-width: var(--container-7xl);
+    margin-inline: auto;
+    padding-inline: var(--space-6);
+  }
+
+  .product-rail__divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    margin-block: var(--space-2);
+  }
+
+  .product-rail__rule {
+    flex: 1;
+    height: 1px;
+    background: var(--rail-rule);
+  }
+
+  .eyebrow.product-rail__eyebrow {
+    flex-shrink: 0;
+    font-weight: var(--weight-regular);
+  }
+
+  .product-rail--dark .eyebrow.product-rail__eyebrow {
+    color: var(--rail-link);
+  }
+
+  .product-rail__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-block: var(--space-10) var(--space-12);
+  }
+
+  .product-rail__heading {
+    font-size: var(--text-36);
+    letter-spacing: -0.025em;
+    line-height: var(--leading-tight);
+    color: inherit;
+  }
+
+  .product-rail__heading em {
+    font-style: italic;
+  }
+
+  .btn--underline.product-rail__link {
+    font-size: var(--text-11);
+    font-weight: var(--weight-regular);
+    letter-spacing: var(--tracking-label);
+    color: var(--rail-link);
+    border-color: color-mix(in srgb, var(--color-muted-foreground) 30%, transparent);
+  }
+
+  .btn--underline.btn--on-dark.product-rail__link {
+    letter-spacing: var(--tracking-button);
+    color: var(--rail-link);
+    border-color: var(--rail-rule);
+  }
+
+  .btn--underline.product-rail__link:hover,
+  .btn--underline.product-rail__link:focus-visible {
+    color: var(--color-foreground);
+  }
+
+  .btn--underline.btn--on-dark.product-rail__link:hover,
+  .btn--underline.btn--on-dark.product-rail__link:focus-visible {
+    color: var(--color-hero-foreground);
+  }
+
+  .product-rail__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-6);
+    margin: 0;
+  }
+
+  .product-rail--cols-4 .product-rail__grid {
+    gap: var(--space-5);
+  }
+
+  @media (min-width: 48rem) {
+    .product-rail__heading {
+      font-size: var(--text-48);
+    }
+
+    .product-rail--cols-3 .product-rail__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .product-rail--cols-4 .product-rail__grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: var(--space-6);
+    }
+  }
+
+  .product-rail__editor-hint {
+    padding: var(--space-6);
+    font-size: var(--text-12);
+    text-align: center;
+    color: var(--color-muted-foreground);
+    background: var(--color-muted);
+  }
+
+  /* Source: heading row fades in once in view (opacity only). CSS scroll-driven; visible without support. */
+  @keyframes product-rail-reveal {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .product-rail__header {
+        animation: product-rail-reveal linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 25%;
+      }
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.product_rail.name",
+  "tag": "div",
+  "class": "section-product-rail",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "t:sections.product_rail.settings.color_scheme.label",
+      "options": [
+        { "value": "light", "label": "t:sections.product_rail.settings.color_scheme.options.light" },
+        { "value": "dark", "label": "t:sections.product_rail.settings.color_scheme.options.dark" }
+      ],
+      "default": "light"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "t:sections.product_rail.settings.eyebrow.label",
+      "default": "Featured Pieces"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "t:labels.heading",
+      "default": "From the"
+    },
+    {
+      "type": "text",
+      "id": "heading_em",
+      "label": "t:sections.product_rail.settings.heading_em.label",
+      "info": "t:sections.product_rail.settings.heading_em.info",
+      "default": "Collections"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "t:labels.button_label",
+      "default": "View All Pieces"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "t:labels.link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.product_rail.settings.header_pieces.content"
+    },
+    {
+      "type": "select",
+      "id": "source",
+      "label": "t:sections.product_rail.settings.source.label",
+      "info": "t:sections.product_rail.settings.source.info",
+      "options": [
+        { "value": "featured", "label": "t:sections.product_rail.settings.source.options.featured" },
+        { "value": "new_arrival", "label": "t:sections.product_rail.settings.source.options.new_arrival" },
+        { "value": "all", "label": "t:sections.product_rail.settings.source.options.all" },
+        { "value": "none", "label": "t:sections.product_rail.settings.source.options.none" }
+      ],
+      "default": "featured"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "t:sections.product_rail.settings.collection.label",
+      "info": "t:sections.product_rail.settings.collection.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "match_collection",
+      "label": "t:sections.product_rail.settings.match_collection.label",
+      "info": "t:sections.product_rail.settings.match_collection.info",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "exclude_types",
+      "label": "t:sections.product_rail.settings.exclude_types.label",
+      "info": "t:sections.product_rail.settings.exclude_types.info"
+    },
+    {
+      "type": "select",
+      "id": "pinned_position",
+      "label": "t:sections.product_rail.settings.pinned_position.label",
+      "info": "t:sections.product_rail.settings.pinned_position.info",
+      "options": [
+        { "value": "before", "label": "t:sections.product_rail.settings.pinned_position.options.before" },
+        { "value": "after", "label": "t:sections.product_rail.settings.pinned_position.options.after" }
+      ],
+      "default": "before"
+    },
+    {
+      "type": "range",
+      "id": "max_count",
+      "label": "t:sections.product_rail.settings.max_count.label",
+      "info": "t:sections.product_rail.settings.max_count.info",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "t:sections.product_rail.settings.columns.label",
+      "options": [
+        { "value": "3", "label": "t:sections.product_rail.settings.columns.options.three" },
+        { "value": "4", "label": "t:sections.product_rail.settings.columns.options.four" }
+      ],
+      "default": "4"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pin",
+      "name": "t:sections.product_rail.blocks.pin.name",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "t:sections.product_rail.blocks.pin.settings.product.label"
+        },
+        {
+          "type": "text",
+          "id": "print",
+          "label": "t:sections.product_rail.blocks.pin.settings.print.label",
+          "info": "t:sections.product_rail.blocks.pin.settings.print.info"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.product_rail.presets.featured"
+    },
+    {
+      "name": "t:sections.product_rail.presets.new_arrivals",
+      "settings": {
+        "color_scheme": "dark",
+        "eyebrow": "New Arrivals",
+        "heading": "Just Arrived",
+        "heading_em": "",
+        "link_label": "View All",
+        "source": "new_arrival",
+        "max_count": 3,
+        "columns": "3"
+      }
+    }
+  ]
+}
+{% endschema %}

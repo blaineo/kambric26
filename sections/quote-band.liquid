@@ -1,0 +1,228 @@
+{% comment %}
+  Founder pull quote (source: Home.tsx BRAND PULL QUOTE). Optional background
+  photo shown at reduced opacity under a cream wash, ✦ ornaments, italic serif
+  quote and uppercase attribution. Without a photo the band is plain and the
+  attribution uses the muted colour (source parity).
+{% endcomment %}
+{%- liquid
+  assign s = section.settings
+  assign has_image = false
+  if s.image != blank
+    assign has_image = true
+  endif
+  assign image_opacity = s.image_opacity | divided_by: 100.0
+  assign wash = s.wash_strength
+-%}
+
+<section
+  class="quote-band full-width{% if has_image %} quote-band--image{% endif %}"
+  style="--quote-image-opacity: {{ image_opacity }}; --quote-wash: {{ wash }}%;"
+>
+  {%- if has_image -%}
+    <div class="quote-band__media" aria-hidden="true">
+      {%- render 'picture',
+        image: s.image,
+        alt: '',
+        sizes: '100vw',
+        widths: '640, 960, 1280, 1600, 1920, 2400',
+        class: 'quote-band__picture picture--cover'
+      -%}
+      <div class="quote-band__wash"></div>
+    </div>
+  {%- endif -%}
+
+  <figure class="quote-band__content">
+    {%- if s.show_ornament -%}
+      <span class="quote-band__ornament" aria-hidden="true"><span></span>✦<span></span></span>
+    {%- endif -%}
+    <blockquote class="quote-band__quote">
+      <p>{{ s.quote | escape | newline_to_br }}</p>
+    </blockquote>
+    {%- if s.attribution != blank -%}
+      <figcaption class="quote-band__attribution">{{ s.attribution | escape }}</figcaption>
+    {%- endif -%}
+    {%- if s.show_ornament -%}
+      <span class="quote-band__ornament quote-band__ornament--end" aria-hidden="true"><span></span>✦<span></span></span>
+    {%- endif -%}
+  </figure>
+</section>
+
+{% stylesheet %}
+  /*
+    Source: relative overflow-hidden px-6, py-16 with image / pt-20 pb-8
+    without; image bg-cover opacity-60 under bg-background/60; content
+    max-w-4xl centred. Quote: serif italic 22px / md 28px, leading-relaxed,
+    tracking -0.01em, hsl(25 24% 22%), mb-8. Attribution: 13px, 0.5em,
+    uppercase. Ornament: w-8 rules + ✦ (text-lg) in primary/50, mb-10 / mt-10.
+  */
+  .quote-band {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-20) var(--space-6) var(--space-8);
+  }
+
+  .quote-band--image {
+    padding-block: var(--space-16);
+  }
+
+  .quote-band__media {
+    position: absolute;
+    inset: 0;
+  }
+
+  .quote-band__media > .quote-band__picture {
+    position: absolute;
+    inset: 0;
+    opacity: var(--quote-image-opacity);
+  }
+
+  .quote-band__wash {
+    position: absolute;
+    inset: 0;
+    background: color-mix(in srgb, var(--color-background) var(--quote-wash), transparent);
+  }
+
+  .quote-band__content {
+    position: relative;
+    z-index: 1;
+    max-width: var(--container-3xl);
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  @media (min-width: 64rem) {
+    .quote-band__content {
+      max-width: 56rem;
+    }
+  }
+
+  .quote-band__ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-block-end: var(--space-10);
+    font-size: var(--text-18);
+    line-height: 1;
+    color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  }
+
+  .quote-band__ornament > span {
+    width: var(--space-8);
+    height: 1px;
+    background: currentcolor;
+  }
+
+  .quote-band__ornament--end {
+    margin-block: var(--space-10) 0;
+  }
+
+  .quote-band__quote {
+    margin: 0 0 var(--space-8);
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: var(--text-22);
+    line-height: var(--leading-relaxed);
+    letter-spacing: var(--tracking-editorial);
+    color: color-mix(in srgb, var(--color-foreground) 88%, var(--color-background));
+  }
+
+  .quote-band__attribution {
+    font-size: 0.8125rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .quote-band--image .quote-band__attribution {
+    color: var(--color-foreground);
+  }
+
+  @media (min-width: 48rem) {
+    .quote-band__quote {
+      font-size: 1.75rem;
+    }
+  }
+
+  /* Source: fades in and rises 24px once in view */
+  @keyframes quote-band-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .quote-band__content {
+        animation: quote-band-in linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 30%;
+      }
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "t:sections.quote_band.name",
+  "tag": "div",
+  "class": "section-quote-band",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "quote",
+      "label": "t:sections.quote_band.settings.quote.label",
+      "default": "\"Every print begins with Kati, my grandmother, who spent her days painting in her small Montreal studio. Art Nouveau ornament, the folkloric embroidery of her birthplace, the op-art graphics of the early 70's, the bowl of fruit on her table. She gathered inspiration everywhere and made it her own. Kambric Goods exists to carry her legacy forward.\""
+    },
+    {
+      "type": "text",
+      "id": "attribution",
+      "label": "t:sections.quote_band.settings.attribution.label",
+      "default": "— Daisy Hartmann, founder of Kambric Goods"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_ornament",
+      "label": "t:sections.quote_band.settings.show_ornament.label",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "t:sections.quote_band.settings.header_background.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "t:sections.quote_band.settings.image.label",
+      "info": "t:sections.quote_band.settings.image.info"
+    },
+    {
+      "type": "range",
+      "id": "image_opacity",
+      "label": "t:sections.quote_band.settings.image_opacity.label",
+      "min": 10,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "wash_strength",
+      "label": "t:sections.quote_band.settings.wash_strength.label",
+      "info": "t:sections.quote_band.settings.wash_strength.info",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 60
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.quote_band.name"
+    }
+  ]
+}
+{% endschema %}

@@ -443,6 +443,397 @@
           "name": "Size row"
         }
       }
+    },
+    "about_hero": {
+      "name": "About hero",
+      "settings": {
+        "header_image": {
+          "content": "Background image"
+        },
+        "image": {
+          "info": "Optional. With no image, the hero shows as a text-only band on the dark background — no broken layout."
+        },
+        "overlay_opacity": {
+          "label": "Image overlay strength"
+        },
+        "header_text": {
+          "content": "Text"
+        },
+        "heading_line_1": {
+          "label": "Heading line 1"
+        },
+        "heading_line_2": {
+          "label": "Heading line 2 (accent)",
+          "info": "Shown in italic and the primary/gold colour, on its own line."
+        },
+        "heading_line_3": {
+          "label": "Heading line 3"
+        },
+        "subtitle": {
+          "label": "Subtitle"
+        }
+      }
+    },
+    "about_name": {
+      "name": "About: On the Name",
+      "settings": {
+        "body": {
+          "label": "Body"
+        }
+      }
+    },
+    "about_story": {
+      "name": "About: story",
+      "settings": {
+        "image_position": {
+          "label": "Image side (desktop)",
+          "info": "On mobile the photo always appears above the text, regardless of this setting."
+        },
+        "caption": {
+          "label": "Image caption"
+        },
+        "bio": {
+          "label": "Biography"
+        }
+      }
+    },
+    "about_values": {
+      "name": "About: values",
+      "blocks": {
+        "value_card": {
+          "name": "Value card",
+          "settings": {
+            "number": {
+              "label": "Number",
+              "info": "e.g. \"01\""
+            }
+          }
+        }
+      }
+    },
+    "cta_banner": {
+      "name": "CTA banner",
+      "settings": {
+        "heading": {
+          "label": "Heading",
+          "info": "Press Enter for a second line, like the source's \"It began with / the archive.\""
+        }
+      }
+    },
+    "events_hero": {
+      "name": "Events hero"
+    },
+    "events_list": {
+      "name": "Events list",
+      "settings": {
+        "header_lists": {
+          "content": "Upcoming / past"
+        },
+        "upcoming_heading": {
+          "label": "Upcoming heading"
+        },
+        "past_heading": {
+          "label": "Past heading"
+        },
+        "past_limit": {
+          "label": "Past events to show",
+          "info": "Caps the past list, most recent first. The old site kept 4."
+        },
+        "header_empty": {
+          "content": "Empty state"
+        },
+        "header_contact": {
+          "content": "Hosting / press contact block"
+        },
+        "show_contact_cta": {
+          "label": "Show the hosting/press contact block"
+        },
+        "contact_question": {
+          "label": "Question"
+        },
+        "contact_label": {
+          "label": "\"Get in touch\" label"
+        },
+        "contact_email": {
+          "label": "Contact email"
+        },
+        "header_preview": {
+          "content": "Editor preview"
+        },
+        "show_design_mode_sample": {
+          "label": "Show sample events in the editor",
+          "info": "Only visible while you're editing this theme in Customize; shoppers never see it. Turn this on to check the layout before any real events exist."
+        }
+      }
+    },
+    "home_hero": {
+      "name": "Home hero",
+      "settings": {
+        "header_image": {
+          "content": "Photo"
+        },
+        "image": {
+          "label": "Photo",
+          "info": "The page's main image; it loads first. Use a wide landscape photo at least 2400 px wide. Without a photo, the dark hero band shows on its own."
+        },
+        "mobile_image": {
+          "label": "Phone photo (optional)",
+          "info": "Shown on screens narrower than 768 px. Use a portrait crop so the subject stays in frame. Leave empty to use the main photo."
+        },
+        "image_alt": {
+          "label": "Alt text",
+          "info": "Leave empty if the photo is decorative (the headline already says what it shows). Otherwise describe the photo for screen readers and image search."
+        },
+        "image_position": {
+          "label": "Crop position",
+          "info": "Which part of the photo stays in view when it's cropped, as \"horizontal vertical\" (e.g. \"center 25%\" keeps the upper quarter). A focal point set on the image in Content → Files takes priority."
+        },
+        "overlay_strength": {
+          "label": "Shading",
+          "info": "The warm tint and the darker top, bottom and text-side shading that keep the text readable. 100% matches the current site."
+        },
+        "header_text": {
+          "content": "Text"
+        },
+        "alignment": {
+          "label": "Text position"
+        },
+        "eyebrow": {
+          "label": "Small label above the headline"
+        },
+        "title": {
+          "label": "Headline",
+          "info": "This is the page's main heading (H1) for search engines. If both headline lines are empty, the shop name is used for screen readers."
+        },
+        "title_size": {
+          "label": "Headline size",
+          "info": "Medium suits a product name (\"Arielle Slip Dress\"); Large suits a short phrase.",
+          "options": {
+            "large": "Large",
+            "medium": "Medium"
+          }
+        },
+        "subtitle": {
+          "label": "Subtitle"
+        },
+        "header_buttons": {
+          "content": "Buttons"
+        },
+        "cta1_label": {
+          "label": "First button label"
+        },
+        "cta1_link": {
+          "label": "First button link"
+        },
+        "cta2_label": {
+          "label": "Second link label",
+          "info": "Shown as text with an arrow (→)."
+        },
+        "cta2_link": {
+          "label": "Second link"
+        },
+        "show_scroll_cue": {
+          "label": "Show \"Scroll\" cue"
+        }
+      }
+    },
+    "marquee_strip": {
+      "name": "Scrolling strip",
+      "settings": {
+        "items": {
+          "label": "Items",
+          "info": "One per line. They scroll in a loop, separated by ✦. Screen readers hear each item once."
+        },
+        "style": {
+          "label": "Style",
+          "options": {
+            "primary": "Filled (primary colour)",
+            "plain": "Plain with borders"
+          }
+        },
+        "reverse": {
+          "label": "Scroll the other way"
+        },
+        "duration": {
+          "label": "Speed",
+          "info": "Seconds for one loop. Higher is slower. The current site uses 28 s (top strip) and 32 s (bottom strip)."
+        }
+      }
+    },
+    "product_rail": {
+      "name": "Product rail",
+      "presets": {
+        "featured": "Featured pieces",
+        "new_arrivals": "New arrivals"
+      },
+      "settings": {
+        "color_scheme": {
+          "label": "Colours",
+          "options": {
+            "light": "Light",
+            "dark": "Dark band"
+          }
+        },
+        "eyebrow": {
+          "label": "Label between the lines"
+        },
+        "heading_em": {
+          "label": "Italic word",
+          "info": "Shown in italic right after the heading, on the same line (e.g. \"From the\" + \"Collections\")."
+        },
+        "header_pieces": {
+          "content": "Which pieces"
+        },
+        "source": {
+          "label": "Fill with",
+          "info": "Flagged pieces fill the slots the \"Show first\" blocks leave free. Flags are set per print in the product's Prints data, or with the tags featured / new-arrival on single-print products.",
+          "options": {
+            "featured": "Prints flagged featured",
+            "new_arrival": "Prints flagged new arrival",
+            "all": "Any print",
+            "none": "Nothing (only the Show first blocks)"
+          }
+        },
+        "collection": {
+          "label": "From collection",
+          "info": "Leave empty to use every product (listed alphabetically). With a collection, its sort order applies."
+        },
+        "match_collection": {
+          "label": "Only prints from this collection",
+          "info": "For Folklore, Psychedelics or Whimsy: a product with several prints shows only the prints that belong to the collection. Leave off for category collections."
+        },
+        "exclude_types": {
+          "label": "Exclude product types",
+          "info": "Comma-separated product types to leave out of the flagged pieces, e.g. \"Swimwear\". \"Show first\" blocks are never excluded."
+        },
+        "pinned_position": {
+          "label": "Show first pieces go",
+          "info": "Their slots are always kept: flagged pieces only fill what's left of the maximum.",
+          "options": {
+            "before": "Before the flagged pieces",
+            "after": "After the flagged pieces"
+          }
+        },
+        "max_count": {
+          "label": "Maximum cards",
+          "info": "Counts cards, not products: each print is its own card."
+        },
+        "columns": {
+          "label": "Columns on desktop",
+          "options": {
+            "three": "3",
+            "four": "4"
+          }
+        }
+      },
+      "blocks": {
+        "pin": {
+          "name": "Show first",
+          "settings": {
+            "product": {
+              "label": "Product"
+            },
+            "print": {
+              "label": "Print (optional)",
+              "info": "Exact print or colourway name, e.g. \"Matyó Floral\". Leave empty to show every print of the product. If the product doesn't have this print, the block is skipped."
+            }
+          }
+        }
+      }
+    },
+    "home_story": {
+      "name": "Home story",
+      "settings": {
+        "eyebrow": {
+          "label": "Small label above the heading"
+        },
+        "body": {
+          "label": "Text",
+          "info": "Keep it to two short paragraphs, as on the current site."
+        }
+      },
+      "blocks": {
+        "photo": {
+          "name": "Photo",
+          "settings": {
+            "image": {
+              "info": "The first photo is the tall one on the left of the collage; the next two stack on the right. Up to three."
+            },
+            "position": {
+              "label": "Crop position",
+              "info": "Which part of the photo stays in view when it's cropped, as \"horizontal vertical\" (e.g. \"center 25%\" keeps the upper quarter). A focal point set on the image in Content → Files takes priority."
+            }
+          }
+        }
+      }
+    },
+    "quote_band": {
+      "name": "Quote",
+      "settings": {
+        "quote": {
+          "label": "Quote"
+        },
+        "attribution": {
+          "label": "Attribution"
+        },
+        "show_ornament": {
+          "label": "Show ✦ ornaments"
+        },
+        "header_background": {
+          "content": "Background"
+        },
+        "image": {
+          "label": "Background photo (optional)",
+          "info": "Shown faded behind the quote. Without a photo the band is plain."
+        },
+        "image_opacity": {
+          "label": "Photo strength"
+        },
+        "wash_strength": {
+          "label": "Cream wash",
+          "info": "A layer of the page background over the photo to keep the quote readable. 60% matches the current site."
+        }
+      }
+    },
+    "lookbook_grid": {
+      "name": "Lookbook",
+      "settings": {
+        "eyebrow": {
+          "label": "Label between the lines"
+        },
+        "heading_em": {
+          "label": "Italic word",
+          "info": "Shown in italic right after the heading (e.g. \"In the\" + \"field.\")."
+        },
+        "intro": {
+          "label": "Intro",
+          "info": "One short line, shown on the right on desktop only."
+        }
+      },
+      "blocks": {
+        "look": {
+          "name": "Look",
+          "settings": {
+            "position": {
+              "label": "Crop position",
+              "info": "Which part of the photo stays in view when it's cropped, as \"horizontal vertical\" (e.g. \"center 25%\" keeps the upper quarter). A focal point set on the image in Content → Files takes priority."
+            },
+            "number": {
+              "label": "Number label"
+            },
+            "caption": {
+              "label": "Caption"
+            },
+            "link": {
+              "label": "Link"
+            },
+            "link_label": {
+              "label": "Link description",
+              "info": "Read by screen readers, e.g. \"Shop the Vera Car Coat\". Leave empty to use the caption."
+            }
+          }
+        }
+      }
     }
   },
   "_note": "No new schema (editor-facing) keys needed. Both new snippets are render-only partials with no section settings of their own, and the two dev-only preview files (sections/phase2-components-preview.liquid, templates/product.phase2-components.json) hardcode their section name/labels in English the same way sections/phase1-ui-preview.liquid and sections/phase1-breadcrumbs-preview.liquid already do (dev-only, not translated). Leaving this object here, empty, only so the file matches the requested {storefront, schema} shape."

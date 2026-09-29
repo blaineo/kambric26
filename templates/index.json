@@ -9,12 +9,268 @@
  */
 {
   "sections": {
-    "main": {
-      "type": "custom-section",
-      "settings": {}
+    "hero": {
+      "type": "home-hero",
+      "settings": {
+        "image_alt": "",
+        "image_position": "65% 20%",
+        "overlay_strength": 100,
+        "alignment": "right",
+        "eyebrow": "",
+        "title": "Arielle Slip Dress",
+        "title_em": "",
+        "title_size": "medium",
+        "subtitle": "Presale now open",
+        "cta1_label": "Shop the Arielle",
+        "cta1_link": "/products/arielle-dress?print=Terracotta",
+        "cta2_label": "Shop the Collection",
+        "cta2_link": "/collections/folklore",
+        "show_scroll_cue": true
+      }
+    },
+    "marquee": {
+      "type": "marquee-strip",
+      "settings": {
+        "items": "Hartmann Studio Archive\nHand-Painted Heritage Prints\nNorthern California\nContemporary Womenswear\nEst. 1960s Montreal\nKambric Goods",
+        "style": "primary",
+        "reverse": false,
+        "duration": 28
+      }
+    },
+    "new_arrivals": {
+      "type": "product-rail",
+      "settings": {
+        "color_scheme": "dark",
+        "eyebrow": "New Arrivals",
+        "heading": "Just Arrived",
+        "heading_em": "",
+        "link_label": "View All",
+        "link": "/collections/all",
+        "source": "new_arrival",
+        "match_collection": false,
+        "exclude_types": "Swimwear",
+        "pinned_position": "after",
+        "max_count": 3,
+        "columns": "3"
+      },
+      "blocks": {
+        "pin_arielle": {
+          "type": "pin",
+          "settings": {
+            "product": "arielle-dress",
+            "print": ""
+          }
+        }
+      },
+      "block_order": [
+        "pin_arielle"
+      ]
+    },
+    "story": {
+      "type": "home-story",
+      "settings": {
+        "eyebrow": "The Story Behind the Prints",
+        "heading": "Her legacy,",
+        "heading_em": "carried on.",
+        "body": "<p>Kati ran a small textile studio in Montreal — a fashion designer, seamstress, and at one point a baker. She drew on the Modern and Surrealist eras and the decorative line of Art Nouveau, especially Koloman Moser. Some of her designs went out into the world on linens and towels; the most personal she kept for herself. For her granddaughters, she made paper fashion dolls and painted their tiny wardrobes by hand. When she passed, she left behind more than 300 original textile designs, tucked inside her black portfolio case, where they sat in her son's basement for years — waiting.</p><p>Her granddaughter Daisy — a Fashion Institute of Technology graduate who spent her 20s in New York's fashion industry — was chosen to inherit the archive. Now based in the Bay Area with her family, Daisy pairs Kati's prints with modern silhouettes built to last decades, not seasons.</p>",
+        "cta_label": "Read the Archive Story",
+        "cta_link": "/pages/about"
+      },
+      "blocks": {
+        "photo_portrait": {
+          "type": "photo",
+          "settings": {
+            "alt": "Kati Hartmann with family — archive photograph",
+            "position": "center 25%"
+          }
+        },
+        "photo_painting": {
+          "type": "photo",
+          "settings": {
+            "alt": "Kati's hands painting a floral print by brush",
+            "position": "center"
+          }
+        },
+        "photo_laughing": {
+          "type": "photo",
+          "settings": {
+            "alt": "Kati Hartmann laughing — family archive photograph",
+            "position": "center 30%"
+          }
+        }
+      },
+      "block_order": [
+        "photo_portrait",
+        "photo_painting",
+        "photo_laughing"
+      ]
+    },
+    "featured": {
+      "type": "product-rail",
+      "settings": {
+        "color_scheme": "light",
+        "eyebrow": "Featured Pieces",
+        "heading": "From the",
+        "heading_em": "Collections",
+        "link_label": "View All Pieces",
+        "link": "/collections/all",
+        "source": "featured",
+        "match_collection": false,
+        "exclude_types": "",
+        "pinned_position": "before",
+        "max_count": 4,
+        "columns": "4"
+      },
+      "blocks": {
+        "pin_kati": {
+          "type": "pin",
+          "settings": {
+            "product": "kati-slip-dress-in-matyo-floral",
+            "print": ""
+          }
+        },
+        "pin_margit_matyo": {
+          "type": "pin",
+          "settings": {
+            "product": "margit-one-piece",
+            "print": "Matyó Floral"
+          }
+        },
+        "pin_zadie": {
+          "type": "pin",
+          "settings": {
+            "product": "zadie-linen-dress",
+            "print": "Wildflowers"
+          }
+        },
+        "pin_margit_wildflowers": {
+          "type": "pin",
+          "settings": {
+            "product": "margit-one-piece",
+            "print": "Wildflowers"
+          }
+        }
+      },
+      "block_order": [
+        "pin_kati",
+        "pin_margit_matyo",
+        "pin_zadie",
+        "pin_margit_wildflowers"
+      ]
+    },
+    "lookbook": {
+      "type": "lookbook-grid",
+      "settings": {
+        "eyebrow": "The Lookbook",
+        "heading": "In the",
+        "heading_em": "field.",
+        "intro": "Shot among the teasels and meadows of Northern California."
+      },
+      "blocks": {
+        "look_1": {
+          "type": "look",
+          "settings": {
+            "alt": "Look 01 — poppy coat in the teasel field",
+            "position": "center 30%",
+            "number": "No. 01",
+            "caption": "Vera Car Coat, Matyó",
+            "link": "/products/vera-car-coat",
+            "link_label": "Shop the Vera Car Coat"
+          }
+        },
+        "look_2": {
+          "type": "look",
+          "settings": {
+            "alt": "Look 02 — quiet moment in profile",
+            "position": "center 25%",
+            "number": "No. 02",
+            "caption": "Vera Car Coat",
+            "link": "/products/vera-car-coat",
+            "link_label": "Shop the Vera Car Coat"
+          }
+        },
+        "look_3": {
+          "type": "look",
+          "settings": {
+            "alt": "Look 03 — bench in the meadow",
+            "position": "center 60%",
+            "number": "No. 03",
+            "caption": "Kati Slip Dress, Sunset Plumes",
+            "link": "/products/jessie-slip-dress-in-twilight-plumes",
+            "link_label": "Shop the Jessie Slip Dress in Twilight Plumes"
+          }
+        },
+        "look_4": {
+          "type": "look",
+          "settings": {
+            "alt": "Look 04 — coat with hat, three-quarter turn",
+            "position": "center 30%",
+            "number": "No. 04",
+            "caption": "Vera Car Coat, Matyó",
+            "link": "/products/vera-car-coat",
+            "link_label": "Shop the Vera Car Coat"
+          }
+        },
+        "look_5": {
+          "type": "look",
+          "settings": {
+            "alt": "Look 05 — coat with hat, full front",
+            "position": "center 25%",
+            "number": "No. 05",
+            "caption": "Kati Slip Dress, Matyó",
+            "link": "/products/kati-slip-dress-in-matyo-floral",
+            "link_label": "Shop the Kati Slip Dress"
+          }
+        },
+        "look_6": {
+          "type": "look",
+          "settings": {
+            "alt": "Look 06 — blue print on the bench",
+            "position": "center 35%",
+            "number": "No. 06",
+            "caption": "Bodie Scarf",
+            "link": "/products/bodie-scarf-in-twilight-plumes",
+            "link_label": "Shop the Bodie Scarf"
+          }
+        }
+      },
+      "block_order": [
+        "look_1",
+        "look_2",
+        "look_3",
+        "look_4",
+        "look_5",
+        "look_6"
+      ]
+    },
+    "quote": {
+      "type": "quote-band",
+      "settings": {
+        "quote": "\"Every print begins with Kati, my grandmother, who spent her days painting in her small Montreal studio. Art Nouveau ornament, the folkloric embroidery of her birthplace, the op-art graphics of the early 70's, the bowl of fruit on her table. She gathered inspiration everywhere and made it her own. Kambric Goods exists to carry her legacy forward.\"",
+        "attribution": "— Daisy Hartmann, founder of Kambric Goods",
+        "show_ornament": true,
+        "image_opacity": 60,
+        "wash_strength": 60
+      }
+    },
+    "marquee_bottom": {
+      "type": "marquee-strip",
+      "settings": {
+        "items": "Hartmann Studio Archive\nHand-Painted Heritage Prints\nNorthern California\nContemporary Womenswear\nEst. 1960s Montreal\nKambric Goods",
+        "style": "plain",
+        "reverse": true,
+        "duration": 32
+      }
     }
   },
   "order": [
-    "main"
+    "hero",
+    "marquee",
+    "new_arrivals",
+    "story",
+    "featured",
+    "lookbook",
+    "quote",
+    "marquee_bottom"
   ]
 }
