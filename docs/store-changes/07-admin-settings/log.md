@@ -1,4 +1,4 @@
-# Batch 07 log: paused — owner to type the two fields
+# Batch 07 log: ✅ done by the owner (2026-09-29)
 
 **2026-09-29 retry (owner: "go for batch 07"):** the Preferences form lives in a cross-origin frame (`online-store-web.shopifyapps.com`), invisible to Chrome automation's element tools. After clicking the Home page title field, the frame had focus but the input didn't: the typed text went to Shopify's admin keyboard shortcuts and opened **Add page** (same as the 2026-09-28 attempt). Closed without saving.
 
@@ -10,3 +10,5 @@
 | --- | --- |
 | Home page title | `Kambric Goods | Heritage Prints, Modern Womenswear` |
 | Meta description | `Kambric Goods pairs original mid-century hand-painted prints from the Hartmann Studio archive with modern womenswear and home goods. Designed in the Bay Area, made in limited quantities.` |
+
+**2026-09-29:** owner entered both fields. Verified on the dev theme: `<title>Kambric Goods | Heritage Prints, Modern Womenswear</title>` and the meta description. Social sharing image not set yet (owner deciding with the store owner); `og:image` falls back to the theme's `og-default.jpg`.

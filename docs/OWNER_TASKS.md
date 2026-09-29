@@ -29,7 +29,7 @@ New definitions the live site doesn't read.
 - ☑ **Monogram fee product** (`chainstitch-monogram`): Settings → Custom data → Products → **Add definition**, namespace and key **`seo.hidden`**, type **Integer**; then on the monogram product set it to **1**. This keeps it out of the Shopify-hosted sitemap and search (the theme already hides it from listings). The live site doesn't read this field. *(Done, batch 01.)*
 
 ### A3. Search listings (not read by the live site)
-- ☐ **Online Store → Preferences** (🟢, **you type these**: automation can't reach this form; see `store-changes/07-admin-settings/log.md`): *Home page title* `Kambric Goods | Heritage Prints, Modern Womenswear`; *Meta description* `Kambric Goods pairs original mid-century hand-painted prints from the Hartmann Studio archive with modern womenswear and home goods. Designed in the Bay Area, made in limited quantities.` → Save.
+- ☑ *(owner, 2026-09-29; social sharing image still to choose with the store owner, the theme's bundled image is used meanwhile)* **Online Store → Preferences** (🟢, **you type these**: automation can't reach this form; see `store-changes/07-admin-settings/log.md`): *Home page title* `Kambric Goods | Heritage Prints, Modern Womenswear`; *Meta description* `Kambric Goods pairs original mid-century hand-painted prints from the Hartmann Studio archive with modern womenswear and home goods. Designed in the Bay Area, made in limited quantities.` → Save.
 - ◐ **Collection search listings** (each collection → *Search engine listing*): titles and descriptions from `docs/store-data/collection-copy.csv` (`seo_title`, `seo_description`). **Don't touch the collection *Description* field yet** (that's 🔴 C2). *(Folklore, Psychedelics, Whimsy done in batch 05, 2026-09-28; the category/sale collections get theirs when batch 03 runs at cutover.)*
 - ☐ Product search listings: unique title and description per product (optional before launch).
 
@@ -105,7 +105,7 @@ Full detail and exact values: `docs/store-data/phase4/owner-notes/{home,about-ev
 
 ### A8. Phase 5 (cart, search, pop-up)
 Full notes: `docs/store-data/phase5/owner-tasks-{cart,search,popup}.md`.
-- ☐ 🟢 **Pop-up:** upload its image (`replit site/assets/uploads/57e0fcb8-…jpg`; Claude can set it in the template), review the copy, turn **Newsletter pop-up** on when ready (Customize → Footer).
+- ◐ 🟢 *(image uploaded and pop-up turned on, batch 11)* **Pop-up:** upload its image (`replit site/assets/uploads/57e0fcb8-…jpg`; Claude can set it in the template), review the copy, turn **Newsletter pop-up** on when ready (Customize → Footer).
 - ☐ 🟢 Optional: Shopify's **Search & Discovery** app for synonyms and search analytics.
 - Cart: nothing to do (checkout settings are shared 🔴 and untouched).
 
