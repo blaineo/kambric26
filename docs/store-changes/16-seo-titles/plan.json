@@ -1,0 +1,21 @@
+{
+  "products": {
+    "kati-slip-dress-in-matyo-floral": "Kati Slip Dress in Matyó Floral Print",
+    "jessie-slip-dress-in-twilight-plumes": "Jessie Slip Dress in Twilight Plumes Print",
+    "bodie-scarf-in-twilight-plumes": "Bodie Printed Silk-Cotton Scarf",
+    "goldie-bandana-in-matyo-floral": "Goldie Matyó Floral Cotton Bandana",
+    "margit-one-piece": "Margit Printed One-Piece Swimsuit",
+    "zadie-linen-dress": "Zadie Printed Linen Slip Dress",
+    "esther-kaftan": "Esther Printed Kaftan Dress",
+    "vera-car-coat": "Vera Printed Oversized Car Coat",
+    "arielle-dress": "Arielle Silk Slip Dress in Parlor Rose"
+  },
+  "collections": {
+    "dresses":     {"title": "Printed Silk & Linen Dresses"},
+    "kaftans":     {"title": "Printed Kaftans & Caftan Dresses"},
+    "coats":       {"title": "Statement Printed Coats"},
+    "swimwear":    {"title": "Colorful Printed One-Piece Swimsuits"},
+    "accessories": {"title": "Printed Scarves & Bandanas"},
+    "sale":        {"title": "Sale: Heritage Print Womenswear", "description": "Limited-run Kambric Goods pieces on sale: original mid-century hand-painted prints from the Hartmann Studio archive, while they last."}
+  }
+}

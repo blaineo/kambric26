@@ -1,0 +1,190 @@
+{
+  "collections": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Collection/451233054954",
+        "handle": "frontpage",
+        "title": "Home page",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Collection/451384148202",
+        "handle": "psychedelics",
+        "title": "Psychedelics",
+        "seo": {
+          "title": "Psychedelics | Kambric Goods",
+          "description": "The most vivid prints in the archive. Kati made these in the early '70s — kaleidoscopic colour fields that still feel ahead of their time."
+        }
+      },
+      {
+        "id": "gid://shopify/Collection/451384180970",
+        "handle": "folklore",
+        "title": "Folklore",
+        "seo": {
+          "title": "Folklore | Kambric Goods",
+          "description": "Rooted in Kati's earliest work — folk motifs, handwoven references, the geometry of old-world textiles rendered in her unmistakable hand."
+        }
+      },
+      {
+        "id": "gid://shopify/Collection/451384213738",
+        "handle": "whimsy",
+        "title": "Whimsy",
+        "seo": {
+          "title": "Whimsy | Kambric Goods",
+          "description": "Inspiration drawn from fresh fruit on her table and advertisements in the latest women's fashion magazines to bouquets of freshly cut wildflowers in a vase."
+        }
+      },
+      {
+        "id": "gid://shopify/Collection/454103105770",
+        "handle": "dresses",
+        "title": "Dresses",
+        "seo": {
+          "title": "Heritage Print Dresses | Kambric Goods",
+          "description": "Shop Kambric Goods dresses in original hand-painted heritage prints. Discover limited-quantity contemporary womenswear designed in the Bay Area."
+        }
+      },
+      {
+        "id": "gid://shopify/Collection/454103138538",
+        "handle": "kaftans",
+        "title": "Kaftans",
+        "seo": {
+          "title": "Printed Kaftans | Kambric Goods",
+          "description": "Discover Kambric Goods kaftans in expressive prints from the Hartmann Studio archive, made in limited quantities and designed in the Bay Area."
+        }
+      },
+      {
+        "id": "gid://shopify/Collection/454103171306",
+        "handle": "coats",
+        "title": "Coats",
+        "seo": {
+          "title": "Printed Coats & Outerwear | Kambric Goods",
+          "description": "Explore Kambric Goods coats and outerwear featuring original heritage prints from the Hartmann Studio archive, in limited quantities."
+        }
+      },
+      {
+        "id": "gid://shopify/Collection/454103204074",
+        "handle": "swimwear",
+        "title": "Swimwear",
+        "seo": {
+          "title": "Heritage Print Swimwear | Kambric Goods",
+          "description": "Shop Kambric Goods swimwear in colorful prints from the Hartmann Studio archive, designed in the Bay Area and made in limited quantities."
+        }
+      },
+      {
+        "id": "gid://shopify/Collection/454103236842",
+        "handle": "accessories",
+        "title": "Accessories",
+        "seo": {
+          "title": "Printed Accessories | Kambric Goods",
+          "description": "Find Kambric Goods accessories featuring original hand-painted prints from the Hartmann Studio archive, thoughtfully made in small quantities."
+        }
+      },
+      {
+        "id": "gid://shopify/Collection/454103269610",
+        "handle": "sale",
+        "title": "Sale",
+        "seo": {
+          "title": "Sale | Kambric Goods",
+          "description": null
+        }
+      }
+    ]
+  },
+  "products": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Product/8681284272362",
+        "handle": "kati-slip-dress-in-matyo-floral",
+        "title": "Kati Slip Dress",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8681284305130",
+        "handle": "jessie-slip-dress-in-twilight-plumes",
+        "title": "Jessie Slip Dress",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8681284665578",
+        "handle": "bodie-scarf-in-twilight-plumes",
+        "title": "Bodie Scarf",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8681284698346",
+        "handle": "goldie-bandana-in-matyo-floral",
+        "title": "Goldie Bandana",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690060460266",
+        "handle": "chainstitch-monogram",
+        "title": "Chainstitch Monogram",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544312554",
+        "handle": "margit-one-piece",
+        "title": "Margit One-Piece",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544345322",
+        "handle": "zadie-linen-dress",
+        "title": "Zadie Linen Dress",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544378090",
+        "handle": "esther-kaftan",
+        "title": "Esther Kaftan",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8690544410858",
+        "handle": "vera-car-coat",
+        "title": "Vera Car Coat",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      },
+      {
+        "id": "gid://shopify/Product/8721345642730",
+        "handle": "arielle-dress",
+        "title": "Arielle Slip Dress",
+        "seo": {
+          "title": null,
+          "description": null
+        }
+      }
+    ]
+  }
+}
