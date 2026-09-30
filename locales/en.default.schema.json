@@ -173,6 +173,28 @@
       "name": "Social media",
       "instagram": "Instagram URL",
       "pinterest": "Pinterest URL"
+    },
+    "commerce": {
+      "name": "Shipping & returns (Google)",
+      "intro": "Shown to Google in each product's structured data (Merchant listings). Keep these the same as Settings → Shipping and delivery and the Returns page. US only.",
+      "shipping_header": "US standard shipping",
+      "ship_standard_rate": "Standard rate (USD)",
+      "ship_free_threshold": "Free shipping from (USD)",
+      "ship_free_threshold_info": "Order total at which standard shipping is free. Leave empty if there's no free-shipping threshold.",
+      "ship_handling_min": "Processing time, minimum (business days)",
+      "ship_handling_max": "Processing time, maximum (business days)",
+      "ship_transit_min": "Delivery time, minimum (business days)",
+      "ship_transit_max": "Delivery time, maximum (business days)",
+      "returns_header": "Returns",
+      "return_days": "Return window (days from delivery)",
+      "return_fees": "Who pays for returns",
+      "return_fees_info": "Must match the Returns page. \"Not stated\" leaves it out (Google shows a warning).",
+      "return_fees_unset": "Not stated",
+      "return_fees_free": "Free returns",
+      "return_fees_customer": "Customer pays return shipping",
+      "return_fees_flat": "Flat return fee",
+      "return_fee_amount": "Flat return fee (USD)",
+      "return_fee_amount_info": "Only used with \"Flat return fee\"."
     }
   },
   "sections": {

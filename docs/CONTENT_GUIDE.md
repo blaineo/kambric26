@@ -727,6 +727,12 @@ this one.
 
 ---
 
+## Shipping & returns for Google (Theme settings)
+
+**Theme settings → Shipping & returns (Google)** feeds the shipping and return details Google shows in product listings (Search Console "Merchant listings"). US only. **Keep it in step** with *Settings → Shipping and delivery* and the Returns page whenever either changes:
+- US standard rate ($9), free-shipping threshold ($300), processing time (2–3 business days) and delivery time (3–7 business days).
+- Return window (14 days from delivery) and **who pays for returns** (free / customer pays return shipping / flat fee). Until that's set to match the Returns page, Search Console keeps a "Missing returnFees" warning.
+
 ## Social sharing images (links in iMessage, Instagram, Pinterest, Facebook, X)
 
 Nothing to upload: each page shares a **1200 × 630 crop of its own hero photo**, made automatically.

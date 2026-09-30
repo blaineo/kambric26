@@ -12,6 +12,14 @@
     "social_instagram": "https://www.instagram.com/kambricgoods",
     "social_pinterest": "https://pinterest.com/kambricgoods",
     "share_image": "shopify://shop_images/home-hero-background.png",
-    "google_site_verification": "L9KDAhXpYiV9y92_x1Vg0cw5VsqO3646-FVBeh8Phrc"
+    "google_site_verification": "L9KDAhXpYiV9y92_x1Vg0cw5VsqO3646-FVBeh8Phrc",
+    "ship_standard_rate": 9,
+    "ship_free_threshold": 300,
+    "ship_handling_min": 2,
+    "ship_handling_max": 3,
+    "ship_transit_min": 3,
+    "ship_transit_max": 7,
+    "return_days": 14,
+    "return_fees": "unset"
   }
 }

@@ -103,6 +103,35 @@
     endif
     assign varies = varies | remove_last: ','
     assign group_url = shop.url | append: product.url
+
+    assign ld_description = product.description | strip_html | strip_newlines | strip
+    if ld_description == blank
+      if single_print != blank
+        assign ld_description = 'products.product.fallback_description_prints' | t: title: product.title, prints: single_print
+      else
+        assign ld_prints = ''
+        for option in product.options_with_values
+          if option.name == 'Print' or option.name == 'Colorway'
+            assign ld_prints = option.values | join: ', '
+          endif
+        endfor
+        if ld_prints != blank
+          assign ld_description = 'products.product.fallback_description_prints' | t: title: product.title, prints: ld_prints
+        else
+          assign ld_description = 'products.product.fallback_description' | t: title: product.title
+        endif
+      endif
+    endif
+
+    comment
+      Shipping and returns for Google come from Theme settings → Shipping & returns (Google).
+    endcomment
+    assign free_from = settings.ship_free_threshold | times: 100
+    capture shipping_times
+      echo '"deliveryTime": { "@type": "ShippingDeliveryTime", '
+      echo '"handlingTime": { "@type": "QuantitativeValue", "minValue": ' | append: settings.ship_handling_min | append: ', "maxValue": ' | append: settings.ship_handling_max | append: ', "unitCode": "DAY" }, '
+      echo '"transitTime": { "@type": "QuantitativeValue", "minValue": ' | append: settings.ship_transit_min | append: ', "maxValue": ' | append: settings.ship_transit_max | append: ', "unitCode": "DAY" } }'
+    endcapture
     assign print_idx = print_pos | minus: 1
     assign size_idx = size_pos | minus: 1
   -%}
@@ -113,7 +142,7 @@
       "@id": {{ group_url | append: '#product' | json }},
       "productGroupID": {{ product.id | json }},
       "name": {{ product.title | json }},
-      "description": {{ product.description | strip_html | strip_newlines | strip | json }},
+      "description": {{ ld_description | json }},
       "url": {{ group_url | json }},
       "brand": { "@type": "Brand", "name": {{ product.vendor | default: shop.name | json }} },
       {%- if product.category %}"category": {{ product.category.name | json }},{% elsif product.type != blank %}"category": {{ product.type | json }},{% endif %}
@@ -141,6 +170,7 @@
             "@type": "Product",
             "@id": {{ v_url | append: '#variant' | json }},
             "name": {{ product.title | append: ' - ' | append: variant.title | json }},
+            "description": {{ ld_description | json }},
             {%- if variant.sku != blank %}"sku": {{ variant.sku | json }},{% endif %}
             {%- if variant.barcode != blank %}"gtin": {{ variant.barcode | json }},{% endif %}
             {%- if v_image %}"image": {{ v_image | image_url: width: 1600 | prepend: 'https:' | json }},{% endif %}
@@ -154,12 +184,33 @@
               "itemCondition": "https://schema.org/NewCondition",
               "availability": "https://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
               "seller": { "@type": "Organization", "name": {{ shop.name | json }} },
+              {%- liquid
+                assign ship_rate = settings.ship_standard_rate | default: 0
+                if settings.ship_free_threshold != blank and variant.price >= free_from
+                  assign ship_rate = 0
+                endif
+              -%}
+              "shippingDetails": {
+                "@type": "OfferShippingDetails",
+                "shippingRate": { "@type": "MonetaryAmount", "value": {{ ship_rate | json }}, "currency": "USD" },
+                "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" },
+                {{ shipping_times }}
+              },
               "hasMerchantReturnPolicy": {
                 "@type": "MerchantReturnPolicy",
                 "applicableCountry": "US",
                 "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-                "merchantReturnDays": 14,
+                "merchantReturnDays": {{ settings.return_days | default: 14 }},
                 "returnMethod": "https://schema.org/ReturnByMail"
+                {%- case settings.return_fees -%}
+                  {%- when 'free' %},
+                "returnFees": "https://schema.org/FreeReturn"
+                  {%- when 'customer' %},
+                "returnFees": "https://schema.org/ReturnFeesCustomerResponsibility"
+                  {%- when 'flat' %},
+                "returnFees": "https://schema.org/ReturnShippingFees",
+                "returnShippingFeesAmount": { "@type": "MonetaryAmount", "value": {{ settings.return_fee_amount | default: 0 | json }}, "currency": "USD" }
+                {%- endcase %}
               }
             }
           }{%- unless forloop.last -%},{%- endunless -%}
