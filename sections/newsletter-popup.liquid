@@ -217,6 +217,13 @@
     display: none;
   }
 
+  /* The cover picture fills the fixed-height media strip (it had no height of its own, so the
+     absolutely positioned <img> inside it rendered 0px tall). */
+  .promo-popup__media .promo-popup__picture {
+    position: absolute;
+    inset: 0;
+  }
+
   .promo-popup__img {
     width: 100%;
     height: 100%;
