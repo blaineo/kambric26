@@ -20,6 +20,6 @@
     "ship_transit_min": 3,
     "ship_transit_max": 7,
     "return_days": 14,
-    "return_fees": "unset"
+    "return_fees": "customer"
   }
 }
