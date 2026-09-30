@@ -1,0 +1,30 @@
+{% doc %}
+  hCaptcha disclosure for forms Shopify protects with hCaptcha (customer sign-ups, contact forms).
+  hCaptcha lets the floating badge be hidden when each protected form carries this notice; the
+  badge (`#shop-hcaptcha-badge-container`) is hidden in assets/critical.css.
+
+  @param {string} [class] - Extra class(es)
+
+  @example
+  {% render 'hcaptcha-notice' %}
+{% enddoc %}
+<p class="hcaptcha-notice {{ class }}">
+  {{- 'general.hcaptcha_notice_html' | t: privacy: 'https://www.hcaptcha.com/privacy', terms: 'https://www.hcaptcha.com/terms' -}}
+</p>
+
+{% stylesheet %}
+  :where(.hcaptcha-notice) {
+    margin: var(--space-3) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    line-height: var(--leading-relaxed);
+    letter-spacing: 0.02em;
+    color: var(--color-muted-foreground);
+  }
+
+  :where(.hcaptcha-notice) a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+{% endstylesheet %}

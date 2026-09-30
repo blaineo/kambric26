@@ -372,3 +372,9 @@ main:focus {
     scroll-behavior: auto !important;
   }
 }
+
+/* Shopify's floating hCaptcha badge is hidden; every protected form shows the hCaptcha notice
+   instead (snippets/hcaptcha-notice.liquid), as hCaptcha's terms allow. */
+#shop-hcaptcha-badge-container {
+  display: none !important;
+}

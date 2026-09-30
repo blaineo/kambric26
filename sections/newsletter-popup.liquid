@@ -112,6 +112,7 @@
             >
 
             {%- render 'button', label: button_label, variant: 'outline', type: 'submit', class: 'promo-popup__submit' -%}
+            {%- render 'hcaptcha-notice' -%}
 
             <p class="promo-popup__message promo-popup__message--error" role="alert" data-promo-popup-error hidden>
               {{- error_copy -}}

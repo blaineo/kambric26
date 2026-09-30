@@ -727,6 +727,14 @@ this one.
 
 ---
 
+## Spam protection (hCaptcha)
+
+Shopify protects the sign-up forms (footer, pop-up) and the back-in-stock form with hCaptcha
+(**Online Store → Preferences → Spam protection**; leave it on). Its floating badge is hidden by the
+theme; instead each protected form shows a one-line notice ("This site is protected by hCaptcha…"),
+which hCaptcha's terms require when the badge is hidden. Don't remove the notice. The wording is in
+the theme's language file (`general.hcaptcha_notice_html`).
+
 ## Shipping & returns for Google (Theme settings)
 
 **Theme settings → Shipping & returns (Google)** feeds the shipping and return details Google shows in product listings (Search Console "Merchant listings"). US only. **Keep it in step** with *Settings → Shipping and delivery* and the Returns page whenever either changes:

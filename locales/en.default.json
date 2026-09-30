@@ -124,7 +124,8 @@
   "general": {
     "page": "Page {{ page }}",
     "page_not_found": "Page Not Found",
-    "home_description": "Kambric Goods pairs original mid-century hand-painted prints from the Hartmann Studio archive with modern womenswear and home goods. Designed in the Bay Area, made in limited quantities."
+    "home_description": "Kambric Goods pairs original mid-century hand-painted prints from the Hartmann Studio archive with modern womenswear and home goods. Designed in the Bay Area, made in limited quantities.",
+    "hcaptcha_notice_html": "This site is protected by hCaptcha. Its <a href=\"{{ privacy }}\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a> and <a href=\"{{ terms }}\" target=\"_blank\" rel=\"noopener\">Terms of Service</a> apply."
   },
   "header": {
     "menu": "Menu",
