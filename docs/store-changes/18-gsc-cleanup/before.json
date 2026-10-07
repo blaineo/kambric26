@@ -1,0 +1,62 @@
+{
+  "shop": {
+    "id": "gid://shopify/Shop/71406846186"
+  },
+  "products": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Product/8681284665578",
+        "handle": "bodie-scarf-in-twilight-plumes"
+      },
+      {
+        "id": "gid://shopify/Product/8681284698346",
+        "handle": "goldie-bandana-in-matyo-floral"
+      },
+      {
+        "id": "gid://shopify/Product/8721345642730",
+        "handle": "arielle-dress"
+      }
+    ]
+  },
+  "articles": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Article/590518747370",
+        "handle": "where-kambric-began",
+        "k": null
+      },
+      {
+        "id": "gid://shopify/Article/590518780138",
+        "handle": "first-look-ss27",
+        "k": null
+      },
+      {
+        "id": "gid://shopify/Article/590518812906",
+        "handle": "arielle-dress",
+        "k": null
+      },
+      {
+        "id": "gid://shopify/Article/590518845674",
+        "handle": "chainstitch",
+        "k": null
+      },
+      {
+        "id": "gid://shopify/Article/590518878442",
+        "handle": "gearing-up-for-dallas",
+        "k": null
+      }
+    ]
+  },
+  "collections": {
+    "nodes": [
+      {
+        "id": "gid://shopify/Collection/451233054954",
+        "handle": "frontpage",
+        "h": null
+      }
+    ]
+  },
+  "metafieldDefinitions": {
+    "nodes": []
+  }
+}
