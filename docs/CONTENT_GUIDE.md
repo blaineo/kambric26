@@ -648,6 +648,10 @@ of the post's admin page so the post has a distinct summary for search
 results (the theme composes the browser title for you; this affects the
 description search engines show and the two are independent).
 
+### Linking a journal post to products
+
+Each journal post has a **Products in this story** field (bottom of the post in the admin). Pick the pieces the post is about: they appear as cards under the post, and each product page gets a "From the Journal" link back to the post. Good for search engines and shoppers; leave it empty if no piece fits.
+
 ### Editing info pages (Contact, Wholesale, Shipping, Returns, Size Guide)
 
 These live under **Online Store → Pages**. Five pages: `contact`,

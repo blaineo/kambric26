@@ -1,0 +1,394 @@
+[
+ {
+  "path": "/home/p/maty-car-coat",
+  "status": 200,
+  "final": "/products/vera-car-coat?variant=46124608356586",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/maty-car-coat-pffhg",
+  "status": 200,
+  "final": "/products/vera-car-coat?variant=46124608356586",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/maty-slip-dress",
+  "status": 200,
+  "final": "/products/kati-slip-dress-in-matyo-floral",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/maty-slip-dress-nwg8z",
+  "status": 200,
+  "final": "/products/jessie-slip-dress-in-twilight-plumes",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/magnolia-one-piece",
+  "status": 200,
+  "final": "/products/margit-one-piece?variant=46124606882026",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/magnolia-kaftan-dress",
+  "status": 200,
+  "final": "/products/esther-kaftan?variant=46124608127210",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/moonillusion-onepiece",
+  "status": 200,
+  "final": "/products/margit-one-piece?variant=46124606095594",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/pastel-asterisk-one-piece",
+  "status": 200,
+  "final": "/products/margit-one-piece?variant=46124606488810",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/orange-asterisk-one-piece",
+  "status": 200,
+  "final": "/products/margit-one-piece?variant=46124606685418",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/presale-linen-slip-dress-in-grapefruit-tartan",
+  "status": 200,
+  "final": "/products/zadie-linen-dress?variant=46124607537386",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/presale-linen-slip-dress-in-grapefruit-tartan-2x9xt",
+  "status": 200,
+  "final": "/products/zadie-linen-dress?variant=46124607537386",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/presale-wildflowers-one-piece-maillot",
+  "status": 200,
+  "final": "/products/margit-one-piece?variant=46124607209706",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/wildflowers-linen-slip-dress",
+  "status": 200,
+  "final": "/products/zadie-linen-dress?variant=46124607340778",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/twilight-blue-silky-slip-dress",
+  "status": 200,
+  "final": "/products/jessie-slip-dress-in-twilight-plumes",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/twilight-blue-silk-scarf",
+  "status": 200,
+  "final": "/products/bodie-scarf-in-twilight-plumes",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/good-vibrations-kaftan-dress",
+  "status": 200,
+  "final": "/products/esther-kaftan?variant=46124607930602",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/good-vibrations-kaftan-dress-csytw",
+  "status": 200,
+  "final": "/products/esther-kaftan?variant=46124607930602",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/good-vibrations-one-piece",
+  "status": 200,
+  "final": "/products/margit-one-piece?variant=46124606292202",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/good-vibrations-one-piece-8kal6",
+  "status": 200,
+  "final": "/products/margit-one-piece?variant=46124606292202",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/dahlia-seed-kaftan-dress",
+  "status": 200,
+  "final": "/products/esther-kaftan?variant=46124608028906",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/dahlia-seed-scarf",
+  "status": 200,
+  "final": "/collections/accessories",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/midnight-gingko-twill-coat",
+  "status": 200,
+  "final": "/products/vera-car-coat?variant=46124608225514",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/rattlesnake-scarf",
+  "status": 200,
+  "final": "/collections/accessories",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/rattlesnake-scarf-k2afd",
+  "status": 200,
+  "final": "/products/goldie-bandana-in-matyo-floral",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/rattlesnake-scarf-k2afd-8wz8j",
+  "status": 200,
+  "final": "/collections/accessories",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/rattlesnake-scarf-3l62x",
+  "status": 200,
+  "final": "/products/bodie-scarf-in-twilight-plumes",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/hampui-x-kg-lavender-cowboy-hat",
+  "status": 200,
+  "final": "/collections/accessories",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/apkzi93scxf8ppzkdm53czi4vvpr3d",
+  "status": 404,
+  "final": "/home/p/apkzi93scxf8ppzkdm53czi4vvpr3d",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/jzpd3aexzcec3hafzzw7ph7dshc040",
+  "status": 404,
+  "final": "/home/p/jzpd3aexzcec3hafzzw7ph7dshc040",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/a1ogkdunwrp6hwigpywndfntng96sr",
+  "status": 404,
+  "final": "/home/p/a1ogkdunwrp6hwigpywndfntng96sr",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/1995smpszq5ysdlp94s5691scfrcg5",
+  "status": 404,
+  "final": "/home/p/1995smpszq5ysdlp94s5691scfrcg5",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/8obazrlhk1qbrc5m4zp5ni1l6r8r6j",
+  "status": 404,
+  "final": "/home/p/8obazrlhk1qbrc5m4zp5ni1l6r8r6j",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/o6s0c8y09agq8nhgft75wti2yf9mtm",
+  "status": 404,
+  "final": "/home/p/o6s0c8y09agq8nhgft75wti2yf9mtm",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ },
+ {
+  "path": "/home/p/oycpr7s44mlixppo0oa5o49h949ho4",
+  "status": 404,
+  "final": "/home/p/oycpr7s44mlixppo0oa5o49h949ho4",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ },
+ {
+  "path": "/home/shop-all",
+  "status": 200,
+  "final": "/collections/all",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/home-goods",
+  "status": 404,
+  "final": "/home/home-goods",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ },
+ {
+  "path": "/home/accessories",
+  "status": 200,
+  "final": "/collections/accessories",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/accessories/scarves",
+  "status": 200,
+  "final": "/collections/accessories",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/accessories/hats",
+  "status": 200,
+  "final": "/collections/accessories",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/womenswear/dresses",
+  "status": 200,
+  "final": "/collections/dresses",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/womenswear/kaftans",
+  "status": 200,
+  "final": "/collections/kaftans",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/womenswear/coats",
+  "status": 200,
+  "final": "/collections/coats",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/home/womenswear/swimwear",
+  "status": 200,
+  "final": "/collections/swimwear",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/happenings/embroidery-pop-up-riverco",
+  "status": 200,
+  "final": "/pages/events",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/products/8690544312554",
+  "status": 200,
+  "final": "/products/margit-one-piece",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/products/8690544378090",
+  "status": 200,
+  "final": "/products/esther-kaftan",
+  "hops": 1,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": ""
+ },
+ {
+  "path": "/blogs/news",
+  "status": 200,
+  "final": "/blogs/news",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ },
+ {
+  "path": "/shop",
+  "status": 200,
+  "final": "/shop",
+  "hops": 0,
+  "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+  "refresh": "0; url=/collections/all"
+ },
+ {
+  "path": "/stockists",
+  "status": 404,
+  "final": "/stockists",
+  "hops": 0,
+  "robots": "noindex, follow",
+  "refresh": ""
+ }
+]

@@ -1,0 +1,66 @@
+{
+ "redirects": [
+  {
+   "id": "gid://shopify/UrlRedirect/483961143530",
+   "path": "/home/p/maty-car-coat-pffhg"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961176298",
+   "path": "/home/p/presale-linen-slip-dress-in-grapefruit-tartan-2x9xt"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961209066",
+   "path": "/home/p/presale-wildflowers-one-piece-maillot"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961241834",
+   "path": "/home/p/twilight-blue-silky-slip-dress"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961274602",
+   "path": "/home/p/twilight-blue-silk-scarf"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961307370",
+   "path": "/home/p/good-vibrations-kaftan-dress-csytw"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961340138",
+   "path": "/home/p/good-vibrations-one-piece-8kal6"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961372906",
+   "path": "/home/p/midnight-gingko-twill-coat"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961405674",
+   "path": "/home/p/hampui-x-kg-lavender-cowboy-hat"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961438442",
+   "path": "/home/shop-all"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961471210",
+   "path": "/home/accessories/scarves"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961503978",
+   "path": "/home/accessories/hats"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961536746",
+   "path": "/happenings/embroidery-pop-up-riverco"
+  },
+  {
+   "id": "gid://shopify/UrlRedirect/483961569514",
+   "path": "/blogs/news"
+  }
+ ],
+ "frontpage_hidden": true,
+ "definition": "gid://shopify/MetafieldDefinition/82182209770",
+ "article_fields": [
+  "gid://shopify/Article/590518812906",
+  "gid://shopify/Article/590518845674"
+ ]
+}
