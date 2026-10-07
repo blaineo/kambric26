@@ -436,6 +436,29 @@
                   </dd>
                 </div>
               {%- endif -%}
+              {%- comment -%}
+                Journal posts that feature this product (their "Products in this story" field,
+                kambric.products), linked from here so the post and the product point at each other.
+              {%- endcomment -%}
+              {%- assign journal_count = 0 -%}
+              {%- capture journal_links -%}
+                {%- for story in blogs['journal'].articles limit: 50 -%}
+                  {%- for story_product in story.metafields.kambric.products.value -%}
+                    {%- if story_product.id == product.id -%}
+                      {%- if journal_count > 0 -%}<br>{%- endif -%}
+                      <a href="{{ story.url }}">{{ story.title | escape }}</a>
+                      {%- assign journal_count = journal_count | plus: 1 -%}
+                      {%- break -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endfor -%}
+              {%- endcapture -%}
+              {%- if journal_count > 0 -%}
+                <div class="product-meta__row">
+                  <dt class="product-label">{{ 'products.product.from_journal' | t }}</dt>
+                  <dd class="product-meta__value">{{ journal_links }}</dd>
+                </div>
+              {%- endif -%}
             </dl>
 
           {%- when 'text' -%}

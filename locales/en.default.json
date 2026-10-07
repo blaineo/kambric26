@@ -209,7 +209,8 @@
       "collection": "Collection",
       "view_collection": "View Collection →",
       "fallback_description_prints": "{{ title }} in {{ prints }}: original hand-painted prints from the Hartmann Studio archive, made by Kambric Goods in limited quantities.",
-      "fallback_description": "{{ title }} by Kambric Goods: an original hand-painted print from the Hartmann Studio archive, made in limited quantities."
+      "fallback_description": "{{ title }} by Kambric Goods: an original hand-painted print from the Hartmann Studio archive, made in limited quantities.",
+      "from_journal": "From the Journal"
     },
     "monogram": {
       "legend": "Chainstitch monogram",
@@ -259,7 +260,8 @@
     "back_to_journal": "Journal",
     "all_stories": "All stories",
     "shop_the_collection": "Shop the Collection",
-    "products_in_story": "Products in this story"
+    "products_in_story": "Products in this story",
+    "more_stories": "More from the Journal"
   },
   "size_table": {
     "column_size": "Size",

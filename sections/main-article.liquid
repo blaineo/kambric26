@@ -57,7 +57,11 @@
     </div>
   {%- endif -%}
 
-  {%- assign featured_products = section.settings.product_list -%}
+  {%- comment -%}
+    Products in this story: the post's own "Products in this story" field (kambric.products),
+    else the section's product list.
+  {%- endcomment -%}
+  {%- assign featured_products = article.metafields.kambric.products.value | default: section.settings.product_list -%}
   {%- if featured_products.size > 0 -%}
     <div class="main-article__products">
       <h2 class="main-article__products-heading">{{ 'journal.products_in_story' | t }}</h2>
@@ -69,6 +73,22 @@
         {%- endfor -%}
       </ul>
     </div>
+  {%- endif -%}
+
+  {%- comment -%} More stories: up to two other posts, so every post links to its neighbours {%- endcomment -%}
+  {%- assign more_count = 0 -%}
+  {%- capture more_stories -%}
+    {%- for story in blog.articles limit: 6 -%}
+      {%- if story.id == article.id or more_count >= 2 -%}{%- continue -%}{%- endif -%}
+      {%- assign more_count = more_count | plus: 1 -%}
+      <li><a class="main-article__more-link" href="{{ story.url }}">{{ story.title | escape }}</a></li>
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- if more_count > 0 -%}
+    <nav class="main-article__more" aria-labelledby="MoreStories-{{ section.id }}">
+      <h2 class="main-article__more-heading" id="MoreStories-{{ section.id }}">{{ 'journal.more_stories' | t }}</h2>
+      <ul class="main-article__more-list" role="list">{{ more_stories }}</ul>
+    </nav>
   {%- endif -%}
 
   <div class="main-article__footer">
@@ -163,6 +183,40 @@
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  .main-article__more {
+    margin-block-start: var(--space-16);
+  }
+
+  .main-article__more-heading {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-sans);
+    font-size: var(--text-10);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-nav);
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+
+  .main-article__more-list {
+    display: grid;
+    gap: var(--space-3);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .main-article__more-link {
+    font-family: var(--font-serif);
+    font-size: var(--text-22);
+    color: var(--color-foreground);
+    text-decoration: none;
+  }
+
+  .main-article__more-link:hover,
+  .main-article__more-link:focus-visible {
+    color: var(--color-primary);
   }
 
   .main-article__footer {

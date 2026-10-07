@@ -172,6 +172,14 @@
   shop page instead: an instant meta refresh is treated like a redirect by Google.
 {%- endcomment -%}
 {%- if request.path == '/shop' -%}
+  {%- comment -%} Old links like /shop?category=Dresses go straight to that category; everything else to Shop all {%- endcomment -%}
+  <script>
+    (function () {
+      var c = (new URLSearchParams(location.search).get('category') || '').toLowerCase().trim();
+      var known = { dresses: 1, kaftans: 1, coats: 1, swimwear: 1, accessories: 1, sale: 1 };
+      location.replace(known[c] ? '/collections/' + c : {{ routes.all_products_collection_url | json }});
+    })();
+  </script>
   <meta http-equiv="refresh" content="0; url={{ routes.all_products_collection_url }}">
   <link rel="canonical" href="{{ request.origin }}{{ routes.all_products_collection_url }}">
 {%- else -%}
