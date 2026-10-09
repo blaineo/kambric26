@@ -19,7 +19,7 @@ We're rebuilding **kambricgoods.com** (currently a React/Vite/Tailwind v4 app on
 
    | Safe playground (Online Store only) | **Shared with the live Replit site: be careful** |
    | --- | --- |
-   | Themes (dev, unpublished, and even the published Online Store theme), theme settings and editor content | Products, variants, prices, inventory, images and **image alt text** (it groups prints), tags, product types |
+   | Themes (dev, unpublished, and even the published Online Store theme), theme settings and editor content | Products, variants, prices, inventory, images and **image alt text** (its `Print |` prefix groups prints), tags, product types |
    | Menus, pages, blogs/articles, new metaobjects, Online Store URL redirects, `robots.txt.liquid` | Collections: creating one, or its **sales-channel publication**; the Replit site lists every collection it can see |
    | | Metafields the Replit site reads: `kambric.prints`, `print_name`, `print_story`, `season`, `year` |
    | | Checkout, discounts, shipping, payments, markets, policies, customer accounts, notifications (one checkout serves both sites) |
@@ -120,7 +120,7 @@ Targets on mobile (Lighthouse mobile plus field CrUX once live): **LCP < 2.5s, C
   - `'priority'`: at most one per page, the LCP image (hero or first product image). It's eager, gets `fetchpriority="high"`, and is preloaded by our own `<link rel="preload" imagesrcset imagesizes>` in the snippet. **Never use `image_tag`'s `preload: true`**: Shopify sends it as an HTTP Link header with unquoted `imagesrcset`/`imagesizes`, the commas break the header, and the browser preloads the wrong file.
   - `'eager'`: anything else above the fold at 1440 or 390 (e.g. the logo).
   - `'lazy'`: the default, everything else.
-- **Alt text:** the image's own alt text (Content → Files / product media) is the default; a section's *Image description* setting only overrides it (`{%- assign x_alt = s.image_alt | default: s.image.alt | default: '' -%}`, assigned before `render`). Decorative images pass `alt: ''`. Product media alt still encodes the print (grouping), so product cards and galleries generate their descriptions instead. See HANDOFF "Best practices".
+- **Alt text:** the image's own alt text (Content → Files / product media) is the default; a section's *Image description* setting only overrides it (`{%- assign x_alt = s.image_alt | default: s.image.alt | default: '' -%}`, assigned before `render`). Decorative images pass `alt: ''`. Product media alt is `Print | description` (the print part groups photos); the gallery shows the description or generates one, and cards generate theirs. See HANDOFF "Best practices".
 - **Size and quality:** pass a realistic `sizes` value, cap widths at what's displayed ×2 (DPR), and crop at the CDN (`crop`/`height`) rather than in CSS. Bundled assets in `assets/` must be optimised before commit (PNG → palette PNG/WebP/SVG where lossless; JPG q≈78–82).
 - **Layout shift:** reserve space for everything that loads later (images, embeds, the announcement bar, the sticky header). Fonts use `font-display: swap` plus **metric-matched fallback faces** (`size-adjust`/`ascent-override`) so the swap doesn't shift layout.
 - **JS:** none by default. Custom elements are deferred modules and enhance working HTML. No third-party scripts without owner sign-off.

@@ -36,10 +36,11 @@
 
   if option_index >= 0 and print != blank
     comment
-      1. Alt text equals the print value.
+      1. Alt text equals the print value, or starts with it before " | " ("Magnolia | back view").
     endcomment
     for image in product.images
-      if image.alt == print
+      assign alt_print = image.alt | split: ' | ' | first | strip
+      if image.alt == print or alt_print == print
         assign found = found | append: forloop.index0 | append: ','
       endif
     endfor

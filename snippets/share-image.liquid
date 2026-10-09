@@ -20,7 +20,7 @@
       render 'share-crop-url', image: image, position: position
     endcapture
     assign share_url = share_url | strip
-    assign share_alt = image.alt | escape | replace: '|', ' ' | replace: '--', '-'
+    assign share_alt = image.alt | split: ' | ' | last | escape | replace: '|', ' ' | replace: '--', '-'
     echo '<!-- kg-share-image: https:' | append: share_url | append: '|' | append: share_alt | append: ' -->'
   -%}
 {%- endif -%}

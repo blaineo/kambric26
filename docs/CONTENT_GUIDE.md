@@ -290,7 +290,7 @@ Rich text in pages and journal posts is styled automatically, including **real t
 - A card's price, **Sale** badge and **Sold out** badge come from that print's sizes. It says "Sold out" only when every size of that print is gone.
 - **Which collection a print appears in:** normally the product's own collection (set on the product as usual). Only a product whose prints belong to *different* collections (today: **Margit**) sets it per print, in the product's *Prints* data (`collection`). ⚠️ Shared with the live site. The developer's data plan removes the old per-print settings that aren't needed, which also fixes the empty **Whimsy** page.
 - **Which photo a card shows:**
-  1. Photos whose alt text is exactly the print name (e.g. `Dahlia Seed`). ⚠️ Leave these alt texts alone until launch; the live site uses them too.
+  1. Photos whose alt text is the print name (`Dahlia Seed`, or `Dahlia Seed | description`).
   2. Otherwise, the photo assigned to that print's variants (safe to set).
   3. Otherwise, the product's first photos.
   The second photo fades in on hover (desktop only). Cards are cropped to 3:4, so set a **focal point** to move the crop.
@@ -328,10 +328,10 @@ Nothing to set up. Breadcrumbs ("Home › Folklore › Arielle Slip Dress") use 
 
 ### Photos per print
 The gallery shows every photo of the selected print:
-1. photos whose **alt text is exactly the print name** (e.g. `Magnolia`); otherwise
+1. photos whose **alt text is the print name**, alone (`Magnolia`) or followed by ` | ` and a description (`Magnolia | back view showing the low V-back`); otherwise
 2. photos **assigned to that print's variants** plus photos whose **file name contains the print name** (e.g. `ArielleDress_Olive_2.jpg`); otherwise
 3. all the product's photos.
-Single-print products always show all their photos. ⚠️ Don't change product image alt text before launch; the live site groups photos with it. The first photo loads first, so put the best one first.
+Single-print products always show all their photos. The first photo loads first, so put the best one first. To describe each photo, see *Image descriptions on product pages* below.
 
 ### Links to a print
 Each print swatch links to `/products/<handle>?variant=<id>` (Shopify's own variant link), and the page opens on that print. Choosing a size updates the link, so a copied link keeps the size too. Old links such as `?print=Magnolia` still work. Search engines always see the plain `/products/<handle>` address.
@@ -750,11 +750,20 @@ the theme's language file (`general.hcaptcha_notice_html`).
 **Describe a photo on the photo itself:** Content → Files → click the image → *Alt text* (one plain sentence about what's in the picture, e.g. "Arielle Slip Dress in Olive, worn in a field of teasels"). Every page that shows that image uses it automatically, and when you swap a photo in Customize, the new photo's description comes with it.
 - The *Image description* fields in Customize are only for overriding that on one page. Normally leave them empty.
 - Photos that are just a background behind text don't need a description.
-- **Not for product photos (for now):** a product photo's alt text still tells the site which print it shows. Product descriptions are generated automatically (see below).
+- **Product photos** follow a small format (see *Image descriptions on product pages* below).
+
+## Image descriptions (alt text) on product pages
+
+Each gallery photo can say what that view shows (e.g. "back view showing the low V-back, Matyó Floral viscose"). Edit it on the product: **Products → the product → click the photo → Alt text.**
+
+- **Products with a Print or Colorway option** (Margit, Zadie, Esther, Vera, Arielle): write **the print name, then ` | `, then the description**: `Magnolia | back view showing the low V-back`. The part before ` | ` must be exactly the print name (it decides which print the photo belongs to); only the description is shown to visitors. Arielle's photos are grouped by file name, so its alt text can be just the description.
+- **Single-print products** (Kati, Jessie, Bodie, Goldie): write just the description.
+- **Left empty (or just the print name):** the site describes the photo for you: "<product>[ in <print>], <fabric>, view 3 of 8". The fabric comes from the product's *Fabric* field.
+- Describe what's visible and differs between views (front, back, detail of the print, worn outdoors), in one short phrase. Mention the print and fabric where it helps.
 
 ## Image descriptions (alt text) on product cards
 
-Product cards (Shop, collections, home rails, search) describe their photo automatically: "<product name> in <print> print" (just the product name when the name already includes the print). Nothing to fill in. Don't use a product photo's own *alt text* field in the admin for descriptions yet: it still records which print the photo shows (that's how the gallery groups photos by print). Product pages describe gallery photos the same way automatically.
+Product cards (Shop, collections, home rails, search) describe their photo automatically: "<product name> in <print> print" (just the product name when the name already includes the print). Nothing to fill in.
 
 ## Social sharing images (links in iMessage, Instagram, Pinterest, Facebook, X)
 
@@ -922,7 +931,7 @@ The new theme automatically resizes every photo for each screen size and serves 
 - **Alt text (new, and important):** in the Shopify admin you can now describe each image (in *Files*, on product media, or next to image pickers). Write what's in the photo in plain words, e.g. *"Model in the Arielle slip dress in olive, standing in a field of teasels."* This helps visually-impaired visitors, Google Images and AI search. Leave it empty only for purely decorative images.
 - **Focal point (new):** in *Content → Files* (or product media) you can set the focal point, so crops on phones keep the important part of the photo in frame.
 - **Don't put text inside images.** Search engines and screen readers can't read it. Use the section's text fields instead.
-- **Product image alt text** also groups photos by print on merged products (the alt text must equal the print name, e.g. `Dahlia Seed`). This will be reviewed in Phase 2 (see the migration plan). Until then, don't change product image alt text.
+- **Product image alt text** also groups photos by print on merged products: start it with the print name (`Dahlia Seed`, or `Dahlia Seed | description`). See *Image descriptions on product pages*.
 
 ---
 

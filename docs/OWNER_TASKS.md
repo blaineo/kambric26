@@ -97,7 +97,7 @@ Do these in the cutover window, just before or right after DNS moves (MIGRATION_
 
 ### C5. After the rollback window (about 14 days)
 - ☐ Decommission the Replit tokens and webhooks.
-- ☐ Now safe: rewrite product image **alt text** descriptively and move print grouping to variant media (D-8). The Replit site used alt text to group photos.
+- ☐ Now safe: describe each product photo in its **alt text**: `Print | what this view shows` on multi-print products, just the description on single-print ones (CONTENT_GUIDE *Image descriptions on product pages*). Empty ones get a generated description. Moving print grouping to variant media (D-8) is optional now.
 - ☐ Remove the `hidden`-tag reliance if you prefer unpublishing (MIGRATION_PLAN §3).
 
 ---

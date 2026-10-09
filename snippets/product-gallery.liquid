@@ -9,9 +9,11 @@
   lazy. Images are cropped to 3:4 at the CDN with explicit dimensions, so
   nothing shifts.
 
-  Alt text: the image's own alt when it's descriptive (not blank and not just
-  the print name or the product title, which Shopify substitutes for an
-  empty alt; see D-8), otherwise "{Product} — {Print}, view N".
+  Alt text (each view described once; see CONTENT_GUIDE "Product image descriptions"):
+    - "Print | description" in the media alt → the description (multi-print products,
+      where the part before " | " groups the image by print; see product-print-media)
+    - any other alt that isn't just the print name or the product title → used as is
+    - otherwise generated: "{Product}[ in {Print}], {fabric}, view N of M"
 
   @param {product} product - The product
   @param {string} indexes - Comma-separated image indexes (from product-print-media.liquid)
@@ -34,6 +36,30 @@
   assign thumb_sizes = '(min-width: 80rem) 108px, (min-width: 48rem) calc(10vw - 1rem), calc(20vw - 1rem)'
   assign track_id = id | append: '-gallery'
   assign gallery_label = 'products.product.gallery_label' | t: title: product.title
+
+  comment
+    Generated alt text for views without a written description: the product, the print when the
+    title doesn't already name it, and the fabric (Category metafield).
+  endcomment
+  assign alt_base = product.title
+  if print != blank
+    assign title_down = product.title | downcase
+    assign print_down = print | downcase
+    unless title_down contains print_down
+      assign alt_base = 'products.product.image_alt_in_print' | t: title: product.title, print: print
+    endunless
+  endif
+  capture alt_fabric
+    for fabric in product.metafields.shopify.fabric.value
+      echo fabric.label | downcase
+      unless forloop.last
+        echo ' and '
+      endunless
+    endfor
+  endcapture
+  if alt_fabric != blank
+    assign alt_base = alt_base | append: ', ' | append: alt_fabric
+  endif
 -%}
 <kg-gallery
   class="product-gallery product-gallery--{{ layout }}"
@@ -43,18 +69,20 @@
 >
   <div class="product-gallery__stage">
     {%- if count > 0 -%}
+      <noscript><style>.product-gallery__slide[data-gallery-deferred] > .product-gallery__picture { display: none; }</style></noscript>
       <div class="product-gallery__track" id="{{ track_id }}" tabindex="0" aria-label="{{ gallery_label | escape }}" data-gallery-track>
         {%- for i in index_list -%}
           {%- liquid
             assign image_index = i | plus: 0
             assign image = product.images[image_index]
             assign n = forloop.index
-            if image.alt != blank and image.alt != print and image.alt != product.title
+            assign alt_parts = image.alt | split: ' | '
+            if alt_parts.size > 1
+              assign alt = alt_parts | last | strip
+            elsif image.alt != blank and image.alt != print and image.alt != product.title
               assign alt = image.alt
-            elsif print != blank
-              assign alt = 'products.product.image_alt_print' | t: title: product.title, print: print, number: n
             else
-              assign alt = 'products.product.image_alt' | t: title: product.title, number: n
+              assign alt = 'products.product.image_alt' | t: description: alt_base, number: n, count: count
             endif
             if forloop.first
               assign img_loading = 'priority'
@@ -91,7 +119,21 @@
                 for browsers without JavaScript.
               {%- endcomment -%}
               {{- slide_picture | replace: ' srcset="', ' data-defer-srcset="' | replace: ' src="', ' data-defer-src="' -}}
-              <noscript>{{ slide_picture }}</noscript>
+              {%- comment -%}
+                The no-JS copy has an empty alt so each view's description appears once in the
+                page; without JS the parked copy (which keeps the alt) is hidden instead (style below).
+              {%- endcomment -%}
+              <noscript>
+                {%- render 'picture',
+                  image: image,
+                  alt: '',
+                  sizes: main_sizes,
+                  widths: '360, 540, 720, 900, 1080, 1296',
+                  aspect_ratio: 0.75,
+                  class: 'product-gallery__picture',
+                  img_class: 'product-gallery__image'
+                -%}
+              </noscript>
             {%- else -%}
               {{- slide_picture -}}
             {%- endif -%}

@@ -103,7 +103,7 @@
         render 'share-crop-url', image: share_image
       endcapture
       assign share_url = share_url | strip | prepend: 'https:'
-      assign share_alt = share_image.alt | escape
+      assign share_alt = share_image.alt | split: ' | ' | last | escape
     endif
   endif
 
