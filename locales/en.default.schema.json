@@ -616,7 +616,7 @@
         },
         "image_alt": {
           "label": "Alt text",
-          "info": "Leave empty if the photo is decorative (the headline already says what it shows). Otherwise describe the photo for screen readers and image search."
+          "info": "Leave empty to use the photo's own alt text (set it on the image in Content → Files), so swapping the photo brings its description with it. Fill this in only to override it."
         },
         "image_position": {
           "label": "Crop position",

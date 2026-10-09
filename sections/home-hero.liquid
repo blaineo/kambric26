@@ -31,11 +31,13 @@
 >
   <div class="home-hero__media">
     {%- if has_image -%}{%- render 'share-image', image: hero_image, position: s.image_position -%}{%- endif -%}
+    {%- comment -%} Description: this section's setting, else the photo's own alt text (Content → Files), so a new photo brings its own {%- endcomment -%}
+    {%- assign hero_alt = s.image_alt | default: hero_image.alt | default: '' -%}
     {%- if has_image -%}
       {%- render 'picture',
         image: hero_image,
         mobile_image: s.mobile_image,
-        alt: s.image_alt,
+        alt: hero_alt,
         sizes: '100vw',
         widths: '640, 960, 1280, 1600, 1920, 2400, 2880',
         loading: 'priority',
