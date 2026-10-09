@@ -77,6 +77,18 @@
     assign print_label = nil
   endif
 
+  comment
+    Card image alt for image search: "<product> in <print> print" (just the product name when the
+    title already names the print). Media alt text can't carry this: it still records which print a
+    photo shows (print grouping). The hover image stays alt="" so screen readers don't repeat it.
+  endcomment
+  assign card_alt = product.title
+  if print_label != blank
+    unless product.title contains print_label
+      assign card_alt = 'products.product.card_image_alt' | t: title: product.title, print: print_label
+    endunless
+  endif
+
   assign card_image = nil
   assign card_image_2 = nil
   if image_index >= 0
@@ -101,7 +113,7 @@
         widths: widths,
         aspect_ratio: 0.75,
         loading: loading,
-        alt: '',
+        alt: card_alt,
         class: 'product-card__picture picture--cover'
       -%}
       {%- if card_image_2 -%}

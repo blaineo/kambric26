@@ -745,6 +745,10 @@ the theme's language file (`general.hcaptcha_notice_html`).
 - US standard rate ($9), free-shipping threshold ($300), processing time (2–3 business days) and delivery time (3–7 business days).
 - Return window (14 days from delivery) and **who pays for returns** (free / customer pays return shipping / flat fee). Until that's set to match the Returns page, Search Console keeps a "Missing returnFees" warning.
 
+## Image descriptions (alt text) on product cards
+
+Product cards (Shop, collections, home rails, search) describe their photo automatically: "<product name> in <print> print" (just the product name when the name already includes the print). Nothing to fill in. Don't use a product photo's own *alt text* field in the admin for descriptions yet: it still records which print the photo shows (that's how the gallery groups photos by print). Product pages describe gallery photos the same way automatically.
+
 ## Social sharing images (links in iMessage, Instagram, Pinterest, Facebook, X)
 
 Nothing to upload: each page shares a **1200 × 630 crop of its own hero photo**, made automatically.
