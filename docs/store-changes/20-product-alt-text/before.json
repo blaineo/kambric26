@@ -1,0 +1,2741 @@
+{
+ "shop": {
+  "id": "gid://shopify/Shop/71406846186"
+ },
+ "products": {
+  "nodes": [
+   {
+    "id": "gid://shopify/Product/8681284272362",
+    "handle": "kati-slip-dress-in-matyo-floral",
+    "title": "Kati Bias-Cut Slip Dress – Matyó Floral",
+    "options": [
+     {
+      "name": "Size",
+      "values": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ]
+     }
+    ],
+    "fabric": {
+     "references": {
+      "nodes": [
+       {
+        "displayName": "Viscose"
+       }
+      ]
+     }
+    },
+    "description": "A bias-cut slip dress in silk viscose with adjustable straps and a low back. Named for the founder's grandmother, Kati, the artist behind the prints, and printed in her Matyó Floral, inspired by Hungarian folk embroidery.",
+    "media": {
+     "nodes": [
+      {
+       "id": "gid://shopify/MediaImage/34469207277802",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1769_Original.jpg?v=1780697643",
+        "width": 2576,
+        "height": 3864
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207310570",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0097.jpg?v=1780697643",
+        "width": 2500,
+        "height": 3750
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207343338",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDMF1_MatyoFloralSlipDress_RedFloral_5085_F.png?v=1780697643",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207376106",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0121.jpg?v=1780697643",
+        "width": 2500,
+        "height": 3750
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207408874",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kgB81A0187.jpg?v=1780697643",
+        "width": 2500,
+        "height": 3750
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207441642",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress1.jpg?v=1780697642",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207474410",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress2.jpg?v=1780697642",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207507178",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoSlipDress3.jpg?v=1780697642",
+        "width": 1067,
+        "height": 1600
+       }
+      }
+     ]
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46061327450346",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46061327483114",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46061327515882",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46061327548650",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46212197056746",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "id": "gid://shopify/Product/8681284305130",
+    "handle": "jessie-slip-dress-in-twilight-plumes",
+    "title": "Jessie Bias-Cut Slip Dress – Twilight Plumes",
+    "options": [
+     {
+      "name": "Size",
+      "values": [
+       "XS",
+       "S",
+       "M",
+       "L"
+      ]
+     }
+    ],
+    "fabric": {
+     "references": {
+      "nodes": [
+       {
+        "displayName": "Viscose"
+       }
+      ]
+     }
+    },
+    "description": "A bias-cut slip dress in silk viscose with adjustable straps and a low back, printed in Twilight Plumes from Kati's hand-painted archive. A vintage-inspired printed slip dress that goes from day to evening. Named for Jessie, the founder's childhood friend.",
+    "media": {
+     "nodes": [
+      {
+       "id": "gid://shopify/MediaImage/34469207539946",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1885_Original.jpg?v=1780697644",
+        "width": 2576,
+        "height": 3864
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207572714",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1989_Original.jpg?v=1780697644",
+        "width": 2576,
+        "height": 3864
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207605482",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDTB2_TwilightBlueSlipDress_BlueGeometric_5089_F.png?v=1780697644",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207638250",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1881_Original.jpg?v=1780697645",
+        "width": 2576,
+        "height": 3864
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469207671018",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1951_Original.jpg?v=1780697644",
+        "width": 2576,
+        "height": 3864
+       }
+      }
+     ]
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46061327581418",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46061327614186",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46061327646954",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46061327679722",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "id": "gid://shopify/Product/8681284665578",
+    "handle": "bodie-scarf-in-twilight-plumes",
+    "title": "Bodie Silk-Cotton Square Scarf – Twilight Plumes",
+    "options": [
+     {
+      "name": "Size",
+      "values": [
+       "One Size"
+      ]
+     }
+    ],
+    "fabric": {
+     "references": {
+      "nodes": [
+       {
+        "displayName": "Silk"
+       },
+       {
+        "displayName": "Cotton"
+       }
+      ]
+     }
+    },
+    "description": "A large 26 x 26 in square scarf in silk-cotton voile, printed in Twilight Plumes from Kati's archive. Light enough to float and substantial enough to hold a knot — wear it in your hair, at the neck or tied on a bag. Monogrammable, and a thoughtful gift.",
+    "media": {
+     "nodes": [
+      {
+       "id": "gid://shopify/MediaImage/34469208785130",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1900_Original.jpg?v=1780697658",
+        "width": 2576,
+        "height": 3864
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469208817898",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF2023_Original.jpg?v=1780697657",
+        "width": 1288,
+        "height": 1932
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469208850666",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1931_Original.jpg?v=1780697658",
+        "width": 3864,
+        "height": 2576
+       }
+      }
+     ]
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46061329252586",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "One Size"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "id": "gid://shopify/Product/8681284698346",
+    "handle": "goldie-bandana-in-matyo-floral",
+    "title": "Goldie Cotton Bandana – Matyó Floral",
+    "options": [
+     {
+      "name": "Size",
+      "values": [
+       "One Size"
+      ]
+     }
+    ],
+    "fabric": {
+     "references": {
+      "nodes": [
+       {
+        "displayName": "Cotton"
+       }
+      ]
+     }
+    },
+    "description": "An oversized 26 x 26 in bandana in soft cotton voile, printed in Matyó Floral from Kati's 1960s–70s archive. Wear it as a hair scarf, neck scarf or bag charm. Add a chainstitch monogram for a personal gift under $50.",
+    "media": {
+     "nodes": [
+      {
+       "id": "gid://shopify/MediaImage/34469208883434",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/KambricGoods_Lifestyle4_MatyoBandana.jpg?v=1780697659",
+        "width": 1024,
+        "height": 1536
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34469208916202",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoBandana.jpg?v=1780697659",
+        "width": 1067,
+        "height": 1600
+       }
+      }
+     ]
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46061329285354",
+       "selectedOptions": [
+        {
+         "name": "Size",
+         "value": "One Size"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "id": "gid://shopify/Product/8690060460266",
+    "handle": "chainstitch-monogram",
+    "title": "Chainstitch Monogram",
+    "options": [
+     {
+      "name": "Title",
+      "values": [
+       "Default Title"
+      ]
+     }
+    ],
+    "fabric": null,
+    "description": "Chainstitch embroidery monogram add-on. Personalization details are attached to the order.",
+    "media": {
+     "nodes": []
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46122785636586",
+       "selectedOptions": [
+        {
+         "name": "Title",
+         "value": "Default Title"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "id": "gid://shopify/Product/8690544312554",
+    "handle": "margit-one-piece",
+    "title": "Margit One-Piece Swimsuit",
+    "options": [
+     {
+      "name": "Print",
+      "values": [
+       "Dahlia Seed",
+       "Moon Illusion",
+       "Good Vibrations",
+       "Pastel Asterisk",
+       "Orange Asterisk",
+       "Magnolia",
+       "Matyó Floral",
+       "Wildflowers"
+      ]
+     },
+     {
+      "name": "Size",
+      "values": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ]
+     }
+    ],
+    "fabric": {
+     "references": {
+      "nodes": [
+       {
+        "displayName": "Nylon"
+       },
+       {
+        "displayName": "Lycra"
+       }
+      ]
+     }
+    },
+    "description": "A retro-print one-piece swimsuit with a high French-cut leg, adjustable spaghetti straps and full lining, made in recycled nylon. Comes in five prints from Kati's archive of hand-painted designs: Dahlia Seed, Moon Illusion, Good Vibrations, Pastel Asterisk and Orange Asterisk.",
+    "media": {
+     "nodes": [
+      {
+       "id": "gid://shopify/MediaImage/34502343917802",
+       "alt": "Dahlia Seed",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePiece_3181e30c-d11b-4c59-9d24-53d08c49f753.jpg?v=1782940574",
+        "width": 1058,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502343950570",
+       "alt": "Dahlia Seed",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaSeedOnePieceback_c39cde71-5110-4d65-8512-75bf1b1b9d61.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502358630634",
+       "alt": "Dahlia Seed",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPDS1_DahliaSeedOne-PieceMultiGeometric_Pink-Terracotta_0023_F.png?v=1782944364",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502343983338",
+       "alt": "Moon Illusion",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece1_e20d2747-acfc-4ad2-8aa8-823682421baf.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344048874",
+       "alt": "Moon Illusion",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece3_763093f3-f39d-4ccc-9460-8682168f701f.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344081642",
+       "alt": "Moon Illusion",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePieceFront_70bf7667-5bd9-4f67-adc5-901b415b8088.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502539280618",
+       "alt": "Moon Illusion",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMI1_MoonIllusionOne-PieceMultiGeometric_Navy-Pink_0010_F.png?v=1782965971",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344016106",
+       "alt": "Moon Illusion",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MoonIllusionOnePiece2_7bb81075-5c70-41f0-aed2-5320fbeb23e7.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344114410",
+       "alt": "Good Vibrations",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece1_6f18785a-a7a6-42ac-9ac5-fdef83fb8656.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344179946",
+       "alt": "Good Vibrations",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePieceBack_f19c5733-af43-43e1-abd6-317b8cd04ebc.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502539313386",
+       "alt": "Good Vibrations",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPGV1_GoodVibrationsOne-Piece_MultiGeometric_0027_F.png?v=1782965971",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344147178",
+       "alt": "Good Vibrations",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsOnePiece_2b1591d9-d689-4449-8338-606fdbeff09f.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344212714",
+       "alt": "Pastel Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskClose_ff3002ec-2e00-4c54-ad78-91bb086629ef.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344245482",
+       "alt": "Pastel Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskFront_99593593-f53c-4106-870e-8bc76421f5e7.jpg?v=1782940575",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502539346154",
+       "alt": "Pastel Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPPA1_PastelAsteriskOne-PieceLavenderGeometric_0019_F.png?v=1782965971",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344278250",
+       "alt": "Pastel Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskOnePieceBack_c94f88fc-3288-444b-a8ae-5c0cc4f41d9d.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344311018",
+       "alt": "Pastel Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PastelAsteriskSide_2bcf90bc-3a03-4adc-8aa3-56dcb380a84b.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344376554",
+       "alt": "Orange Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceClose_a77f5f11-f7f2-4740-bfa9-f50b0090be2a.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344343786",
+       "alt": "Orange Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceFront_7b22f9a2-5827-452b-9929-426a6a241bba.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344442090",
+       "alt": "Orange Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePiece_c7c11fb0-5092-4bfe-967d-1f8a95dd6138.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502539411690",
+       "alt": "Orange Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPOA1_OrangeAsteriskOne-piece_OrangeGeometric_0015_F.png?v=1782965972",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344409322",
+       "alt": "Orange Asterisk",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OrangeAsteriskOnePieceBack_02855ccf-c5bb-4f41-b3d0-6ea339c77d4a.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344474858",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceClose_9cdf6c30-64c6-4bd0-9d88-8d110d914af6.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344507626",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaOnePieceFront_4283a97f-4ecc-4a79-80c5-75bcd1a464cf.jpg?v=1782940574",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502539378922",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/OPMG1_MagnoliaOne-PieceMultiFloral_Red-Teal-Black_5083_F.png?v=1782965971",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344540394",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia2_a4fdc444-439f-4884-9f8a-6aa099969122.jpg?v=1782940574",
+        "width": 2048,
+        "height": 1366
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344573162",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Magnolia3_87206b67-aa69-4d11-8475-51e998da7da2.jpg?v=1782940574",
+        "width": 2048,
+        "height": 3072
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344605930",
+       "alt": "Matyó Floral",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-04-24at2.03.21PM_a1404e58-7049-439f-b80e-8906bb26f15d.png?v=1782940574",
+        "width": 840,
+        "height": 1076
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344671466",
+       "alt": "Matyó Floral",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/AFD67F94-07C7-4C1B-A03B-4A33EC0B4EE4_61c35a4b-ee4f-4766-a81b-dfc6d7e5a592.png?v=1782940574",
+        "width": 1086,
+        "height": 1449
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344638698",
+       "alt": "Matyó Floral",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.32_AM_7ad5c46a-8cbc-4bda-baa6-b0b5f2ae663a.png?v=1782940574",
+        "width": 756,
+        "height": 974
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344704234",
+       "alt": "Wildflowers",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlfowersMaillot_1ab2ca34-f05e-4c23-80b1-8ca45a0d88aa.png?v=1782940574",
+        "width": 808,
+        "height": 1100
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344737002",
+       "alt": "Wildflowers",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/WildlowersFlatLay_2f7f7005-a10a-4251-ade2-deba7293c624.png?v=1782940574",
+        "width": 810,
+        "height": 1184
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344769770",
+       "alt": "Wildflowers",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Screen_Shot_2026-06-08_at_8.50.11_AM_2e2e48dd-d60d-4b8b-8ea8-45854a0d2795.png?v=1782940574",
+        "width": 796,
+        "height": 1178
+       }
+      }
+     ]
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46124605898986",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Dahlia Seed"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124605931754",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Dahlia Seed"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124605964522",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Dahlia Seed"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124605997290",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Dahlia Seed"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606030058",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Dahlia Seed"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606062826",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Dahlia Seed"
+        },
+        {
+         "name": "Size",
+         "value": "XXL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606095594",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Moon Illusion"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606128362",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Moon Illusion"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606161130",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Moon Illusion"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606193898",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Moon Illusion"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606226666",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Moon Illusion"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606259434",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Moon Illusion"
+        },
+        {
+         "name": "Size",
+         "value": "XXL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606292202",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Good Vibrations"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606324970",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Good Vibrations"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606357738",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Good Vibrations"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606390506",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Good Vibrations"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606423274",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Good Vibrations"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606456042",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Good Vibrations"
+        },
+        {
+         "name": "Size",
+         "value": "XXL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606488810",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Pastel Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606521578",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Pastel Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606554346",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Pastel Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606587114",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Pastel Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606619882",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Pastel Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606652650",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Pastel Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "XXL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606685418",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Orange Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606718186",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Orange Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606750954",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Orange Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606783722",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Orange Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606816490",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Orange Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606849258",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Orange Asterisk"
+        },
+        {
+         "name": "Size",
+         "value": "XXL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606882026",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Magnolia"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606914794",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Magnolia"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606947562",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Magnolia"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124606980330",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Magnolia"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607013098",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Magnolia"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607045866",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Magnolia"
+        },
+        {
+         "name": "Size",
+         "value": "XXL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607078634",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Matyó Floral"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607111402",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Matyó Floral"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607144170",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Matyó Floral"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607176938",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Matyó Floral"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607209706",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607242474",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607275242",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607308010",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "id": "gid://shopify/Product/8690544345322",
+    "handle": "zadie-linen-dress",
+    "title": "Zadie Organic Linen Sundress",
+    "options": [
+     {
+      "name": "Print",
+      "values": [
+       "Wildflowers",
+       "Candied Plaid",
+       "Cherry Coupe"
+      ]
+     },
+     {
+      "name": "Size",
+      "values": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "XXL"
+      ]
+     }
+    ],
+    "fabric": {
+     "references": {
+      "nodes": [
+       {
+        "displayName": "Linen"
+       }
+      ]
+     }
+    },
+    "description": "A lightweight printed sundress in organic linen with fully adjustable tie-back straps. Unlined but not sheer. Comes in Wildflowers, Candied Plaid or Cherry Coupe. An easy summer and travel dress that can be personalized with a hand-chainstitched monogram.",
+    "media": {
+     "nodes": [
+      {
+       "id": "gid://shopify/MediaImage/34502344900842",
+       "alt": "Wildflowers",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressFront_daaaeba3-f511-47bc-82d0-d27284738db5.jpg?v=1782940581",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344933610",
+       "alt": "Wildflowers",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressBack_094a19ff-b701-41a8-80de-7b44e47b069d.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344966378",
+       "alt": "Wildflowers",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressClose_d9e1e0af-9c7b-4a34-8c12-c4406958e56c.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502344999146",
+       "alt": "Wildflowers",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/BouquetDressSide_86aa761d-a63a-4dad-9a56-be8fb34b2f91.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502513950954",
+       "alt": "Wildflowers",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDWF2_WildflowersLinenSlipDress_IvoryFloral_0050_F.png?v=1782965400",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345031914",
+       "alt": "Candied Plaid",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress2_662afadb-399a-48a3-b9fe-0bd903f0919b.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345064682",
+       "alt": "Candied Plaid",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress_b8e698f1-e38f-452f-98b5-7eac80cfddb4.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345097450",
+       "alt": "Candied Plaid",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCP1_CandiedPlaidLinenSlipDressOrange-PinkPlaid_0060_F_d5c22090-212a-4966-ba42-eb9f0bd4de11.png?v=1782940582",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345130218",
+       "alt": "Candied Plaid",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress3_86e8ff10-11bd-402a-b218-b1bca9da0620.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345162986",
+       "alt": "Candied Plaid",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/PlaidLinenDress4_003f25eb-531a-4db5-9c03-31eafecc4e98.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345195754",
+       "alt": "Cherry Coupe",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress1_6b4f3cfa-7efd-4d2f-9ed3-98b2ac8b797b.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345228522",
+       "alt": "Cherry Coupe",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDress2_f9e3650b-1f17-40f2-8276-2ba2a3b47ac4.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345261290",
+       "alt": "Cherry Coupe",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CherriesDressBack_fad67032-0c64-4de6-b80e-33045fdaabea.jpg?v=1782940582",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345294058",
+       "alt": "Cherry Coupe",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/SDCC2_CherryCoupeLinenSlipDress_Red-PinkCherries_5094_F_ba679af6-66f2-43c2-846a-85b8a9fd5763.png?v=1782940582",
+        "width": 1365,
+        "height": 2048
+       }
+      }
+     ]
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46124607340778",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607373546",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607406314",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607439082",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607471850",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607504618",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Wildflowers"
+        },
+        {
+         "name": "Size",
+         "value": "XXL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607537386",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Candied Plaid"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607570154",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Candied Plaid"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607602922",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Candied Plaid"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607635690",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Candied Plaid"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607668458",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Candied Plaid"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607701226",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Candied Plaid"
+        },
+        {
+         "name": "Size",
+         "value": "XXL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607733994",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Cherry Coupe"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607766762",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Cherry Coupe"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607799530",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Cherry Coupe"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607832298",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Cherry Coupe"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607865066",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Cherry Coupe"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607897834",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Cherry Coupe"
+        },
+        {
+         "name": "Size",
+         "value": "XXL"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "id": "gid://shopify/Product/8690544378090",
+    "handle": "esther-kaftan",
+    "title": "Esther Maxi Kaftan Dress",
+    "options": [
+     {
+      "name": "Print",
+      "values": [
+       "Good Vibrations",
+       "Dahlia Seed",
+       "Magnolia"
+      ]
+     },
+     {
+      "name": "Size",
+      "values": [
+       "XS/S",
+       "M/L",
+       "XL"
+      ]
+     }
+    ],
+    "fabric": {
+     "references": {
+      "nodes": [
+       {
+        "displayName": "Viscose"
+       }
+      ]
+     }
+    },
+    "description": "A floor-length kaftan dress in matte viscose with a silky lining. Wide butterfly sleeves attached at the side seam, a deep V-neck with hook-and-eye closure, self-fabric waist sash and side slits to the knee. Printed in 1970s-inspired patterns from Kati's archive: Good Vibrations, Dahlia Seed and Magnolia. Designed to wear on a night out, as a statement hostess dress, or thrown over a swimsuit to lounge by the pool.",
+    "media": {
+     "nodes": [
+      {
+       "id": "gid://shopify/MediaImage/34502345326826",
+       "alt": "Good Vibrations",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftans_a5943aac-fdb0-4309-8912-2c92da3ab856.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345359594",
+       "alt": "Good Vibrations",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansClose_f9a9d25f-ab5e-43ff-b9b1-dbba12f08cc2.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345392362",
+       "alt": "Good Vibrations",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansFront_c3558e80-11e8-4d11-b9bb-35ddad2307a4.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345425130",
+       "alt": "Good Vibrations",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/GoodVibrationsKaftansSide_e45c1a83-63f2-4b6e-9429-30b46617bf81.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345457898",
+       "alt": "Dahlia Seed",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2983_fef16c12-12d7-499f-a36e-7b9d59a519d3.jpg?v=1782940586",
+        "width": 2400,
+        "height": 3600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345490666",
+       "alt": "Dahlia Seed",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_3011_901eeac1-a51f-4c92-8b88-12036581f941.jpg?v=1782940586",
+        "width": 1024,
+        "height": 1536
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345523434",
+       "alt": "Dahlia Seed",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0242_3ee9d123-5607-40f4-b3a0-63bfb0930e75.jpg?v=1782940586",
+        "width": 1024,
+        "height": 1536
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345556202",
+       "alt": "Dahlia Seed",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan_80f0ecd1-73ed-4e46-a020-6b3bc00ba0bc.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345588970",
+       "alt": "Dahlia Seed",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan1_3f6f0ff3-ac73-4186-a0a2-7ec5be3feb77.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345621738",
+       "alt": "Dahlia Seed",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DahliaKaftan2_8ac6487b-a889-4492-81ab-2da793860f4e.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345654506",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan1_55dcd6d1-1ab9-4581-bac4-1d4d0ec9c602.jpg?v=1782940587",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345687274",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan2_b62ab077-ed22-4286-b7fa-7c7299ce2466.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345720042",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftan3_a38abd56-f13e-4033-baf1-80d2d3265490.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345752810",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MagnoliaKaftanBack_cefa9085-7a47-4503-9507-943d1b1a4b01.jpg?v=1782940586",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345785578",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0419_4a9cee0f-668d-4e17-97e3-0dbb4cfd2103.jpg?v=1782940586",
+        "width": 1024,
+        "height": 1608
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345818346",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/kambricB81A0332_6e22013f-81a5-460a-9c87-9d4aa8f95f56.jpg?v=1782940586",
+        "width": 1024,
+        "height": 1536
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345851114",
+       "alt": "Magnolia",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSC_2864_3ad51d98-e353-4b78-9f1e-d1ee96b5a8f6.jpg?v=1782940586",
+        "width": 1024,
+        "height": 1536
+       }
+      }
+     ]
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46124607930602",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Good Vibrations"
+        },
+        {
+         "name": "Size",
+         "value": "XS/S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607963370",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Good Vibrations"
+        },
+        {
+         "name": "Size",
+         "value": "M/L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124607996138",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Good Vibrations"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608028906",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Dahlia Seed"
+        },
+        {
+         "name": "Size",
+         "value": "XS/S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608061674",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Dahlia Seed"
+        },
+        {
+         "name": "Size",
+         "value": "M/L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608094442",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Dahlia Seed"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608127210",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Magnolia"
+        },
+        {
+         "name": "Size",
+         "value": "XS/S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608159978",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Magnolia"
+        },
+        {
+         "name": "Size",
+         "value": "M/L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608192746",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Magnolia"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "id": "gid://shopify/Product/8690544410858",
+    "handle": "vera-car-coat",
+    "title": "Vera Printed Car Coat",
+    "options": [
+     {
+      "name": "Print",
+      "values": [
+       "Midnight Plumes",
+       "Matyó Floral"
+      ]
+     },
+     {
+      "name": "Size",
+      "values": [
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL"
+      ]
+     }
+    ],
+    "fabric": {
+     "references": {
+      "nodes": [
+       {
+        "displayName": "Cotton"
+       },
+       {
+        "displayName": "Viscose"
+       }
+      ]
+     }
+    },
+    "description": "An oversized printed car coat with dropped shoulders, a 1930s menswear-inspired shawl collar, Western-style back yoke detailing, deep slash pockets and a single-button closure. Brushed cotton twill, fully lined in silky viscose. Printed in Matyó Floral, inspired by Hungarian folk embroidery, or Midnight Plumes — both from Kati's archive of hand-painted textile designs. A statement fall coat that layers over everything. Note: this style is meant to fit unstructured and a bit oversized; it does not have shoulder pads.",
+    "media": {
+     "nodes": [
+      {
+       "id": "gid://shopify/MediaImage/34502345883882",
+       "alt": "Midnight Plumes",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1820_Original_b3e88194-1019-4d31-8a0d-02c56c1d2114.jpg?v=1782940591",
+        "width": 2576,
+        "height": 3864
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345916650",
+       "alt": "Midnight Plumes",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1673_Original_e21e62cb-f0de-4bda-99bb-d74c91b77417.jpg?v=1782940591",
+        "width": 2576,
+        "height": 3864
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345949418",
+       "alt": "Midnight Plumes",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/CCMB2_MidnightBlueCarCoat_NavyGeometric_0039_F_ca7631a0-c9ac-451c-b0d9-a3badc0a3682.jpg?v=1782940590",
+        "width": 1365,
+        "height": 2048
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502345982186",
+       "alt": "Midnight Plumes",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1831_Original_91375e3d-76d0-4b9c-b291-f93adaa6e801.jpg?v=1782940591",
+        "width": 2576,
+        "height": 3864
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502346014954",
+       "alt": "Midnight Plumes",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1813_Original_c0115725-78b3-48f2-a47c-227dc8bba38f.jpg?v=1782940591",
+        "width": 1287,
+        "height": 1869
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502346047722",
+       "alt": "Matyó Floral",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1688_Original_9d5d2440-c6bd-44d2-9d35-1298ee7232dd.jpg?v=1782940591",
+        "width": 1288,
+        "height": 1932
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502346080490",
+       "alt": "Matyó Floral",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/DSCF1744_Original_deccc089-9b84-4989-b97c-75f9a5051c95.jpg?v=1782940591",
+        "width": 1288,
+        "height": 1932
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502346113258",
+       "alt": "Matyó Floral",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ScreenShot2026-05-22at12.00.55PM_f815b1b2-4c2d-4885-8c52-8237829ac9fd.png?v=1782940591",
+        "width": 760,
+        "height": 1166
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502346146026",
+       "alt": "Matyó Floral",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat_2017511c-fa86-4556-9ad5-5945e327bce6.jpg?v=1782940591",
+        "width": 1067,
+        "height": 1600
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34502346178794",
+       "alt": "Matyó Floral",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/MatyoCoat1_b56e9c62-9c89-44d9-a557-cfb74c707c79.jpg?v=1782940591",
+        "width": 1067,
+        "height": 1600
+       }
+      }
+     ]
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46124608225514",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Midnight Plumes"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608258282",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Midnight Plumes"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608291050",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Midnight Plumes"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608323818",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Midnight Plumes"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608356586",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Matyó Floral"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608389354",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Matyó Floral"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608422122",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Matyó Floral"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608454890",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Matyó Floral"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46124608487658",
+       "selectedOptions": [
+        {
+         "name": "Print",
+         "value": "Matyó Floral"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   {
+    "id": "gid://shopify/Product/8721345642730",
+    "handle": "arielle-dress",
+    "title": "Arielle Silk Slip Dress",
+    "options": [
+     {
+      "name": "Colorway",
+      "values": [
+       "Terracotta",
+       "Olive"
+      ]
+     },
+     {
+      "name": "Size",
+      "values": [
+       "2XS",
+       "XS",
+       "S",
+       "M",
+       "L",
+       "XL",
+       "2XL"
+      ]
+     }
+    ],
+    "fabric": {
+     "references": {
+      "nodes": [
+       {
+        "displayName": "Silk"
+       }
+      ]
+     }
+    },
+    "description": "Introducing a new print from the archive: Parlor Rose, adapted from a 1960s–70s hand-painted design by our founder's grandmother, Kati, in two gorgeous colorways for autumn — terracotta and olive. The perfect layering piece for fall. 100% silk slip dress with squared off neckline, low V-back and adjustable spaghetti straps. Unlined. Please allow 3 weeks for shipping as this item will be made to order.",
+    "media": {
+     "nodes": [
+      {
+       "id": "gid://shopify/MediaImage/34700400165098",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_Teasels.png?v=1788214682",
+        "width": 1448,
+        "height": 1086
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34664175730922",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_2.jpg?v=1787854630",
+        "width": 2500,
+        "height": 3750
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34664175698154",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_1.jpg?v=1787854629",
+        "width": 2500,
+        "height": 3750
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34664175763690",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Olive_3.jpg?v=1787854629",
+        "width": 2500,
+        "height": 4021
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34699988041962",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Rose_Column_Border_Print.png?v=1788198734",
+        "width": 519,
+        "height": 640
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34700401705194",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_Teasels.png?v=1788214767",
+        "width": 1122,
+        "height": 1402
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34699986174186",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_2.jpg?v=1788198608",
+        "width": 2500,
+        "height": 3750
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34699986108650",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_1.jpg?v=1788198607",
+        "width": 2500,
+        "height": 3750
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34699986141418",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/ArielleDress_Terracotta_3.jpg?v=1788198607",
+        "width": 2500,
+        "height": 3750
+       }
+      },
+      {
+       "id": "gid://shopify/MediaImage/34699990794474",
+       "alt": "",
+       "mediaContentType": "IMAGE",
+       "image": {
+        "url": "https://cdn.shopify.com/s/files/1/0714/0684/6186/files/Rose_Column_Border_Print_1_be63dc55-870c-4e67-ae7d-6556f969a180.png?v=1788199059",
+        "width": 1536,
+        "height": 1895
+       }
+      }
+     ]
+    },
+    "variants": {
+     "nodes": [
+      {
+       "id": "gid://shopify/ProductVariant/46221445628138",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Terracotta"
+        },
+        {
+         "name": "Size",
+         "value": "2XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533315306",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Terracotta"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533348074",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Terracotta"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533380842",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Terracotta"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533413610",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Terracotta"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533446378",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Terracotta"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533479146",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Terracotta"
+        },
+        {
+         "name": "Size",
+         "value": "2XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221445660906",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Olive"
+        },
+        {
+         "name": "Size",
+         "value": "2XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533511914",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Olive"
+        },
+        {
+         "name": "Size",
+         "value": "XS"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533544682",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Olive"
+        },
+        {
+         "name": "Size",
+         "value": "S"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533577450",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Olive"
+        },
+        {
+         "name": "Size",
+         "value": "M"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533610218",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Olive"
+        },
+        {
+         "name": "Size",
+         "value": "L"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533642986",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Olive"
+        },
+        {
+         "name": "Size",
+         "value": "XL"
+        }
+       ]
+      },
+      {
+       "id": "gid://shopify/ProductVariant/46221533675754",
+       "selectedOptions": [
+        {
+         "name": "Colorway",
+         "value": "Olive"
+        },
+        {
+         "name": "Size",
+         "value": "2XL"
+        }
+       ]
+      }
+     ]
+    }
+   }
+  ]
+ }
+}
