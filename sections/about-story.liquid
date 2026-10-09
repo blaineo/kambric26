@@ -24,11 +24,12 @@
   <div class="about-story__grid">
     <div class="about-story__media">
       {%- if s.image != blank -%}
+        {%- assign story_alt = s.image_alt | default: s.image.alt | default: '' -%}
         {%- render 'picture',
           image: s.image,
           sizes: '(min-width: 80rem) 36.5rem, (min-width: 48rem) calc(50vw - 3rem), calc(100vw - 3rem)',
           aspect_ratio: 0.8,
-          alt: s.image_alt,
+          alt: story_alt,
           class: 'about-story__picture picture--cover'
         -%}
       {%- elsif request.design_mode -%}

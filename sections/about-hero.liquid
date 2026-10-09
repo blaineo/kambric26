@@ -29,13 +29,14 @@
     {%- if has_image -%}
       {%- render 'share-image', image: s.image -%}
       {%- comment -%} Wide screens get a 2:1 crop from the CDN (the band is short), phones the full photo {%- endcomment -%}
+      {%- assign about_hero_alt = s.image_alt | default: s.image.alt | default: '' -%}
       {%- render 'picture',
         image: s.image,
         sizes: '100vw',
         aspect_ratio: 2,
         mobile_image: s.image,
         loading: 'priority',
-        alt: s.image_alt,
+        alt: about_hero_alt,
         class: 'about-hero__picture picture--cover'
       -%}
       <div class="about-hero__overlay" aria-hidden="true"></div>

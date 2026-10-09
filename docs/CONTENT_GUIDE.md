@@ -745,6 +745,13 @@ the theme's language file (`general.hcaptcha_notice_html`).
 - US standard rate ($9), free-shipping threshold ($300), processing time (2–3 business days) and delivery time (3–7 business days).
 - Return window (14 days from delivery) and **who pays for returns** (free / customer pays return shipping / flat fee). Until that's set to match the Returns page, Search Console keeps a "Missing returnFees" warning.
 
+## Image descriptions (alt text): where to write them
+
+**Describe a photo on the photo itself:** Content → Files → click the image → *Alt text* (one plain sentence about what's in the picture, e.g. "Arielle Slip Dress in Olive, worn in a field of teasels"). Every page that shows that image uses it automatically, and when you swap a photo in Customize, the new photo's description comes with it.
+- The *Image description* fields in Customize are only for overriding that on one page. Normally leave them empty.
+- Photos that are just a background behind text don't need a description.
+- **Not for product photos (for now):** a product photo's alt text still tells the site which print it shows. Product descriptions are generated automatically (see below).
+
 ## Image descriptions (alt text) on product cards
 
 Product cards (Shop, collections, home rails, search) describe their photo automatically: "<product name> in <print> print" (just the product name when the name already includes the print). Nothing to fill in. Don't use a product photo's own *alt text* field in the admin for descriptions yet: it still records which print the photo shows (that's how the gallery groups photos by print). Product pages describe gallery photos the same way automatically.

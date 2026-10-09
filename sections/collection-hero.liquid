@@ -114,11 +114,12 @@
     {%- if header_image -%}{%- render 'share-image', image: header_image -%}{%- endif -%}
     {%- if header_image -%}
       <div class="collection-hero__media" style="--overlay-strength: {{ overlay_strength }}%;">
+        {%- assign header_alt = header_image.alt | default: collection.title -%}
         {%- render 'picture',
           image: header_image,
           sizes: '100vw',
           loading: 'priority',
-          alt: collection.title,
+          alt: header_alt,
           class: 'collection-hero__picture picture--cover'
         -%}
         <div class="collection-hero__overlay" aria-hidden="true"></div>

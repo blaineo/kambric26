@@ -19,9 +19,10 @@
   endcase
 -%}
 <div class="image-block" {{ block.shopify_attributes }}>
+  {%- assign block_alt = block.settings.alt | default: block.settings.image.alt | default: '' -%}
   {%- render 'picture',
     image: block.settings.image,
-    alt: block.settings.alt,
+    alt: block_alt,
     sizes: block.settings.sizes,
     loading: block.settings.loading,
     aspect_ratio: ratio,

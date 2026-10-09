@@ -87,6 +87,21 @@ kambricgoods.com now serves the Shopify store (Kambric26). The "live Replit site
 ## Parity
 See `docs/PARITY.md` (2026-09-29 pass: fixed list, small remaining fixes, cutover-blocked items, owner decisions P-1…P-6).
 
+## Best practices going forward
+
+**Image descriptions (alt text) live on the image, in the Shopify admin.**
+- Describe an image where it's stored: **Content → Files** (or the product's media) → *Alt text*. Every section and block uses the image's own alt text unless its *Image description* setting overrides it (`setting | default: image.alt | default: ''`), so replacing a photo brings its description along. Leave section *Image description* fields empty unless a page needs different wording.
+- Pattern for new sections: assign first (render arguments can't take filters), then pass it: `{%- assign x_alt = s.image_alt | default: s.image.alt | default: '' -%}` → `render 'picture', …, alt: x_alt`.
+- Decorative images (backgrounds behind text, the pop-up strip, banners, cart thumbnails next to the product name, card hover images) stay `alt: ''`.
+- **Exception: product photos.** Their media alt text still records which print a photo shows (print grouping, D-8), so don't use it for descriptions yet. Cards and galleries generate descriptions instead ("<product> in <print> print", "<product> — <print>, view n"). Once print grouping moves to variant media (OWNER_TASKS C5), product media alt text becomes free for real descriptions too.
+- Batch 19 (2026-10-09) moved the home hero's description onto its file this way.
+
+**Store changes:** keep using the batch process (`docs/store-changes/README.md`): snapshot, dry run, owner approval, apply, verify live, log, rollback. kambricgoods.com *is* the Shopify store now, so every change is customer-facing.
+
+**Live theme JSON:** editors can change `templates/*.json`, `sections/*-group.json` and `config/settings_data.json` in the live editor. Before pushing any of those, pull them from the live theme and merge; otherwise push only the `.liquid`/asset/locale files that changed.
+
+**Shopify CLI updates itself via Homebrew** during `shopify store` commands. That can break a long-running `shopify theme dev` (restart it) and Node-based tools (reinstall). Set `HOMEBREW_NO_AUTO_UPDATE=1` to control when it updates.
+
 ## 7. Gotchas learned the hard way
 - `image_tag`'s `preload: true` emits a malformed HTTP Link header (unquoted `imagesrcset`/`imagesizes`), so the browser preloads the wrong file. `picture.liquid` writes its own `<link rel="preload">` instead (LCP on product/collection pages went from 5–6 s to 3–4 s in Lighthouse mobile).
 - Inside `{% for w in … %}`, `assign w = …` does **not** change `w` (the loop variable wins). Use a different name.
