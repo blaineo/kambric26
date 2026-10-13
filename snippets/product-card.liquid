@@ -10,8 +10,11 @@
                product type (category) and a right-aligned price.
 
   With `print`, the card shows that print: its image (alt-text grouping, see
-  print-summary.liquid), its price/compare-at/availability, and links to
-  `product.url?print=<value>` (`%20`-encoded like the source). Without `print`,
+  print-summary.liquid), its price/compare-at/availability, and links to the
+  print's variant (`?variant=<id>`: first available size, else first size), which
+  the product page selects on the server. The first print links to the plain
+  `product.url` (it's what that URL shows anyway). Never `?print=`: those were the
+  old site's URLs and only survive as legacy links (see component-product.js). Without `print`,
   a single-print product shows its `kambric.print_name`, product-level data and
   links to `product.url`. To expand products into print cards, use
   product-prints.liquid instead of calling this directly.
@@ -67,8 +70,32 @@
 
   assign card_url = product.url
   if print != blank
-    assign encoded_print = print | url_encode | replace: '+', '%20'
-    assign card_url = product.url | append: '?print=' | append: encoded_print
+    assign print_index = -1
+    for option in product.options_with_values
+      if option.name == 'Print' or option.name == 'Colorway'
+        assign print_index = option.position | minus: 1
+        assign first_print = option.values.first
+        assign first_print = first_print.name | default: first_print
+        break
+      endif
+    endfor
+    if print_index >= 0 and print != first_print
+      assign card_variant = nil
+      for variant in product.variants
+        if variant.options[print_index] == print
+          if card_variant == nil
+            assign card_variant = variant
+          endif
+          if variant.available
+            assign card_variant = variant
+            break
+          endif
+        endif
+      endfor
+      if card_variant
+        assign card_url = card_variant.url
+      endif
+    endif
     assign print_label = print
   else
     assign print_label = product.metafields.kambric.print_name.value

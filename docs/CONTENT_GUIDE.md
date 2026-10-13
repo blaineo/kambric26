@@ -285,6 +285,7 @@ Where a section says **Add block**, these are available:
 Rich text in pages and journal posts is styled automatically, including **real tables** (use them for size charts: search engines and AI assistants can read tables, not pictures of tables).
 
 ### How products appear as cards
+- **Linking to a print** (buttons, menus, hero links): use the plain product link for the first print (`/products/arielle-dress`) or the print's variant link (`/products/margit-one-piece?variant=…`, copy it from the address bar after picking the print). Don't use the old site's `?print=` links: they still work for old bookmarks, but they create duplicate URLs for Google.
 - **One card per print.** A product with a *Print* or *Colorway* option shows one card for each value, in the order listed on the product. Reorder the values to reorder the cards.
 - A product without that option shows one card, named by its **Print name** field.
 - A card's price, **Sale** badge and **Sold out** badge come from that print's sizes. It says "Sold out" only when every size of that print is gone.

@@ -18,8 +18,6 @@
   Modes:
     'button' (default, PDP): `<button type="button" aria-pressed data-print-value>`;
       a `<kg-…>` product-form element does the switching.
-    'link': `<a href="product.url?print=…">` with `aria-current` on the
-      selected print (works without JS).
     'variant': `<a href="product.url?variant=…">` (D-7: Shopify renders the
       print server-side), pointing at the print's first available variant,
       else its first variant; `aria-current` on the selected print. The PDP's
@@ -28,7 +26,7 @@
 
   @param {product} product - The product
   @param {string} [selected] - Selected print value (default: the first print)
-  @param {string} [as] - 'button' (default) | 'link' | 'variant'
+  @param {string} [as] - 'button' (default) | 'variant'
   @param {boolean} [show_label] - Show the label row (option name + selected value). Default true.
   @param {string} [loading] - 'lazy' (default) | 'eager'. Default lazy (they're tiny, CDN-resized WebP with fixed 56px boxes, so nothing shifts). 'eager' only if a page needs them before anything else.
 
@@ -152,10 +150,6 @@
             if as == 'variant'
               assign is_link = true
               assign swatch_href = product.url | append: '?variant=' | append: swatch_variant.id
-            elsif as == 'link'
-              assign is_link = true
-              assign encoded_print = print_value | url_encode | replace: '+', '%20'
-              assign swatch_href = product.url | append: '?print=' | append: encoded_print
             endif
           -%}
           {%- if is_link -%}

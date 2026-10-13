@@ -23,7 +23,7 @@
         "title_size": "medium",
         "subtitle": "Preoder now open",
         "cta1_label": "Shop the Arielle",
-        "cta1_link": "/products/arielle-dress?print=Terracotta",
+        "cta1_link": "/products/arielle-dress",
         "cta2_label": "Shop the Collection",
         "cta2_link": "/collections/folklore",
         "show_scroll_cue": true
